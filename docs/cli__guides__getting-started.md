@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/getting-started.html
-> **Fetched**: 2025-08-14T22:28:25.777457
+> **Fetched**: 2025-08-16T02:35:12.536980
 
 ---
 
@@ -29,9 +29,8 @@ Learn more [here (opens new window)](<https://www.ruby-lang.org/en/documentation
   * **A supported version of Ruby**. We prefer `2.7.X`, but you can use versions `3.0.X` or `3.1.X`. If you don't have Ruby installed, [follow these instructions to install it (opens new window)](<https://www.ruby-lang.org/en/documentation/installation/>).
 
 You can verify your Ruby version by running the following command, or the appropriate command for your Ruby version manager (for example: `rvm current`):
-```bash
-$ ruby -v
-ruby 2.7.X
+[code] $ ruby -v
+        ruby 2.7.X
 ```
 
 This command returns the version of Ruby currently installed on your computer. In this example, we're using `2.7.X`.

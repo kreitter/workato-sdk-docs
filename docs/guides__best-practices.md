@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2025-08-14T22:29:00.728505
+> **Fetched**: 2025-08-16T02:36:15.807425
 
 ---
 
@@ -91,9 +91,7 @@ These best practices relate directly to the development of a custom connector on
 
     * This makes your input fields more usable to end users and minimizes the amount of human error possible
     * Example:
-
-```ruby
-fields: lambda do |_connection, _config_fields|
+[code]fields: lambda do |_connection, _config_fields|
             {
                 name: 'sub_domain',
                 control_type: 'subdomain',
@@ -128,9 +126,7 @@ fields: lambda do |_connection, _config_fields|
   * Use base_uri(when applicable) to set the base url for API calls, which avoids keeping the full URL in triggers, methods, and picklists
 
     * Example:
-
-```ruby
-base_uri: lambda do |connection|
+[code] base_uri: lambda do |connection|
       if connection['custom_domain']
         "https://#{connection['custom_domain']}"
       else
