@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/triggers.html
-> **Fetched**: 2025-08-21T02:35:29.750736
+> **Fetched**: 2025-08-22T02:36:12.954725
 
 ---
 
@@ -448,7 +448,7 @@ Mustache templates have access to the following variables:
 
 name | description | example usage  
 ---|---|---  
-headers | Contains request headers. Headers are are normalized (x–custom-header -> X-Custom-Header) | ` { “challenge”:“{{{headers.X-Challenge}}}” } `  
+headers | Contains request headers. Headers are normalized (x–custom-header -> X-Custom-Header) | ` { “challenge”:“{{{headers.X-Challenge}}}” } `  
 body | Request body is parsed according to the `webhook_response_type`. You can use dot notation to access nested values. | ` { “challenge”: “{{body.x-challenge}}” } `  
 query | Contains query params | ` { “X-Challenge”: “{{query.challenge}}” } `  
 Example - webhook_response_body: - Defining a custom webhook response

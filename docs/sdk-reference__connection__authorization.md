@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection/authorization.html
-> **Fetched**: 2025-08-21T02:35:18.206966
+> **Fetched**: 2025-08-22T02:35:30.947211
 
 ---
 
@@ -553,7 +553,7 @@ Type | Lambda function
 Required | False.  
 Description | The lambda allows you to display additional information about the connection object. You can make an HTTP request to retrieve user identity details, or reference existing values from the connection object. Refer to the [acquire lambda documentation (opens new window)](<https://docs.workato.com/developing-connectors/sdk/sdk-reference/connection/authorization.html#acquire>) for details on appending values from the acquire lambda to the connection object. You can reference these values in the `identity` lambda.  
 Possible arguments | `connection` \- A hash representing inputs defined in the `Connection` object.  
-Expected output | A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#afdadccaddefcad7cec2dfc3ca81ccc0c2>)", "Refresh token expires in 86400 seconds")  
+Expected output | A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#cbbeb8aeb98baeb3aaa6bba7aee5a8a4a6>)", "Refresh token expires in 86400 seconds")  
 Example - identity
 
 In this example, the `identity` lambda makes an HTTP GET request to retrieve user information from a third-party API. It extracts the user’s email and displays it on the connection page. Use this when the connection object doesn't directly include the email.
@@ -742,7 +742,7 @@ Consider this example:
         },
 ```
 
-Here, you we defined 2 authentication flows, `stripe_oauth2` and `stripe_api_key`. These keys can be anything as long as they match the output of the `selected` lambda. In each of the flows, you can see see and define all lambdas in the hash. For the `stripe_oauth2` option, we defined the `type` of the authentication flow as `oauth2`, `authorization_url`, `token_url` and the `apply` block.
+Here, you we defined 2 authentication flows, `stripe_oauth2` and `stripe_api_key`. These keys can be anything as long as they match the output of the `selected` lambda. In each of the flows, you can see and define all lambdas in the hash. For the `stripe_oauth2` option, we defined the `type` of the authentication flow as `oauth2`, `authorization_url`, `token_url` and the `apply` block.
 
 The significant difference here is that you can define an additional `fields` key inside each authentication flow. This adds more input fields that are based on the selected authentication method; Workato adds these fields automatically.
 
