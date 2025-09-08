@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/writing_tests.html
-> **Fetched**: 2025-09-07T02:32:38.206972
+> **Fetched**: 2025-09-08T02:33:56.563640
 
 ---
 
