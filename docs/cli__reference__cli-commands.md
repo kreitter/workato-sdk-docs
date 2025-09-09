@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-commands.html
-> **Fetched**: 2025-09-08T02:33:59.969518
+> **Fetched**: 2025-09-08T18:34:42.705124
 
 ---
 
@@ -16,8 +16,10 @@ Learn more about the commands you can use in CLI after installing the SDK gem.
 Root command of the Workato gem. Synonymous with [`workato help`](<#workato-help>). 
 
 ### [#](<#usage>) Usage
-```ruby
-    $ workato
+```bash
+$ workato
+
+
 ```
 
 ### [#](<#output>) Output
@@ -31,8 +33,10 @@ Description of commands available in the Workato gem.
 Creates or edits an encrypted file.
 
 ### [#](<#usage-2>) Usage
-```ruby
-    $ workato edit <PATH>
+```bash
+$ workato edit <PATH>
+
+
 ```
 
 ### [#](<#input>) Input
@@ -58,11 +62,13 @@ Encrypted file is created or updated. `master.key` is created if the file didn't
 
 ### [#](<#example>) Example
 ```ruby
-    For Windows:
+For Windows:
       $ set EDITOR=notepad
       $ workato edit settings.yaml.enc
     For Mac:
       $ EDITOR="nano" workato edit settings.yaml.enc
+
+
 ```
 
 * * *
@@ -72,8 +78,10 @@ Encrypted file is created or updated. `master.key` is created if the file didn't
 Executes a specific lambda function in your connector for testing.
 
 ### [#](<#usage-3>) Usage
-```ruby
-    $ workato exec <PATH> <OPTIONS>
+```bash
+$ workato exec <PATH> <OPTIONS>
+
+
 ```
 
 ### [#](<#input-2>) Input
@@ -115,33 +123,39 @@ The output of the lambda function.
 ### [#](<#examples>) Examples
 
 Invoke a specific method.
-```ruby
-    $ workato exec methods.sample_method --args='input/sample_method_input.json'
+```bash
+$ workato exec methods.sample_method --args='input/sample_method_input.json'
+
 ```
 
 Invoke the acquire lambda. Connector and settings are all specified.
 ```ruby
-    workato exec connection.authorization.acquire --connector='zoominfo.rb' --settings='settings.yaml' --connection='My Valid Connection' --verbose
+workato exec connection.authorization.acquire --connector='zoominfo.rb' --settings='settings.yaml' --connection='My Valid Connection' --verbose
+
 ```
 
 Invoke the test lambda. Connector and settings are all specified.
 ```ruby
-    workato exec test --connector='zoominfo.rb' --settings='settings.yaml' --connection='My Valid Connection' --verbose
+workato exec test --connector='zoominfo.rb' --settings='settings.yaml' --connection='My Valid Connection' --verbose
+
 ```
 
 Invoke a specific action and pass it inputs.
-```ruby
-    $ workato exec actions.search_customers.execute --input='input/search_customer_input.json' --verbose
+```bash
+$ workato exec actions.search_customers.execute --input='input/search_customer_input.json' --verbose
+
 ```
 
 Invoke a specific polling trigger and pass it inputs. This command simulates the trigger paginating through a series of records when `can_poll_more` is set to `true` in the closure.
-```ruby
-    $ workato exec triggers.new_updated_customers.poll --input='input/new_updated_customers_input.json' --verbose
+```bash
+$ workato exec triggers.new_updated_customers.poll --input='input/new_updated_customers_input.json' --verbose
+
 ```
 
 Invoke a specific polling trigger and pass it inputs. Output will be a single page of the poll. This command simulates a single trigger poll and returns only the first page.
-```ruby
-    $ workato exec triggers.new_updated_customers.poll_page --input='input/new_updated_customers_input.json' --verbose
+```bash
+$ workato exec triggers.new_updated_customers.poll_page --input='input/new_updated_customers_input.json' --verbose
+
 ```
 
 * * *
@@ -151,8 +165,10 @@ Invoke a specific polling trigger and pass it inputs. Output will be a single pa
 Generates Workato schema based on a given JSON or CSV or tests based on a given connector 
 
 ### [#](<#usage-4>) Usage
-```ruby
-    $ workato generate <SUBCOMMAND>
+```bash
+$ workato generate <SUBCOMMAND>
+
+
 ```
 
 ### [#](<#input-3>) Input
@@ -168,8 +184,10 @@ Input | Description
 Takes a given JSON or CSV file and converts it into Workato Schema for use in your connector 
 
 ### [#](<#usage-5>) Usage
-```ruby
-    $ workato generate schema --api-token <API-TOKEN> <OPTIONS>
+```bash
+$ workato generate schema --api-token <API-TOKEN> <OPTIONS>
+
+
 ```
 
 ### [#](<#options-3>) Options
@@ -190,13 +208,15 @@ Required API Client permissions:
 ### [#](<#examples-2>) Examples
 
 Convert sample JSON payload to Workato schema
-```ruby
-    $ workato generate schema --api-token --json='fixtures/actions/search_customers/input.json'
+```bash
+$ workato generate schema --api-token --json='fixtures/actions/search_customers/input.json'
+
 ```
 
 Convert sample pipe delimited CSV file to Workato schema with
-```ruby
-    $ workato generate schema --api-token --csv='fixtures/actions/report/input.csv' --col-sep=pipe
+```bash
+$ workato generate schema --api-token --csv='fixtures/actions/report/input.csv' --col-sep=pipe
+
 ```
 
 * * *
@@ -206,8 +226,10 @@ Convert sample pipe delimited CSV file to Workato schema with
 Takes a given connector and generates RSpec tests for specified features. 
 
 ### [#](<#usage-6>) Usage
-```ruby
-    $ workato generate test <OPTIONS>
+```bash
+$ workato generate test <OPTIONS>
+
+
 ```
 
 ### [#](<#options-4>) Options
@@ -224,13 +246,15 @@ Option | Description
 ### [#](<#examples-3>) Examples
 
 Generate skeletal tests for all connector features
-```ruby
-    $ workato generate test
+```bash
+$ workato generate test
+
 ```
 
 Generate skeletal tests for specific action
-```ruby
-    $ workato generate test action=get_customers
+```bash
+$ workato generate test action=get_customers
+
 ```
 
 * * *
@@ -240,8 +264,10 @@ Generate skeletal tests for specific action
 Displays help for a specified SDK gem command.
 
 ### [#](<#usage-7>) Usage
-```ruby
-    $ workato help <COMMAND>
+```bash
+$ workato help <COMMAND>
+
+
 ```
 
 ### [#](<#input-4>) Input
@@ -255,17 +281,19 @@ Input | Description
 Elaborated help for the specified SDK gem command.
 
 ### [#](<#example-2>) Example
-```ruby
-    $ workato help edit
+```bash
+$ workato help edit
     Usage:
       workato edit PATH
 
     Options:
+```
       -k, [--key=KEY]                  # Path to file with encrypt/decrypt key. NOTE: key from WORKATO_CONNECTOR_MASTER_KEY has higher priority
           [--verbose], [--no-verbose]
 
     Edit encrypted file, e.g. settings.yaml.enc
-```
+
+
 
 * * *
 
@@ -275,7 +303,7 @@ Creates a new connector project in your chosen directory.
 
 When you create a new connector project, you will be asked if you want to select `secure` or `simple` for your HTTP mocking behavior: 
 ```ruby
-    Please select default HTTP mocking behavior suitable for your project?
+Please select default HTTP mocking behavior suitable for your project?
 
     1 - secure. Cause an error to be raised for any unknown requests, all request recordings are encrypted.
                 To record a new cassette you need set VCR_RECORD_MODE environment variable
@@ -283,13 +311,17 @@ When you create a new connector project, you will be asked if you want to select
                 Example: VCR_RECORD_MODE=once bundle exec rspec spec/actions/test_action_spec.rb
 
     2 - simple. Record new interaction if it is a new request, requests are stored as plain text and expose secret tokens.
+
+
 ```
 
 When you select `secure`, VCR recordings made for your unit tests are encrypted. **This is recommended.** You'll need to set your environment variable for `VCR_RECORD_MODE` as well. 
 
 ### [#](<#usage-8>) Usage
-```ruby
-    $ workato new <PATH>
+```bash
+$ workato new <PATH>
+
+
 ```
 
 ### [#](<#input-5>) Input
@@ -303,8 +335,10 @@ Input | Description
 Generates a new connector project. 
 
 ### [#](<#example-3>) Example
-```ruby
-    $ workato new ~/Desktop/my-new-connector
+```bash
+$ workato new ~/Desktop/my-new-connector
+
+
 ```
 
 * * *
@@ -318,8 +352,10 @@ The command `workato oauth2` requires SDK Gem version 0.1.2 and above.
 Use this to implement the OAuth2 Authorization code grant flow for applicable connectors. Applicable connectors are ones where the connection hash has `type: 'oauth2`. For more information, check out this handy [Okta article](<https://developer.okta.com/blog/2018/04/10/oauth-authorization-code-grant-type>). 
 
 ### [#](<#usage-9>) Usage
-```ruby
-    $ workato oauth2 <OPTIONS>
+```bash
+$ workato oauth2 <OPTIONS>
+
+
 ```
 
 ### [#](<#options-5>) Options
@@ -344,8 +380,10 @@ If a `master.key` file doesn't exist and no option is provided, a new `master.ke
 Emulates the OAuth2 Authorization Code Grant Flow on Workato. Applicable connectors are ones where the connection hash has `type: 'oauth2`. For more information, check out this handy [Okta article](<https://developer.okta.com/blog/2018/04/10/oauth-authorization-code-grant-type>). 
 
 ### [#](<#example-4>) Example
-```ruby
-    $ workato oauth2
+```bash
+$ workato oauth2
+
+
 ```
 
 * * *
@@ -363,8 +401,10 @@ This feature requires configuration steps that are specific to your Virtual Priv
 Creates a new connector project in your chosen Workato folder.
 
 ### [#](<#usage-10>) Usage
-```ruby
-    $ workato push --api-token <API-TOKEN> <OPTIONS>
+```bash
+$ workato push --api-token <API-TOKEN> <OPTIONS>
+
+
 ```
 
 ### [#](<#options-6>) Options
@@ -392,5 +432,7 @@ Folder IDs are located in the URL when you're viewing the folder. For example: i
 
 ### [#](<#example-5>) Example
 ```ruby
-    workato push --api-token
+workato push --api-token
+
+
 ```

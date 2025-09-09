@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-project-directory-reference.html
-> **Fetched**: 2025-09-08T02:34:01.154882
+> **Fetched**: 2025-09-08T18:34:43.863941
 
 ---
 
@@ -9,7 +9,7 @@
 
 A typical connector project built with the SDK gem usually looks something like this:
 ```ruby
-    . # root
+. # root
     ├── connector.rb
     ├── fixtures
     ├── Gemfile 
@@ -25,6 +25,8 @@ A typical connector project built with the SDK gem usually looks something like 
     ├── .github
     ├── .gitignore 
     └── .rspec
+
+
 ```
 
 An overview of what each file or directory does:
@@ -66,8 +68,8 @@ This file may be split into multiple files or folders if it helps you organize y
 Created when `workato new` is run, the `connector_spec.rb` file contains the unit tests for your connector.
 
 An example file might look something like this:
-```ruby
-    # frozen_string_literal: true
+```bash
+# frozen_string_literal: true
 
     RSpec.describe 'connector', :vcr do
       let(:connector) { Workato::Connector::Sdk::Connector.from_file('connector.rb', settings) }
@@ -99,6 +101,8 @@ An example file might look something like this:
         end
       end
     end
+
+
 ```
 
 You can also use [`workato generate test`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-generate>) to generate RSpec test stubs for you. This handles most of the heavy lifting, such as such as instantiating your connector or settings.
@@ -115,12 +119,14 @@ The `/fixtures` folders are used to store the input and output JSON files used t
 
 **Output** JSON files can be created from CLI commands by including the `--output` option. For example:
 ```ruby
-    workato exec <PATH> --output
+workato exec <PATH> --output
+
+
 ```
 
 Your `/fixtures` folder might look something like this:
 ```ruby
-    ├── fixtures
+├── fixtures
     │   ├── actions
     │   │   └── search_customers
     │   │       ├── input.json
@@ -140,13 +146,15 @@ Your `/fixtures` folder might look something like this:
     │           ├── customer_output_fields.json
     │           ├── customer_output_poll.json
     │           └── customer_output_poll_page.json
+
+
 ```
 
 * * *
 
 ## [#](<#gemfile>) GEMFILE
-```ruby
-    # frozen_string_literal: true
+```bash
+# frozen_string_literal: true
 
     source 'https://rubygems.org'
 
@@ -157,6 +165,8 @@ Your `/fixtures` folder might look something like this:
     gem 'timecop'
     gem 'byebug'
     gem 'rubocop' # Only if you want to use rubocop. Not added by default.
+
+
 ```
 
 * * *
@@ -169,21 +179,26 @@ The `settings.yaml.enc`/`settings.yaml` file stores credentials used for testing
 
 If you only have one set of credentials, they can be defined at the root level:
 ```ruby
-    api_key: valid_key
+api_key: valid_key
     domain: valid_domain
+
+
 ```
 
 ### [#](<#multiple-credential-sets>) Multiple credential sets
 
 If you have multiple sets of credentials, your settings file should be structured similarly to the following:
 ```ruby
+
+```
     [one_connection_name]:
       api_key: valid_key
       domain: valid_domain
     [second_connection_name]:
       api_key: invalid_key
       domain: invalid_domain
-```
+
+
 
 * * *
 
@@ -204,8 +219,8 @@ The following example shows the `spec_helper.rb` file that's created when the `s
 This file will encrypt all VCR recordings using the project's `master.key`.
 
 However, by default the record mode for `secure` is `none`. This means that no new VCR cassettes will be recorded. To change this behavior, the `VCR_RECORD_MODE` environment variable to `once`.
-```ruby
-    # frozen_string_literal: true
+```bash
+# frozen_string_literal: true
 
     require 'bundler/setup'
     require 'json'
@@ -231,6 +246,7 @@ However, by default the record mode for `secure` is `none`. This means that no n
     VCR.configure do |config|
       config.cassette_library_dir = "tape_library"
       config.hook_into :webmock
+```
       config.cassette_serializers[:encrypted] = Workato::Testing::VCREncryptedCassetteSerializer.new
       config.register_request_matcher :headers_without_user_agent do |request1, request2|
         request1.headers.except("User-Agent") == request2.headers.except("User-Agent")
@@ -245,7 +261,8 @@ However, by default the record mode for `secure` is `none`. This means that no n
       }
       config.configure_rspec_metadata!
     end
-```
+
+
 
 * * *
 
@@ -255,7 +272,7 @@ The `.gitignore` file contains a list of files and/or directories that shouldn't
 
 **Note** : If your project has a `master.key` file, you should add it to this file to ensure it isn't accidentally committed to a repository.
 ```ruby
-    /.bundle/
+/.bundle/
     /.yardoc
     /_yardoc/
     /coverage/
@@ -267,4 +284,6 @@ The `.gitignore` file contains a list of files and/or directories that shouldn't
 
     # rspec failure tracking
     .rspec_status
+
+
 ```

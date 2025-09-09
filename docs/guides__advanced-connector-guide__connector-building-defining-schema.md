@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema.html
-> **Fetched**: 2025-09-08T02:34:08.166673
+> **Fetched**: 2025-09-08T18:34:50.798038
 
 ---
 
@@ -52,10 +52,11 @@ Consider using a collapsible section for these code blocks. The sheer length mak
 
 As a developer building the connector to XYZ labs, the representation of an “Invoice” object in our application might look something like this:
 ```ruby
-      {
+{
         "TxnDate": "2019-09-19",
         "ID": "1",
         "TotalAmt": 362.07,
+```
         "Line": [
           {
             "Description": "Rock Fountain",
@@ -100,14 +101,16 @@ As a developer building the connector to XYZ labs, the representation of an “I
           "LastUpdatedTime": "2014-09-19T13:16:17-07:00"
         }
       }
-```
+
+
 
 While a create “Invoice” action may require a POST request similar to this:
 ```ruby
-      POST /invoice/create
+POST /invoice/create
       Content type:application/json
 
       {
+```
         "Line": [
           {
             "Description": "Fountain straws",
@@ -124,15 +127,17 @@ While a create “Invoice” action may require a POST request similar to this:
           "value": "1"
         }
       }
-```
+
+
 
 and an update “Invoice” action may require a POST similar to this:
 ```ruby
-      POST /invoice/update
+POST /invoice/update
       Content type:application/json
 
       {
         "ID": "1",
+```
         "Line": [
           {
             "Description": "Fountain straws",
@@ -149,12 +154,14 @@ and an update “Invoice” action may require a POST similar to this:
           "value": "1"
         }
       }
-```
+
+
 
 As a general rule of thumb, when defining schema of an object in Workato, we want to be able to reuse as much of it as possible across different actions (such as create invoice and update invoice actions). As such, the schema we define should be a superset of all the possible parameters for this “Invoice” object. We should arrive at something like the following:
 ```ruby
-      object_definitions: {
+object_definitions: {
         invoice: lambda do |connection, config_fields|
+```
           [
             { name: "Id" },
             { name: "TxnDate" },
@@ -218,7 +225,8 @@ As a general rule of thumb, when defining schema of an object in Workato, we wan
           ]
         end
       }
-```
+
+
 
 This schema is contained inside an `object_definition` called `invoice`.
 
@@ -230,6 +238,8 @@ In most cases, we highly recommend using metadata endpoints whenever available t
 
 In cases like these, we want to make a request to this endpoint and use the response to build the input and output schema in a format Workato understands. Below we have a sample response from HubSpot’s metadata endpoint which gives us an array of JSON objects, each representing a “Contact” property.
 ```ruby
+
+```
     [
       {
         "name": "example_property_name",
@@ -256,14 +266,16 @@ In cases like these, we want to make a request to this endpoint and use the resp
       },
       // More properties below
     ]
-```
+
+
 
 Using this, we can define a method called `contact_schema` which takes in the same `action_type` argument as our earlier example on static definitions.
 ```ruby
-      object_definitions: {
+object_definitions: {
         contact: lambda do |connection, config_fields|
           get('/properties/v1/contacts/properties').map do |property|
             field = {
+```
               name: property['name'],
               label: property['label'],
               hint: property['description'],
@@ -338,7 +350,8 @@ Using this, we can define a method called `contact_schema` which takes in the sa
           end
         end
       }
-```
+
+
 
 In this method, we take the response from HubSpot and for each property, we map its values to a defined parameter in Workato’s schema. We also created 2 service methods called `type_mapping` and `control_type_mapping` that are responsible for defining the mappings of HubSpot data types (defined as `type` and `fieldType` in HubSpot) to those in `type` and `control_type` in Workato respectively.
 

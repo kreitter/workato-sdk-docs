@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2025-09-08T02:34:25.340885
+> **Fetched**: 2025-09-08T18:35:08.069965
 
 ---
 
@@ -91,7 +91,8 @@ These best practices relate directly to the development of a custom connector on
 
     * This makes your input fields more usable to end users and minimizes the amount of human error possible
     * Example:
-[code]fields: lambda do |_connection, _config_fields|
+```ruby
+fields: lambda do |_connection, _config_fields|
             {
                 name: 'sub_domain',
                 control_type: 'subdomain',
@@ -100,6 +101,8 @@ These best practices relate directly to the development of a custom connector on
                 hint: 'Provide salesforce sub-domain for example, <code>test_instance</code>'
             }
           end
+
+
 ```
 
   * If the connector is intended for distribution, ensure that no sensitive details are kept inside the code
@@ -126,14 +129,17 @@ These best practices relate directly to the development of a custom connector on
   * Use base_uri(when applicable) to set the base url for API calls, which avoids keeping the full URL in triggers, methods, and picklists
 
     * Example:
-[code] base_uri: lambda do |connection|
+```ruby
+base_uri: lambda do |connection|
+```
       if connection['custom_domain']
         "https://#{connection['custom_domain']}"
       else
         'https://go.trackvia.com'
       end
     end
-```
+
+
 
   * Use the static base_uri or acquire the base_url from the endpoint (if there is an API which returns base_url account specific)
 
@@ -365,7 +371,8 @@ API versions of the application you are connecting to help manage expectations f
 
 Different objects may require different action level help hints. Help texts can be easily changed based on the object users select.
 ```ruby
-    help: lambda do |input, picklist_label|
+help: lambda do |input, picklist_label|
+```
       if input['object'] == 'invoice'
         {
           body: "Creates an invoice in XYZ. Invoices in XYZ accounting are essential " \
@@ -383,7 +390,8 @@ Different objects may require different action level help hints. Help texts can 
         }
       end
     end,
-```
+
+
 
 ##### [#](<#links-to-documentation>) Links to documentation
 
@@ -399,6 +407,8 @@ Hints are an essential way to guide your users on how to use a specific input fi
 
 In cases where it is critical for your users to read this to configure the action properly, we suggest using field level help. This should be used sparingly.
 ```ruby
+
+```
     [
       {
         control_type: "text",
@@ -413,7 +423,8 @@ In cases where it is critical for your users to read this to configure the actio
         }
       }
     ]
-```
+
+
 
 ![Help text hints](/assets/img/field-level-help.badef6ba.png) _Bring attention to a specific field using field level help_
 

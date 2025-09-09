@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/basic-authentication.html
-> **Fetched**: 2025-09-08T02:34:15.065016
+> **Fetched**: 2025-09-08T18:34:57.713086
 
 ---
 
@@ -11,10 +11,11 @@ Typically, a basic authentication requires a username and password combination w
 
 ## [#](<#sample-connector-clicktime>) Sample Connector - ClickTime
 ```ruby
-    {
+{
       title: 'ClickTime',
 
       connection: {
+```
         fields: [
           {
             name: 'username',
@@ -47,7 +48,8 @@ Typically, a basic authentication requires a username and password combination w
 
       #More connector code here
     }
-```
+
+
 
   * Check out the full connector code [here (opens new window)](<https://github.com/workato/custom_connector_docs/blob/master/custom_connectors/basic_auth/click_time_connector.rb>)
   * Check out the [ClickTime API (opens new window)](<https://support.clicktime.com/hc/en-us/articles/360002884071-REST-API-v2-General-Information#basic>)
@@ -63,6 +65,8 @@ password | The password of the individual who will authenticate the connection.
 
 This is done in the `fields` key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
 ```ruby
+
+```
         fields: [
           {
             name: 'username',
@@ -74,7 +78,8 @@ This is done in the `fields` key, which accepts an array of hashes. Each hash in
             control_type: 'password',
           }
         ],
-```
+
+
 
 ![Configured ClickTime connection fields](/assets/img/clicktime_conn.5e6be163.png)
 
@@ -88,15 +93,17 @@ To know more about how to define input fields in Workato, click [here.](</develo
 
 This component tells Workato what to do with the values received from the input fields to establish a connection. This is handled through your `authorization` key. In this key, you begin by first defining the `type` of authorization. For Basic authentication, you should use `basic_auth`.
 ```ruby
-        authorization: {
+authorization: {
           type: 'basic_auth',
 
           apply: lambda do |connection|
+```
             user(connection['username'])
             password(connection['password'])
           end
         }
-```
+
+
 
 ## [#](<#step-3-applying-the-credentials-to-subsequent-http-requests>) Step 3 - Applying the credentials to subsequent HTTP requests
 
@@ -108,27 +115,33 @@ In this example, we have defined the username we received (`connection['username
 
 This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to configure your `base_uri` [here](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
 ```ruby
-        base_uri: lambda do |connection|
+base_uri: lambda do |connection|
           "https://app.clicktime.com"
         end
+
+
 ```
 
 TIP
 
 This lambda function also has access to the `connection` argument. This is especially useful if the base URI of the API might change based on the user's instance. The `connection` argument can be accessed in the following format:
 ```ruby
-        base_uri: lambda do |connection|
+base_uri: lambda do |connection|
+```
           "https://#{connection['domain']}.com/api"
         end
-```
+
+
 
 ## [#](<#step-5-testing-the-connection>) Step 5 - Testing the connection
 
 Now that we have defined the fields we need to collect from an end user and what to do with the inputs from those fields, we now need a way to test this connection. This is handled in the `test` key. Take note that this is a root level key - outside of the `connection` definition.
 ```ruby
-        test: lambda do |connection|
+test: lambda do |connection|
           get("/api/1.3/session")
         end
+
+
 ```
 
 In this key, you need to provide an endpoint that allows us to send a sample request using the new credentials we just received. If we receive a 200 OK HTTP response, we show the connection as Successful. In the example above, we are sending a `GET` request to the `/api/1.3/session` endpoint and expecting a 200 response if the username and password provided are valid.

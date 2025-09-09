@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/object_definitions.html
-> **Fetched**: 2025-09-08T02:35:15.174064
+> **Fetched**: 2025-09-08T18:35:57.644617
 
 ---
 
@@ -17,8 +17,9 @@ Store object definition in one place and reuse throughout the custom connector.
 
 ## [#](<#structure>) Structure
 ```ruby
-        object_definitions: {
+object_definitions: {
 
+```
           [Unique_object_definition_name]: {
             fields: lambda do |connection, config_fields, object_definitions|
               Array
@@ -29,7 +30,8 @@ Store object definition in one place and reuse throughout the custom connector.
             ...
           }
         },
-```
+
+
 
 * * *
 
@@ -50,8 +52,9 @@ You must define arguments for your object definitions, even if they are not used
 
 **Static object definition**
 ```ruby
-    lead: {
+lead: {
       fields: lambda do 
+```
         [
           { name: "name", type: :boolean },
           { name: "email" },
@@ -59,12 +62,14 @@ You must define arguments for your object definitions, even if they are not used
         ]
       end
     }
-```
+
+
 
 **Dynamic object definition**
 ```ruby
-    lead: {
+lead: {
       fields: lambda do |connection, config_fields, object_definitions|
+```
         [
           { name: "name", type: :boolean },
           { name: "email" },
@@ -72,7 +77,8 @@ You must define arguments for your object definitions, even if they are not used
         ]
       end
     }
-```
+
+
 
 _Workato recommends that you define all object_definitions dynamically (with arguments) to ensure no issues arise from any future changes._
 
@@ -80,9 +86,10 @@ Example - fields
 
 Object_definitions can be static and simply store an array. When this object definition is referenced, the `fields` lambda function returns this array.
 ```ruby
-        object_definitions: {
+object_definitions: {
           lead: {
             fields: lambda do |connection, config_fields, object_definitions|
+```
               [
                 { name: "name", type: :boolean },
                 { name: "email" },
@@ -91,27 +98,31 @@ Object_definitions can be static and simply store an array. When this object def
             end
           }
         }
-```
+
+
 
 Object_definitions can also be dynamic and make HTTP requests to metadata endpoints. When this object definition is referenced, the `fields` lambda function makes this request, receives the response and should massage the response into the same array that can be returned to the `input_fields` or `output_fields` lambda function that referenced it. Find out more about defining these `input_fields` and `output_fields` (called Workato schema) [here](</developing-connectors/sdk/sdk-reference/schema.html>)
 ```ruby
-        object_definitions: {
+object_definitions: {
           form: {
             fields: lambda do |connection|
+```
               get("https://api.unbounce.com/pages/#{connection['page_id']}/form_fields")["formFields"].
                 map { |field| { name: field["id"] } }
             end
           }
         }
-```
+
+
 
 Example - Building schema from multiple object_definitions
 
 To keep your code DRY, our recommendation is to logically break up your schema definitions into separate object_definitions. These object_definitions may be dynamically generated separately and pieced together.
 ```ruby
-        object_definitions: {
+object_definitions: {
           create_object_output: {
             fields: lambda do |connection, config_fields, object_definitions|
+```
               if config_fields['object'] == 'customer'
                 [
                   {
@@ -147,4 +158,5 @@ To keep your code DRY, our recommendation is to logically break up your schema d
             end
           }
         }
-```
+
+

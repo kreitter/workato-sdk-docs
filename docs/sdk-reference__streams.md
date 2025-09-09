@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/streams.html
-> **Fetched**: 2025-09-08T02:35:20.089507
+> **Fetched**: 2025-09-08T18:36:02.364378
 
 ---
 
@@ -15,8 +15,9 @@ The `streams` key must be used in conjunction with an action or trigger. It enab
 
 ## [#](<#structure>) Structure
 ```ruby
-        streams: {
+streams: {
 
+```
           [Unique_stream_name]: lambda do |input, starting_byte_range, ending_byte_range, byte_size|
             Array
           end, 
@@ -25,7 +26,8 @@ The `streams` key must be used in conjunction with an action or trigger. It enab
             Array
           end, 
         },
-```
+
+
 
 * * *
 
@@ -43,11 +45,12 @@ Creating a file stream
 
 File streams on Workato are made by leveraging the common [HTTP RFC standard for `Range` headers (opens new window)](<https://datatracker.ietf.org/doc/html/rfc7233>). Below we have a simple download file action with file streaming.
 ```ruby
-    actions: {
+actions: {
       download_file: {
         title: "Download file",
 
         input_fields: lambda do 
+```
           [
             {
               name: "file_id",
@@ -71,7 +74,8 @@ File streams on Workato are made by leveraging the common [HTTP RFC standard for
         end
       }
     }
-```
+
+
 
 The stream `download_file` defined in the `workato.stream.out` method is responsible for holding the code that retrieves a specific range of bytes requested by the platform - which will be sent over to a stream consumer to be uploaded into a downstream destination.
 
@@ -79,12 +83,13 @@ As such, the arguments passed to this callback provide you clear inputs that you
 
 The output of the stream lambda is an array which expects the byte string in the first index and in the second index, a boolean value which should be true if this is the end of the file.
 ```ruby
-    streams: {
+streams: {
         download_file: lambda do |input, starting_byte_range, ending_byte_range, byte_size|
           # Example starting_byte_range = 0
           # Example ending_byte_range = 10485759 
           # Example byte_size = 10485760 (10MB)
           # input passed from action can be assumed to be a friendly URL
+```
           chunk = get("/#{input['file_id']}/download").
             headers("Range": "bytes=#{starting_byte_range}-#{ending_byte_range}").
             response_format_raw
@@ -93,6 +98,7 @@ The output of the stream lambda is an array which expects the byte string in the
           [chunk, chunk.size < byte_size]
         end
     }
-```
+
+
 
 Take note that the `download_file` lambda is only executed when the datapill for `file_contents` is mapped to a downstream action.

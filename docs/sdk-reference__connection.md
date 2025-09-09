@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection.html
-> **Fetched**: 2025-09-08T02:35:09.294344
+> **Fetched**: 2025-09-08T18:35:51.792034
 
 ---
 
@@ -20,7 +20,7 @@ To put it simply, the `connection` hash contains all the instructions your conne
 
 ## [#](<#structure>) Structure
 ```ruby
-      connection: {
+connection: {
         fields: Array,
 
         extended_fields: lambda do |connection|
@@ -33,6 +33,8 @@ To put it simply, the `connection` hash contains all the instructions your conne
           String
         end
       }
+
+
 ```
 
 * * *
@@ -63,6 +65,8 @@ References to any picklists you defined in your connector are not accessible in 
 
 ![](/assets/img/connection-picklist.5a158c7b.png)
 ```ruby
+
+```
         fields: [
           {
             name: 'api_key',
@@ -96,7 +100,8 @@ References to any picklists you defined in your connector are not accessible in 
             ]
           }
         ],
-```
+
+
 
 * * *
 
@@ -121,6 +126,8 @@ In this case, `extended_fields` provides you with the added benefit of controlli
 
 ### [#](<#example-connection-fields-with-extended-fields>) Example: Connection fields with extended_fields
 ```ruby
+
+```
         fields: [
           {
             name: "api_key",
@@ -150,7 +157,8 @@ In this case, `extended_fields` provides you with the added benefit of controlli
             ]
           end
         end,
-```
+
+
 
 Workato passes the connection hash to all other lambdas, including `authorization` and `execute`. The connection hash contains values from both `fields` and `extended_fields`.
 
@@ -158,7 +166,8 @@ Workato passes the connection hash to all other lambdas, including `authorizatio
 
 The following example shows how to use `extends_schema` within `extended_fields` to create a connection setup that has multiple steps.
 ```ruby
-      connection: {
+connection: {
+```
         fields: [
           {
             name: "api_key",
@@ -228,7 +237,8 @@ The following example shows how to use `extends_schema` within `extended_fields`
             end
         end
       },
-```
+
+
 
 * * *
 

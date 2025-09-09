@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multistep-actions.html
-> **Fetched**: 2025-09-08T02:34:32.198628
+> **Fetched**: 2025-09-08T18:35:15.049238
 
 ---
 
@@ -25,7 +25,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
 
 ## [#](<#sample-connector-google-bigquery>) Sample connector - Google BigQuery
 ```ruby
-    {
+{
       title: 'My Google BigQuery connector',
 
       # More connector code here
@@ -40,6 +40,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
             help: "This query runs synchronously for 25 seconds. If the query takes longer than that, it turns into an asynchronous action. There is a limit of ~38 minutes for the query to complete. ",
 
             input_fields: lambda do 
+```
               [
                 { 
                   name: "project_id", 
@@ -147,7 +148,8 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
             summarize_output: ['rows']
           },
     }
-```
+
+
 
 ## [#](<#step-1-action-title-subtitle-description-and-help>) Step 1 - Action title, subtitle, description, and help
 
@@ -157,7 +159,8 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 ## [#](<#step-2-define-input-fields>) Step 2 - Define input fields
 ```ruby
-      input_fields: lambda do 
+input_fields: lambda do 
+```
         [
           { 
             name: "project_id", 
@@ -187,7 +190,8 @@ To know more about this step, take a look at our [SDK reference](</developing-co
           },
         ]
       end,
-```
+
+
 
 This component tells Workato what fields to show to a user trying to execute the multistep action. In the case of executing a query in BigQuery for example, the user has to provide us the following:
 
@@ -206,8 +210,9 @@ TIP
 
 Step time must be set to a minimum of 60 seconds. If anything lower is supplied, Workato default to 60 seconds.
 ```ruby
-      execute: lambda do |connection, input, eis, eos, continue|
+execute: lambda do |connection, input, eis, eos, continue|
         continue = {} unless continue.present? #For the first invocation, continue is nil
+```
         current_step = continue['current_step'] || 1 #Instantiate current_step so we know what step we are on
         max_steps = 30 #IMPORTANT. you should set the max number of steps so your action doesn't continue forever. This will cause performance degradation in your recipes
         step_time = current_step * 10 # This helps us wait longer and longer as we increase in steps
@@ -252,13 +257,15 @@ Step time must be set to a minimum of 60 seconds. If anything lower is supplied,
           error("Job took too long!")
         end
       end,
-```
+
+
 
 ## [#](<#step-4-defining-output-fields>) Step 4 - Defining output fields
 
 This section tells us what datapills to show as the output of the trigger. The `name` attributes of each datapill should match the keys in the output of the `execute` key.
 ```ruby
-    output_fields: lambda do |object_definitions, config_fields|
+output_fields: lambda do |object_definitions, config_fields|
+```
       schema = [
         {
           name: "jobId"
@@ -277,16 +284,19 @@ This section tells us what datapills to show as the output of the trigger. The `
         }
       ]
     end,
-```
+
+
 
 Object definitions
 
 In this example, we make use of the `output_fields` given to us by the user in his input fields. Here is the object definition of `query_output`.
 ```ruby
-    query_output: {
+query_output: {
       fields: lambda do |connection, config_fields, object_definitions|
+```
         next if config_fields['output_fields'].blank?
         parse_json(config_fields['output_fields'])
       end
     }
-```
+
+

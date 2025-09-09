@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/custom-action.html
-> **Fetched**: 2025-09-08T02:35:11.693315
+> **Fetched**: 2025-09-08T18:35:54.212915
 
 ---
 
@@ -15,7 +15,7 @@ The `custom_action` key allows you to quickly define custom actions to unblock u
 
 ## [#](<#structure>) Structure
 ```ruby
-        custom_action: Boolean,
+custom_action: Boolean,
 
         custom_action_help: {
           learn_more_url: String,
@@ -24,6 +24,8 @@ The `custom_action` key allows you to quickly define custom actions to unblock u
 
           body: String
         }
+
+
 ```
 
 * * *

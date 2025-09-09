@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/download-streaming-actions.html
-> **Fetched**: 2025-09-08T02:33:42.655516
+> **Fetched**: 2025-09-08T18:34:25.598304
 
 ---
 
@@ -24,7 +24,8 @@ With download file actions, it is important to note that when the action/trigger
 
 As such, in the SDK Gem, you may test your download file action as a normal action; and your `streams` callback separately. Let's go over the download file action first.
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
+```
       file_path = input['file_path']&.gsub(/%2F/, '/')
 
       file_details = get("/pubapi/v1/fs/#{file_path}")
@@ -33,18 +34,21 @@ As such, in the SDK Gem, you may test your download file action as a normal acti
 
       file_details
     end,
-```
+
+
 
 Alongside the execute lambda, you will also need a input JSON file such as `egnyte_download_file_input.json` when executing the download file action in the SDK CLI.
 ```ruby
-    {
+{
         "file_path": "/path/to/sample/file"
     }
+
+
 ```
 
 To run a download file action, you give the same command as you would a standard action.
 ```ruby
-    workato exec actions.download_object.execute --input='egnyte_download_file_input.json' --verbose
+workato exec actions.download_object.execute --input='egnyte_download_file_input.json' --verbose
 
     SETTINGS
     {
@@ -77,6 +81,8 @@ To run a download file action, you give the same command as you would a standard
           "file_path": "/path/to/sample/file"
       }
     }
+
+
 ```
 
 Note that the actual downloading of the file from Egnyte has not actually happened at this point - only the evaluation of the `execute` lambda excluding the `download_file_by_path` stream has been done when calling the action via the CLI. The output of the `file_contents` is an artificial value for a file stream.
@@ -89,7 +95,7 @@ You can also use other options like `--output` to save the output of the functio
 
 Now, to debug and test the `streams` lambda directly, you can use the CLI to invoke the lambda directly.
 ```ruby
-    streams: {
+streams: {
       download_file_by_path: lambda do |input, starting_byte_range, ending_byte_range, requested_byte_size|
         # Example starting_byte_range = 0
         # Example ending_byte_range = 10485759 
@@ -99,16 +105,18 @@ Now, to debug and test the `streams` lambda directly, you can use the CLI to inv
                   response_format_raw
         # if the chunk.size is smaller than the requested byte_size, 
         # then we know we are at the end of the file.
+```
         [chunk, chunk.size < requested_byte_size]
       end
     }
-```
+
+
 
 With the SDK Gem, you are able to invoke the specific streaming callback lambda to simulate the download of a single chunk, or loop over the entire download process to download multiple chunks sequentially.
 
 To read a single chunk, you can simply invoke the stream with 3 parameters
 ```ruby
-    workato exec streams.download_file_by_path --input='egnyte_download_file_input.json' --from=0 --frame_size=256 --verbose
+workato exec streams.download_file_by_path --input='egnyte_download_file_input.json' --from=0 --frame_size=256 --verbose
 
     SETTINGS
     {
@@ -129,15 +137,19 @@ To read a single chunk, you can simply invoke the stream with 3 parameters
     # => 206 PartialContent | text/csv 255 bytes, 1.85s       
 
     OUTPUT
+```
     [
       "256_byte_string",
       false
     ]
-```
+
+
 
 To read all chunks, you can invoke the stream with the same 3 parameters but with a bang (`!`) method.
 ```ruby
-    workato exec streams.download_file_by_path! --input='egnyte_download_file_input.json' --frame_size=256 --verbose
+workato exec streams.download_file_by_path! --input='egnyte_download_file_input.json' --frame_size=256 --verbose
+
+
 ```
 
 TIP

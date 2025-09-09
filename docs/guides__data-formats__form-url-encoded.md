@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/form-url-encoded.html
-> **Fetched**: 2025-09-08T02:34:49.598284
+> **Fetched**: 2025-09-08T18:35:32.256435
 
 ---
 
@@ -15,16 +15,18 @@ Let's use the submit data to a form endpoint in [HubSpot API (opens new window)]
 
 A cURL example looks like this:
 ```ruby
-    curl \
+curl \
       https://forms.hubspot.com/uploads/form/v2/12345/67890 \
       -X POST \
       -H 'Content-Type: application/x-www-form-urlencoded' \
-      -d 'firstname=TestContact&lastname=FormSub&[[email protected]](</cdn-cgi/l/email-protection>)&newcustomproperty=testing&hs_context=%7B%22hutk%22%3A%2260c2ccdfe4892f0fa0593940b12c11aa%22%2C%22ipAddress%22%3A%22192.168.1.12%22%2C%22pageUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fcontact%2F%22%2C%22pageName%22%3A%22Contact%2BUs%22%2C%22redirectUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fthank-you%2F%22%7D'
 ```
+      -d 'firstname=TestContact&lastname=FormSub&[[email protected]](</cdn-cgi/l/email-protection>)&newcustomproperty=testing&hs_context=%7B%22hutk%22%3A%2260c2ccdfe4892f0fa0593940b12c11aa%22%2C%22ipAddress%22%3A%22192.168.1.12%22%2C%22pageUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fcontact%2F%22%2C%22pageName%22%3A%22Contact%2BUs%22%2C%22redirectUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fthank-you%2F%22%7D'
+
+
 
 This cURL command can be replicated in Workato:
 ```ruby
-    {
+{
       title: "HubSpot",
 
       connection: {
@@ -38,6 +40,7 @@ This cURL command can be replicated in Workato:
       actions: {
         submit_form: {
           input_fields: lambda do
+```
             [
               {
                 name: "portal_id",
@@ -95,7 +98,8 @@ This cURL command can be replicated in Workato:
       methods: {
         # Some code here
       }
-```
+
+
 
 ## [#](<#components>) Components
 

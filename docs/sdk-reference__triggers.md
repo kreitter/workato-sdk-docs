@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/triggers.html
-> **Fetched**: 2025-09-08T02:35:22.468835
+> **Fetched**: 2025-09-08T18:36:04.616994
 
 ---
 
@@ -19,8 +19,9 @@ The `triggers` key can only be used in both recipes and the SDK **Test code** ta
 
 ## [#](<#structure>) Structure
 ```ruby
-        triggers: {
+triggers: {
 
+```
           [Unique_trigger_name]: {
             title: String,
 
@@ -103,7 +104,8 @@ The `triggers` key can only be used in both recipes and the SDK **Test code** ta
             ...
           }
         },
-```
+
+
 
 * * *
 
@@ -160,8 +162,9 @@ Example - description:
 
 For the `description` block, you have access to two arguments to make your descriptions dynamic. This is useful when you want to change your description based on how a given user has configured the action. These changes can be incredibly useful for your users to ensure they know what this action is doing without having to click and view the action's configuration to understand what it does.
 ```ruby
-        new_updated_object: {
+new_updated_object: {
           description: lambda do |input, picklist_label|
+```
             "New or updated <span class='provider'>#{picklist_label['object'] || 'object'}</span> in " \
             "<span class='provider'>Percolate</span>"
           end,
@@ -177,7 +180,8 @@ For the `description` block, you have access to two arguments to make your descr
 
           # More keys to define the action
         }
-```
+
+
 
 In the example above, this action is a generic object action. What this means is that the action is made to allow the user to create multiple types of objects which the user will select later on when he configures the recipe. This is done by the user selecting what `object` they wants to create. Since we want the description to change to what object he wants to have selected, the description can be changed to the object selected by referencing the `picklist_label` argument.
 
@@ -206,7 +210,7 @@ The output of the `help` lambda function can either be a simple String or a Hash
   * String
 
 ```ruby
-        help: lambda do |input, picklist_label, connection, webhook_base_url|
+help: lambda do |input, picklist_label, connection, webhook_base_url|
           'Create an object in Percolate. First, select from a list of ' \
           'objects that we currently support. After selecting your object,' \
           ' dynamic input fields specific to your scope and object selected ' \
@@ -214,12 +218,14 @@ The output of the `help` lambda function can either be a simple String or a Hash
           ' Creating an approval denotes submitting a specified piece of content' \
           ' or campaign for a specific approval workflow.'
         end,
+
+
 ```
 
   * Hash
 
 ```ruby
-        help: lambda do |input, picklist_label, connection, webhook_base_url|
+help: lambda do |input, picklist_label, connection, webhook_base_url|
           {
             body: "First, filter by the object you want then fill up the input fields " \
             "which appear based on the object you have selected. Amongst other things, " \
@@ -228,6 +234,8 @@ The output of the `help` lambda function can either be a simple String or a Hash
             learn_more_text: "Learn more"
           }
         end,
+
+
 ```
 
 ![](/assets/img/help-example.bdfb4b3c.png)
@@ -236,10 +244,11 @@ Example - Static webhook triggers - Using connection and inputs to create a Uniq
 
 When you may have a single connector and static webhook url that needs to power multiple recipes across multiple connections, you might need your users to register webhook URLs that contain attributes specific to their connections. You can now do this through the `help` lambda where you can provide a webhook URL for your users to register that include any connection attributes within the webhook's URL parameters.
 ```ruby
-        {
+{
           title: "Sample connector",
 
           webhook_keys: lambda do |params, headers, payload|
+```
             "#{params['org_id']}@#{payload['formId']}"
           end,
 
@@ -274,7 +283,8 @@ When you may have a single connector and static webhook url that needs to power 
             }
           }
         }
-```
+
+
 
 * * *
 
@@ -379,10 +389,11 @@ Example - webhook_key:
 
 The `webhook_key` lambda function is specific to a single trigger and the output signature if built from user inputs. On the other hand, the `webhook_keys` lambda function is tied to the entire connector and the output signature is built from the incoming webhook's attributes like its body, headers, and query parameters. When expecting a match in these two signature, it becomes easy to see how routing is done from incoming webhooks to the proper trigger to create jobs.
 ```ruby
-        {
+{
           title: "Sample connector",
 
           webhook_keys: lambda do |params, headers, payload|
+```
             payload['formId']
           end,
 
@@ -420,7 +431,8 @@ The `webhook_key` lambda function is specific to a single trigger and the output
             }
           }
         }
-```
+
+
 
 * * *
 
@@ -458,44 +470,56 @@ Use `webhook_response_body` in two scenarios:
   1. You need to respond with a static string or JSON response to the webhook sender.
 
 ```ruby
-      webhook_response_type: 'json',
+webhook_response_type: 'json',
       webhook_response_body: '{ "success": true }',
+
+
 ```
 
 will result in Workato responding with a content-type `application/json` and the body
 ```ruby
-    {
+{
       "success": true
     }
+
+
 ```
 
   2. You need to respond with a dynamic response based on the webhook event. For example, when webhook senders send a webhook event to confirm that the webhook URL is ready.
 
 ```ruby
-      webhook_response_type: 'json',
+webhook_response_type: 'json',
       webhook_response_body: '{ “challenge”: “{{body.verification.Challenge}}” }',
+
+
 ```
 
 If the sender sends a webhook with the body
 ```ruby
-    {
+{
       "verification": {
         "Challenge": "abc123"
       }
     }
+
+
 ```
 
 Then Workato would respond with
 ```ruby
-    {
+{
       "challenge": "abc123"
     }
+
+
 ```
 
 In some cases, webhook senders may also send an array of events. You may also use regular iterators in Mustache to work with arrays.
 
 For example, if the sender (based on Microsoft Event Grid)sends a webhook validation event with the body
 ```ruby
+
+```
     [
       {
         "id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
@@ -511,12 +535,15 @@ For example, if the sender (based on Microsoft Event Grid)sends a webhook valida
         "dataVersion": "1"
       }
     ]
-```
+
+
 
 and expects us to respond with the `data.validationCode`. You may define your `webhook_response_body` as such.
 ```ruby
-      webhook_response_type: 'json',
+webhook_response_type: 'json',
       webhook_response_body: '{{#body}}{ "validationResponse": “{{data.validationCode}}” }{{/body}}',
+
+
 ```
 
 There may be a variety of situations where webhook senders may expect custom responses:
@@ -573,10 +600,11 @@ Use `webhook_payload_type` in two scenarios:
   1. You need to compute a webhook payload signature based on the **raw** payload. You may do so in the webhook notification lambda before using `workato.parse_json` to get the parsed json payload.
 
 ```ruby
-          webhook_payload_type: "raw",
+webhook_payload_type: "raw",
 
           webhook_notification: lambda do |input, payload, extended_input_schema, extended_output_schema, headers, params, connection, webhook_subscribe_output|
             original_payload = payload
+```
             client_secret = input['client_secret'] || account_property('hubspot_webhook_client_secret')
             if client_secret.present?
               source_string = client_secret + original_payload
@@ -597,16 +625,19 @@ Use `webhook_payload_type` in two scenarios:
               end
             end
           end,
-```
+
+
 
   2. You are receiving a webhook that is not in JSON format.
 
 ```ruby
-          webhook_payload_type: "raw",
+webhook_payload_type: "raw",
 
           webhook_notification: lambda do |input, payload, extended_input_schema, extended_output_schema, headers, params, connection, webhook_subscribe_output|
             payload.from_xml
           end,
+
+
 ```
 
 * * *
@@ -632,7 +663,8 @@ Certain APIs like [Microsoft's Graph API (opens new window)](<https://docs.micro
 
 Sample code where webhook expires after 1 hour.
 ```ruby
-          webhook_subscribe: lambda do |webhook_url, connection, input, recipe_id|    
+webhook_subscribe: lambda do |webhook_url, connection, input, recipe_id|    
+```
             [
               post("https://www.acme.com/api/webhook_subscriptions", url: webhook_url),
               1.hour.from_now
@@ -649,7 +681,8 @@ Sample code where webhook expires after 1 hour.
           webhook_unsubscribe: lambda do |webhook_subscribe_output, connection|
             delete("https://www.acme.com/api/webhook_subscriptions/#{webhook_subscribe_output['id']}")
           end,
-```
+
+
 
 In the example above, the output of `webhook_subscribe` is an array that contains a datetime value that corresponds to the next time `webhook_refresh` is invoked to refresh the webhook subscription. This is similarly done for `webhook_refresh` as well. Take note that the output of `webhook_refresh` replaces the original `webhook_subscribe_output` as well.
 
@@ -738,9 +771,10 @@ Example - poll:
 
 The poll block's output should be a hash in the following structure:
 ```ruby
-        poll: lambda do |connection, input, closure, _eis, _eos|
+poll: lambda do |connection, input, closure, _eis, _eos|
 
           # Timestamp which we need to filter records based off.
+```
           updated_since = (closure || input['since']).to_time.utc.iso8601
           request_page_size = 100
 
@@ -781,7 +815,8 @@ The poll block's output should be a hash in the following structure:
             can_poll_more: records['total_records'] >= request_page_size
           }
         end,
-```
+
+
 
 Example - poll: - extended_input_schema and extended_output_schema
 
@@ -789,8 +824,9 @@ Extended input and output schema is any schema from `object_definitions` that is
 
 For example, you may use extended_input_schema to know which inputs are datetimes and should be transformed to Epoch time which is accepted by the target API. In the same fashion, you may use extended_output_schema to take the response and transform Epoch variables into ISO8601 datetimes again.
 ```ruby
-        create_object: {
+create_object: {
           description: lambda do |input, picklist_label|
+```
             "Create a <span class='provider'>#{picklist_label['object'] || 'object'}</span> in " \
             "<span class='provider'>Percolate</span>"
           end,
@@ -852,7 +888,8 @@ For example, you may use extended_input_schema to know which inputs are datetime
            object_definitions[object]
           end,
         }
-```
+
+
 
 * * *
 
@@ -926,7 +963,8 @@ Example - Summarizing inputs and outputs in job data
 
 When working with large arrays or data, Workato tries to show all the data in the input and output tabs of the job for each action. Sometimes, this can get confusing when we are working with a large numbers of records or large strings. You can use the `summarize_input` and `summarize_output` keys to summarize the data in your job input and output tabs to make it more human readable for users of your connector.
 ```ruby
-        input_fields: lambda do
+input_fields: lambda do
+```
           [
             {
               name: 'report',
@@ -957,4 +995,5 @@ When working with large arrays or data, Workato tries to show all the data in th
         end,
 
         summarize_input: ['report.records', 'report.description'],
-```
+
+

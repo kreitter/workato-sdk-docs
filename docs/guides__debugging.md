@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/debugging.html
-> **Fetched**: 2025-09-08T02:34:54.301575
+> **Fetched**: 2025-09-08T18:35:36.919659
 
 ---
 
@@ -52,12 +52,14 @@ Any fields defined in the `fields` attribute of your connection hash appear when
 
 In the preceding image, the debug trace is generated from this request sent within the `test` block:
 ```ruby
-    test: lambda do |_connection|
+test: lambda do |_connection|
         get('/users/me')&.
           after_error_response(/.*/) do |_code, body, _header, message|
             error("#{message}: #{body}")
           end
       end,
+
+
 ```
 
 **Console** \- This tab contains information regarding `puts` methods that were executed during the test of your action and trigger. The `puts` method signals to the console to print a specific variable. These `puts` can also be printed from code in `pick_lists`, `object_definitions` and `methods`. This can be useful for debugging by printing variables from your code. Console logs are printed in the order they are executed. ![Console](/assets/img/debugger-connection-console.cc8cc59d.png) _The result of printing several variables using`puts`_
@@ -98,7 +100,7 @@ Testing individual pick_lists, methods and object_definitions are not supported 
 
 For example:
 ```ruby
-    actions: {
+actions: {
         test: {
           execute: lambda do |connection, input|
             # Print the output of the sample method to see if it works as intended
@@ -106,13 +108,16 @@ For example:
           end
         },
     }
+
+
 ```
 
 #### [#](<#formula-mode-and-arrays-of-primitive-types>) Formula mode and arrays of primitive types
 
 Formula mode does not work in the UI popup today and this feature is disabled. However, in some cases, you can see some fields that use formula mode by default such as arrays of primitive types. For example
 ```ruby
-    input_fields: lambda do 
+input_fields: lambda do 
+```
         [
             {
                 name: "customer_ids",
@@ -122,6 +127,7 @@ Formula mode does not work in the UI popup today and this feature is disabled. H
             }
         ]
     end
-```
+
+
 
 In situations like this, you must use the raw JSON view of the **Test code** tab to provide your inputs manually.

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/pick_lists.html
-> **Fetched**: 2025-09-08T02:33:46.049027
+> **Fetched**: 2025-09-08T18:34:28.976805
 
 ---
 
@@ -19,10 +19,11 @@ In this segment, we will be going through how you can run methods Picklists the 
 
 The code in `connector.rb`.
 ```ruby
-    {
+{
       title: 'Chargebee-demo',
 
       connection: {
+```
         fields: [
           {
             name: 'api_key',
@@ -95,12 +96,15 @@ The code in `connector.rb`.
 
       },
     }
-```
+
+
 
 Credentials in `settings.yaml.enc` .
 ```ruby
-    api_key: valid_api_key
+api_key: valid_api_key
     domain: valid_domain
+
+
 ```
 
 TIP
@@ -114,8 +118,9 @@ With the SDK Gem, you'll be able to invoke a picklist individually.
 The first pick_list we will cover in the example above is the `static` pick_list. Like it's name suggests, it stores a static list of values and when invoked, will just return this value.
 
 Here is an example the pick_list being run:
-```ruby
-    $ workato exec pick_lists.static
+```bash
+$ workato exec pick_lists.static
+```
     [
       [
         "Subscription",
@@ -130,15 +135,17 @@ Here is an example the pick_list being run:
         "plan"
       ]
     ]
-```
+
+
 
 ## [#](<#example-2-running-the-dynamic-pick-list>) Example 2. Running the `dynamic` pick_list
 
 The next pick_list is one that sends a request out and massages the response into a pick_list format. Here, the connection settings required to authorize the request is assumed to be the default `settings.yaml.enc` file. If this is not what you want, you can use `--settings` to override this.
 
 Here is an example the pick_list being run:
-```ruby
-    $ workato exec pick_lists.dynamic
+```bash
+$ workato exec pick_lists.dynamic
+```
     [
       [
         "dd",
@@ -149,7 +156,8 @@ Here is an example the pick_list being run:
         "16Bji8SfZHHDm7v"
       ]
     ]
-```
+
+
 
 ## [#](<#example-3-running-the-dependent-pick-list>) Example 3. Running the `dependent` pick_list
 
@@ -157,21 +165,25 @@ The next pick_list is one that sends a request out and massages the response int
 
 In this case, the contents of the file `fixtures/pick_lists/dependent/input.json` contains
 ```ruby
-    {
+{
         "limit": "1"
     }
+
+
 ```
 
 Here is an example the pick_list being run:
-```ruby
-    $ workato exec pick_lists.dependent --args='fixtures/pick_lists/dependent/input.json' 
+```bash
+$ workato exec pick_lists.dependent --args='fixtures/pick_lists/dependent/input.json' 
+```
     [
       [
         "dd",
         "AzyuHzSiORQAo1JUb"
       ]
     ]
-```
+
+
 
 ## [#](<#example-4-running-the-dependent-with-names-pick-lists>) Example 4. Running the `dependent_with_names` pick_lists
 
@@ -179,18 +191,22 @@ In other cases, you might have a picklist that accepts named arguments. In this 
 
 When you pass the arguments via CLI, the contents of the file `fixtures/pick_lists/dependent_with_names/input.json` should look like this:
 ```ruby
-    {
+{
         "limit": "1"
     }
+
+
 ```
 
 Here is an example the pick_list being run:
-```ruby
-    $ workato exec pick_lists.dependent_with_names --args='fixtures/pick_lists/dependent_with_names/input.json' 
+```bash
+$ workato exec pick_lists.dependent_with_names --args='fixtures/pick_lists/dependent_with_names/input.json' 
+```
     [
       [
         "dd",
         "AzyuHzSiORQAo1JUb"
       ]
     ]
-```
+
+

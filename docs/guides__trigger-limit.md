@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/trigger-limit.html
-> **Fetched**: 2025-09-08T02:34:57.746401
+> **Fetched**: 2025-09-08T18:35:40.434867
 
 ---
 
@@ -65,7 +65,8 @@ This is typically done by:
 
 For example:
 ```ruby
-    poll: lambda do |connection, input, closure, _eis, _eos|
+poll: lambda do |connection, input, closure, _eis, _eos|
+```
       updated_since = (closure || input['since']).to_time.utc.iso8601
       request_page_size = 100
 
@@ -82,7 +83,8 @@ For example:
         can_poll_more: response['total_records'] >= request_page_size # Trigger next poll immediately
       }
     end
-```
+
+
 
 If there are 10,000 records, this configuration fetches them across 100 polls. Each poll returns up to 100 records, which generate 100 events and 100 jobs. This approach meets the 1,000-event-per-poll limit.
 

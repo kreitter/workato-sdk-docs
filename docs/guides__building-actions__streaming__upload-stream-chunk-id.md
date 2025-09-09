@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id.html
-> **Fetched**: 2025-09-08T02:34:35.647655
+> **Fetched**: 2025-09-08T18:35:18.599403
 
 ---
 
@@ -17,13 +17,14 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
 
 ## [#](<#sample-connector>) Sample connector
 ```ruby
-    {
+{
       title: 'Upload to Azure Blob Friend URL',
 
       # More connector code here
       actions: {
         upload_to_url: {
           input_fields: lambda do |_object_definitions|
+```
             [
               { name: "file", type: "stream" }, # field type must be stream
               { name: "url", label: "Any friendly URL" }
@@ -69,7 +70,8 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
       }
       # More connector code here
     }
-```
+
+
 
 ### [#](<#step-1-action-title-subtitles-description-and-help>) Step 1 - Action title, subtitles, description, and help
 
@@ -79,13 +81,15 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 ### [#](<#step-2-define-input-fields>) Step 2 - Define input fields
 ```ruby
-      input_fields: lambda do |object_definitions|
+input_fields: lambda do |object_definitions|
+```
         [
           { name: "file", type: "stream" }, # field type must be stream
           { name: "url", label: "Any friendly URL" }
         ]
       end,
-```
+
+
 
 This component tells Workato what fields to show to a user trying to upload an object. In the case of this connector, we collect the `file_name`, the `file` which must be defined with `type` as `stream` and the `url` input for a friendly URL that we can upload this file to.
 
@@ -99,7 +103,8 @@ We then send a PUT request to the friendly Azure URL alongside this block_id. `w
 
 After the stream is consumed, we send a final PUT request with the entire blocklist. This is in XML format as dictated by Azure Blob's API.
 ```ruby
-      execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
+execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
+```
         block_list = []
         # Calling workato.stream.in runs in a loop where the input should be file. 
         # It can accept both entire files or the output of a streaming-enabled download file action
@@ -128,20 +133,23 @@ After the stream is consumed, we send a final PUT request with the entire blockl
         }
 
       end,
-```
+
+
 
 ### [#](<#step-4-defining-output-fields>) Step 4 - Defining output fields
 
 This section tells us what datapills to show as the output of the trigger. The `name` attributes of each datapill should match the keys in the output of the `execute` key.
 ```ruby
-      output_fields: lambda do |object_definitions|
+output_fields: lambda do |object_definitions|
           output_fields: lambda do |object_definitions|
+```
             [
               { name: "Etag", type: "string" }
             ]
           end
       end
-```
+
+
 
 ## [#](<#variations>) Variations
 
@@ -151,7 +159,8 @@ When defining the `workato.stream.in` method, you are able to define an addition
 
 When `checkpoint!` is called, it checks if action's current execution time is larger than 120 seconds, and if so, refreshes the action timeout after a short waiting period. This can be used in conjunction with the `from` argument to tell Workato's streaming library where to continue from the last byte offset.
 ```ruby
-      execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
+execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
+```
         block_list = closure["block_list"].presence || []
         next_from = closure["next_from"].presence || 0
 
@@ -185,7 +194,8 @@ When `checkpoint!` is called, it checks if action's current execution time is la
                       end
         } 
       end
-```
+
+
 
 ### [#](<#adjusting-the-default-10mb-chunk-size>) Adjusting the default 10MB chunk size
 
@@ -193,9 +203,10 @@ When Workato attempts to retrieve a file chunk from an API, it defaults to reque
 
 Take note that this does not guarantee that you will receive a chunk size of 20MB from all producers. You can make necessary precautions by storing a temporary buffer as well.
 ```ruby
-      execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
+execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
         # 20MB in bytes
         frame_size = 20971520 
+```
         block_list = closure["block_list"].presence || []
         next_from = closure["next_from"].presence || 0
         buffer = ""
@@ -237,4 +248,5 @@ Take note that this does not guarantee that you will receive a chunk size of 20M
                       end
         } 
       end
-```
+
+

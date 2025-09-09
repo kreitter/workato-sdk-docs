@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/methods.html
-> **Fetched**: 2025-09-08T02:33:43.741406
+> **Fetched**: 2025-09-08T18:34:26.705784
 
 ---
 
@@ -19,10 +19,11 @@ In this segment, we will be going through how you can run methods using the Work
 
 The code in `connector.rb`.
 ```ruby
-    {
+{
       title: 'Chargebee-demo',
 
       connection: {
+```
         fields: [
           {
             name: 'api_key',
@@ -66,12 +67,15 @@ The code in `connector.rb`.
         end,
       },
     }
-```
+
+
 
 Credentials in `settings.yaml.enc` .
 ```ruby
-    api_key: valid_api_key
+api_key: valid_api_key
     domain: valid_domain
+
+
 ```
 
 TIP
@@ -83,9 +87,10 @@ With the SDK Gem, you'll be able to invoke a method individually and gain greate
 ## [#](<#example-1-running-the-get-customers-method>) Example 1. Running the `get_customers` method
 
 The first method we will cover in the example above is the `get_customers` method, which does not have any declared input arguments. When this method is invoked with the SDK Gem, we expect the method to fetch customers and return the response from the API call
-```ruby
-    $ workato exec methods.get_customers
+```bash
+$ workato exec methods.get_customers
     {
+```
       "list": [
         {
           "customer": {
@@ -116,7 +121,8 @@ The first method we will cover in the example above is the `get_customers` metho
       ],
       "next_offset": "[\"1630848839000\",\"42903379\"]"
     }
-```
+
+
 
 TIP
 
@@ -130,16 +136,21 @@ The second method we will cover in the example above is the `sample_method` meth
 
 In this case, the contents of the file `fixtures/triggers/new_updated_object/customer_input_poll.json` contains
 ```ruby
+
+```
     [
         "Hello",
         "world"
     ]
-```
+
+
 
 Here is an example the method being run:
-```ruby
-    $ workato exec methods.sample_method --args='fixtures/actions/search_customers/customer_config.json' 
+```bash
+$ workato exec methods.sample_method --args='fixtures/actions/search_customers/customer_config.json' 
     "Hello world"
+
+
 ```
 
 TIP

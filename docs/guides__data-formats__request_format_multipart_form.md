@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/request_format_multipart_form.html
-> **Fetched**: 2025-09-08T02:34:51.893352
+> **Fetched**: 2025-09-08T18:35:34.563912
 
 ---
 
@@ -17,17 +17,19 @@ Let's use the Convert document endpoint in [IBM Watson API (opens new window)](<
 
 A cURL example looks like this:
 ```ruby
-    curl \
+curl \
       https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 \
       -X POST \
       -u "{username}":"{password}" \
       -F config="{\"conversion_target\":\"answer_units\"}" \
-      -F "[[email protected]](</cdn-cgi/l/email-protection>);type=application/pdf"
 ```
+      -F "[[email protected]](</cdn-cgi/l/email-protection>);type=application/pdf"
+
+
 
 Workato:
 ```ruby
-    {
+{
       title: "IBM Watson",
 
       connection: {
@@ -41,6 +43,7 @@ Workato:
       actions: {
         upload_file: {
           input_fields: lambda do
+```
             [
               { name: "file_name", type: "string" },
               { name: "file_data", type: "string" },
@@ -75,7 +78,8 @@ Workato:
       methods: {
         # Some code here
       }
-```
+
+
 
 In the SDK, notice that the `file` key in the payload takes an array of length 2. This defines the request as form data. The first item in the array is the file data and the second item is the media type (MIME type) of the input file.
 
@@ -101,11 +105,13 @@ FILE_NAME IS DIFFERENT FROM FILE
 
 `file_name` in the following example is different from the payload key (`file`).
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
       post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document").
         params(version: "2015-12-15").
         request_format_multipart_form.
+```
         payload(file: [input['file_data'], 'application/pdf', input['file_name']],
                 config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")
     end
-```
+
+

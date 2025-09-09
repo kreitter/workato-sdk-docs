@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/test.html
-> **Fetched**: 2025-09-08T02:33:47.266528
+> **Fetched**: 2025-09-08T18:34:30.150735
 
 ---
 
@@ -45,10 +45,11 @@ The OAuth2 (Auth code grant) connection is confirmed by Workato when a token is 
 
 The code in `connector.rb`.
 ```ruby
-    {
+{
       title: 'Chargebee-demo',
 
       connection: {
+```
         fields: [
           {
             name: 'api_key',
@@ -82,24 +83,30 @@ The code in `connector.rb`.
         get('/api/v2/plans', limit: 1)
       end,
     }
-```
+
+
 
 Credentials in `settings.yaml.enc`.
 ```ruby
-    api_key: valid_api_key
+api_key: valid_api_key
     domain: valid_domain
+
+
 ```
 
 ### [#](<#running-the-test-lambda>) Running the test lambda
 
 When you run the command
-```ruby
-    $ workato exec test
+```bash
+$ workato exec test
+
+
 ```
 
 You get the output
 ```ruby
-    {
+{
+```
       "list": [
         {
           "plan": {
@@ -129,7 +136,8 @@ You get the output
       ],
       "next_offset": "[\"10000\",\"487940\"]"
     }
-```
+
+
 
 This is the literal output of the `test` lambda we have defined but Workato relies not so much on the actual output, but that the request was executed successfully.
 
@@ -143,9 +151,10 @@ You can also use other options like `--verbose` to see the detailed logs of any 
 
 The code in `connector.rb`.
 ```ruby
-    {
+{
         name: "Percolate",
         connection: {
+```
           fields: [
             { name: "client_id",
               optional: false,
@@ -200,25 +209,30 @@ The code in `connector.rb`.
           get("/api/v5/me")
         end,
     }
-```
+
+
 
 Credentials in `settings.yaml.enc`.
 ```ruby
-    client_id: valid_client_id
+client_id: valid_client_id
     client_secret: valid_client_secret
     environment: production
+
+
 ```
 
 ### [#](<#running-the-test-lambda-2>) Running the test lambda
 
 When you run the command
 ```ruby
-    workato exec test --verbose
+workato exec test --verbose
+
+
 ```
 
 You may get the output
 ```ruby
-    SETTINGS
+SETTINGS
     {
       "client_id": "valid_client_id",
       "client_secret": "valid_client_secret",
@@ -237,6 +251,8 @@ You may get the output
 
     Refresh token triggered on response "401 Unauthorized"
     Update settings file with new connection attributes? (Yes or No) 
+
+
 ```
 
 First, the output indicates that there is no `access_token` in the settings file as the connection test lambda (`api/v5/me` endpoint) returned a `401` response.
@@ -247,18 +263,20 @@ The `refresh_on` attribute in the `acquire` lambda triggers if the current acces
 
 Lastly, the Gem asks for permissions to override your settings file, which is synonymous with your `connection` hash on the Workato platform. If you type "Yes", the Gem will now update your settings file with the output of the `acquire` lambda.
 ```ruby
-    Update settings file with new connection attributes? (Yes or No) Yes
+Update settings file with new connection attributes? (Yes or No) Yes
     RestClient.get "https://percolate.com/api/v5/me", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer example_token", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
     # => 200 OK | application/json 65 bytes         
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
 
     OUTPUT
     # Output of the test lambda
+
+
 ```
 
 Your credentials in `settings.yaml.enc` will be updated.
 ```ruby
-    client_id: valid_client_id
+client_id: valid_client_id
     client_secret: valid_client_secret
     environment: production
     id: token:example_token
@@ -268,6 +286,8 @@ Your credentials in `settings.yaml.enc` will be updated.
     grant_id: grant:1216779461986395763
     access_token: example_token
     token_type: bearer
+
+
 ```
 
 ## [#](<#invoking-the-test-lambda-for-oauth2-auth-code-grant-scenarios>) Invoking the test lambda for OAuth2 (Auth code grant) scenarios
@@ -278,9 +298,10 @@ For Auth code grant flows, the Workato Gem allows you to emulate the OAuth2 flow
 
 The code in `connector.rb`.
 ```ruby
-    {
+{
       title: 'TrackVia',
       connection: {
+```
         fields: [
           {
             name: 'custom_domain',
@@ -370,17 +391,22 @@ The code in `connector.rb`.
         get('views') 
       end,
     }
-```
+
+
 
 Credentials in `settings.yaml.enc`.
 ```ruby
-    client_id: valid_client_id
+client_id: valid_client_id
     client_secret: valid_client_secret
+
+
 ```
 
 You can now run the following commands to go through the OAuth2 Authorization code flow which includes a browser popup. Include `--verbose` to enable detailed logging of the OAuth2 flow.
 ```ruby
-    workato oauth2 --verbose
+workato oauth2 --verbose
+
+
 ```
 
 This will simulate the entire flow from the browser popup to the output url of the `authorization_url`, receiving the Auth Code to your callback url as well as subsequent calls contained in either your `token_url` lambda or your `acquire` lambda. Lastly, the flow will update your `settings.yaml` file with the latest set of credentials received from the OAuth2 flow.
@@ -389,7 +415,7 @@ This will simulate the entire flow from the browser popup to the output url of t
 
 At the end of the flow, you should have a `settings.yaml.enc` file that is updated with the latest credentials.
 ```ruby
-    client_id: valid_client_id
+client_id: valid_client_id
     client_secret: valid_client_secret
     user_key: valid_user_key
     tokenType: bearer
@@ -402,6 +428,8 @@ At the end of the flow, you should have a `settings.yaml.enc` file that is updat
     apiVersion: '22.18'
     access_token: valid_access_token
     refresh_token: valid_refresh_token
+
+
 ```
 
 ### [#](<#running-the-test-lambda-3>) Running the test lambda
@@ -409,13 +437,15 @@ At the end of the flow, you should have a `settings.yaml.enc` file that is updat
 Now after you've successfully gone through the flow, you may be use the same `workato exec test` command to verify you're applying your token properly in your requests!
 
 Depending on when you received your token, you may also see a intermediary command from the Gem asking if you'd like to refresh your access tokens (if it has expired). This is done when HTTP requests are made which have a response that triggers the `refresh_on` block. Selecting yes would cause the Gem to update your settings file with the latest auth credentials.
-```ruby
-    $ workato exec test --verbose
+```bash
+$ workato exec test --verbose
+
+
 ```
 
 You may get the output
 ```ruby
-    SETTINGS
+SETTINGS
     {
       "client_id": "valid_client_id",
       "client_secret": "valid_client_secret",
@@ -423,6 +453,7 @@ You may get the output
       "tokenType": "bearer",
       "expires_in": "299",
       "expiration": "2021-10-19T15:36:39.221+0000",
+```
       "scope": ["trust", "read", "write"],
       "apiVersion": "2.18",
       "access_token": "valid_access_token",
@@ -441,7 +472,8 @@ You may get the output
 
     Refresh token triggered on response "401 Unauthorized"
     Updated settings file with new connection attributes? (Yes or No) 
-```
+
+
 
 First, the output indicates that there is no valid `access_token` in the settings file as the connection test lambda (`openapi/views` endpoint) returned a `401` response. The access token may have expired.
 
@@ -451,18 +483,20 @@ The `refresh_on` attribute in the `acquire` lambda triggers if the current acces
 
 Lastly, the Gem asks for permissions to override your settings file, which is synonymous with your `connection` hash on the Workato platform. If you type "Yes", the Gem will now update your settings file with the output of the `acquire` lambda.
 ```ruby
-    Updated settings file with new connection attributes? (Yes or No) Yes
+Updated settings file with new connection attributes? (Yes or No) Yes
     RestClient.get "https://go.trackvia.com/openapi/views", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer new_valid_access_token", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
     # => 200 OK | application/json 65 bytes                
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
 
     OUTPUT
     # Output of the test lambda
+
+
 ```
 
 Your credentials in `settings.yaml.enc` will be updated.
 ```ruby
-    client_id: valid_client_id
+client_id: valid_client_id
     client_secret: valid_client_secret
     user_key: valid_user_key
     tokenType: bearer
@@ -475,6 +509,8 @@ Your credentials in `settings.yaml.enc` will be updated.
     apiVersion: '22.18'
     access_token: new_valid_access_token
     refresh_token: new_valid_refresh_token
+
+
 ```
 
 Note

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/vcr.html
-> **Fetched**: 2025-09-08T02:33:55.383871
+> **Fetched**: 2025-09-08T18:34:38.190108
 
 ---
 
@@ -24,8 +24,8 @@ This removes one aspect of variability in your tests and ensures that you're onl
 When you generate a connector project using the command `workato new [PATH]`, VCR will be set up automatically.
 
 If you setup the project with the `secure` option, the VCR recordings are also encrypted. We recommend you use the `secure` option. In any case, your `spec_helper.rb` contains all information about your VCR recording configurations. Setting your project to `secure` ensures your VCR recordings are encrypted with your `master.key`. Below you can find an example of a `spec_helper.rb` which includes encryption.
-```ruby
-    # frozen_string_literal: true
+```bash
+# frozen_string_literal: true
 
     require 'bundler/setup'
     require 'json'
@@ -51,6 +51,7 @@ If you setup the project with the `secure` option, the VCR recordings are also e
     VCR.configure do |config|
       config.cassette_library_dir = "tape_library"
       config.hook_into :webmock
+```
       config.cassette_serializers[:encrypted] = Workato::Testing::VCREncryptedCassetteSerializer.new
       config.register_request_matcher :headers_without_user_agent do |request1, request2|
         request1.headers.except("User-Agent") == request2.headers.except("User-Agent")
@@ -65,7 +66,8 @@ If you setup the project with the `secure` option, the VCR recordings are also e
       }
       config.configure_rspec_metadata!
     end
-```
+
+
 
 TIP
 
@@ -77,7 +79,9 @@ You can do so in `spec_helper.rb`. You can modify the spec_helper to suite your 
 
 Example: Relaxing VCR matching to accept different Authorization Headers by adjusting `spec_helper.rb`
 ```ruby
-    config.register_request_matcher :headers_without_user_agent do |request1, request2|
+config.register_request_matcher :headers_without_user_agent do |request1, request2|
       request1.headers.except('User-Agent', 'Authorization') == request2.headers.except('User-Agent', 'Authorization')
     end
+
+
 ```

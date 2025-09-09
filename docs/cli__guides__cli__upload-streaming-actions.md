@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/upload-streaming-actions.html
-> **Fetched**: 2025-09-08T02:33:49.599444
+> **Fetched**: 2025-09-08T18:34:32.480805
 
 ---
 
@@ -22,9 +22,10 @@ We will be using the [generic upload file to url connector](</developing-connect
 
 With upload file streaming actions, the definition of the input is important here as it has to contain information about an incoming file stream that the action will utilize. There are numerous options to simulate a file stream which we will go over.
 ```ruby
-    execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
+execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
       # Calling workato.stream.in runs in a loop where the input should be file. 
       # It can accept both entire files or the output of a streaming-enabled download file action
+```
       workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range| 
         put(input['url']).
           headers("Content-Range": "bytes #{starting_byte_range}-#{ending_byte_range}/*").
@@ -35,11 +36,12 @@ With upload file streaming actions, the definition of the input is important her
       post(input['url'], { "commit": true } )
 
     end,
-```
+
+
 
 Alongside the execute lambda, you will also need a input JSON file such as `upload_file_input.json` when executing the upload file action in the SDK CLI. Below, we have an example of a mocked stream whose chunks are defined explicitly - each chunk is a separate key in the `chunks` hash.
 ```ruby
-    {
+{
         "file_name": "sample_file",
         "file": {
           # this hash simulates a file stream which is 
@@ -54,11 +56,13 @@ Alongside the execute lambda, you will also need a input JSON file such as `uplo
         },
         "url": "https://www.friendly_upload_url.com"
     }
+
+
 ```
 
 To run the upload file action, you give the same command as you would a standard action.
 ```ruby
-    workato exec actions.upload_to_url.execute --input='upload_file_input.json' --verbose
+workato exec actions.upload_to_url.execute --input='upload_file_input.json' --verbose
 
     SETTINGS
     {}
@@ -98,6 +102,8 @@ To run the upload file action, you give the same command as you would a standard
       "file_path": "/path/to/sample/file",
       "file_name": "file_name"
     }
+
+
 ```
 
 ### [#](<#variations-to-mock-streams>) Variations to mock streams
@@ -110,7 +116,7 @@ Take note that streams can take longer than your average actions to finish execu
 
 Mock streams with each chunk explicitly
 ```ruby
-    {
+{
         "file": {
           "__stream__": true,
           "chunks": {
@@ -121,11 +127,13 @@ Mock streams with each chunk explicitly
           }
         }
     }
+
+
 ```
 
 Mock streams by utilizing a stream implemented for a download file action/trigger in the same connector
 ```ruby
-    {
+{
         "file": {
           "__stream__": true,
           "name": "stream_within_same_connector", # name of the stream in the connector
@@ -134,21 +142,27 @@ Mock streams by utilizing a stream implemented for a download file action/trigge
           }
         },
     }
+
+
 ```
 
 Mock streams by providing a static stream
 ```ruby
-    {
+{
         "file": {
           "data": "123456789",
           "eof": true
         },
     }
+
+
 ```
 
 Mock streams by providing a string
 ```ruby
-    {
+{
+```
         "file": "qwertyuiop[]"
     }
-```
+
+

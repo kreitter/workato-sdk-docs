@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/methods.html
-> **Fetched**: 2025-09-08T02:35:14.010804
+> **Fetched**: 2025-09-08T18:35:56.500001
 
 ---
 
@@ -15,8 +15,9 @@ Reusable methods are the same as custom functions that can be called in any port
 
 ## [#](<#structure>) Structure
 ```ruby
-        methods: {
+methods: {
 
+```
           [Unique_method_name]: lambda do |[unique_argument_name]|
             Array, Hash, String, Int, Boolean
           end,
@@ -25,7 +26,8 @@ Reusable methods are the same as custom functions that can be called in any port
             Array, Hash, String, Int, Boolean
           end
         },
-```
+
+
 
 * * *
 
@@ -46,8 +48,9 @@ Use the `call()` method to reference a method. This method takes in two paramete
 
 Here we have the definition of a recursive method which returns the factorial of a number.
 ```ruby
-        methods: {
+methods: {
           factorial: lambda do |input|
+```
             number = input['number']
             if number > 1
               number * call('factorial', { number: number - 1 })
@@ -56,11 +59,13 @@ Here we have the definition of a recursive method which returns the factorial of
             end
           end
         }
-```
+
+
 ```ruby
-        actions: {
+actions: {
           factorial: {
             input_fields: lambda do
+```
               [
                 { name: "number", type: :integer }
               ]
@@ -70,4 +75,5 @@ Here we have the definition of a recursive method which returns the factorial of
               { factorial: call(:factorial, { number: input['number'] }) }
             end
         },
-```
+
+

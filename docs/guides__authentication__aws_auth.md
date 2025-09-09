@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/aws_auth.html
-> **Fetched**: 2025-09-08T02:34:13.898738
+> **Fetched**: 2025-09-08T18:34:56.545982
 
 ---
 
@@ -24,10 +24,11 @@ Refer to the [IAM role-based authentication for AWS](</security/data-protection/
 
 ## [#](<#sample-connector-generic-connector>) Sample connector - Generic connector
 ```ruby
-    {
+{
       title: "Sample AWS S3 Connector",
 
       connection: {
+```
         fields: [
           {
             name: "aws_auth_type",
@@ -132,7 +133,8 @@ Refer to the [IAM role-based authentication for AWS](</security/data-protection/
         end
       }
     }
-```
+
+
 
 ## [#](<#step-1-defining-connection-fields>) Step 1 - Defining Connection fields
 
@@ -154,7 +156,7 @@ Compared to other ways to authenticate, AWS requires a unique signature for each
 
 Instead, you should use the `aws.generate_signature` method to get the valid URL and signature before making an API call. In our example, you can see that we have created a method `list_buckets` that makes a GET request to S3.
 ```ruby
-        list_buckets: lambda do |connection|
+list_buckets: lambda do |connection|
           signature = aws.generate_signature(
             # The connection object defined earlier.
             connection: connection,
@@ -162,6 +164,7 @@ Instead, you should use the `aws.generate_signature` method to get the valid URL
             service: "s3",
             # The AWS service region you are targeting.
             # For services with a globally unique endpoint such as IAM, use us-east-1.
+```
             region: connection["aws_region"],
             # The host of the API url.
             # Optional and defaults to "#{service}.#{region}.amazonaws.com".
@@ -192,25 +195,29 @@ Instead, you should use the `aws.generate_signature` method to get the valid URL
 
           { "files" => files }
         end
-```
+
+
 
 ## [#](<#step-3-testing-the-connection>) Step 3 - Testing the connection
 
 With the method defined earlier, you'd be able to call this method in the test to verify the user's credentials.
 ```ruby
-      test: lambda do |connection|
+test: lambda do |connection|
         call(:list_buckets, connection)
       end,
+
+
 ```
 
 # [#](<#troubleshooting-tips>) Troubleshooting tips
 
 Ensuring your AWS signature is correct may be hard to verify by testing your connection. Our recommendation is to wrap a simple API request in a method - like what we did with the example above - and stubbing the connection when you first start. This allows you to test an action
 ```ruby
-    {
+{
       title: "Sample AWS S3 Connector",
 
       connection: {
+```
         fields: [
           #  Same fields as earlier
         ],
@@ -238,7 +245,8 @@ Ensuring your AWS signature is correct may be hard to verify by testing your con
         end
       }
     }
-```
+
+
 
 By testing the "sample_action" action, you'll have better insight for debugging into the errors raised by the Workato SDK framework or the AWS API you are connecting to.
 

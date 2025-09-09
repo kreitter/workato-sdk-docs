@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/walkthrough.html
-> **Fetched**: 2025-09-08T02:34:58.940761
+> **Fetched**: 2025-09-08T18:35:41.564204
 
 ---
 
@@ -65,10 +65,11 @@ Open the **Source code** tab.
 
 Copy and paste the following code snippet into the code editor:
 ```ruby
-    {
+{
       title: 'Star Wars Information',
 
       connection: {
+```
         fields: [
           {
             name: "object",
@@ -83,7 +84,8 @@ Copy and paste the following code snippet into the code editor:
 
       # More code below but hidden for now!
     }
-```
+
+
 
 How does this code snippet work?
 
@@ -137,10 +139,11 @@ Complete the following steps to create an action:
 
 Replace the existing code in the **Source code** tab with the following snippet:
 ```ruby
-    {
+{
       title: 'Star Wars Information',
 
       connection: {
+```
         fields: [
           {
             name: "object",
@@ -269,7 +272,8 @@ Replace the existing code in the **Source code** tab with the following snippet:
         },
       }
     }
-```
+
+
 
 How does this code snippet work?
 

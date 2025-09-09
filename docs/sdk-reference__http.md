@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/http.html
-> **Fetched**: 2025-09-08T02:35:12.877628
+> **Fetched**: 2025-09-08T18:35:55.354519
 
 ---
 
@@ -26,21 +26,25 @@ Each HTTP verb method must be provided a `url` string as the first argument. The
 
 Firstly, `input` can be passed as a single hash. This hash can simply be the `input` argument of the `execute` or `poll` argument, such as the following:
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
       get("https://www.some_api_endpoint.com/api", input)
     end
+
+
 ```
 
 The hash can also be formed before like this:
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
       params = {
+```
         "id" => input["id"]
       }
 
       get("https://www.some_api_endpoint.com/api", params)
     end
-```
+
+
 
 The Workato SDK framework processes this hash value and transforms it into the respective data format. For GET, DELETE OPTIONS requests, the hash data is converted to URL query parameters.
 
@@ -48,29 +52,37 @@ For POST, PUT, and PATCH, the payload is formed into the request body into a for
 
 The other method of passing request data is as a series of key/value pairs.
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
+```
       post("https://www.some_api_endpoint.com/api", name: input["name"], email: input["email"])
     end
-```
+
+
 
 All arguments after the first will be transformed into request data. In this case, since the default data format is JSON, the following request body is formed:
 ```ruby
-    {
+{
       "name": "Ee Shan",
+```
       "email": "[[email protected]](</cdn-cgi/l/email-protection>)"
     }
-```
+
+
 
 For a GET request, the following URL parameters are formed.
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
+```
       get("https://www.some_api_endpoint.com/api", name: input["name"], email: input["email"])
     end
-```
+
+
 
 The full request URL string will be:
 ```ruby
-    https://www.some_api_endpoint.com/api?name%3DEe%20Shan%26email%3Deeshan%40workato.com
+https://www.some_api_endpoint.com/api?name%3DEe%20Shan%26email%3Deeshan%40workato.com
+
+
 ```
 
 AUTHENTICATION APPENDS TO THE REQUEST URL
@@ -85,41 +97,51 @@ You may use a variety of other helper methods on Workato by chaining them after 
 
 This method allows you to add a payload to a request and follows the same syntax that we covered above.
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
       post("https://www.some_api_endpoint.com/api")
+```
         .payload(name: input["name"], email: input["email"])
     end
-```
+
+
 
 Resulting the payload of the post request:
 ```ruby
-    {
+{
       "name": "Ee Shan",
+```
       "email": "[[email protected]](</cdn-cgi/l/email-protection>)"
     }
-```
+
+
 
 ## [#](<#params>) params
 
 This method allows you to add a query parameters to a request and follows the same syntax that we covered above. These values will be URL-encoded.
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
       get("https://www.some_api_endpoint.com/api")
+```
         .params(name: input["name"], email: input["email"])
     end
-```
+
+
 ```ruby
-    https://www.some_api_endpoint.com/api?name%3DEe%20Shan%26email%3Deeshan%40workato.com
+https://www.some_api_endpoint.com/api?name%3DEe%20Shan%26email%3Deeshan%40workato.com
+
+
 ```
 
 ## [#](<#headers>) headers
 
 This method allows you to add a headers to a request and follows the same syntax that we covered above. Headers defined here **are not case sensitive.**
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
       get("https://www.some_api_endpoint.com/api")
         .headers(Authorization: "Bearer HTB674HJK1")
     end
+
+
 ```
 
 TIP
@@ -130,16 +152,18 @@ Whilst case sensitive headers are a departure from [RFC (opens new window)](<htt
 
 This method allows you to add SSL certs, keys, passphrases, and intermediates certs.
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
       get("https://www.some_api_endpoint.com/api")
         .tls_client_cert(
+```
           certificate: connection['ssl_client_cert'],
           key: connection['ssl_client_key'],
           passphrase: connection['ssl_key_passphrase'],
           intermediates: connection['ssl_client_intermediate_cert']
         )
     end
-```
+
+
 
 ## [#](<#post-response-processing>) Post-response processing
 
@@ -147,14 +171,16 @@ This method allows you to add SSL certs, keys, passphrases, and intermediates ce
 
 By default, all HTTP verb methods will return the response body of the request. For example, the following request creates a user in **Okta**.
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
+```
       response = post("/api/v1/users", profile: { login: input["email"], displayName: input["name"] })
     end
-```
+
+
 
 `response` variable will a hash that looks like this:
 ```ruby
-    {
+{
       "id": "00ub0oNGTSWTBKOLGLNR",
       "status": "STAGED",
       "created": "2018-03-13T21:36:25.344Z",
@@ -166,6 +192,7 @@ By default, all HTTP verb methods will return the response body of the request. 
       "profile": {
         "firstName": "Ee Shan",
         "lastName": "Sim",
+```
         "email": "[[email protected]](</cdn-cgi/l/email-protection>)",
         "login": "[[email protected]](</cdn-cgi/l/email-protection>)",
         "mobilePhone": null
@@ -177,7 +204,8 @@ By default, all HTTP verb methods will return the response body of the request. 
         }
       }
     }
-```
+
+
 
 ### [#](<#response-handling>) Response handling
 
@@ -185,10 +213,11 @@ By default, all HTTP verb methods will return the response body of the request. 
 
 When a request is sent to the [List all users (opens new window)](<https://developer.okta.com/docs/api/resources/users#list-all-users>) endpoint, the truncated response looks like this.
 ```ruby
-    HTTP/1.1 200 OK
+HTTP/1.1 200 OK
     Content-Type: application/json
     Link: <https://workatotest.okta.com/api/v1/users?limit=200>; rel="self"
 
+```
     [
       {
         "id": "00utti9t3j1xO9jOm2p6",
@@ -204,28 +233,32 @@ When a request is sent to the [List all users (opens new window)](<https://devel
         "_links": {}
       }
     ]
-```
+
+
 
 This response can be broken down into 3 parts. The HTTP response **code** , **header** , and **body**.
 
 `after_response` can be used to handle all these parts of the HTTP response. Suppose I have an action that lists all users and outputs the entire response, including the link to the existing page from the header.
 ```ruby
-    execute: lambda do |connection, input|
+execute: lambda do |connection, input|
       get("/api/v1/users").after_response do |code, body, headers|
         {
           code: code,
+```
           next_link: headers["link"],
           users: body
         }
       end
     end
-```
+
+
 
 The resultant output of this action will contain all 3 parts of the response.
 ```ruby
-    {
+{
       "code": 200,
       "next_link": "<https://workatotest.okta.com/api/v1/users?limit=200>; rel=\"self\"",
+```
       "users": [
         {
           "id": "00utti9t3j1xO9jOm2p6",
@@ -242,7 +275,8 @@ The resultant output of this action will contain all 3 parts of the response.
         }
       ]
     }
-```
+
+
 
 ### [#](<#testing>) Testing
 

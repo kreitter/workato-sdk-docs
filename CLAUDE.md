@@ -1,136 +1,170 @@
-# CLAUDE.md
+# WARP.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to WARP (warp.dev) when working with code in this repository.
 
-## Repository Purpose
+## Repository Overview
 
-This is a documentation mirror system that fetches Workato SDK HTML documentation and converts it to Markdown for local access in Claude Code. It's adapted from claude-code-docs but with significant architectural differences due to Workato only providing HTML (not Markdown) documentation.
+This is a documentation mirror system that automatically fetches Workato SDK HTML documentation and converts it to Markdown for local access in Claude Code. The system provides the `/workato-sdk` command integration for developers working with Workato Connector SDK.
 
 ## Essential Commands
 
 ### Development & Testing
 ```bash
-# Test the fetcher (downloads and converts Workato SDK docs)
+# Test the documentation fetcher (downloads and converts 90+ Workato SDK docs)
 python3 scripts/fetch_workato_docs.py
 
-# Run implementation tests
+# Run all implementation tests
 ./test_implementation.sh
 
 # Install Python dependencies
 pip3 install --user --break-system-packages -r scripts/requirements.txt
 
-# Test installation locally
+# Test full installation locally
 ./install.sh
 
-# Manual documentation update
+# Manual update of documentation cache
 cd ~/.workato-sdk-docs && python3 scripts/fetch_workato_docs.py
 ```
 
-### GitHub Actions
+### GitHub Actions & Deployment
 ```bash
-# Trigger manual workflow run
+# Trigger manual documentation update workflow
 gh workflow run update-docs.yml
 
-# View workflow runs
+# View workflow execution history
 gh run list --workflow=update-docs.yml
+
+# Check workflow logs for debugging
+gh run view <run-id> --log
 ```
 
-## Architecture Overview
+## Architecture & Core Components
 
-### Documentation Fetching Pipeline
+### Documentation Processing Pipeline
+The system uses a multi-stage approach fundamentally different from typical Markdown-based documentation mirrors:
 
-Unlike claude-code-docs which fetches Markdown directly, this system must:
+1. **Direct URL Fetching**: Uses hardcoded list of 90 SDK URLs in `scripts/fetch_workato_docs.py`
+2. **HTML Extraction**: `WorkatoDocsConverter` class extracts main content using BeautifulSoup
+3. **Markdown Conversion**: Converts HTML to clean Markdown using html2text
+4. **Local Storage**: Saves to `docs/` directory with content hashing for change detection
+5. **Command Integration**: Bash script provides `/workato-sdk` command interface for Claude Code
 
-1. **URL List Processing** 
-   - Uses hardcoded list of 90 SDK URLs in `SDK_URLS` constant
-   - No external dependencies on sitemaps or web services
-   - Comprehensive coverage of all SDK documentation pages
-   - Fallback to crawling only if URL list is empty (unlikely)
-
-2. **HTML to Markdown Conversion** (`WorkatoDocsConverter` class)
-   - Extracts main content from HTML using BeautifulSoup
-   - Removes navigation, headers, footers, scripts
-   - Converts HTML to Markdown using html2text
-   - Post-processes to clean conversion artifacts
-
-### Key Components Integration
-
+### Key Files & Responsibilities
 ```
-fetch_workato_docs.py (Python)
-    ↓ Generates docs/*.md files
-install.sh (Bash)
-    ↓ Creates workato-sdk-helper.sh from template
-workato-sdk-helper.sh (Bash)
-    ↓ Provides /workato-sdk command
-Claude Code Integration
+scripts/fetch_workato_docs.py          # Core HTML fetcher and converter
+scripts/workato-sdk-helper.sh.template # Command handler template
+scripts/requirements.txt               # Python dependencies
+install.sh                            # One-command installation
+.github/workflows/update-docs.yml      # Daily auto-update workflow
+docs/                                 # Converted Markdown files
+docs_manifest.json                    # Metadata and change tracking
 ```
 
 ## Critical Implementation Details
 
-### HTML Content Extraction (`scripts/fetch_workato_docs.py`)
-
-The `extract_main_content()` method tries multiple CSS selectors to find documentation content. When Workato changes their HTML structure, update these selectors:
+### HTML Content Extraction Strategy
+When Workato changes their documentation structure, update CSS selectors in `extract_main_content()`:
 
 ```python
 selectors = [
     'main.content',
-    'div.content',
+    'div.content', 
     'article.doc-content',
-    # Add new selectors here if structure changes
+    'div.doc-body',
+    # Add new selectors here if Workato changes HTML structure
 ]
 ```
 
-### URL List Management
+### URL Management System
+The `SDK_URLS` list (lines 36-127 in `fetch_workato_docs.py`) contains all documentation pages:
+- Currently includes 90 SDK documentation URLs
+- Manually curated to avoid external dependencies
+- Excludes import-via-oas pages that aren't SDK-specific
+- Use `is_sdk_url()` only for fallback crawling scenarios
 
-The `SDK_URLS` list contains all documentation pages to fetch. The `is_sdk_url()` method is only used as a fallback for the deprecated crawling approach.
+### Repository Configuration Requirements
+**CRITICAL**: Before deployment, update these hardcoded values:
+- `install.sh` line 17: Update `REPO_URL` from `kreitter` to actual GitHub username
+- `README.md`: Replace all GitHub URLs with correct repository
+- `scripts/workato-sdk-helper.sh.template`: Update GitHub repository references
 
-### Repository Configuration
-
-**IMPORTANT**: Update these before deployment:
-- `install.sh` line 17: `REPO_URL="https://github.com/kreitter/workato-sdk-docs.git"`
-- `README.md`: Replace all instances of `kreitter` with actual GitHub username
-- `scripts/workato-sdk-helper.sh.template`: Update GitHub URLs
-
-## Common Issues & Solutions
+## Common Troubleshooting Scenarios
 
 ### HTML Structure Changes
-If Workato changes their documentation HTML:
-1. Run fetcher to see what fails: `python3 scripts/fetch_workato_docs.py`
-2. Inspect Workato's HTML to find new content selectors
-3. Update `extract_main_content()` selectors in `fetch_workato_docs.py`
-4. Test with single page before full fetch
+If Workato updates their documentation design:
+1. Run `python3 scripts/fetch_workato_docs.py` to identify parsing failures
+2. Inspect failing URLs in browser to identify new HTML structure
+3. Update `extract_main_content()` selectors in `WorkatoDocsConverter` class
+4. Test with single URL before running full fetch
 
-### URL Updates
-- To add new documentation pages, update the `SDK_URLS` list in `fetch_workato_docs.py`
-- The list is hardcoded to avoid external dependencies
-- Last updated: 2025-08-14 with 90 SDK documentation URLs (excludes import-via-oas pages)
+### Content Conversion Issues
+- Modify html2text configuration in `WorkatoDocsConverter.__init__()`
+- Update `post_process_markdown()` for cleanup rules
+- Check for JavaScript-rendered content (may require different extraction approach)
 
-### Conversion Problems
-- Update html2text configuration in `WorkatoDocsConverter.__init__()`
-- Adjust `post_process_markdown()` for cleanup rules
-- Check for JavaScript-rendered content (may need different approach)
+### Installation Problems
+- Verify all dependencies: `git`, `jq`, `curl`, `python3`
+- Check Python packages: `pip3 install requests beautifulsoup4 html2text`
+- Ensure proper file permissions on scripts
+- Clear existing installations if corrupted: `rm -rf ~/.workato-sdk-docs`
 
-## Testing Approach
+## Development Workflow
 
-Always test in this order:
-1. Python imports: `python3 -c "from scripts.fetch_workato_docs import WorkatoDocsConverter"`
-2. Single page fetch: Temporarily modify `SDK_ENTRY_POINTS` to one URL
-3. Full crawl: Run complete fetcher
-4. Installation: Test `install.sh` creates all components correctly
+### Testing Strategy
+Always test in this sequence:
+1. **Python Import Test**: `python3 -c "from scripts.fetch_workato_docs import WorkatoDocsConverter"`
+2. **Single URL Test**: Temporarily modify `SDK_ENTRY_POINTS` to test one URL
+3. **Full Fetch Test**: Run complete documentation fetch
+4. **Installation Test**: Verify `install.sh` creates all components correctly
 
-## GitHub Actions Workflow
+### Adding New Documentation Sections
+1. Add URLs to `SDK_URLS` list in `scripts/fetch_workato_docs.py`
+2. Test fetching: `python3 scripts/fetch_workato_docs.py`
+3. Verify new files appear in `docs/` directory
+4. Check conversion quality in generated Markdown
 
-The workflow (`update-docs.yml`) runs daily and:
-1. Fetches latest SDK documentation
-2. Commits changes if any
-3. Creates issue on failure
-
-To modify schedule, change cron expression on line 6.
+### GitHub Actions Workflow
+- Runs daily at 02:00 UTC (less frequent than typical docs due to SDK stability)
+- Automatically commits changes when documentation updates
+- Creates GitHub issues on fetch failures
+- Modify schedule by changing cron expression in `update-docs.yml` line 6
 
 ## File Naming Convention
 
-URLs are converted to flat filenames:
+URLs are flattened to avoid deep directory structures:
 - `/en/developing-connectors/sdk/sdk-reference.html` → `sdk-reference.md`
-- Subdirectories use double underscores: `advanced/setup.html` → `advanced__setup.md`
+- Nested paths use double underscores: `guides/auth/oauth.html` → `guides__auth__oauth.md`
 
-This avoids deep nesting in the local docs/ directory.
+## Rate Limiting & Reliability
+
+- 1-second delay between requests to respect Workato's servers
+- Retry logic with exponential backoff for failed requests
+- Content hashing prevents unnecessary re-processing of unchanged pages
+- Manifest file tracks fetch metadata and change history
+
+## Integration Points
+
+The system integrates with Claude Code through:
+- `/workato-sdk` command installed to `~/.claude/commands/`
+- Auto-update hooks for keeping documentation current
+- Search capabilities across all SDK documentation
+- Direct linking back to official Workato documentation pages
+
+## Maintenance Requirements
+
+### Regular Updates
+- Monitor GitHub Actions workflow for failures
+- Update `SDK_URLS` list when Workato adds new documentation sections
+- Adjust HTML parsing selectors when Workato redesigns their documentation
+
+### Version Management
+- Script versioning in `workato-sdk-helper.sh.template`
+- Dependency versioning in `requirements.txt`
+- Branch management for stable vs development versions
+
+## Security Considerations
+
+- Input sanitization in bash scripts prevents command injection
+- Rate limiting respects Workato's server resources  
+- No API keys or authentication required (public documentation only)
+- Git-based version control provides audit trail for all changes

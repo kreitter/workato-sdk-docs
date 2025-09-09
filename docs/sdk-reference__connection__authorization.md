@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection/authorization.html
-> **Fetched**: 2025-09-08T02:35:10.528785
+> **Fetched**: 2025-09-08T18:35:53.097165
 
 ---
 
@@ -13,7 +13,7 @@ The `authorization` hash contains all instructions for your connector to retriev
 
 ## [#](<#structure>) Structure
 ```ruby
-      authorization: {
+authorization: {
         type: String,
 
         client_id: lambda do |connection|
@@ -63,6 +63,8 @@ The `authorization` hash contains all instructions for your connector to retriev
 
         noopener: Boolean
       }
+
+
 ```
 
 * * *
@@ -136,9 +138,12 @@ response_type
     This query parameter must be set to `code`. 
     Example: 
 ```ruby
+
+```
     authorization_url: lambda do |connection| "<https://acme.com/api/oauth/authorization?response_type=code>[  (opens new window)](<https://acme.com/api/oauth/authorization?response_type=code>)"
     end,
-```
+
+
 
 You may chose to include scope in your Authorization URLs.
 
@@ -199,13 +204,14 @@ Owner ID
 Other values
     If the API returns tokens with other keys, such as `id_access` and `id_refresh`, you can map them here. Supply an optional hash that can be merged with the original `connection` hash.
 ```ruby
-        acquire: lambda do |connection, auth_code|
+acquire: lambda do |connection, auth_code|
           response = post("https://login.mypurecloud.com/oauth/token").
             payload(
               grant_type: "authorization_code",
               code: auth_code,
               redirect_uri: "https://www.workato.com/oauth/callback"
             )
+```
           [
             { # This hash is for your tokens
           	  access_token: response["access_token"],
@@ -218,7 +224,8 @@ Other values
           	{ instance_id: nil }
           ]
         end,
-```
+
+
 
 The key `refresh_token_expires_in` which denotes the seconds from now that the refresh token will expire. Since Workato only knows to refresh connections when there are jobs, there are cases where short lived refresh tokens may be expired for recipes where jobs come infrequently. For example, if the refresh token expires in 1 week and the recipe is only run once every 2 weeks, both the connection's access and refresh tokens would have expired by the time the recipe is run.
 
@@ -226,13 +233,14 @@ If the key `refresh_token_expires_in` is supplied, Workato will refresh the conn
 
 In some cases, APIs may not respond with expiration times for the refresh token or may respond in actual timestamps. You may also artificially create the `refresh_token_expires_in` value if you know the validity of the refresh token.
 ```ruby
-        acquire: lambda do |connection, auth_code|
+acquire: lambda do |connection, auth_code|
           response = post("https://login.mypurecloud.com/oauth/token").
             payload(
               grant_type: "authorization_code",
               code: auth_code,
               redirect_uri: "https://www.workato.com/oauth/callback"
             )
+```
           [
             { # This hash is for your tokens
           	  access_token: response["access_token"],
@@ -245,13 +253,14 @@ In some cases, APIs may not respond with expiration times for the refresh token 
           	{ instance_id: nil }
           ]
         end,
-```
+
+
 
 Example - acquire: - type: "custom_auth"
 
 If you specify `type` as "custom_auth", the `acquire` lambda function expects the output as a single hash. Workato then merges the output into the original `connection` hash.
 ```ruby
-      authorization: {
+authorization: {
         acquire: lambda do |connection|
           {
             authtoken: get('https://accounts.zoho.com/apiauthtoken/nb/create')
@@ -259,26 +268,32 @@ If you specify `type` as "custom_auth", the `acquire` lambda function expects th
         end,
 
         refresh_on: 401
+
+
 ```
 
 Original `connection` hash:
 ```ruby
-        {
+{
+```
           "email": "[[email protected]](</cdn-cgi/l/email-protection>)", # Given by User
           "password": "pinkfloyd" # Given by User
         }
-```
+
+
 
 When the user clicks the "Connect" button, Workato invokes the `test` lambda with the `connection` hash. If the `test` lambda fails with error code `401` (for example), Workato runs the `acquire` block.
 
 After running the `acquire` block, the `connection` hash looks like this:
 ```ruby
-        {
+{
+```
           "email": "[[email protected]](</cdn-cgi/l/email-protection>)", # Given by User
           "password": "pinkfloyd" # Given by User
           "authtoken": "SAMPLE_TOKEN"
         }
-```
+
+
 
 Workato then attempts to invoke the `test` lambda again, with the new `connection` hash. If the `test` lambda succeeds, the connection appears as `Successful`.
 
@@ -306,8 +321,9 @@ Example - apply
 
 The `apply` block's lambda function can output multiple commands to attach authorization parameters to all requests. The following example illustrates common methods:
 ```ruby
-        apply: lambda do |connection|
+apply: lambda do |connection|
           # Adds in URL parameters passed as a hash object
+```
           # i.e. authtoken=[connection['authtoken']]
           params(authtoken: connection['authtoken'])
 
@@ -327,7 +343,8 @@ The `apply` block's lambda function can output multiple commands to attach autho
           user(connection["username"])
           password(connection["username"])
         end
-```
+
+
 
 ACCESS AND MODIFY THE PAYLOAD OF A CURRENT REQUEST
 
@@ -335,7 +352,8 @@ You can use the `apply` method to access and modify the payload of a current req
 
 The following example demonstrates how to add a `user_id` from the connection to the payload before the final request is sent:
 ```ruby
-    apply: lambda do |connection|
+apply: lambda do |connection|
+```
       if connection['user_id'].present? # Check if user_id exists in the connection
         params = {}
         payload do |current_payload| # Access the current payload
@@ -345,7 +363,8 @@ The following example demonstrates how to add a `user_id` from the connection to
         payload({ "params": params }) # Merge the updated params into the payload
       end
     end
-```
+
+
 
 Here are special variables that you can call in the `apply` lambda function: 
 
@@ -353,26 +372,29 @@ Here are special variables that you can call in the `apply` lambda function:
     Enables matches on the current URL, and applies proper authentication.
 
 ```ruby
-    apply: lambda do |_connection, access_token|
+apply: lambda do |_connection, access_token|
+```
     if current_url.include?('<https://developer.api.autodesk.com/cost/>[  (opens new window)](<https://developer.api.autodesk.com/cost/>)')
     headers('Authorization': "Bearer #{access_token}", 'Content-Type' => 'application/json')
     else
     headers('Authorization': "Bearer #{access_token}", 'Content-Type' => 'application/vnd.api+json')
     end
     end
-```
+
+
 
 `current_verb`
     Enables matches on the current HTTP verb, and applies proper authentication.
 
 ```ruby
-    apply: lambda do |_connection, access_token|
+apply: lambda do |_connection, access_token|
     if current_verb.include?('GET')
     headers('Authorization': "Bearer #{access_token}", 'Content-Type' => 'application/json')
     else
     headers('Authorization': "Bearer #{access_token}", 'Content-Type' => 'application/vnd.api+json')
     end
     end
+
 ```
 
 * * *
@@ -399,13 +421,16 @@ This example demonstrates the multiple approaches for defining what "signals" to
 /Unauthorized/
     The regex expression that matches the body or title of the response
 ```ruby
+
+```
         refresh_on: [
           401,
           'Unauthorized',
           /Unauthorized/,
           /Invalid Ticket Id/
         ]
-```
+
+
 
 * * *
 
@@ -435,11 +460,14 @@ This example demonstrates multiple approaches for defining "signals" to watch in
 /^\\{"response":\\{"error".+$/
     Regex expression that matches the body or title of the response
 ```ruby
+
+```
         detect_on: [
           "sample error message",
           /^\{"response":\{"error".+$/
         ]
-```
+
+
 
 * * *
 
@@ -470,16 +498,19 @@ If the key `refresh_token_expires_in` is supplied, Workato will refresh the conn
 
 For example, if the response from the refresh token url is as follows:
 ```ruby
-    {
+{
       "access_token": "new_access_token",
       "refresh_token": "new_refresh_token",
       "refresh_token_expires_in": 604800 
     }
+
+
 ```
 
 Then you should configure the HTTP request for the API call in the following manner:
 ```ruby
-          refresh: lambda do |connection, refresh_token|
+refresh: lambda do |connection, refresh_token|
+```
             url = "https://#{connection['custom_domain'].presence || 'go.trackvia.com'}"
             response = post("#{url}/oauth/token").payload(
               client_id: connection['client_id'],
@@ -488,11 +519,13 @@ Then you should configure the HTTP request for the API call in the following man
               refresh_token: refresh_token
             ).request_format_www_form_urlencoded
           end,
-```
+
+
 
 Alternatively, to return an array of hashes that override or add new values to your connection hash, implement something like this:
 ```ruby
-        refresh: lambda do |connection, refresh_token|
+refresh: lambda do |connection, refresh_token|
+```
           url = "https://#{connection['custom_domain'].presence || 'go.trackvia.com'}"
           response = post("#{url}/oauth/token").payload(
             client_id: connection['client_id'],
@@ -512,11 +545,13 @@ Alternatively, to return an array of hashes that override or add new values to y
             }
           ]
         end,
-```
+
+
 
 In some cases, APIs may not respond with expiration times for the refresh token or may respond in actual timestamps. You may also artificially create the `refresh_token_expires_in` value if you know the validity of the refresh token.
 ```ruby
-        refresh: lambda do |connection, refresh_token|
+refresh: lambda do |connection, refresh_token|
+```
           url = "https://#{connection['custom_domain'].presence || 'go.trackvia.com'}"
           response = post("#{url}/oauth/token").payload(
             client_id: connection['client_id'],
@@ -536,7 +571,8 @@ In some cases, APIs may not respond with expiration times for the refresh token 
             }
           ]
         end,
-```
+
+
 
 * * *
 
@@ -553,29 +589,35 @@ Type | Lambda function
 Required | False.  
 Description | The lambda allows you to display additional information about the connection object. You can make an HTTP request to retrieve user identity details, or reference existing values from the connection object. Refer to the [acquire lambda documentation (opens new window)](<https://docs.workato.com/developing-connectors/sdk/sdk-reference/connection/authorization.html#acquire>) for details on appending values from the acquire lambda to the connection object. You can reference these values in the `identity` lambda.  
 Possible arguments | `connection` \- A hash representing inputs defined in the `Connection` object.  
-Expected output | A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#2c595f495e6c49544d415c4049024f4341>)", "Refresh token expires in 86400 seconds")  
+Expected output | A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#81f4f2e4f3c1e4f9e0ecf1ede4afe2eeec>)", "Refresh token expires in 86400 seconds")  
 Example - identity
 
 In this example, the `identity` lambda makes an HTTP GET request to retrieve user information from a third-party API. It extracts the user’s email and displays it on the connection page. Use this when the connection object doesn't directly include the email.
 ```ruby
-          identity: lambda do |_connection|
+identity: lambda do |_connection|
+```
             get("https://app.asana.com/api/1.0/users/me")["data"]["email"]
           end,
-```
+
+
 
 You can also use this lambda to return values from the connection object. The following example retrieves the `username` from the connection object:
 ```ruby
-          identity: lambda do |connection|
+identity: lambda do |connection|
+```
             connection["username"]
           end,
-```
+
+
 
 Additionally, you can customize the output of the lambda using values from the connection object to provide detailed information. The following example fetches the Company ID and displays a formatted string on the connection page:
 ```ruby
-          identity: lambda do |connection|
+identity: lambda do |connection|
+```
             "Company ID: #{connection['company_id']}"
           end,
-```
+
+
 
 * * *
 
@@ -632,7 +674,8 @@ Schema for nested authentication definitions
 
 Consider the schema with nested authentication definitions:
 ```ruby
-      options: {
+options: {
+```
         [unique_option_name]: {
             type: String,
 
@@ -675,7 +718,8 @@ Consider the schema with nested authentication definitions:
             ...
         }
       }
-```
+
+
 
 Within the `options` hash, you must define two components for an authentication flow:
 
@@ -684,6 +728,8 @@ Within the `options` hash, you must define two components for an authentication 
 
 Consider this example:
 ```ruby
+
+```
         fields: [
           {
             name: "auth_type",
@@ -740,7 +786,8 @@ Consider this example:
             }
           },
         },
-```
+
+
 
 Here, you we defined 2 authentication flows, `stripe_oauth2` and `stripe_api_key`. These keys can be anything as long as they match the output of the `selected` lambda. In each of the flows, you can see and define all lambdas in the hash. For the `stripe_oauth2` option, we defined the `type` of the authentication flow as `oauth2`, `authorization_url`, `token_url` and the `apply` block.
 

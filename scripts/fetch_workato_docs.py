@@ -262,10 +262,29 @@ class WorkatoDocsConverter:
         markdown = re.sub(r'^\s+$', '', markdown, flags=re.MULTILINE)  # Clean empty lines with spaces
         
         # Replace [code] markers with proper markdown code blocks
-        markdown = re.sub(r'\[code\]\s*\n', '```ruby\n', markdown)
-        markdown = re.sub(r'\n\s*\[/code\]', '\n```', markdown)
-        # Handle inline code (if any)
-        markdown = re.sub(r'\[code\]([^\n]+?)\[/code\]', r'`\1`', markdown)
+        # Handle multi-line code blocks where [code] might have content on the same line
+        # Pattern: [code] followed by optional content, then newline, then more lines, then closing tag
+        def replace_code_block(match):
+            content = match.group(1)
+            # Check if this looks like a shell/bash command (starts with $ or #)
+            if content.strip().startswith('$') or content.strip().startswith('#'):
+                return f'```bash\n{content}\n```'
+            # Default to ruby for Workato SDK docs
+            return f'```ruby\n{content}\n```'
+        
+        # Match [code] blocks that might span multiple lines
+        markdown = re.sub(
+            r'\[code\]\s*([^\[]*)(?:\n\s*)?(?:\[/code\]|$)',
+            replace_code_block,
+            markdown,
+            flags=re.MULTILINE | re.DOTALL
+        )
+        
+        # Clean up any remaining [/code] tags that might be orphaned
+        markdown = re.sub(r'\[/code\]', '', markdown)
+        
+        # Handle inline code (single line between [code] tags)
+        markdown = re.sub(r'\[code\]\s*([^\n\[]+?)\s*\[/code\]', r'`\1`', markdown)
         
         return markdown
 

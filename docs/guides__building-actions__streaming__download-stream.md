@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/download-stream.html
-> **Fetched**: 2025-09-08T02:34:34.482044
+> **Fetched**: 2025-09-08T18:35:17.452836
 
 ---
 
@@ -17,7 +17,7 @@ You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_met
 
 ## [#](<#sample-connector-egnyte>) Sample connector - Egnyte
 ```ruby
-    {
+{
       title: 'My Egnyte connector',
 
       # More connector code here
@@ -32,6 +32,7 @@ You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_met
           help: 'Download file contents from selected folder in Egnyte.',
 
           input_fields: lambda do |object_definitions|
+```
             [
               {
                 name: 'file_path',
@@ -93,7 +94,8 @@ You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_met
 
       # More connector code here
     }
-```
+
+
 
 ## [#](<#step-1-action-title-subtitle-description-and-help>) Step 1 - Action title, subtitle, description, and help
 
@@ -103,7 +105,8 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 ## [#](<#step-2-define-input-fields>) Step 2 - Define input fields
 ```ruby
-      input_fields: lambda do |object_definitions|
+input_fields: lambda do |object_definitions|
+```
         [
           {
             name: 'file_path',
@@ -125,7 +128,8 @@ To know more about this step, take a look at our [SDK reference](</developing-co
           }
         ]
       end
-```
+
+
 
 ![Download file input fields](/assets/img/download_file_input.0581e3c0.png) _Download file input fields_
 
@@ -145,7 +149,8 @@ In our example, we first take the `file_path` given from the input and format it
 
 Next we add one more attribute to the `file_details` output called `file_contents` which is the instantiated file stream using the `workato.stream.out` method. In this method, we define the `stream` lambda function we want to use - `download_file_by_path` \- as well as pass it a hash `{ file_path: file_path, file_size: file_details['size'] }` which will be passed as the input to the lambda function.
 ```ruby
-      execute: lambda do |connection, input|
+execute: lambda do |connection, input|
+```
         file_path = input['file_path']&.gsub(/%2F/, '/')
 
         # This API call retrieves metadata about the file. Not the file itself. 
@@ -155,13 +160,15 @@ Next we add one more attribute to the `file_details` output called `file_content
 
         file_details
       end,
-```
+
+
 
 ## [#](<#step-4-defining-output-fields>) Step 4 - Defining output fields
 
 This section tells us what datapills to show as the output of the trigger. The `name` attributes of each datapill should match the keys in the output hash of the `execute` lambda function.
 ```ruby
-      output_fields: lambda do |object_definitions|
+output_fields: lambda do |object_definitions|
+```
         [
           { name: 'path' },
           { name: 'name' },
@@ -169,7 +176,8 @@ This section tells us what datapills to show as the output of the trigger. The `
           { name: 'file_contents' }
         ]
       end
-```
+
+
 
 To know more about the output fields key, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/actions.html#output-fields>)
 
@@ -189,11 +197,12 @@ Lastly, the output of the streaming callback should be an array of size 2:
   2. The second index is a boolean value that denotes the end of file. In this case, since we can retrieve the expected size (in bytes) of the file, we know that if the ending_byte_range is larger than the file's size, we are at the end of the file.
 
 ```ruby
-      streams: {
+streams: {
         download_file_by_path: lambda do |input, starting_byte_range, ending_byte_range, requested_byte_size|
           # Example starting_byte_range = 0
           # Example ending_byte_range = 10485759 
           # Example requested_byte_size = 10485760 (10MB)
+```
           chunk = get("/pubapi/v1/fs-content/#{input['file_path']}").
                     headers("Range": "bytes=#{starting_byte_range}-#{ending_byte_range}").
                     response_format_raw
@@ -203,7 +212,8 @@ Lastly, the output of the streaming callback should be an array of size 2:
           [chunk, ending_byte_range >= input['file_size']]
         end
       }
-```
+
+
 
 TIP
 

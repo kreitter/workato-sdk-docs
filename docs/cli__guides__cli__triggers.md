@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/triggers.html
-> **Fetched**: 2025-09-08T02:33:48.456909
+> **Fetched**: 2025-09-08T18:34:31.325557
 
 ---
 
@@ -19,10 +19,11 @@ In this segment, we will be going through how you can run triggers using the Wor
 
 The code in `connector.rb`.
 ```ruby
-    {
+{
       title: 'Chargebee-demo',
 
       connection: {
+```
         fields: [
           {
             name: 'api_key',
@@ -130,12 +131,15 @@ The code in `connector.rb`.
 
       },
     }
-```
+
+
 
 Credentials in `settings.yaml.enc` .
 ```ruby
-    api_key: valid_api_key
+api_key: valid_api_key
     domain: valid_domain
+
+
 ```
 
 TIP
@@ -153,9 +157,10 @@ TIP
 Sometimes, you may find yourself with a sample payload request or response. You can also use the `workato generate schema` CLI command to convert this payload easily into Workato schema. Learn more about [Workato CLI generate schema](</developing-connectors/sdk/cli/reference/cli-commands#workato-generate-schema>).
 
 Your output_fields lambda is expected to return Workato schema which corresponds to the input fields we should show to the user. In the case we have above, when you invoke the `output_fields` lambda, the Gem will handle the evaluation of any downstream `object_definitions` or `methods` you have referenced.
-```ruby
-    $ workato exec triggers.new_updated_object.output_fields --config-fields='fixtures/triggers/new_updated_object/customer_config.json'
+```bash
+$ workato exec triggers.new_updated_object.output_fields --config-fields='fixtures/triggers/new_updated_object/customer_config.json'
 
+```
     [
       {
         "name": "customer",
@@ -171,7 +176,8 @@ Your output_fields lambda is expected to return Workato schema which corresponds
         ]
       }
     ]
-```
+
+
 
 TIP
 
@@ -192,13 +198,15 @@ This is done with the command `.poll` which tells the SDK Gem to paginate throug
 
 In this case, the contents of the file `fixtures/triggers/new_updated_object/customer_input_poll.json` contains
 ```ruby
-    {
+{
       "object": "customer",
       "since": "6/09/2021"
     }
+
+
 ```
-```ruby
-    $ workato exec triggers.new_updated_object.poll --input='fixtures/triggers/new_updated_object/customer_input_poll.json' --verbose
+```bash
+$ workato exec triggers.new_updated_object.poll --input='fixtures/triggers/new_updated_object/customer_input_poll.json' --verbose
 
     SETTINGS
     {
@@ -219,6 +227,7 @@ In this case, the contents of the file `fixtures/triggers/new_updated_object/cus
 
     OUTPUT
     {
+```
       "events": [
         {
           "customer": {
@@ -254,7 +263,8 @@ In this case, the contents of the file `fixtures/triggers/new_updated_object/cus
         "offset": null
       }
     }
-```
+
+
 
 Note that we have used `--verbose` so the SDK gem has printed out more information including the API requests and responses.
 
@@ -268,7 +278,7 @@ You can see that the `config_field` \- `object` is passed in the input json. In 
 
 This is done with the command `.poll_page` which tells the SDK Gem to only invoke the `poll` lambda once regardless of the `can_poll_more` value. In the example below, you can see that we have given `.poll` and given the `since` input of `6/09/2021`. The SDK Gem sends a single request and stops execution after the first request is done.
 ```ruby
-    workato exec triggers.new_updated_object.poll_page --input='fixtures/triggers/new_updated_object/customer_input_poll.json' --verbose
+workato exec triggers.new_updated_object.poll_page --input='fixtures/triggers/new_updated_object/customer_input_poll.json' --verbose
 
     SETTINGS
     {
@@ -288,6 +298,7 @@ This is done with the command `.poll_page` which tells the SDK Gem to only invok
 
     OUTPUT
     {
+```
       "events": [
         {
           "customer": {
@@ -323,7 +334,8 @@ This is done with the command `.poll_page` which tells the SDK Gem to only invok
       },
       "can_poll_more": true
     }
-```
+
+
 
 Note that we have used `--verbose` so the SDK gem has printed out more information including the API requests and responses.
 

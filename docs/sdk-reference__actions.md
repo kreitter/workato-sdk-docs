@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/actions.html
-> **Fetched**: 2025-09-08T02:35:08.101958
+> **Fetched**: 2025-09-08T18:35:50.643972
 
 ---
 
@@ -15,8 +15,9 @@ The `actions` key can only be used in both recipes and the SDK **Test code** tab
 
 ## [#](<#structure>) Structure
 ```ruby
-        actions: {
+actions: {
 
+```
           [Unique_action_name]: {
             title: String,
 
@@ -71,7 +72,8 @@ The `actions` key can only be used in both recipes and the SDK **Test code** tab
             ...
           }
         },
-```
+
+
 
 * * *
 
@@ -128,8 +130,9 @@ Example - description:
 
 For the `description` lambda function, you have access to two arguments to make your descriptions dynamic. This is useful when you want to change your description based on how a given user has configured the action. These changes can be incredibly useful for your users to ensure they know what this action is doing without having to click and view the action's configuration to understand what it does.
 ```ruby
-        create_object: {
+create_object: {
           description: lambda do |input, picklist_label|
+```
             "Create a <span class='provider'>#{picklist_label['object'] || 'object'}</span> in " \
             "<span class='provider'>Percolate</span>"
           end,
@@ -145,7 +148,8 @@ For the `description` lambda function, you have access to two arguments to make 
 
           # More keys to define the action
         }
-```
+
+
 
 In the example above, this action is a generic object action. What this means is that the action is made to allow the user to create multiple types of objects which the user will select later on when he configures the recipe. This is done by the user selecting what `object` they wants to create. Since we want the description to change to what object he wants to have selected, the description can be changed to the object selected by referencing the `picklist_label` argument.
 
@@ -172,7 +176,7 @@ The output of the `help` lambda function can either be a simple String or a Hash
   * String
 
 ```ruby
-        help: lambda do |input, picklist_label|
+help: lambda do |input, picklist_label|
           'Create an object in Percolate. First, select from a list of ' \
           'objects that we currently support. After selecting your object,' \
           ' dynamic input fields specific to your scope and object selected ' \
@@ -180,12 +184,14 @@ The output of the `help` lambda function can either be a simple String or a Hash
           ' Creating an approval denotes submitting a specified piece of content' \
           ' or campaign for a specific approval workflow.'
         end,
+
+
 ```
 
   * Hash
 
 ```ruby
-        help: lambda do |input, picklist_label|
+help: lambda do |input, picklist_label|
           {
             body: "First, filter by the object you want then fill up the input fields " \
             "which appear based on the object you have selected. Amongst other things, " \
@@ -194,6 +200,8 @@ The output of the `help` lambda function can either be a simple String or a Hash
             learn_more_text: "Learn more"
           }
         end,
+
+
 ```
 
 ![](/assets/img/help-example.bdfb4b3c.png)
@@ -306,8 +314,9 @@ Extended input and output schema is any schema from `object_definitions` that is
 
 For example, you may use extended_input_schema to know which inputs are datetimes and should be transformed to Epoch time which is accepted by the target API. In the same fashion, you may use extended_output_schema to take the response and transform Epoch variables into ISO8601 datetimes again.
 ```ruby
-        create_object: {
+create_object: {
           description: lambda do |input, picklist_label|
+```
             "Create a <span class='provider'>#{picklist_label['object'] || 'object'}</span> in " \
             "<span class='provider'>Percolate</span>"
           end,
@@ -369,7 +378,8 @@ For example, you may use extended_input_schema to know which inputs are datetime
            object_definitions[object]
           end,
         }
-```
+
+
 
 Example - execute: - continue
 
@@ -381,7 +391,7 @@ Rather than having the user configure this logic in the recipe, you can now embe
 
 To learn more about creating your "multistep" actions, read our guide [here](</developing-connectors/sdk/guides/building-actions/multistep-actions.html>).
 ```ruby
-        multistep_action_sample: {
+multistep_action_sample: {
           input_fields: lambda do |object_definitions, connection, config_fields|
 
           end,
@@ -392,6 +402,7 @@ To learn more about creating your "multistep" actions, read our guide [here](</d
             puts continue
             # nil
             reinvoke_after(seconds: 100, continue: { current_step: 1 })
+```
           elsif continue['current_step'] == 1 #first reinvocation
             puts continue
             # {
@@ -411,7 +422,8 @@ To learn more about creating your "multistep" actions, read our guide [here](</d
 
           end,
         }
-```
+
+
 
 * * *
 
@@ -455,15 +467,18 @@ This example demonstrates how to edit the value of the `continue` hash.
 
 If the `continue` method passed from the `suspend` method is:
 ```ruby
-    {
+{
       "state": "suspended",
       "job_id": "abc_123"
     }
+
+
 ```
 
 and the `before_resume` lambda is:
 ```ruby
-    before_resume: lambda do |data, input, continue|
+before_resume: lambda do |data, input, continue|
+```
       if continue["state"] == "suspended"
         continue["state"] = "resumed"
         continue["payload"] = "important data"
@@ -471,15 +486,18 @@ and the `before_resume` lambda is:
         { "result" => "Unexpected state" }
       end
     end,
-```
+
+
 
 Then the `continue` argument passed to the `execute` lambda looks like this:
 ```ruby
-    {
+{
       "state": "resumed",
       "job_id": "abc_123",
       "payload": "important data"
     }
+
+
 ```
 
 * * *
@@ -519,7 +537,7 @@ Example - output_fields:
 
 Output fields relate directly to the datapills that users see in the recipe editor. The definition of these output fields are mapped to the output of the `execute` lambda function which is a hash.
 ```ruby
-        create_object: {
+create_object: {
          execute: lambda do |connection, input, extended_input_schema, extended_output_schema|
            post("/object/create", input)
            # JSON response passed out of the execute: lambda function.
@@ -531,6 +549,7 @@ Output fields relate directly to the datapills that users see in the recipe edit
          end,
 
          output_fields: lambda do |object_definitions, connection, config_fields|
+```
            [
              {
                name: "id",
@@ -547,7 +566,8 @@ Output fields relate directly to the datapills that users see in the recipe edit
            ]
           end,
         }
-```
+
+
 
 * * *
 
@@ -628,9 +648,10 @@ Example - Implementing the retry mechanism
 
 Retrying an API request is very useful in ensuring that your actions (and recipes) are tolerant to any inconsistencies in the target App. To implement this, you will need to use a combination of the retry_on_response:, retry_on_request: and max_retries: keys.
 ```ruby
-        actions: {
+actions: {
           custom_http: {
             input_fields: lambda do |object_definitions|
+```
               [{ name: 'url', optional: false }]
             end,
 
@@ -651,7 +672,8 @@ Retrying an API request is very useful in ensuring that your actions (and recipe
             max_retries: 3
           }
         }
-```
+
+
 
 * * *
 
@@ -681,7 +703,8 @@ Example - Summarizing inputs and outputs in job data
 
 When working with large arrays or data, Workato tries to show all the data in the input and output tabs of the job for each action. Sometimes, this can get confusing when we are working with a large numbers of records or large strings. You can use the `summarize_input` and `summarize_output` keys to summarize the data in your job input and output tabs to make it more human readable for users of your connector.
 ```ruby
-        input_fields: lambda do
+input_fields: lambda do
+```
           [
             {
               name: 'report',
@@ -712,4 +735,5 @@ When working with large arrays or data, Workato tries to show all the data in th
         end,
 
         summarize_input: ['report.records', 'report.description'],
-```
+
+

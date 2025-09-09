@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/rspec-commands.html
-> **Fetched**: 2025-09-08T02:34:02.382469
+> **Fetched**: 2025-09-08T18:34:45.101140
 
 ---
 
@@ -18,7 +18,7 @@ In summary, the steps for any set of RSpec tests would be to:
   3. Run related RSpec commands using your connector and settings instance.
 
 ```ruby
-    RSpec.describe 'methods/user_tenants', :vcr do
+RSpec.describe 'methods/user_tenants', :vcr do
       let(:connector) { Workato::Connector::Sdk::Connector.from_file('connector.rb', settings) }
       let(:settings) { Workato::Connector::Sdk::Settings.from_default_file }
 
@@ -28,6 +28,8 @@ In summary, the steps for any set of RSpec tests would be to:
         ... # RSpec tests
       end
     end
+
+
 ```
 
 First, you will need to instantiate an instance of your connector using the Gem. This instance of your connector will then be used to call further commands to execute lambdas in your connector. This is the `let(:connector) ...` part of the sample above.
@@ -69,18 +71,22 @@ Do not use named connections
 
 Your settings file should not have named connections. In other words, there must only be one set of credentials. For example this is correct
 ```ruby
-    api_key: valid_api_key
+api_key: valid_api_key
     domain: valid_domain
+
+
 ```
 
 This would be incorrect
 ```ruby
-    My Valid Connection:
+My Valid Connection:
        api_key: valid_api_key
        domain: valid_domain
     My invalid Connection:
        api_key: invalid_api_key
        domain: valid_domain
+
+
 ```
 
 Attribute | Description  
@@ -154,7 +160,7 @@ When executing RSpec for your test lambda, keep in mind that any tokens retrieve
 
 #### [#](<#example-rspec-test-testing-your-connection-and-test-lambda>) Example RSpec test - testing your connection and test lambda
 ```ruby
-    RSpec.describe 'connector', :vcr do
+RSpec.describe 'connector', :vcr do
       let(:connector) { Workato::Connector::Sdk::Connector.from_file('connector.rb', settings) }
       let(:settings) { Workato::Connector::Sdk::Settings.from_default_file }
 
@@ -196,6 +202,8 @@ When executing RSpec for your test lambda, keep in mind that any tokens retrieve
         end
       end
     end
+
+
 ```
 
 * * *
@@ -219,7 +227,7 @@ Usage | `connector.actions.[action_name](input)` or `connector.actions.[action_n
 
 #### [#](<#example-rspec-test-testing-your-entire-action>) Example RSpec test - testing your entire action
 ```ruby
-    RSpec.describe "actions/search_customers", :vcr do
+RSpec.describe "actions/search_customers", :vcr do
 
       # Spec describes the most commons blocks of an action. Remove describes that you don"t need.
       # Ref: https://docs.workato.com/developing-connectors/sdk/cli/guides/cli/actions.html for test examples
@@ -238,6 +246,8 @@ Usage | `connector.actions.[action_name](input)` or `connector.actions.[action_n
         end
       end
     end
+
+
 ```
 
 ### [#](<#testing-your-execute-lambda>) Testing your execute lambda
@@ -261,7 +271,7 @@ Usage | `connector.actions.[action_name].execute(settings, input, extended_input
 
 #### [#](<#example-rspec-test-testing-your-execute-lambda>) Example RSpec test - testing your execute lambda
 ```ruby
-    RSpec.describe "actions/search_customers", :vcr do
+RSpec.describe "actions/search_customers", :vcr do
 
       # Spec describes the most commons blocks of an action. Remove describes that you don"t need.
       # Ref: https://docs.workato.com/developing-connectors/sdk/unit-testing.html#action for test examples
@@ -283,6 +293,8 @@ Usage | `connector.actions.[action_name].execute(settings, input, extended_input
         end
       end
     end
+
+
 ```
 
 ### [#](<#testing-your-input-fields-lambda>) Testing your input_fields lambda
@@ -366,7 +378,7 @@ Usage | `connector.triggers.[trigger_name](input)` or `connector.triggers.[trigg
 
 #### [#](<#example-rspec-test-testing-your-entire-action-2>) Example RSpec test - testing your entire action
 ```ruby
-    RSpec.describe "triggers/new_updated_object", :vcr do
+RSpec.describe "triggers/new_updated_object", :vcr do
 
       # Spec describes the most commons blocks of a trigger.
       # Depending on the type of your trigger remove describes that you don't need.
@@ -386,6 +398,8 @@ Usage | `connector.triggers.[trigger_name](input)` or `connector.triggers.[trigg
         end
       end
     end
+
+
 ```
 
 ### [#](<#testing-your-poll-lambda>) Testing your poll lambda
@@ -409,7 +423,8 @@ How this works
 
 This instance method simulates Workato's polling mechanism on the platform **including the pagination that might occur due to your`can_poll_more` attribute being `true`.** This is collected into a single output from multiple polls. For example: if the 1st poll's output is
 ```ruby
-    {
+{
+```
       events: [
         { 'id' => 2, 'title' => 'Post #2' },
         { 'id' => 1, 'title' => 'Post #1' }
@@ -417,11 +432,13 @@ This instance method simulates Workato's polling mechanism on the platform **inc
       next_poll: 2,
       can_poll_more: true
     }
-```
+
+
 
 and the 2nd polls output is
 ```ruby
-    {
+{
+```
       events: [
         { 'id' => 4, 'title' => 'Post #4' },
         { 'id' => 3, 'title' => 'Post #3' },
@@ -429,11 +446,13 @@ and the 2nd polls output is
       next_poll: 4,
       can_poll_more: false
     }
-```
+
+
 
 The final output of this method is
 ```ruby
-    {
+{
+```
       events: [
         { 'id' => 4, 'title' => 'Post #4' },
         { 'id' => 3, 'title' => 'Post #3' },
@@ -443,7 +462,8 @@ The final output of this method is
       next_poll: 4,
       can_poll_more: false
     }
-```
+
+
 
 ### [#](<#testing-your-poll-page-lambda>) Testing your poll_page lambda
 
@@ -544,8 +564,8 @@ Output | The output of your method lambda
 Usage | `connector.methods.<method_name>(**args)`)  
 
 #### [#](<#example-rspec-test-testing-your-method-lambda>) Example RSpec test - testing your method lambda
-```ruby
-    # frozen_string_literal: true
+```bash
+# frozen_string_literal: true
 
     RSpec.describe "methods/make_schema_builder_fields_sticky", :vcr do
       let(:connector) { Workato::Connector::Sdk::Connector.from_file("connector.rb", settings) }
@@ -561,6 +581,8 @@ Usage | `connector.methods.<method_name>(**args)`)
         end
       end
     end
+
+
 ```
 
 * * *
@@ -581,8 +603,8 @@ Output | The output of your object_definitions lambda
 Usage | `connector.object_definitions.[object_definition_name].fields(settings, config_fields)`  
 
 #### [#](<#example-rspec-test-testing-your-object-definition-lambda>) Example RSpec test - testing your object_definition lambda
-```ruby
-    # frozen_string_literal: true
+```bash
+# frozen_string_literal: true
 
     RSpec.describe "object_definition/compound_type", :vcr do
       let(:connector) { Workato::Connector::Sdk::Connector.from_file("connector.rb", settings) }
@@ -601,6 +623,8 @@ Usage | `connector.object_definitions.[object_definition_name].fields(settings, 
         end
       end
     end
+
+
 ```
 
 * * *
@@ -621,8 +645,8 @@ Output | The output of your pick_lists lambda
 Usage | `connector.pick_lists.<pick_list_name>(settings, **args)`  
 
 #### [#](<#example-rspec-test-testing-your-pick-lists-lambda>) Example RSpec test - testing your pick_lists lambda
-```ruby
-    # frozen_string_literal: true
+```bash
+# frozen_string_literal: true
 
     RSpec.describe "pick_lists/events", :vcr do
       let(:connector) { Workato::Connector::Sdk::Connector.from_file("connector.rb", settings) }
@@ -640,4 +664,6 @@ Usage | `connector.pick_lists.<pick_list_name>(settings, **args)`
         end
       end
     end
+
+
 ```

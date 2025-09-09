@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/test.html
-> **Fetched**: 2025-09-08T02:35:21.223766
+> **Fetched**: 2025-09-08T18:36:03.447473
 
 ---
 
@@ -19,9 +19,11 @@ The `test` lambda is also executed for all types of connections upon recipe star
 
 ## [#](<#structure>) Structure
 ```ruby
-        test: lambda do |connection|
+test: lambda do |connection|
           # see test: documentation for more information
         end
+
+
 ```
 
 * * *
@@ -38,14 +40,18 @@ Example - test:
 
 APIs normally provide an endpoint that returns information about the authenticated user. These endpoints are ideal for your connector to verify that connection has been established.
 ```ruby
-        test: lambda do |connection|
+test: lambda do |connection|
           get('/api/v5/me')
         end
+
+
 ```
 
 In cases where this is not available, you may also choose to use simple requests. Normally this could be to search for results in the target API. These requests should also allow you to verify that the connection is valid.
 ```ruby
-        test: lambda do |connection|
+test: lambda do |connection|
+```
           get("https://person.clearbit.com/v1/people/email/[[email protected]](</cdn-cgi/l/email-protection>)")
         end
-```
+
+

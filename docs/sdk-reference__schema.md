@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html
-> **Fetched**: 2025-09-08T02:35:18.948256
+> **Fetched**: 2025-09-08T18:36:01.245827
 
 ---
 
@@ -17,6 +17,8 @@ These definitions are completely interchangeable for both input and output field
 
 ## [#](<#structure>) Structure
 ```ruby
+
+```
       [
         {
           name: String,
@@ -51,7 +53,8 @@ These definitions are completely interchangeable for both input and output field
           # Another field definition
         }
       ]
-```
+
+
 
 * * *
 
@@ -147,7 +150,7 @@ subdomain |  Control type to indicate a subdomain of a particular site. Typicall
 ![subdomain control type](data:image/png;base64,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)  
 schema-designer |  Control type that allows you to collect schema information from users. This is useful when you need users to give your input during recipe design time to create input or output fields. This requires `extends_schema: true` to take effect. 
 ```ruby
-    {
+{
       name: "schema",
       extends_schema: true,
       schema_neutral: false,
@@ -159,12 +162,13 @@ schema-designer |  Control type that allows you to collect schema information fr
       empty_schema_message: 'Custom empty schema message that allows to <button type="button" data-action="addField">add field</button> and <button type="button" data-action="generateSchema">generate schema</button>',
       sample_data_type: 'csv' # json_input / xml
     },
+
 ```
 
 ![schema-designer](/assets/img/schema_designer.c8e78b2a.png)  
 key_value |  Control type that allows you to collect key and value pairs from users. This is useful when you need users to give your input during recipe design time for URL query parameters. Must be accompanied with `properties` defined and two inputs given. 
 ```ruby
-    {
+{
       name: "key_value",
       control_type: "key_value",
       label: "key_value",
@@ -173,12 +177,14 @@ key_value |  Control type that allows you to collect key and value pairs from us
       item_label: "Query parameter",
       type: "array",
       of: "object",
+```
       properties: [
         { name: "key"},
         { name: "value"}
       ]
     },
-```
+
+
 
 ![key_value](/assets/img/key_value.3c072fb1.png)  
 
@@ -188,7 +194,7 @@ Often, data returned from API request is not a simple one-level JSON. More often
 
 #### [#](<#sample-code-snippet>) Sample code snippet
 ```ruby
-    {
+{
       "id": "00ub0oNGTSWTBKOLGLNR",
       "status": "STAGED",
       "created": "2013-07-02T21:36:25.344Z",
@@ -197,6 +203,7 @@ Often, data returned from API request is not a simple one-level JSON. More often
       "profile": {
         "firstName": "Isaac",
         "lastName": "Brock",
+```
         "email": "[[email protected]](</cdn-cgi/l/email-protection>)",
         "login": "[[email protected]](</cdn-cgi/l/email-protection>)",
         "mobilePhone": "555-415-1337"
@@ -213,13 +220,15 @@ Often, data returned from API request is not a simple one-level JSON. More often
         }
       }
     }
-```
+
+
 
 Nested object field `profile` can be defined `type: :object` with fields nested inside using `properties`. Properties should be an array of fields objects (just like `fields` within the `user` object).
 ```ruby
-    object_definitions: {
+object_definitions: {
       user: {
         fields: lambda do
+```
           [
             {
               name: "id"
@@ -267,7 +276,8 @@ Nested object field `profile` can be defined `type: :object` with fields nested 
         end
       }
     }
-```
+
+
 
 ## [#](<#nested-arrays>) Nested Arrays
 
@@ -275,9 +285,10 @@ The other common type of nested field is an array of objects. This type of field
 
 #### [#](<#sample-code-snippet-2>) Sample code snippet
 ```ruby
-    {
+{
       "data": {
         "id": 12149914544379,
+```
         "email": "[[email protected]](</cdn-cgi/l/email-protection>)",
         "name": "Ee Shan",
         "workspaces": [
@@ -292,13 +303,15 @@ The other common type of nested field is an array of objects. This type of field
         ]
       }
     }
-```
+
+
 
 The `workspaces` array should be given `type: :array` as well as `of: :object`. This tells the `object_definitions` framework that the field contains an array of objects. Similar to nested objects, you must define `properties`, which is an array of fields corresponding to the fields of each object in the `workspaces` array.
 ```ruby
-    object_definitions: {
+object_definitions: {
       user: {
         fields: lambda do
+```
           [
             {
               name: 'id',
@@ -326,7 +339,8 @@ The `workspaces` array should be given `type: :array` as well as `of: :object`. 
         end
       }
     }
-```
+
+
 
 ## [#](<#using-toggle-fields>) Using toggle fields
 
@@ -338,7 +352,7 @@ Toggle fields are often used in conjunction with pick lists. Since pick lists pr
 
 #### [#](<#sample-code-snippet-3>) Sample code snippet
 ```ruby
-        input_fields: lambda do |object_definition, connection, config_fields|
+input_fields: lambda do |object_definition, connection, config_fields|
           {
             name: "parser_id",
             label: "Document Parser",
@@ -358,6 +372,8 @@ Toggle fields are often used in conjunction with pick lists. Since pick lists pr
             }
           },
         end
+
+
 ```
 
 ![toggle primary](/assets/img/toggle-primary.1dad62f3.png) _Primary toggle field_
@@ -374,9 +390,10 @@ In some cases, the input fields you plan to show in an action depend on the answ
 
 #### [#](<#sample-code-snippet-4>) Sample code snippet
 ```ruby
-    object_definitions:
+object_definitions:
       schema_input: {
         fields: lambda do |connection, config_fields, object_definitions|
+```
           input_schema = parse_json(config_fields.dig('schema') || '[]')
           [
             {
@@ -397,7 +414,8 @@ In some cases, the input fields you plan to show in an action depend on the answ
           ].compact
         end
       }
-```
+
+
 
 The preceding code sample demonstrates how to use an input field with `control_type` set to `schema-designer`. By setting `extends_schema` to `true`, user inputs trigger a re-evaluation of the `object_definitions` block. The inputs become `config_fields` for further processing. This setup allows inputs for the `schema` field to directly influence the creation of the `data` input field.
 
@@ -409,9 +427,10 @@ Arrays in Workato input and output schema currently only work with objects. In c
 
 #### [#](<#sample-code-snippet-5>) Sample code snippet
 ```ruby
-    object_definitions: {
+object_definitions: {
       columns: {
         fields: lambda do
+```
           [
             {
               label: 'String Array',
@@ -423,7 +442,8 @@ Arrays in Workato input and output schema currently only work with objects. In c
         end
       }
     }
-```
+
+
 
 ## [#](<#using-ngif-to-conditionally-hide-or-display-fields>) Using ngIf to conditionally hide or display fields
 
@@ -431,9 +451,10 @@ Sometimes, you need to hide or display fields based on a user's input. This coul
 
 #### [#](<#sample-code-snippet-6>) Sample code snippet
 ```ruby
-    object_definitions: {
+object_definitions: {
       create_user: {
         fields: lambda do |_connection, config_fields|
+```
           [
             {
               name: 'assign_new_password',
@@ -456,7 +477,8 @@ Sometimes, you need to hide or display fields based on a user's input. This coul
         end
       }
     }
-```
+
+
 
 ## [#](<#using-convert-input-and-convert-output-for-easy-transformations>) Using `convert_input` and `convert_output` for easy transformations
 
@@ -464,6 +486,8 @@ In most cases, when users map fields to your action's input fields, these values
 
 For example, the schema below:
 ```ruby
+
+```
     [
       {
         name: "account_id",
@@ -471,19 +495,24 @@ For example, the schema below:
         type: "int"
       }
     ]
-```
+
+
 
 When the `input` is passed to the `execute` lambda, it would still arrive in the JSON object as
 ```ruby
-    {
+{
       "account_id": "123"
     }
+
+
 ```
 
 In these cases, you can use `convert_input` to transform the input into its expected data type even before it's passed to the `execute` lambda.
 
 For example:
 ```ruby
+
+```
     [
       {
         name: "account_id",
@@ -492,13 +521,16 @@ For example:
         convert_input: "integer_conversion"
       }
     ]
-```
+
+
 
 With `convert_input` defined, the `input` argument passed to your `execute` lambda is:
 ```ruby
-    {
+{
       "account_id": 123
     }
+
+
 ```
 
 This allows you to configure the expected data formats when defining the schema and allows you to skip any unnecessary code in your `execute` for ensuring data is in the correct format. The same behavior is also seen in reverse when you use `convert_output`, where a value from the output of your `execute` lambda is transformed when its mapped to a output field which contains a `convert_output` attribute.
@@ -529,6 +561,8 @@ In some situations, APIs require you to send data in a specific format. For exam
 
 For example:
 ```ruby
+
+```
     [
       {
         name: 'invoice_date',
@@ -536,22 +570,25 @@ For example:
         convert_input: "epoch_time_conversion"
       }
     ]
-```
+
+
 
 and a matching method named `epoch_time_conversion`:
 ```ruby
-    methods: {
+methods: {
       epoch_time_conversion: lambda do |val|
         val.to_time.to_i
       end
     }
+
+
 ```
 
 which would render inputs such as `"2021-10-27T00:00:00-07:00"` to `1635318000`.
 
 You can also use custom lambdas to perform custom transformations on nested structures. For example, when an API requires you to send a payload in the format:
 ```ruby
-    {
+{
       "data": {
         "name": {
           "value": "abc123"
@@ -561,6 +598,8 @@ You can also use custom lambdas to perform custom transformations on nested stru
         }
       }
     }
+
+
 ```
 
 The corresponding input_field representation might be overly nested, making it cumbersome for users.
@@ -571,6 +610,8 @@ Custom lambdas help you improve the UX of your connector by allowing you to pres
 
 For example:
 ```ruby
+
+```
     [
       {
         name: 'data',
@@ -586,11 +627,12 @@ For example:
         convert_input: "key_value_conversion"
       }
     ]
-```
+
+
 
 and a matching method named `key_value_conversion`:
 ```ruby
-    methods: {
+methods: {
       key_value_conversion: lambda do |val|
         # val in this case is the entire "data" object
         val.map do |key, value|
@@ -602,11 +644,13 @@ and a matching method named `key_value_conversion`:
         end.inject(:merge)
       end
     }
+
+
 ```
 
 Resultant JSON:
 ```ruby
-    {
+{
       "data": {
         "name": {
           "value": "abc123"
@@ -616,6 +660,8 @@ Resultant JSON:
         }
       }
     }
+
+
 ```
 
 ![Flattened fields](/assets/img/after_custom_lambda.847aa4c1.png) _Input fields that produce the same output due to custom lambdas_
@@ -624,6 +670,8 @@ Furthermore, you can call `convert_input` and `convert_output` on schema of type
 
 For example:
 ```ruby
+
+```
     [
       {
         name: 'products',
@@ -640,27 +688,31 @@ For example:
         ]
       }
     ]
-```
+
+
 
 and a matching method named `string_concat_conversion`:
 ```ruby
-    methods: {
+methods: {
       product_conversion: lambda do |val|
         # Render_input is called on each index of the array THEN the whole array
         if val.is_a?(Array)
           val
         else
           {
+```
             val['name'] => val['qty']
           }
         end
       end,
     }
-```
+
+
 
 The user's input would look something like this:
 ```ruby
-    {
+{
+```
       "products": [
         {
           "name": "car",
@@ -672,14 +724,17 @@ The user's input would look something like this:
         }
       ]
     }
-```
+
+
 
 Resultant JSON:
 ```ruby
-    {
+{
+```
       "products": [
         "car": "100" 
         "wrench": "10"
       ]
     }
-```
+
+

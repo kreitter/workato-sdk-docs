@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.html
-> **Fetched**: 2025-09-08T02:34:04.636303
+> **Fetched**: 2025-09-08T18:34:47.376873
 
 ---
 
@@ -13,6 +13,8 @@ Now that we’ve defined objects schema in methods, we can now start building ou
 
 When dealing with object-based actions, we first need to define something called configuration fields. [Configuration fields](</developing-connectors/sdk/sdk-reference/actions.html#config-fields>) are special input fields that you can define whose answers can dynamically generate other input fields.
 ```ruby
+
+```
     config_fields: [
       {
         name: 'object',
@@ -23,7 +25,8 @@ When dealing with object-based actions, we first need to define something called
         hint: 'Select the object type from picklist.'
       }
     ],
-```
+
+
 
 ![Config fields](/assets/img/config_fields.1be94a6f.gif) _Selecting invoice causes invoice related input fields to appear_
 
@@ -37,7 +40,7 @@ You can also use configuration fields to dynamically generate input fields based
 
 It is also highly recommended and really important to define helpful titles and descriptions for your actions. When dealing with object-based actions, this helps with the readability of recipes using your connector as well as improves user experience for those building recipes with your connector.
 ```ruby
-    actions: {
+actions: {
       create_object: {
         title: 'Create object',
 
@@ -45,6 +48,7 @@ It is also highly recommended and really important to define helpful titles and 
 
         description: lambda do |input, picklist_label|
           "Create a <span class='provider'>" \
+```
           "#{picklist_label['object'] || 'object'}</span> in " \
           "<span class='provider'>XYZ Accounting</span>"
         end,
@@ -69,7 +73,8 @@ It is also highly recommended and really important to define helpful titles and 
         # More code truncated here
       }
     }
-```
+
+
 
 Over here we define title and subtitles to give users an idea of the action out of all the different actions in your connector. Remember to keep your title concise whilst using subtitles to provide a bit more information.
 
@@ -85,8 +90,9 @@ Another feature of creating clean and scalable input fields are that a single ac
 
 ### [#](<#input-fields>) Input fields
 ```ruby
-    input_fields: lambda do |object_definitions, connection, config_fields|
+input_fields: lambda do |object_definitions, connection, config_fields|
 
+```
       object = config_fields['object']
 
       input_schema = object_definitions[object] # If user select invoice, evaluates to object_definitions['invoice']
@@ -98,12 +104,14 @@ Another feature of creating clean and scalable input fields are that a single ac
         input_schema
       end
     end,
-```
+
+
 
 ### [#](<#object-definition>) Object definition
 ```ruby
-      object_definitions: {
+object_definitions: {
         invoice: lambda do |connection, config_fields, object_definitions|
+```
           [
             { name: "Id" },
             { name: "TxnDate" },
@@ -131,7 +139,8 @@ Another feature of creating clean and scalable input fields are that a single ac
           ]
         end
       }
-```
+
+
 
 When the object definition `invoice` is called, the schema relevant to the invoice is returned. In the `input_fields`, we then conditionally filter out the `id` field as it is not applicable to the creation of an invoice and should not be shown.
 
@@ -149,7 +158,7 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
 
 ### [#](<#execute-block>) Execute block
 ```ruby
-    execute: lambda do |connection,input|
+execute: lambda do |connection,input|
       object_name = input.delete('object')
 
       response = call('create_#{object_name}_execute', payload).
@@ -159,13 +168,17 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
 
       formatted_response
     end,
+
+
 ```
 
 ### [#](<#action-object-method>) `action`-`object` method
 ```ruby
-    create_invoice_execute: lambda do |payload|
+create_invoice_execute: lambda do |payload|
       post('api/invoice/create', payload)
     end,
+
+
 ```
 
 ## [#](<#defining-the-output-fields>) Defining the output fields
@@ -174,12 +187,14 @@ Output fields can be defined in the same way as input fields using the same sche
 
 ### [#](<#output-fields>) Output fields
 ```ruby
-    output_fields: lambda do |object_definitions, connection, config_fields|
+output_fields: lambda do |object_definitions, connection, config_fields|
+```
       object = config_fields['object']
 
       input_schema = object_definitions[object] # If user select invoice, evaluates to object_definitions['invoice']
     end,
-```
+
+
 
 No further manipulation is needed as the invoice schema contained in `object_definition['invoice']` matches the fields returned from the API exactly.
 
@@ -189,7 +204,7 @@ Below, we go through one full example for an update object action in XYZ account
 
 ### [#](<#sample-code>) Sample code
 ```ruby
-    methods: {
+methods: {
       update_invoice_execute: lambda do |payload|
         patch('api/invoice/update', payload)
       end,
@@ -214,6 +229,7 @@ Below, we go through one full example for an update object action in XYZ account
 
         description: lambda do |input, picklist_label|
           "Update a <span class='provider'>" \
+```
           "#{picklist_label['object'] || 'object'}</span> in " \
           "<span class='provider'>XYZ Accounting</span>"
         end,
@@ -282,7 +298,8 @@ Below, we go through one full example for an update object action in XYZ account
       end,
       # More picklists below
     }
-```
+
+
 
 The example below showcases all the different steps needed to create an update object action. Currently this code only shows support for a single object - `Invoices`. The structure for the update object action is largely identical to that of the create object action where configuration fields, titles, subtitles, descriptions, help text, input fields, output fields, execute, and sample output blocks are defined generically. Most of the magic happens in object definitions and methods where object-specific code is introduced to retrieve specific schema and make HTTP calls to endpoints related to that object.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/picklists.html
-> **Fetched**: 2025-09-08T02:35:16.364534
+> **Fetched**: 2025-09-08T18:35:58.804205
 
 ---
 
@@ -22,8 +22,9 @@ Pick lists are a great way to make your connector easier to use when the API onl
 
 ## [#](<#structure>) Structure
 ```ruby
-        pick_lists: {
+pick_lists: {
 
+```
           [Unique_pick_list_name]: lambda do |connection, pick_list_parameters|
             Array
           end,
@@ -32,7 +33,8 @@ Pick lists are a great way to make your connector easier to use when the API onl
             Array
           end
         },
-```
+
+
 
 * * *
 
@@ -48,13 +50,16 @@ Expected Output | Array of Array
 
 Pick_lists outputs should be a 2D array in the following format:
 ```ruby
+
+```
     [
       [ "Picklist Label", "Value" ],
       [ "Picklist Label", "Value" ],
       [ "Picklist Label", "Value" ],
       [ "Picklist Label", "Value" ]
     ]
-```
+
+
 
 \- pick_lists not allowed for connections fields
 
@@ -64,7 +69,8 @@ When defining enumerable values for connection fields, take note that you may no
 
 Instead, you may define these fields statically and using the schema attribute - `options`
 ```ruby
-    connection: {
+connection: {
+```
       fields: [
         {
           name: 'environment',
@@ -77,7 +83,8 @@ Instead, you may define these fields statically and using the schema attribute -
         }
       ]
     }
-```
+
+
 
 Example - pick_lists: - Static
 
@@ -85,7 +92,8 @@ Pick_lists can be static. When referenced, this definition would return the arra
 
 ![](/assets/img/static_picklist.5f9188f3.png)
 ```ruby
-        input_fields: lambda do |object_definitions|
+input_fields: lambda do |object_definitions|
+```
           [
             {
               name: 'event_category',
@@ -94,10 +102,12 @@ Pick_lists can be static. When referenced, this definition would return the arra
             }
           ]
         end,
-```
+
+
 ```ruby
-        pick_lists: {
+pick_lists: {
           events: lambda do |connection|
+```
             [
               ["Meeting","meeting"],
               ["Webinar","webinar"],
@@ -106,7 +116,8 @@ Pick_lists can be static. When referenced, this definition would return the arra
             ]
           end
         },
-```
+
+
 
 Example - pick_lists: - dependent & static
 
@@ -114,7 +125,8 @@ Dependent pick lists allow you to change the contents of a pick list based on th
 
 ![](/assets/img/dependent_picklist.58a1fa9b.gif)
 ```ruby
-        input_fields: lambda do |_object_definitions|
+input_fields: lambda do |_object_definitions|
+```
           [
             {
               name: 'country',
@@ -131,10 +143,12 @@ Dependent pick lists allow you to change the contents of a pick list based on th
             }
           ]
         end
-```
+
+
 ```ruby
-        pick_lists: {
+pick_lists: {
           countries: lambda do |_connection|
+```
           [
             ['United States', 'USA'],
             ['India', 'IND']
@@ -154,7 +168,8 @@ Dependent pick lists allow you to change the contents of a pick list based on th
           }[country]
           end
         }
-```
+
+
 
 Example - pick_lists: - dependent & dynamic
 
@@ -164,7 +179,8 @@ In this example, we used the `.pluck` function to do the transformation.
 
 ![](/assets/img/dynamic_dependent_picklist.cc817402.gif)
 ```ruby
-        input_fields: lambda do |_object_definitions|
+input_fields: lambda do |_object_definitions|
+```
           [
             {
               name: 'scope_id',
@@ -183,10 +199,12 @@ In this example, we used the `.pluck` function to do the transformation.
             }
           ]
         end
-```
+
+
 ```ruby
-        pick_lists: {
+pick_lists: {
           tenant_licenses: lambda do |connection|
+```
             app_id = get("api/v5/client/client:#{connection['client_id']}")&.
                        dig('data', 'app_id')
             tenant_id = get("/api/v5/app/#{app_id}")&.dig('data', 'tenant_id')
@@ -203,7 +221,8 @@ In this example, we used the `.pluck` function to do the transformation.
               pluck('name', 'id')
           end,
         }
-```
+
+
 
 Example - pick_lists: - tree
 
@@ -211,7 +230,8 @@ Workato also allows for `tree` type picklists. Tree picklists are often used to 
 
 To best explain this, we will use the concept of a file and folder structure, where folders might contain additional folders or files. All folders and files are considered nodes, while the main distinction is that folders might have child nodes whereas files may not. When you define a tree picklist, each time the user clicks on a folder node, the picklist is re-evaluated to build out the child nodes within it. The value of the folder node that the user clicked on can be found by `args&.[](:__parent_id)`. If this value is nil, this indicates that we are at the root node.
 ```ruby
-        input_fields: lambda do |_object_definitions|
+input_fields: lambda do |_object_definitions|
+```
           [
             {
               name: 'path',
@@ -222,11 +242,13 @@ To best explain this, we will use the concept of a file and folder structure, wh
             },
           ]
         end
-```
+
+
 ```ruby
-        pick_lists: {
+pick_lists: {
           file_path: lambda do |_connection, **args|
             # Get sub folders
+```
             if (folder_path = args&.[](:__parent_id)).presence
               path = []
               response = get("/pubapi/v1/fs#{folder_path}").params(list_content: true, sort_by: 'name')
@@ -243,13 +265,15 @@ To best explain this, we will use the concept of a file and folder structure, wh
             end
           end,
         }
-```
+
+
 
 ![](/assets/img/tree-file-only.a2e08ad6.gif)
 
 In the above case, we have wanted to only allow users to select files to be downloaded. However, in a variety of cases, you might want to allow users to also select folders (the nodes) as you want them to provide a path to a folder instead of a file. This can be configured like below:
 ```ruby
-        input_fields: lambda do |_object_definitions|
+input_fields: lambda do |_object_definitions|
+```
           [
             {
               name: 'path',
@@ -263,11 +287,13 @@ In the above case, we have wanted to only allow users to select files to be down
             },
           ]
         end
-```
+
+
 
 Another variation is when you need to allow end users to select multiple folders. This can be configured like below:
 ```ruby
-        input_fields: lambda do |_object_definitions|
+input_fields: lambda do |_object_definitions|
+```
           [
             {
               name: 'path',
@@ -283,4 +309,5 @@ Another variation is when you need to allow end users to select multiple folders
             },
           ]
         end
-```
+
+

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/wait-for-resume-actions.html
-> **Fetched**: 2025-09-08T02:34:39.098483
+> **Fetched**: 2025-09-08T18:35:22.032713
 
 ---
 
@@ -45,9 +45,10 @@ On the SDK level, there are new callbacks in actions that enable you to suspend 
 
 Sample custom connector code
 ```ruby
-    {
+{
       actions: {
         wait_for_webhook: {
+```
           config_fields: [
             {
               name: 'url',
@@ -114,7 +115,8 @@ Sample custom connector code
         }
       }
     }
-```
+
+
 
 This guide does not elaborate on the details of the standard attributes of the action. Refer to our [SDK actions reference](</developing-connectors/sdk/sdk-reference/actions.html>) documentation to learn about the basic structure of actions.
 
