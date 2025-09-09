@@ -42,11 +42,13 @@ This will:
 
 ### Prerequisites
 
+- **Claude Code** - The CLI tool this integrates with ([install here](https://claude.ai/code))
 - **git** - For cloning and updating the repository
-- **jq** - For JSON processing (install with `apt install jq` or `brew install jq`)
-- **curl** - For downloading the installation script
-- **python3** - For fetching and converting documentation
-- **Claude Code** - The CLI tool this integrates with
+- **jq** - For JSON processing
+  - macOS: `brew install jq`
+  - Linux: `apt install jq` or `yum install jq`
+- **curl** - For downloading the installation script (usually pre-installed)
+- **python3** - Version 3.8 or higher
 
 Python dependencies (installed automatically):
 - `requests` - For HTTP requests
@@ -172,9 +174,23 @@ Edit `scripts/fetch_workato_docs.py` to:
 
 ### Repository Settings
 
-Update these in `install.sh`:
-- `REPO_URL` - Your GitHub repository
-- `INSTALL_BRANCH` - Branch to install from
+The installer automatically detects the repository URL in this order:
+1. **Environment Variable**: Set `WORKATO_SDK_REPO_URL` to override
+2. **Auto-detection**: Detects from current git repository (for forks)
+3. **Default**: Falls back to `kreitter/workato-sdk-docs`
+
+```bash
+# Using a fork with auto-detection
+git clone https://github.com/yourusername/workato-sdk-docs.git
+cd workato-sdk-docs
+./install.sh  # Automatically uses your fork
+
+# Or override with environment variable
+WORKATO_SDK_REPO_URL="https://github.com/yourusername/workato-sdk-docs.git" \
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/kreitter/workato-sdk-docs/main/install.sh)"
+```
+
+To change the branch, edit `INSTALL_BRANCH` in `install.sh`
 
 ## 🐛 Troubleshooting
 
@@ -285,4 +301,4 @@ This is an unofficial tool not affiliated with Workato, Inc. It's a community pr
 
 ---
 
-**Note**: Remember to update the repository URL in the installation script and README after creating your GitHub repository.
+**Note**: The installer automatically detects forked repositories. No manual URL updates needed!

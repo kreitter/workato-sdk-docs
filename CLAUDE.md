@@ -1,6 +1,6 @@
-# WARP.md
+# CLAUDE.md
 
-This file provides guidance to WARP (warp.dev) when working with code in this repository.
+This file provides guidance to Claude and AI assistants when working with code in this repository.
 
 ## Repository Overview
 
@@ -10,11 +10,8 @@ This is a documentation mirror system that automatically fetches Workato SDK HTM
 
 ### Development & Testing
 ```bash
-# Test the documentation fetcher (downloads and converts 90+ Workato SDK docs)
+# Test the documentation fetcher (downloads and converts 91 Workato SDK docs)
 python3 scripts/fetch_workato_docs.py
-
-# Run all implementation tests
-./test_implementation.sh
 
 # Install Python dependencies
 pip3 install --user --break-system-packages -r scripts/requirements.txt
@@ -43,7 +40,7 @@ gh run view <run-id> --log
 ### Documentation Processing Pipeline
 The system uses a multi-stage approach fundamentally different from typical Markdown-based documentation mirrors:
 
-1. **Direct URL Fetching**: Uses hardcoded list of 90 SDK URLs in `scripts/fetch_workato_docs.py`
+1. **Direct URL Fetching**: Uses hardcoded list of 91 SDK URLs in `scripts/fetch_workato_docs.py`
 2. **HTML Extraction**: `WorkatoDocsConverter` class extracts main content using BeautifulSoup
 3. **Markdown Conversion**: Converts HTML to clean Markdown using html2text
 4. **Local Storage**: Saves to `docs/` directory with content hashing for change detection
@@ -77,16 +74,16 @@ selectors = [
 
 ### URL Management System
 The `SDK_URLS` list (lines 36-127 in `fetch_workato_docs.py`) contains all documentation pages:
-- Currently includes 90 SDK documentation URLs
+- Currently includes 91 SDK documentation URLs
 - Manually curated to avoid external dependencies
 - Excludes import-via-oas pages that aren't SDK-specific
 - Use `is_sdk_url()` only for fallback crawling scenarios
 
 ### Repository Configuration Requirements
-**CRITICAL**: Before deployment, update these hardcoded values:
-- `install.sh` line 17: Update `REPO_URL` from `kreitter` to actual GitHub username
-- `README.md`: Replace all GitHub URLs with correct repository
-- `scripts/workato-sdk-helper.sh.template`: Update GitHub repository references
+**NOTE**: The installer automatically detects forked repositories. No manual URL updates needed!
+- `install.sh` automatically detects the repository URL from git remote or environment variable
+- Forks are handled automatically - just clone your fork and run `./install.sh`
+- Override with `WORKATO_SDK_REPO_URL` environment variable if needed
 
 ## Common Troubleshooting Scenarios
 
@@ -113,7 +110,7 @@ If Workato updates their documentation design:
 ### Testing Strategy
 Always test in this sequence:
 1. **Python Import Test**: `python3 -c "from scripts.fetch_workato_docs import WorkatoDocsConverter"`
-2. **Single URL Test**: Temporarily modify `SDK_ENTRY_POINTS` to test one URL
+2. **Single URL Test**: Temporarily modify `SDK_URLS` list or test with a subset
 3. **Full Fetch Test**: Run complete documentation fetch
 4. **Installation Test**: Verify `install.sh` creates all components correctly
 
@@ -145,7 +142,7 @@ URLs are flattened to avoid deep directory structures:
 ## Integration Points
 
 The system integrates with Claude Code through:
-- `/workato-sdk` command installed to `~/.claude/commands/`
+- `/workato-sdk` command installed as `~/.claude/commands/workato-sdk.md`
 - Auto-update hooks for keeping documentation current
 - Search capabilities across all SDK documentation
 - Direct linking back to official Workato documentation pages
