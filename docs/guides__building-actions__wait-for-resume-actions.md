@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/wait-for-resume-actions.html
-> **Fetched**: 2025-09-10T02:29:56.711017
+> **Fetched**: 2025-09-11T02:32:14.661087
 
 ---
 
