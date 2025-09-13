@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/static-webhook.html
-> **Fetched**: 2025-09-12T02:30:38.117148
+> **Fetched**: 2025-09-13T02:25:21.059299
 
 ---
 
