@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/triggers.html
-> **Fetched**: 2025-09-18T02:31:23.353495
+> **Fetched**: 2025-09-18T16:01:09.644845
 
 ---
 
@@ -183,7 +183,7 @@ new_updated_object: {
 
 
 
-In the example above, this action is a generic object action. What this means is that the action is made to allow the user to create multiple types of objects which the user will select later on when he configures the recipe. This is done by the user selecting what `object` they wants to create. Since we want the description to change to what object he wants to have selected, the description can be changed to the object selected by referencing the `picklist_label` argument.
+In the preceding example, the action is a generic object action that allows the user to choose between multiple object types when configuring the recipe. You can change the description of the object the user selects by referencing the `picklist_label` argument.
 
 ![](/assets/img/trigger-description-example.2c423386.gif)
 

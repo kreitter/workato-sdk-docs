@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multistep-actions.html
-> **Fetched**: 2025-09-18T02:30:33.204481
+> **Fetched**: 2025-09-18T16:00:18.545302
 
 ---
 
@@ -289,7 +289,7 @@ output_fields: lambda do |object_definitions, config_fields|
 
 Object definitions
 
-In this example, we make use of the `output_fields` given to us by the user in his input fields. Here is the object definition of `query_output`.
+In this example, we make use of the `output_fields` given to us by the user in their input fields. Here is the object definition of `query_output`.
 ```ruby
 query_output: {
       fields: lambda do |connection, config_fields, object_definitions|

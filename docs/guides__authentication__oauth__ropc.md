@@ -1,13 +1,13 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/ropc.html
-> **Fetched**: 2025-09-18T02:30:23.863670
+> **Fetched**: 2025-09-18T16:00:09.034218
 
 ---
 
 # [#](<#how-to-guide-oauth-2-0-resource-owner-password-credentials-authentication>) How-to Guide - OAuth 2.0 Resource owner password credentials authentication
 
-The OAuth 2.0 resource owner password credentials flow is traditionally a way for server to server authentication. This allows you to build a connector that can authenticate as the Workato server which communicates to your target API server. This flow allows the exchanging he username and password of a user for an access token and optionally, a refresh token.
+The OAuth 2.0 resource owner password credentials flow is traditionally a server-to-server authentication method. This allows you to build a connector that can authenticate as the Workato server and communicate to your target API server. This flow allows the exchange of a user's username and password for an access token and, optionally, a refresh token.
 
 ## [#](<#sample-connector-microsoft-entra-id>) Sample Connector - Microsoft Entra ID
 ```ruby
