@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code.html
-> **Fetched**: 2025-09-22T02:34:42.511396
+> **Fetched**: 2025-09-23T02:30:51.541899
 
 ---
 

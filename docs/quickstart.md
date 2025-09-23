@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart.html
-> **Fetched**: 2025-09-22T02:35:20.794988
+> **Fetched**: 2025-09-23T02:32:00.315597
 
 ---
 
@@ -70,10 +70,14 @@ Replace all
 
 ## [#](<#deleting-a-custom-connector>) Deleting a custom connector
 
-A Workato account can have any number of custom connectors in its registry. However, if you have to delete a custom connector, you cannot do that if it is part of active running recipes. You must first stop the listed recipes, and then proceed to deleting the connector.
+Click **Delete** to delete a custom connector.
+
+![Delete a custom connector](/assets/img/delete-custom-connector.ad807a95.png)_Delete a custom connector_
+
+You can't delete a custom connector that’s used by an active recipe. If the connector is in use, Workato displays the associated active recipes when you click **Delete**. You must stop the listed recipes before deleting the connector.
 
 ![Delete prevention popup](/assets/img/prevent-delete-popup.4af4e7e5.png) _Stop or edit these recipes to delete a custom connector_
 
-Workato reminds you again of any stopped recipes that the deletion of this custom connector affects. Note that deleting a custom connectors does not delete its clones; they are separate copies, not dependents.
+Workato shows any stopped recipes that will be affected by the deletion. Deleting a custom connector doesn't delete its clones. Clones are independent copies.
 
 ![Delete popup warning](/assets/img/delete-popup-warning.4d137da6.png) _When you delete a custom connector, you cannot recover it_
