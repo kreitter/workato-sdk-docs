@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2025-09-23T02:32:16.157773
+> **Fetched**: 2025-09-24T02:32:23.734238
 
 ---
 
@@ -9,7 +9,7 @@ WHITELIST REMOVAL
 
 Workato has removed whitelisting for its SDK framework, starting March 2025. This means that developers can now access the full functionality of Ruby 2.7, including built-in libraries, and any available Ruby gems in the SDK container. This change significantly expands the range of capabilities SDK developers can leverage within the platform.
 
-[Learn more (opens new window)](<https://docs.workato.com/developing-connectors/sdk/sdk-reference/whitelist-removal.html>) about the capabilities available with the removal of ruby whitelisting.
+[Learn more](</developing-connectors/sdk/sdk-reference/whitelist-removal.html>) about the capabilities available with the removal of ruby whitelisting.
 
 This enhancement doesn't apply to the Ruby code connector.
 
@@ -979,7 +979,7 @@ Create an array of strings by formatting each row of given array.
 
 
 
-See [format_map (opens new window)](<http://docs.workato.com/formulas/array-list-formulas.html#formatmap>) method definition.
+See [format_map](</formulas/array-list-formulas.html#formatmap>) method definition.
 
 * * *
 
@@ -1322,7 +1322,7 @@ Lookup a record from your lookup tables defined in Workato.
 
 
 
-See [lookup (opens new window)](<http://docs.workato.com/formulas/other-formulas.html#lookup>) method definition.
+See [lookup](</formulas/other-formulas.html#lookup>) method definition.
 
 * * *
 
