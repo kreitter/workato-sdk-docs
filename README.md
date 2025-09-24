@@ -28,25 +28,29 @@ This tool provides:
 
 ### Installation
 
-Run this single command:
+Recommended (one-liner with uvx)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/kreitter/workato-sdk-docs/main/install.sh | bash
+# Install/enable Workato SDK Docs and the /workato-sdk command (if Claude is installed)
+uvx --from git+https://github.com/kreitter/workato-sdk-docs.git workato-sdk-install
 ```
 
-This will:
-1. Install to `~/.workato-sdk-docs`
-2. Create the `/workato-sdk` slash command in Claude Code
-3. Set up automatic updates
-4. Fetch the latest SDK documentation
+Alternative (developer workflow; runs locally with uv)
+
+```bash
+# macOS: install uv
+brew install uv
+
+# Run the fetcher in an isolated environment (avoids PEP 668)
+uv run python scripts/fetch_workato_docs.py
+```
+
+Note: The old installer (install.sh) is deprecated to avoid system-wide pip installs.
 
 ### Prerequisites
 
 - **Claude Code** - The CLI tool this integrates with ([install here](https://claude.ai/code))
 - **git** - For cloning and updating the repository
-- **jq** - For JSON processing
-  - macOS: `brew install jq`
-  - Linux: `apt install jq` or `yum install jq`
 - **curl** - For downloading the installation script (usually pre-installed)
 - **python3** - Version 3.8 or higher
 
@@ -134,8 +138,13 @@ workato-sdk-docs/
 To manually update the documentation:
 
 ```bash
-cd ~/.workato-sdk-docs
-python3 scripts/fetch_workato_docs.py
+uv run python scripts/fetch_workato_docs.py
+```
+
+Or re-run the installer to refresh and reconfigure Claude integration:
+
+```bash
+uvx --from git+https://github.com/kreitter/workato-sdk-docs.git workato-sdk-install
 ```
 
 ## 🔍 Advanced Features
@@ -174,10 +183,10 @@ Edit `scripts/fetch_workato_docs.py` to:
 
 ### Repository Settings
 
-The installer automatically detects the repository URL in this order:
-1. **Environment Variable**: Set `WORKATO_SDK_REPO_URL` to override
-2. **Auto-detection**: Detects from current git repository (for forks)
-3. **Default**: Falls back to `kreitter/workato-sdk-docs`
+The installer accepts the repository URL via env or flags:
+1. Environment variable: `WORKATO_SDK_REPO_URL`
+2. Flag override: `workato-sdk-install --repo <url>`
+3. Default: `https://github.com/kreitter/workato-sdk-docs.git`
 
 ```bash
 # Using a fork with auto-detection
@@ -293,10 +302,10 @@ This is an unofficial tool not affiliated with Workato, Inc. It's a community pr
 
 ## 📊 Status
 
-- **Version**: 3.0.0
-- **Last Updated**: 2025-08-14
+- **Version**: 3.1.0
+- **Last Updated**: 2025-09-24
 - **Compatibility**: macOS, Linux
-- **Python**: 3.8+
+- **Python**: 3.10+
 - **Claude Code**: All versions
 
 ---

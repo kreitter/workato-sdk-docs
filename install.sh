@@ -1,23 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
-# Error handler function
-error_exit() {
-    echo "❌ Error: $1" >&2
-    exit 1
-}
-
-# Trap errors and provide context
-trap 'error_exit "Installation failed at line $LINENO. Please check the error messages above."' ERR
-
-# Workato SDK Docs Installer v1.0
-# This script installs workato-sdk-docs to ~/.workato-sdk-docs
-
-echo "Workato SDK Docs Installer v1.0"
-echo "================================"
-
-# Fixed installation location
-INSTALL_DIR="$HOME/.workato-sdk-docs"
+echo "This installer is deprecated."
+echo "Use: uv run python scripts/fetch_workato_docs.py"
+echo "If you don't have uv: macOS -> brew install uv, docs: https://docs.astral.sh/uv/"
+exit 1
 
 # Branch to use for installation
 INSTALL_BRANCH="main"

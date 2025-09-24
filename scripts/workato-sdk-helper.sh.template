@@ -46,12 +46,12 @@ auto_update() {
 
     if [[ "$LOCAL" != "$REMOTE" ]] && [[ "$BEHIND" -gt 0 ]]; then
         echo "🔄 Updating SDK documentation..." >&2
-        git pull --quiet origin "$BRANCH" 2>&1 | grep -v "Merge made by" || true
+git pull --quiet origin "$BRANCH" 2>&1 | grep -v "Merge made by" || true
 
-        # Check if installer needs updating
+        # Check if installer needs updating (deprecated installer is non-fatal)
         if [[ -f "./install.sh" ]]; then
             echo "🔧 Updating Workato SDK Docs installer..." >&2
-            ./install.sh >/dev/null 2>&1
+            ./install.sh >/dev/null 2>&1 || true
         fi
     fi
 
@@ -211,10 +211,10 @@ read_doc() {
         
         if [[ "$LOCAL" != "$REMOTE" ]] && [[ "$BEHIND" -gt 0 ]]; then
             echo "🔄 Updating to latest SDK documentation..."
-            git pull --quiet origin "$COMPARE_BRANCH" 2>&1 | grep -v "Merge made by" || true
+git pull --quiet origin "$COMPARE_BRANCH" 2>&1 | grep -v "Merge made by" || true
 
             if [[ -f "./install.sh" ]]; then
-                ./install.sh >/dev/null 2>&1
+                ./install.sh >/dev/null 2>&1 || true
             fi
 
             # Auto-commit timestamp changes after update
