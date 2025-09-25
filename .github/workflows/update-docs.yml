@@ -21,23 +21,18 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         ref: main
     
-    - name: Set up Python
-      uses: actions/setup-python@v5
+    - name: Set up uv
+      uses: astral-sh/setup-uv@v3
       with:
-        python-version: '3.11'
-    
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r scripts/requirements.txt
-    
+        version: "latest"
+
     - name: Fetch latest SDK documentation
       id: fetch-docs
       env:
         GITHUB_REPOSITORY: ${{ github.repository }}
         GITHUB_REF_NAME: ${{ github.ref_name }}
       run: |
-        python scripts/fetch_workato_docs.py || echo "fetch_failed=true" >> $GITHUB_OUTPUT
+        uv run python scripts/fetch_workato_docs.py || echo "fetch_failed=true" >> $GITHUB_OUTPUT
       continue-on-error: true
     
     - name: Check for changes

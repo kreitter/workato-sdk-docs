@@ -45,7 +45,7 @@ brew install uv
 uv run python scripts/fetch_workato_docs.py
 ```
 
-Note: The old installer (install.sh) is deprecated to avoid system-wide pip installs.
+Note: The old installer (install.sh) is deprecated in favor of uv-based installation.
 
 ### Prerequisites
 
@@ -252,14 +252,15 @@ This removes:
 git clone https://github.com/kreitter/workato-sdk-docs.git
 cd workato-sdk-docs
 
-# Install Python dependencies
-pip3 install -r scripts/requirements.txt
+# Install uv if not already installed
+# macOS: brew install uv
+# Linux: curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Test the fetcher
-python3 scripts/fetch_workato_docs.py
+# Test the fetcher with uv (auto-installs dependencies)
+uv run python scripts/fetch_workato_docs.py
 
 # Test installation
-./install.sh
+uvx --from . workato-sdk-install --no-claude
 ```
 
 ### Contributing
