@@ -47,7 +47,7 @@ gh run view <run-id> --log
 
 ### Documentation Processing Pipeline
 
-1. **Direct URL Fetching**: Hardcoded list of 91 SDK URLs in `scripts/fetch_workato_docs.py` (lines 36-127)
+1. **Direct URL Fetching**: Hardcoded list of 90 SDK URLs in `scripts/fetch_workato_docs.py` (lines 36-127)
 2. **HTML Extraction**: `WorkatoDocsConverter` class extracts content using BeautifulSoup selectors
 3. **Markdown Conversion**: html2text converts with custom configuration
 4. **Local Storage**: `docs/` directory with content hashing for change detection
@@ -62,7 +62,7 @@ scripts/
   fetch_workato_docs.py         # Core fetcher (WorkatoDocsConverter class)
   workato-sdk-helper.sh.template # Command handler for Claude Code
 .github/workflows/update-docs.yml # Daily GitHub Actions update (02:00 UTC)
-docs/                           # Generated Markdown files (91 SDK docs)
+docs/                           # Generated Markdown files (90 SDK docs)
 docs_manifest.json              # Change tracking and metadata
 ```
 
@@ -82,7 +82,7 @@ selectors = [
 ```
 
 ### URL Management
-- `SDK_URLS` list (lines 36-127): 91 hardcoded SDK documentation URLs
+- `SDK_URLS` list (lines 36-127): 90 hardcoded SDK documentation URLs
 - No crawling or discovery - explicit list prevents scope creep
 - Excludes non-SDK pages (e.g., import-via-oas)
 - Add new URLs directly to list when Workato adds documentation
