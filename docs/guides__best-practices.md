@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2025-09-24T02:31:33.632897
+> **Fetched**: 2025-09-25T02:32:23.354161
 
 ---
 
@@ -93,14 +93,14 @@ These best practices relate directly to the development of a custom connector on
     * Example:
 ```ruby
 fields: lambda do |_connection, _config_fields|
-            {
-                name: 'sub_domain',
-                control_type: 'subdomain',
-                url: '.salesforce.com',
-                optional: false,
-                hint: 'Provide salesforce sub-domain for example, <code>test_instance</code>'
-            }
-          end
+          {
+              name: 'sub_domain',
+              control_type: 'subdomain',
+              url: '.salesforce.com',
+              optional: false,
+              hint: 'Provide salesforce sub-domain for example, <code>test_instance</code>'
+          }
+        end
 
 
 ```

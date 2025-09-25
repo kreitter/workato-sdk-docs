@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/getting-started.html
-> **Fetched**: 2025-09-24T02:31:00.432428
+> **Fetched**: 2025-09-25T02:31:50.329114
 
 ---
 
@@ -31,7 +31,7 @@ Learn more [here (opens new window)](<https://www.ruby-lang.org/en/documentation
 You can verify your Ruby version by running the following command, or the appropriate command for your Ruby version manager (for example: `rvm current`):
 ```bash
 $ ruby -v
-        ruby 2.7.X
+    ruby 2.7.X
 
 
 ```
