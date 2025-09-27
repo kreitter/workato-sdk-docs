@@ -154,3 +154,7 @@ This is an unofficial tool not affiliated with Workato, Inc. It's a community pr
 - **Version**: 3.1.0 | **Python**: 3.10+ | **Docs**: 90 SDK pages
 - **Compatibility**: macOS, Linux | All Claude Code versions
 # Test comment
+# Another test comment
+# Final test comment
+# Fixed integration tests
+# All tests passing
