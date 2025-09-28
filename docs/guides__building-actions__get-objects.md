@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/get-objects.html
-> **Fetched**: 2025-09-28T02:34:58.257965
+> **Fetched**: 2025-09-27T19:18:26.007905
 
 ---
 
@@ -15,7 +15,8 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
 
 ## [#](<#sample-connector-zuora>) Sample connector - Zuora
 ```ruby
-{
+
+    {
       title: 'My Zuora connector',
 
       # More connector code here
@@ -26,14 +27,13 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
           subtitle: "Retrieves details of an account in Zuora",
 
           description: lambda do |input, picklist_label|
-            "Get an <span class='provider'>account</span> in " \ 
+            "Get an <span class='provider'>account</span> in " \
             "<span class='provider'>Zuora</span>"
           end,
 
           help: "Retrieves the information of an existing account in Zuora",
 
           input_fields: lambda do |object_definitions|
-```
             [
               {
                 name: "id",
@@ -61,6 +61,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
     }
 
 
+```
 
 ![Selecting the get account action](/assets/img/get_overall.35232818.png) _Selecting the get account action_
 
@@ -72,8 +73,8 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 ## [#](<#step-2-define-input-fields>) Step 2 - Define input fields
 ```ruby
-input_fields: lambda do |object_definitions|
-```
+
+      input_fields: lambda do |object_definitions|
         [
           {
             name: "id",
@@ -84,6 +85,7 @@ input_fields: lambda do |object_definitions|
       end
 
 
+```
 
 ![Get account input fields](/assets/img/get_input.b0f6e957.png) _Get account input fields_
 
@@ -103,8 +105,8 @@ The execute key tells Workato the endpoint to send the request to and using whic
 
 For this get action, we append the `id` \- Account ID input by the user to the API endpoint to tell Workato and subsequently Zuora, which specific account to retrieve.
 ```ruby
-execute: lambda do |connection, input|
-```
+
+      execute: lambda do |connection, input|
         get("https://rest.zuora.com/v1/object/account/#{input["id"]}", input).
           after_error_response(/.*/) do |_, body, _, message|
             error("#{message}: #{body}")
@@ -112,6 +114,7 @@ execute: lambda do |connection, input|
       end
 
 
+```
 
 ![Get account error](/assets/img/create_error.d2fefe6d.png) _Error example_
 
@@ -121,14 +124,15 @@ To know more about the execute key, take a look at our [SDK reference](</develop
 
 This section tells us what datapills to show as the output of the trigger. The `name` attributes of each datapill should match the keys in the output of the `execute` key.
 ```ruby
-output_fields: lambda do |object_definitions|
-```
+
+      output_fields: lambda do |object_definitions|
         [
           # Various output fields
         ]
       end
 
 
+```
 
 ![Get account output fields](/assets/img/get_output.74815f89.png) _Get account output fields_
 

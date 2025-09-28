@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import argparse
 import json
 import os
@@ -60,7 +61,8 @@ def write_claude_command() -> None:
     COMMANDS_DIR.mkdir(parents=True, exist_ok=True)
     cmd_path = COMMANDS_DIR / "workato-sdk.md"
     content = (
-        "Execute the Workato SDK Docs helper script at ~/.workato-sdk-docs/workato-sdk-helper.sh\n\n"
+        "Execute the Workato SDK Docs helper script at\n"
+        "~/.workato-sdk-docs/workato-sdk-helper.sh\n\n"
         "Usage:\n"
         "- /workato-sdk - List all available SDK documentation topics\n"
         "- /workato-sdk <topic> - Read specific SDK documentation\n"
@@ -73,7 +75,7 @@ def write_claude_command() -> None:
         "/workato-sdk -t\n\n"
         "Every request checks for the latest documentation from GitHub.\n"
         "The helper script handles all functionality including auto-updates.\n\n"
-        "Execute: ~/.workato-sdk-docs/workato-sdk-helper.sh \"$ARGUMENTS\"\n"
+        'Execute: ~/.workato-sdk-docs/workato-sdk-helper.sh "$ARGUMENTS"\n'
     )
     cmd_path.write_text(content)
     print("✓ Created /workato-sdk command for Claude Code")
@@ -111,10 +113,12 @@ def update_claude_settings() -> None:
     pre = _dedupe_hooks(pre)
 
     # Add our hook
-    pre.append({
-        "matcher": "Read",
-        "hooks": [{"type": "command", "command": HOOK_COMMAND}],
-    })
+    pre.append(
+        {
+            "matcher": "Read",
+            "hooks": [{"type": "command", "command": HOOK_COMMAND}],
+        }
+    )
 
     base["hooks"]["PreToolUse"] = pre
     SETTINGS_JSON.write_text(json.dumps(base, indent=2))
@@ -124,7 +128,8 @@ def update_claude_settings() -> None:
 def initial_fetch() -> None:
     print("Fetching Workato SDK documentation (initial run)...")
     try:
-        run([sys.executable, str(INSTALL_DIR / "scripts" / "fetch_workato_docs.py")], cwd=INSTALL_DIR)
+        script_path = INSTALL_DIR / "scripts" / "fetch_workato_docs.py"
+        run([sys.executable, str(script_path)], cwd=INSTALL_DIR)
         print("✓ Initial fetch complete")
     except subprocess.CalledProcessError:
         print(

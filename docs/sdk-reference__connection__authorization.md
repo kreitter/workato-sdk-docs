@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection/authorization.html
-> **Fetched**: 2025-09-28T02:35:38.654398
+> **Fetched**: 2025-09-27T19:19:05.024690
 
 ---
 
@@ -13,7 +13,8 @@ The `authorization` hash contains all instructions for your connector to retriev
 
 ## [#](<#structure>) Structure
 ```ruby
-authorization: {
+
+      authorization: {
         type: String,
 
         client_id: lambda do |connection|
@@ -71,59 +72,59 @@ authorization: {
 
 ## [#](<#type>) `type`
 
-Attribute | Description  
----|---  
-Key | `type`  
-Type | String  
-Required | True  
-Description | Denotes the type of authentication used for this connector.  
-Expected Output | **One of the following:**   
-"basic_auth" - Used for Basic authentication.   
-"api_key" - Used for API key authentication.   
-"oauth2" - Used only for OAuth 2.0 **Auth Code Grant flows**. For other OAuth variations, use "custom_auth".   
-"custom_auth" - Free form authentication. Use this for multi-step, JWT, or non-standard Auth methods.   
-"multi" - Allows you to define multiple authentication methods at once  
+Attribute | Description
+---|---
+Key | `type`
+Type | String
+Required | True
+Description | Denotes the type of authentication used for this connector.
+Expected Output | **One of the following:**
+"basic_auth" - Used for Basic authentication.
+"api_key" - Used for API key authentication.
+"oauth2" - Used only for OAuth 2.0 **Auth Code Grant flows**. For other OAuth variations, use "custom_auth".
+"custom_auth" - Free form authentication. Use this for multi-step, JWT, or non-standard Auth methods.
+"multi" - Allows you to define multiple authentication methods at once
 
 * * *
 
 ## [#](<#client-id>) `client_id`
 
-Attribute | Description  
----|---  
-Key | `client_id`  
-Type | lambda function  
-Required | True if `type` is "oauth2". Ignored otherwise  
-Description | Defines the client_id to use in Authorization URL and Token URL requests  
-Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`  
-Expected Output | `String` i.e. `#{connection['client_id']}`  
+Attribute | Description
+---|---
+Key | `client_id`
+Type | lambda function
+Required | True if `type` is "oauth2". Ignored otherwise
+Description | Defines the client_id to use in Authorization URL and Token URL requests
+Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`
+Expected Output | `String` i.e. `#{connection['client_id']}`
 
 * * *
 
 ## [#](<#client-secret>) `client_secret`
 
-Attribute | Description  
----|---  
-Key | `client_secret`  
-Type | lambda function  
-Required | True if `type` is "oauth2" and `acquire` is not defined. Ignored otherwise  
-Description | Defines the client_secret to use in Token URL requests  
-Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`  
-Expected Output | `String` i.e. `#{connection['client_secret']}`  
+Attribute | Description
+---|---
+Key | `client_secret`
+Type | lambda function
+Required | True if `type` is "oauth2" and `acquire` is not defined. Ignored otherwise
+Description | Defines the client_secret to use in Token URL requests
+Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`
+Expected Output | `String` i.e. `#{connection['client_secret']}`
 
 * * *
 
 ## [#](<#authorization-url>) `authorization_url`
 
-Attribute | Description  
----|---  
-Key | `authorization_url`  
-Type | lambda function  
-Required | True if the `type` is "oauth2"; ignored otherwise.  
-Description | Denotes the authorization URL that users should be sent to in OAuth 2.0 Auth code grant flow.  
-Possible Arguments | `connection` \- Hash representing user-given inputs defined in `Connection`.  
-Expected Output | `String`   
-Example: `"https://podio.com/oauth/authorize"`   
-or `"#{connection['domain']}/oauth/authorize"`  
+Attribute | Description
+---|---
+Key | `authorization_url`
+Type | lambda function
+Required | True if the `type` is "oauth2"; ignored otherwise.
+Description | Denotes the authorization URL that users should be sent to in OAuth 2.0 Auth code grant flow.
+Possible Arguments | `connection` \- Hash representing user-given inputs defined in `Connection`.
+Expected Output | `String`
+Example: `"https://podio.com/oauth/authorize"`
+or `"#{connection['domain']}/oauth/authorize"`
 
 Workato automatically appends these standard OAuth 2.0 parameters for the authorization URL:
 
@@ -132,18 +133,18 @@ state
 redirect_uri
     Set to `https://www.workato.com/oauth/callback`; does not have to be configured.
 
-Configure the following query parameter manually: 
+Configure the following query parameter manually:
 
 response_type
-    This query parameter must be set to `code`. 
-    Example: 
+    This query parameter must be set to `code`.
+    Example:
 ```ruby
 
-```
     authorization_url: lambda do |connection| "<https://acme.com/api/oauth/authorization?response_type=code>[  (opens new window)](<https://acme.com/api/oauth/authorization?response_type=code>)"
     end,
 
 
+```
 
 You may chose to include scope in your Authorization URLs.
 
@@ -151,18 +152,18 @@ You may chose to include scope in your Authorization URLs.
 
 ## [#](<#token-url>) `token_url`
 
-Attribute | Description  
----|---  
-Key | `token_url`  
-Type | lambda function  
-Required | True if `type` is "oauth2" and `acquire` is not defined. Ignored otherwise.  
-Description | Denotes the token URL that used to receive an access_token  
-Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`  
-Expected Output | `String`   
-i.e. `"https://podio.com/oauth/token"`   
-or `"#{connection['domain']}/oauth/token"`  
+Attribute | Description
+---|---
+Key | `token_url`
+Type | lambda function
+Required | True if `type` is "oauth2" and `acquire` is not defined. Ignored otherwise.
+Description | Denotes the token URL that used to receive an access_token
+Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`
+Expected Output | `String`
+i.e. `"https://podio.com/oauth/token"`
+or `"#{connection['domain']}/oauth/token"`
 
-Workato automatically appends the following standard OAuth 2.0 parameters for the token URL: 
+Workato automatically appends the following standard OAuth 2.0 parameters for the token URL:
 
 grant_type
     Always set to `authorization_code`
@@ -179,20 +180,20 @@ client_secret
 
 ## [#](<#acquire>) `acquire`
 
-Attribute | Description  
----|---  
-Key | `acquire`  
-Type | lambda function  
-Required | True if `type` is "custom_auth".   
-Optional if `type` is "oauth2"   
-Ignored otherwise  
-Description | If `type` is "custom_auth", the `acquire` lambda function is only run if `refresh_on` or `detect_on` is triggered.   
-If `type` is "oauth2", the `acquire` lambda function is run after we receive the callback from the authorization_url.  
-Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`   
-`auth_code` \- Only applicable if `type` is "oauth2". String representing the auth_code received from Authorization URL callback.   
-`redirect_uri` \- Provides the appropriate redirect URI based on the Workato DC you are in. e.g. US DC would be `https://www.workato.com/oauth/callback`.   
-`verifier` \- Used only in PKCE authentication, whereby you will have access to the verifier defined in the `pkce` lambda.  
-Expected Output | **Variable - see examples below.**  
+Attribute | Description
+---|---
+Key | `acquire`
+Type | lambda function
+Required | True if `type` is "custom_auth".
+Optional if `type` is "oauth2"
+Ignored otherwise
+Description | If `type` is "custom_auth", the `acquire` lambda function is only run if `refresh_on` or `detect_on` is triggered.
+If `type` is "oauth2", the `acquire` lambda function is run after we receive the callback from the authorization_url.
+Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`
+`auth_code` \- Only applicable if `type` is "oauth2". String representing the auth_code received from Authorization URL callback.
+`redirect_uri` \- Provides the appropriate redirect URI based on the Workato DC you are in. e.g. US DC would be `https://www.workato.com/oauth/callback`.
+`verifier` \- Used only in PKCE authentication, whereby you will have access to the verifier defined in the `pkce` lambda.
+Expected Output | **Variable - see examples below.**
 Example - acquire: - type: "oauth2"
 
 If you specify `type` as "oauth2", the `acquire` block expects the output as an array of hashes. The array must contain the following values, in sequence:
@@ -204,14 +205,14 @@ Owner ID
 Other values
     If the API returns tokens with other keys, such as `id_access` and `id_refresh`, you can map them here. Supply an optional hash that can be merged with the original `connection` hash.
 ```ruby
-acquire: lambda do |connection, auth_code|
+
+        acquire: lambda do |connection, auth_code|
           response = post("https://login.mypurecloud.com/oauth/token").
             payload(
               grant_type: "authorization_code",
               code: auth_code,
               redirect_uri: "https://www.workato.com/oauth/callback"
             )
-```
           [
             { # This hash is for your tokens
           	  access_token: response["access_token"],
@@ -226,6 +227,7 @@ acquire: lambda do |connection, auth_code|
         end,
 
 
+```
 
 The key `refresh_token_expires_in` which denotes the seconds from now that the refresh token will expire. Since Workato only knows to refresh connections when there are jobs, there are cases where short lived refresh tokens may be expired for recipes where jobs come infrequently. For example, if the refresh token expires in 1 week and the recipe is only run once every 2 weeks, both the connection's access and refresh tokens would have expired by the time the recipe is run.
 
@@ -233,14 +235,14 @@ If the key `refresh_token_expires_in` is supplied, Workato will refresh the conn
 
 In some cases, APIs may not respond with expiration times for the refresh token or may respond in actual timestamps. You may also artificially create the `refresh_token_expires_in` value if you know the validity of the refresh token.
 ```ruby
-acquire: lambda do |connection, auth_code|
+
+        acquire: lambda do |connection, auth_code|
           response = post("https://login.mypurecloud.com/oauth/token").
             payload(
               grant_type: "authorization_code",
               code: auth_code,
               redirect_uri: "https://www.workato.com/oauth/callback"
             )
-```
           [
             { # This hash is for your tokens
           	  access_token: response["access_token"],
@@ -255,12 +257,14 @@ acquire: lambda do |connection, auth_code|
         end,
 
 
+```
 
 Example - acquire: - type: "custom_auth"
 
 If you specify `type` as "custom_auth", the `acquire` lambda function expects the output as a single hash. Workato then merges the output into the original `connection` hash.
 ```ruby
-authorization: {
+
+      authorization: {
         acquire: lambda do |connection|
           {
             authtoken: get('https://accounts.zoho.com/apiauthtoken/nb/create')
@@ -274,26 +278,28 @@ authorization: {
 
 Original `connection` hash:
 ```ruby
-{
-```
+
+        {
           "email": "[[email protected]](</cdn-cgi/l/email-protection>)", # Given by User
           "password": "pinkfloyd" # Given by User
         }
 
 
+```
 
 When the user clicks the "Connect" button, Workato invokes the `test` lambda with the `connection` hash. If the `test` lambda fails with error code `401` (for example), Workato runs the `acquire` block.
 
 After running the `acquire` block, the `connection` hash looks like this:
 ```ruby
-{
-```
+
+        {
           "email": "[[email protected]](</cdn-cgi/l/email-protection>)", # Given by User
           "password": "pinkfloyd" # Given by User
           "authtoken": "SAMPLE_TOKEN"
         }
 
 
+```
 
 Workato then attempts to invoke the `test` lambda again, with the new `connection` hash. If the `test` lambda succeeds, the connection appears as `Successful`.
 
@@ -306,13 +312,13 @@ Workato runs `acquire` only when the system triggers `refresh_on`, because `conn
 
 ## [#](<#apply>) `apply`
 
-Attribute | Description  
----|---  
-Key | `apply`  
-Type | lambda function  
-Required | True  
-Description | Defines the authentication parameters Workato adds to subsequent HTTP requests in the connector.  
-Possible arguments | 
+Attribute | Description
+---|---
+Key | `apply`
+Type | lambda function
+Required | True
+Description | Defines the authentication parameters Workato adds to subsequent HTTP requests in the connector.
+Possible arguments |
 
   * `connection` \- Hash representing user given inputs defined in `Connection`.
   * `access_token` \- Only applicable if `type` is "oauth2". Represents the `access_token` received from Token URL or `acquire` block.
@@ -321,9 +327,9 @@ Example - apply
 
 The `apply` block's lambda function can output multiple commands to attach authorization parameters to all requests. The following example illustrates common methods:
 ```ruby
-apply: lambda do |connection|
+
+        apply: lambda do |connection|
           # Adds in URL parameters passed as a hash object
-```
           # i.e. authtoken=[connection['authtoken']]
           params(authtoken: connection['authtoken'])
 
@@ -345,6 +351,7 @@ apply: lambda do |connection|
         end
 
 
+```
 
 ACCESS AND MODIFY THE PAYLOAD OF A CURRENT REQUEST
 
@@ -352,8 +359,8 @@ You can use the `apply` method to access and modify the payload of a current req
 
 The following example demonstrates how to add a `user_id` from the connection to the payload before the final request is sent:
 ```ruby
-apply: lambda do |connection|
-```
+
+    apply: lambda do |connection|
       if connection['user_id'].present? # Check if user_id exists in the connection
         params = {}
         payload do |current_payload| # Access the current payload
@@ -365,15 +372,16 @@ apply: lambda do |connection|
     end
 
 
+```
 
-Here are special variables that you can call in the `apply` lambda function: 
+Here are special variables that you can call in the `apply` lambda function:
 
 `current_url`
     Enables matches on the current URL, and applies proper authentication.
 
 ```ruby
-apply: lambda do |_connection, access_token|
-```
+
+    apply: lambda do |_connection, access_token|
     if current_url.include?('<https://developer.api.autodesk.com/cost/>[  (opens new window)](<https://developer.api.autodesk.com/cost/>)')
     headers('Authorization': "Bearer #{access_token}", 'Content-Type' => 'application/json')
     else
@@ -382,12 +390,14 @@ apply: lambda do |_connection, access_token|
     end
 
 
+```
 
 `current_verb`
     Enables matches on the current HTTP verb, and applies proper authentication.
 
 ```ruby
-apply: lambda do |_connection, access_token|
+
+    apply: lambda do |_connection, access_token|
     if current_verb.include?('GET')
     headers('Authorization': "Bearer #{access_token}", 'Content-Type' => 'application/json')
     else
@@ -403,13 +413,13 @@ apply: lambda do |_connection, access_token|
 
 This is an optional array of signals that identify when the system must re-acquire credentials. When it receives an error response (400, 401, 500...), the SDK framework checks the list of signals. If it finds a match, it triggers a re-authorization by running either the `refresh` lambda function for `type: oauth2` connections, or the `acquire` block for `type: custom_auth` connections.
 
-Attribute | Description  
----|---  
-Key | `refresh_on`  
-Type | Array  
-Required | False. If not defined, will default to one attempt at re-acquiring credentials for all errors.  
-Description | Tells Workato when to refresh authentication credentials. This accepts an array of integers which are matched to HTTP response codes or Regex expressions which are matched on the response body.  
-Expected Output | Array of ints or strings - `[ 401, /Unauthorized/ ]`  
+Attribute | Description
+---|---
+Key | `refresh_on`
+Type | Array
+Required | False. If not defined, will default to one attempt at re-acquiring credentials for all errors.
+Description | Tells Workato when to refresh authentication credentials. This accepts an array of integers which are matched to HTTP response codes or Regex expressions which are matched on the response body.
+Expected Output | Array of ints or strings - `[ 401, /Unauthorized/ ]`
 Example - `refresh_on`:
 
 This example demonstrates the multiple approaches for defining what "signals" to watch.
@@ -422,7 +432,6 @@ This example demonstrates the multiple approaches for defining what "signals" to
     The regex expression that matches the body or title of the response
 ```ruby
 
-```
         refresh_on: [
           401,
           'Unauthorized',
@@ -431,6 +440,7 @@ This example demonstrates the multiple approaches for defining what "signals" to
         ]
 
 
+```
 
 * * *
 
@@ -444,13 +454,13 @@ For such APIs, Workato does not pick up an error (expired credentials, bad reque
 
   2. If there is no match with signals that are defined in `refresh_on`, the system raises an error.
 
-Attribute | Description  
----|---  
-Key | `detect_on`  
-Type | Array  
-Required | False  
-Description | Tells Workato when to raise an error due to a signal in the response to a request. This accepts an array of integers which are matched to HTTP response codes or Regex expressions which are matched on the response body.  
-Expected Output | Array of ints or strings - `[ 401, /Unauthorized/ ]`  
+Attribute | Description
+---|---
+Key | `detect_on`
+Type | Array
+Required | False
+Description | Tells Workato when to raise an error due to a signal in the response to a request. This accepts an array of integers which are matched to HTTP response codes or Regex expressions which are matched on the response body.
+Expected Output | Array of ints or strings - `[ 401, /Unauthorized/ ]`
 Example - detect_on
 
 This example demonstrates multiple approaches for defining "signals" to watch in `detect_on`.
@@ -461,13 +471,13 @@ This example demonstrates multiple approaches for defining "signals" to watch in
     Regex expression that matches the body or title of the response
 ```ruby
 
-```
         detect_on: [
           "sample error message",
           /^\{"response":\{"error".+$/
         ]
 
 
+```
 
 * * *
 
@@ -479,15 +489,15 @@ In many situations, the API expires the access token after a prescribed amount o
 
 Not all APIs issue refresh token credentials. Check with your provider about this requirement.
 
-Attribute | Description  
----|---  
-Key | `refresh`  
-Type | lambda function  
-Required | False but recommended and only valid for `type: oauth2` connections.  
-Description | This function will be executed if we either receive a non 2XX response in any API request, the `refresh_on` signal is triggered or if Workato knows that the refresh token is about to expire. This is used to obtain new access tokens. If this is not defined, Workato attempts to use the standard OAuth 2.0 refresh mechanism where possible or reruns the `acquire` lambda function.  
-Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`   
-`refresh_token` \- Represents the `refresh_token` received from Token URL or `acquire` block.  
-Expected Output | A hash that contains a new access token. Optionally this hash can include a new refresh token (which will override the original refresh token) and a time delay before Workato refreshes the access token and refresh token. See the example below.  
+Attribute | Description
+---|---
+Key | `refresh`
+Type | lambda function
+Required | False but recommended and only valid for `type: oauth2` connections.
+Description | This function will be executed if we either receive a non 2XX response in any API request, the `refresh_on` signal is triggered or if Workato knows that the refresh token is about to expire. This is used to obtain new access tokens. If this is not defined, Workato attempts to use the standard OAuth 2.0 refresh mechanism where possible or reruns the `acquire` lambda function.
+Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`
+`refresh_token` \- Represents the `refresh_token` received from Token URL or `acquire` block.
+Expected Output | A hash that contains a new access token. Optionally this hash can include a new refresh token (which will override the original refresh token) and a time delay before Workato refreshes the access token and refresh token. See the example below.
 Example - refresh
 
 If you specify `type:` as "oauth2", the `refresh` block expects the output as a hash. This hash must include the keys for `access_token`, and potentially for `refresh_token` if the system creates a new refresh token each time.
@@ -498,10 +508,11 @@ If the key `refresh_token_expires_in` is supplied, Workato will refresh the conn
 
 For example, if the response from the refresh token url is as follows:
 ```ruby
-{
+
+    {
       "access_token": "new_access_token",
       "refresh_token": "new_refresh_token",
-      "refresh_token_expires_in": 604800 
+      "refresh_token_expires_in": 604800
     }
 
 
@@ -509,8 +520,8 @@ For example, if the response from the refresh token url is as follows:
 
 Then you should configure the HTTP request for the API call in the following manner:
 ```ruby
-refresh: lambda do |connection, refresh_token|
-```
+
+          refresh: lambda do |connection, refresh_token|
             url = "https://#{connection['custom_domain'].presence || 'go.trackvia.com'}"
             response = post("#{url}/oauth/token").payload(
               client_id: connection['client_id'],
@@ -521,11 +532,12 @@ refresh: lambda do |connection, refresh_token|
           end,
 
 
+```
 
 Alternatively, to return an array of hashes that override or add new values to your connection hash, implement something like this:
 ```ruby
-refresh: lambda do |connection, refresh_token|
-```
+
+        refresh: lambda do |connection, refresh_token|
           url = "https://#{connection['custom_domain'].presence || 'go.trackvia.com'}"
           response = post("#{url}/oauth/token").payload(
             client_id: connection['client_id'],
@@ -547,11 +559,12 @@ refresh: lambda do |connection, refresh_token|
         end,
 
 
+```
 
 In some cases, APIs may not respond with expiration times for the refresh token or may respond in actual timestamps. You may also artificially create the `refresh_token_expires_in` value if you know the validity of the refresh token.
 ```ruby
-refresh: lambda do |connection, refresh_token|
-```
+
+        refresh: lambda do |connection, refresh_token|
           url = "https://#{connection['custom_domain'].presence || 'go.trackvia.com'}"
           response = post("#{url}/oauth/token").payload(
             client_id: connection['client_id'],
@@ -573,6 +586,7 @@ refresh: lambda do |connection, refresh_token|
         end,
 
 
+```
 
 * * *
 
@@ -582,42 +596,45 @@ The `identity` lambda displays additional information about the connection. This
 
 ![](/assets/img/identity_lambda.ff4f3859.png)
 
-Attribute | Description  
----|---  
-Key | `identity`  
-Type | Lambda function  
-Required | False.  
-Description | The lambda allows you to display additional information about the connection object. You can make an HTTP request to retrieve user identity details, or reference existing values from the connection object. Refer to the [acquire lambda documentation](</developing-connectors/sdk/sdk-reference/connection/authorization.html#acquire>) for details on appending values from the acquire lambda to the connection object. You can reference these values in the `identity` lambda.  
-Possible arguments | `connection` \- A hash representing inputs defined in the `Connection` object.  
-Expected output | A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#087d7b6d7a486d70696578646d266b6765>)", "Refresh token expires in 86400 seconds")  
+Attribute | Description
+---|---
+Key | `identity`
+Type | Lambda function
+Required | False.
+Description | The lambda allows you to display additional information about the connection object. You can make an HTTP request to retrieve user identity details, or reference existing values from the connection object. Refer to the [acquire lambda documentation](</developing-connectors/sdk/sdk-reference/connection/authorization.html#acquire>) for details on appending values from the acquire lambda to the connection object. You can reference these values in the `identity` lambda.
+Possible arguments | `connection` \- A hash representing inputs defined in the `Connection` object.
+Expected output | A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#d4a1a7b1a694b1acb5b9a4b8b1fab7bbb9>)", "Refresh token expires in 86400 seconds")
 Example - identity
 
 In this example, the `identity` lambda makes an HTTP GET request to retrieve user information from a third-party API. It extracts the user’s email and displays it on the connection page. Use this when the connection object doesn't directly include the email.
 ```ruby
-identity: lambda do |_connection|
-```
+
+          identity: lambda do |_connection|
             get("https://app.asana.com/api/1.0/users/me")["data"]["email"]
           end,
 
 
+```
 
 You can also use this lambda to return values from the connection object. The following example retrieves the `username` from the connection object:
 ```ruby
-identity: lambda do |connection|
-```
+
+          identity: lambda do |connection|
             connection["username"]
           end,
 
 
+```
 
 Additionally, you can customize the output of the lambda using values from the connection object to provide detailed information. The following example fetches the Company ID and displays a formatted string on the connection page:
 ```ruby
-identity: lambda do |connection|
-```
+
+          identity: lambda do |connection|
             "Company ID: #{connection['company_id']}"
           end,
 
 
+```
 
 * * *
 
@@ -625,15 +642,15 @@ identity: lambda do |connection|
 
 This lambda applies only to `type: "oauth2"` connections and is only needed when OAuth2 Authorization code grant with PKCE authentication is needed. This lambda allows you to defined the parameters for PKCE such as the code verifier, code challenge and challenge method.
 
-Attribute | Description  
----|---  
-Key | `pkce`  
-Type | lambda function  
-Required | False. Only needed for Auth code grant flows with PKCE  
-Description | This lambda allows you to set the parameters for the PKCE flow. It receives 2 arguments, `verifier` and `challenge`, where the `verifier` is an opaque string of 128 characters and the `challenge` is a url safe string that is the SHA256 of the verifier. In some cases, if you need a longer or shorter verifier, you can supply your own.  
-Possible Arguments | `verifier` \- Opaque string of 128 characters.   
-`challenge` \- SHA256 of the `verifier`  
-Expected Output | Hash which contains 3 attributes, `verifier`, `challenge` and `challenge_method`.  
+Attribute | Description
+---|---
+Key | `pkce`
+Type | lambda function
+Required | False. Only needed for Auth code grant flows with PKCE
+Description | This lambda allows you to set the parameters for the PKCE flow. It receives 2 arguments, `verifier` and `challenge`, where the `verifier` is an opaque string of 128 characters and the `challenge` is a url safe string that is the SHA256 of the verifier. In some cases, if you need a longer or shorter verifier, you can supply your own.
+Possible Arguments | `verifier` \- Opaque string of 128 characters.
+`challenge` \- SHA256 of the `verifier`
+Expected Output | Hash which contains 3 attributes, `verifier`, `challenge` and `challenge_method`.
 
 [Learn more about creating Authorization Code Grant flows with PKCE](</developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce.html>).
 
@@ -647,14 +664,14 @@ Use this lambda when defining `type: "multi"`; specify which inputs in the origi
 
 If `selected` is not defined but `type: "multi"` is defined, Workato defaults to any input with the internal name:`name: "auth_type"`
 
-Attribute | Description  
----|---  
-Key | `selected`  
-Type | lambda function  
-Required | False. Required for `type: "multi"` connections.  
-Description | Workato runs this function will be executed based on the inputs given in `fields` and should output a string that will match against a key defined in the `options` hash. Defaults to the field with `auth_type` as the internal name.  
-Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`  
-Expected Output | A string that matches any keys defined in the `options` hash.  
+Attribute | Description
+---|---
+Key | `selected`
+Type | lambda function
+Required | False. Required for `type: "multi"` connections.
+Description | Workato runs this function will be executed based on the inputs given in `fields` and should output a string that will match against a key defined in the `options` hash. Defaults to the field with `auth_type` as the internal name.
+Possible Arguments | `connection` \- Hash representing user given inputs defined in `Connection`
+Expected Output | A string that matches any keys defined in the `options` hash.
 
 * * *
 
@@ -664,18 +681,18 @@ This lambda applies only to `type: "multi"` connections.
 
 This hash contains the definition of multiple authentication flows when you plan a connector that supports multiple authentication types.
 
-Attribute | Description  
----|---  
-Key | `options`  
-Type | Hash  
-Required | False. Required for `type: "multi"` connections.  
-Description | Hash that contains the definitions of the various authentication types within a "multi" authentication flow connector.  
+Attribute | Description
+---|---
+Key | `options`
+Type | Hash
+Required | False. Required for `type: "multi"` connections.
+Description | Hash that contains the definitions of the various authentication types within a "multi" authentication flow connector.
 Schema for nested authentication definitions
 
 Consider the schema with nested authentication definitions:
 ```ruby
-options: {
-```
+
+      options: {
         [unique_option_name]: {
             type: String,
 
@@ -720,6 +737,7 @@ options: {
       }
 
 
+```
 
 Within the `options` hash, you must define two components for an authentication flow:
 
@@ -729,7 +747,6 @@ Within the `options` hash, you must define two components for an authentication 
 Consider this example:
 ```ruby
 
-```
         fields: [
           {
             name: "auth_type",
@@ -788,6 +805,7 @@ Consider this example:
         },
 
 
+```
 
 Here, you we defined 2 authentication flows, `stripe_oauth2` and `stripe_api_key`. These keys can be anything as long as they match the output of the `selected` lambda. In each of the flows, you can see and define all lambdas in the hash. For the `stripe_oauth2` option, we defined the `type` of the authentication flow as `oauth2`, `authorization_url`, `token_url` and the `apply` block.
 
@@ -801,9 +819,9 @@ The `noopener` attribute applies only to OAuth 2.0 connections.
 
 It specifies the `rel="noopener"` HTML attribute. This attribute improves security by adding `rel="noopener"` to links that open in a new browser tab or window.
 
-Attribute | Description  
----|---  
-Key | `noopener`  
-Type | Boolean  
-Required | No. Defaults to `false`. Users can set to `true` for enhanced security.  
+Attribute | Description
+---|---
+Key | `noopener`
+Type | Boolean
+Required | No. Defaults to `false`. Users can set to `true` for enhanced security.
 Description | When set to `true`, the OAuth 2.0 authorization page launches with `target="blank"` and `rel="noopener"` attributes. This attribute improves security and prevents linked third-party websites from taking control of the browser tab through the window object.

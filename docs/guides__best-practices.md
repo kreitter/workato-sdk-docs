@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2025-09-28T02:34:53.698999
+> **Fetched**: 2025-09-27T19:18:21.602900
 
 ---
 
@@ -68,7 +68,7 @@ These best practices relate directly to the development of a custom connector on
 
 ## [#](<#security>) Security
 
-  * Perform validations in the `execute` lambda that are necessary to safeguard your end user's target application. Expect that users may map data from applications such as Slack, Teams, or external forms and there may be attempts to perform injection or path traversal attacks. 
+  * Perform validations in the `execute` lambda that are necessary to safeguard your end user's target application. Expect that users may map data from applications such as Slack, Teams, or external forms and there may be attempts to perform injection or path traversal attacks.
     * If you control the application, ensure that the applications you work with handle these inputs by sanitizing inputs received from API requests. API providers should understand more deeply the situations where specific inputs are sensitive to malicious user input.
     * On the Workato end, ensure you make additional attempts to prevent malicious input by validating inputs.
     * Advise your end users to avoid providing free-form user input into sensitive fields. For example, specifying drop-downs of enumerated values where possible.
@@ -93,14 +93,14 @@ These best practices relate directly to the development of a custom connector on
     * Example:
 ```ruby
 fields: lambda do |_connection, _config_fields|
-          {
-              name: 'sub_domain',
-              control_type: 'subdomain',
-              url: '.salesforce.com',
-              optional: false,
-              hint: 'Provide salesforce sub-domain for example, <code>test_instance</code>'
-          }
-        end
+            {
+                name: 'sub_domain',
+                control_type: 'subdomain',
+                url: '.salesforce.com',
+                optional: false,
+                hint: 'Provide salesforce sub-domain for example, <code>test_instance</code>'
+            }
+          end
 
 
 ```
@@ -130,8 +130,7 @@ fields: lambda do |_connection, _config_fields|
 
     * Example:
 ```ruby
-base_uri: lambda do |connection|
-```
+ base_uri: lambda do |connection|
       if connection['custom_domain']
         "https://#{connection['custom_domain']}"
       else
@@ -140,6 +139,7 @@ base_uri: lambda do |connection|
     end
 
 
+```
 
   * Use the static base_uri or acquire the base_url from the endpoint (if there is an API which returns base_url account specific)
 
@@ -189,7 +189,7 @@ base_uri: lambda do |connection|
 
   * Actions should be clearly named
 
-    * Naming conventions for actions: 
+    * Naming conventions for actions:
       * Get - Get only one specific record by ID
       * Search - Return 0, 1, or more records based on a search query
       * List - List out all records
@@ -221,7 +221,7 @@ base_uri: lambda do |connection|
   * **Optimize recipe actions**
     * Remove redundant or unnecessarily heavy attributes from the action inputs, keeping only fields that are actually required.
     * Review the size of entities that are passed into the action to avoid excessive payloads.
-    * Use streaming or pagination when working with large files or datasets. 
+    * Use streaming or pagination when working with large files or datasets.
       * For example, download or upload files in chunks (for example, 5–10 MB at a time) rather than reading the entire file into memory.
       * For APIs that support pagination or cursors, process pages sequentially instead of loading all records at once.
 
@@ -371,8 +371,8 @@ API versions of the application you are connecting to help manage expectations f
 
 Different objects may require different action level help hints. Help texts can be easily changed based on the object users select.
 ```ruby
-help: lambda do |input, picklist_label|
-```
+
+    help: lambda do |input, picklist_label|
       if input['object'] == 'invoice'
         {
           body: "Creates an invoice in XYZ. Invoices in XYZ accounting are essential " \
@@ -392,6 +392,7 @@ help: lambda do |input, picklist_label|
     end,
 
 
+```
 
 ##### [#](<#links-to-documentation>) Links to documentation
 
@@ -408,7 +409,6 @@ Hints are an essential way to guide your users on how to use a specific input fi
 In cases where it is critical for your users to read this to configure the action properly, we suggest using field level help. This should be used sparingly.
 ```ruby
 
-```
     [
       {
         control_type: "text",
@@ -425,6 +425,7 @@ In cases where it is critical for your users to read this to configure the actio
     ]
 
 
+```
 
 ![Help text hints](/assets/img/field-level-help.badef6ba.png) _Bring attention to a specific field using field level help_
 

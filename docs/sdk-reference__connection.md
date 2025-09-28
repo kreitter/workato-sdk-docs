@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection.html
-> **Fetched**: 2025-09-28T02:35:37.424411
+> **Fetched**: 2025-09-27T19:19:03.878099
 
 ---
 
@@ -20,7 +20,8 @@ To put it simply, the `connection` hash contains all the instructions your conne
 
 ## [#](<#structure>) Structure
 ```ruby
-connection: {
+
+      connection: {
         fields: Array,
 
         extended_fields: lambda do |connection|
@@ -50,7 +51,7 @@ Type
 Required
     False
 Description
-    Accepts an array of hashes. Each hash in this array corresponds to a separate input field.  
+    Accepts an array of hashes. Each hash in this array corresponds to a separate input field.
 To learn how to define input fields in Workato, see [SDK Reference - Schema](</developing-connectors/sdk/sdk-reference/schema.html>).
 
 ### [#](<#picklists-in-connection-fields>) Picklists in connection fields
@@ -66,7 +67,6 @@ References to any picklists you defined in your connector are not accessible in 
 ![](/assets/img/connection-picklist.5a158c7b.png)
 ```ruby
 
-```
         fields: [
           {
             name: 'api_key',
@@ -102,6 +102,7 @@ References to any picklists you defined in your connector are not accessible in 
         ],
 
 
+```
 
 * * *
 
@@ -127,7 +128,6 @@ In this case, `extended_fields` provides you with the added benefit of controlli
 ### [#](<#example-connection-fields-with-extended-fields>) Example: Connection fields with extended_fields
 ```ruby
 
-```
         fields: [
           {
             name: "api_key",
@@ -159,6 +159,7 @@ In this case, `extended_fields` provides you with the added benefit of controlli
         end,
 
 
+```
 
 Workato passes the connection hash to all other lambdas, including `authorization` and `execute`. The connection hash contains values from both `fields` and `extended_fields`.
 
@@ -166,8 +167,8 @@ Workato passes the connection hash to all other lambdas, including `authorizatio
 
 The following example shows how to use `extends_schema` within `extended_fields` to create a connection setup that has multiple steps.
 ```ruby
-connection: {
-```
+
+      connection: {
         fields: [
           {
             name: "api_key",
@@ -195,7 +196,7 @@ connection: {
                     optional: false,
                     url: ".acme.com"
                   }
-                end 
+                end
               ),
               (
                 if connection['custom_domain'] == "true"
@@ -206,7 +207,7 @@ connection: {
                     optional: false,
                     options: [ ["Production", "production"], ["Sandbox", "sandbox"]]
                   }
-                end 
+                end
               ),
               (
                 if connection['instance_type'] == "sandbox"
@@ -239,6 +240,7 @@ connection: {
       },
 
 
+```
 
 * * *
 
@@ -276,7 +278,7 @@ Possible Arguments
 connection
     Hash that represents user-provided inputs defined in `Connection`.
 Expected Output
-    `String`, such as one of:  
+    `String`, such as one of:
 
   * `"https://#{connection['host']}.com/"`
   * `"https://api.acme.com"`

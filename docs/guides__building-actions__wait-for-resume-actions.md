@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/wait-for-resume-actions.html
-> **Fetched**: 2025-09-28T02:35:07.497762
+> **Fetched**: 2025-09-27T19:18:34.923551
 
 ---
 
@@ -45,10 +45,10 @@ On the SDK level, there are new callbacks in actions that enable you to suspend 
 
 Sample custom connector code
 ```ruby
-{
+
+    {
       actions: {
         wait_for_webhook: {
-```
           config_fields: [
             {
               name: 'url',
@@ -64,14 +64,14 @@ Sample custom connector code
               control_type: 'schema-designer',
               sample_data_type: 'json_input',
             }
-          ],      
+          ],
           execute: lambda do |_connection, input, _input_schema, _output_schema, continue|
             if continue.blank?
-              # Calling suspend will put the job to sleep, after the request in the proc is executed. 
+              # Calling suspend will put the job to sleep, after the request in the proc is executed.
               # in this case we send a POST request to the URL provided by the recipe builder
               # expires_at is configurable and once the time is reached, the job is resumed
               suspend(continue: { "state" => "suspended", "url" => input['url']}, expires_at: 10.minutes.from_now)
-            elsif continue["state"] == "resumed" 
+            elsif continue["state"] == "resumed"
               { "result" => "resumed", "payload" =>  continue["payload"]}
             elsif continue["state"] == "suspend_timeout"
               { "result" => "suspend_timeout" }
@@ -85,7 +85,7 @@ Sample custom connector code
           # expires_at is the time when the job resumes with a timeout
           # continue is the argument passed
           before_suspend: lambda do |resume_token, expires_at, continue|
-            response = post(continue['url'], { expires_at: expires_at, resume_token: resume_token } )      
+            response = post(continue['url'], { expires_at: expires_at, resume_token: resume_token } )
           end,
           # Allows you to manipulate or add data before the resume.
           # We change the state of the "continue" argument
@@ -117,6 +117,7 @@ Sample custom connector code
     }
 
 
+```
 
 This guide does not elaborate on the details of the standard attributes of the action. Refer to our [SDK actions reference](</developing-connectors/sdk/sdk-reference/actions.html>) documentation to learn about the basic structure of actions.
 

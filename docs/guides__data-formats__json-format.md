@@ -1,11 +1,11 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/json-format.html
-> **Fetched**: 2025-09-28T02:35:18.973468
+> **Fetched**: 2025-09-27T19:18:45.977480
 
 ---
 
-# [#](<#how-to-guides-json-data-format>) How-to guides - JSON data format  
+# [#](<#how-to-guides-json-data-format>) How-to guides - JSON data format
 
 The Workato SDK's default expected data format is JSON. Action and trigger inputs will be passed as JSON payloads if no data format is specified. A JSON parser error will be shown if the SDK expected JSON and got another data format.
 
@@ -15,7 +15,8 @@ Below we have an example of an action titled `post_message`. This simple action 
 
 ## [#](<#sample-code-snippet>) Sample code snippet
 ```ruby
-{
+
+    {
       title: 'My cisco connector',
 
       connection: {
@@ -28,7 +29,6 @@ Below we have an example of an action titled `post_message`. This simple action 
       actions: {
         post_message: {
           input_fields: lambda do
-```
             [
               {
                 name: "roomId"
@@ -86,6 +86,7 @@ Below we have an example of an action titled `post_message`. This simple action 
     }
 
 
+```
 
 Here we have the resultant request that is sent when the `execute` key above is executed. We default your `Content-Type` header to `application/json` and also format your input as key-value pairs in a JSON formatted string. This minimizes the amount of pre and post request processing that you need to do.
 
@@ -101,7 +102,8 @@ HEADERS AND BODY SECTIONS
 
 Since no data format was declared in our action, Workato defaults to JSON and assigns `Content-Type` to `application/json`. This tells the API we sent the request to that our request body is in a JSON data format.
 ```ruby
-POST https://api.ciscospark.com/v1/messages
+
+    POST https://api.ciscospark.com/v1/messages
     Accept  application/json
     Content-Type  application/json
     Authorization Bearer ---
@@ -113,7 +115,8 @@ POST https://api.ciscospark.com/v1/messages
 
 This request body is generated based on the user's input and transformed into a JSON format by Workato. This request body corresponds to a user's input for the `roomId` field being `1234` and `text` field being `testing`.
 ```ruby
-{
+
+    {
       "roomId":"1234",
       "text":"testing"
     }
@@ -137,15 +140,16 @@ This is similar to request headers and contains metadata about the response body
 
 The response body is where the API sends the most of information in response to your request.
 ```ruby
-{
+
+    {
       "id":"1",
       "roomId":"1234",
       "roomType":"group",
       "text":"testing",
       "personId":"101",
-```
       "personEmail":"[[email protected]](</cdn-cgi/l/email-protection>)",
       "created":"2017-03-26T13:28:22.131Z"
     }
 
 
+```

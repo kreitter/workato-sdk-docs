@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - Workato SDK Documentation</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo">
+                <a href="/">Workato</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/en/developing-connectors">Developing Connectors</a></li>
+                    <li><a href="/en/developing-connectors/sdk">SDK</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="layout">
+        <!-- Left Sidebar -->
+        <aside class="sidebar-left">
+            <div class="sidebar-section">
+                <h3>SDK Documentation</h3>
+                <ul class="nav-list">
+                    <li><a href="/en/developing-connectors/sdk/quickstart">Quickstart</a></li>
+                    <li><a href="/en/developing-connectors/sdk/cli">CLI</a></li>
+                    <li><a href="/en/developing-connectors/sdk/guides" class="active">Guides</a></li>
+                    <li><a href="/en/developing-connectors/sdk/sdk-reference">SDK Reference</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <!-- Breadcrumb -->
+                <div class="breadcrumb-wrapper">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li><a href="/en/developing-connectors">Developing Connectors</a></li>
+                            <li><a href="/en/developing-connectors/sdk">SDK</a></li>
+                            <li><a href="/en/developing-connectors/sdk/guides">Guides</a></li>
+                            <li class="active">Authentication</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <!-- Page Title -->
+                <header class="page-title">
+                    <h1>Authentication</h1>
+                    <p class="subtitle">Configure authentication methods for your custom connectors</p>
+                </header>
+
+                <!-- Content Body -->
+                <article class="content-body">
+                    <section id="introduction">
+                        <h2>Introduction</h2>
+                        <p>Authentication is a critical component of connector development. Workato supports various authentication methods to securely connect to external services.</p>
+                    </section>
+
+                    <section id="supported-methods">
+                        <h2>Supported Authentication Methods</h2>
+
+                        <div class="auth-method">
+                            <h3 id="api-key">API Key Authentication</h3>
+                            <p>Use API keys for simple, token-based authentication.</p>
+
+                            <h4>Configuration</h4>
+                            <p>Add the following to your <code>connection.rb</code> file:</p>
+                            <pre><code class="ruby">{
+  "authorization": {
+    "type": "api_key",
+    "api_key": "your-api-key-here"
+  }
+}</code></pre>
+                        </div>
+
+                        <div class="auth-method">
+                            <h3 id="oauth2">OAuth 2.0</h3>
+                            <p>Implement OAuth 2.0 for secure, token-based authentication.</p>
+
+                            <h4>Setup Steps</h4>
+                            <ol>
+                                <li>Register your application with the service provider</li>
+                                <li>Configure OAuth credentials in your connector</li>
+                                <li>Implement the authorization flow</li>
+                            </ol>
+                        </div>
+
+                        <div class="auth-method">
+                            <h3 id="basic-auth">Basic Authentication</h3>
+                            <p>Use HTTP Basic Authentication for simple username/password authentication.</p>
+                        </div>
+                    </section>
+
+                    <section id="best-practices">
+                        <h2>Best Practices</h2>
+                        <ul>
+                            <li>Store credentials securely using encrypted settings files</li>
+                            <li>Implement proper token refresh mechanisms</li>
+                            <li>Handle authentication errors gracefully</li>
+                            <li>Use HTTPS for all authentication requests</li>
+                        </ul>
+                    </section>
+                </article>
+
+                <!-- Related Articles -->
+                <aside class="related-articles">
+                    <h3>Related Articles</h3>
+                    <ul>
+                        <li><a href="/en/developing-connectors/sdk/guides/connection">Connection Configuration</a></li>
+                        <li><a href="/en/developing-connectors/sdk/guides/config-fields">Configuration Fields</a></li>
+                        <li><a href="/en/developing-connectors/sdk/guides/security-guidelines">Security Guidelines</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar-right">
+            <div class="toc-wrapper">
+                <h3>Table of Contents</h3>
+                <ol class="toc">
+                    <li><a href="#introduction">Introduction</a></li>
+                    <li><a href="#supported-methods">Supported Authentication Methods</a>
+                        <ol>
+                            <li><a href="#api-key">API Key Authentication</a></li>
+                            <li><a href="#oauth2">OAuth 2.0</a></li>
+                            <li><a href="#basic-auth">Basic Authentication</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                </ol>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Workato Inc. All rights reserved.</p>
+            <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/assets/js/documentation.js"></script>
+    <script src="/assets/js/toc.js"></script>
+</body>
+</html>

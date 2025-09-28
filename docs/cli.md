@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli.html
-> **Fetched**: 2025-09-28T02:34:08.780979
+> **Fetched**: 2025-09-27T19:17:37.971825
 
 ---
 
@@ -40,12 +40,12 @@ To use the SDK gem, you should be familiar with:
 
 Still not sure if the SDK gem is right for you? The following section describes the key differences between building a connector with the Cloud SDK **Test code** tab and the SDK gem.
 
-| Cloud SDK Test code tab | SDK Gem  
----|---|---  
-**Testing specificity** | Able to test connections, actions and triggers in their entirety | Able to test specific keys of a connector separately. For example: `execute` and `output_fields` can be tested separately   
-**UI testing** | Able to test the exact look and feel of input and output fields. For example: Dynamic input and output fields | No UI, but able to quickly evaluate resultant Workato schema of input and output fields using CLI Utils  
-**Unit testing** | Not available | Able to convert CLI commands into unit tests quickly  
-**Test code tab properties and lookup tables** | No access to `account_properties` or lookup tables in Test code tab  | Able to store `account_properties` and credentials in encrypted/unencrypted formats. Able to store lookup tables in unencrypted format.  
+| Cloud SDK Test code tab | SDK Gem
+---|---|---
+**Testing specificity** | Able to test connections, actions and triggers in their entirety | Able to test specific keys of a connector separately. For example: `execute` and `output_fields` can be tested separately
+**UI testing** | Able to test the exact look and feel of input and output fields. For example: Dynamic input and output fields | No UI, but able to quickly evaluate resultant Workato schema of input and output fields using CLI Utils
+**Unit testing** | Not available | Able to convert CLI commands into unit tests quickly
+**Test code tab properties and lookup tables** | No access to `account_properties` or lookup tables in Test code tab  | Able to store `account_properties` and credentials in encrypted/unencrypted formats. Able to store lookup tables in unencrypted format.
 
 As we continue to improve on the SDK Gem and its capabilities, more features will be added.
 

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workato SDK CLI - Documentation</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <a href="/">Workato Documentation</a>
+            </div>
+            <ul class="navbar-nav">
+                <li><a href="/en/developing-connectors">Developing Connectors</a></li>
+                <li><a href="/en/developing-connectors/sdk">SDK</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="/en/developing-connectors">Developing Connectors</a></li>
+                    <li><a href="/en/developing-connectors/sdk">SDK</a></li>
+                    <li class="active">CLI</li>
+                </ol>
+            </nav>
+
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Workato SDK CLI</h1>
+                <p class="lead">Command-line interface for developing Workato connectors</p>
+            </div>
+
+            <!-- Content Sections -->
+            <section id="overview">
+                <h2>Overview</h2>
+                <p>The Workato SDK CLI provides a command-line interface for developing, testing, and deploying custom connectors.</p>
+
+                <h3>Installation</h3>
+                <p>To install the SDK CLI, run:</p>
+                <pre><code>gem install workato-sdk</code></pre>
+            </section>
+
+            <section id="commands">
+                <h2>Available Commands</h2>
+
+                <h3>new</h3>
+                <p>Create a new connector project:</p>
+                <pre><code>workato sdk new my-connector</code></pre>
+
+                <h3>test</h3>
+                <p>Run tests for your connector:</p>
+                <pre><code>workato sdk test</code></pre>
+
+                <h3>validate</h3>
+                <p>Validate your connector configuration:</p>
+                <pre><code>workato sdk validate</code></pre>
+            </section>
+
+            <section id="configuration">
+                <h2>Configuration</h2>
+                <p>The CLI reads configuration from <code>connector.rb</code> and <code>settings.yaml.enc</code> files.</p>
+
+                <h3>Environment Variables</h3>
+                <ul>
+                    <li><code>WORKATO_API_TOKEN</code>: Your Workato API token</li>
+                    <li><code>WORKATO_ENDPOINT</code>: Workato API endpoint (optional)</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- Sidebar Navigation (Table of Contents) -->
+    <aside class="sidebar">
+        <div class="toc">
+            <h3>In This Article</h3>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#commands">Available Commands</a>
+                    <ul>
+                        <li><a href="#commands-new">new</a></li>
+                        <li><a href="#commands-test">test</a></li>
+                        <li><a href="#commands-validate">validate</a></li>
+                    </ul>
+                </li>
+                <li><a href="#configuration">Configuration</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2024 Workato Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

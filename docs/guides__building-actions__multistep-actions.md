@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multistep-actions.html
-> **Fetched**: 2025-09-28T02:35:00.612973
+> **Fetched**: 2025-09-27T19:18:28.245613
 
 ---
 
@@ -25,7 +25,8 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
 
 ## [#](<#sample-connector-google-bigquery>) Sample connector - Google BigQuery
 ```ruby
-{
+
+    {
       title: 'My Google BigQuery connector',
 
       # More connector code here
@@ -39,21 +40,20 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
 
             help: "This query runs synchronously for 25 seconds. If the query takes longer than that, it turns into an asynchronous action. There is a limit of ~38 minutes for the query to complete. ",
 
-            input_fields: lambda do 
-```
+            input_fields: lambda do
               [
-                { 
-                  name: "project_id", 
-                  control_type: 'select', 
-                  pick_list: 'projects', 
-                  optional: false 
+                {
+                  name: "project_id",
+                  control_type: 'select',
+                  pick_list: 'projects',
+                  optional: false
                 },
-                { 
-                  name: "query", 
-                  optional: false 
+                {
+                  name: "query",
+                  optional: false
                 },
-                { 
-                  name: 'wait_for_query', 
+                {
+                  name: 'wait_for_query',
                   control_type: 'checkbox',
                   sticky: true,
                 },
@@ -78,7 +78,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
               step_time = current_step * 60 # This helps us wait longer and longer as we increase in steps
               # Minimum step time is 60 seconds
 
-              if current_step == 1 # First invocation    
+              if current_step == 1 # First invocation
                 payload = {
                   query: input['query'],
                   timeoutMs: '25000',
@@ -87,14 +87,14 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
                 url = "https://bigquery.googleapis.com/bigquery/v2/projects/#{input['project_id']}/queries"
                 response = post(url, payload)
 
-                # If user wants to wait for query to complete and 
+                # If user wants to wait for query to complete and
                 # job isn't complete after 25s
                 if response['jobComplete'] == false && input['wait_for_query'].is_true?
                   reinvoke_after(
-                    seconds: step_time, 
-                    continue: { 
-                      current_step: current_step + 1, 
-                      jobid: response['jobReference']['jobId'] 
+                    seconds: step_time,
+                    continue: {
+                      current_step: current_step + 1,
+                      jobid: response['jobReference']['jobId']
                     }
                   )
                 # If user doesn't want to wait for query to complete and
@@ -106,7 +106,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
                   call('format_rows', response)
                 end
               # Subsequent invocations
-              elsif current_step <= max_steps 
+              elsif current_step <= max_steps
                 url = "https://bigquery.googleapis.com/bigquery/v2/projects/#{input['project_id']}/jobs/#{continue['jobid']}"
                 response = get(url)
                 # If job is still running
@@ -115,7 +115,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
                 # If status is done but there is an error
                 elsif response['status']['state'] == "DONE" && response.dig('status', 'errorResult').present?
                   error(response.dig('status', 'errorResult'))
-                # If status is done 
+                # If status is done
                 else
                   results = get("https://bigquery.googleapis.com/bigquery/v2/projects/#{input['project_id']}/queries/#{continue['jobid']}")
                   call('format_rows', results)
@@ -150,6 +150,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
     }
 
 
+```
 
 ## [#](<#step-1-action-title-subtitle-description-and-help>) Step 1 - Action title, subtitle, description, and help
 
@@ -159,21 +160,21 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 ## [#](<#step-2-define-input-fields>) Step 2 - Define input fields
 ```ruby
-input_fields: lambda do 
-```
+
+      input_fields: lambda do
         [
-          { 
-            name: "project_id", 
-            control_type: 'select', 
-            pick_list: 'projects', 
-            optional: false 
+          {
+            name: "project_id",
+            control_type: 'select',
+            pick_list: 'projects',
+            optional: false
           },
-          { 
-            name: "query", 
-            optional: false 
+          {
+            name: "query",
+            optional: false
           },
-          { 
-            name: 'wait_for_query', 
+          {
+            name: 'wait_for_query',
             control_type: 'checkbox',
             sticky: true,
           },
@@ -192,6 +193,7 @@ input_fields: lambda do
       end,
 
 
+```
 
 This component tells Workato what fields to show to a user trying to execute the multistep action. In the case of executing a query in BigQuery for example, the user has to provide us the following:
 
@@ -210,15 +212,15 @@ TIP
 
 Step time must be set to a minimum of 60 seconds. If anything lower is supplied, Workato default to 60 seconds.
 ```ruby
-execute: lambda do |connection, input, eis, eos, continue|
+
+      execute: lambda do |connection, input, eis, eos, continue|
         continue = {} unless continue.present? #For the first invocation, continue is nil
-```
         current_step = continue['current_step'] || 1 #Instantiate current_step so we know what step we are on
         max_steps = 30 #IMPORTANT. you should set the max number of steps so your action doesn't continue forever. This will cause performance degradation in your recipes
         step_time = current_step * 10 # This helps us wait longer and longer as we increase in steps
         # Minimum step time is 60 seconds
 
-        if current_step == 1 # First invocation    
+        if current_step == 1 # First invocation
           payload = {
             query: input['query'],
             timeoutMs: '25000',
@@ -227,9 +229,9 @@ execute: lambda do |connection, input, eis, eos, continue|
           #Request below sends the query to BigQuery
           response = post("https://bigquery.googleapis.com/bigquery/v2/projects/#{input['project_id']}/queries", payload)
 
-          #if Wait for query is false, the user can get the jobID back and get the results manually. 
+          #if Wait for query is false, the user can get the jobID back and get the results manually.
           if response['jobComplete'] == false && input['wait_for_query'].is_true?
-            # reinvoke_after accepts 2 arguments. 
+            # reinvoke_after accepts 2 arguments.
             # seconds is an integer that tells us how long to put the job to sleep for. MINIMUM 5 SECONDS
             # continue is a hash is passed to the next invocation of the execute block when the job is woken up
             reinvoke_after(seconds: step_time, continue: { current_step: current_step + 1, jobid: response['jobReference']['jobId'] })
@@ -247,7 +249,7 @@ execute: lambda do |connection, input, eis, eos, continue|
           # If job is done but there was an error, raise an error
           elsif response['status']['state'] == "DONE" && response.dig('status', 'errorResult').present?
             error(response.dig('status', 'errorResult'))
-          # Reaching here means job is done and there are results. 
+          # Reaching here means job is done and there are results.
           else
             results = get("https://bigquery.googleapis.com/bigquery/v2/projects/#{input['project_id']}/queries/#{continue['jobid']}")
             call('format_rows', results)
@@ -259,13 +261,14 @@ execute: lambda do |connection, input, eis, eos, continue|
       end,
 
 
+```
 
 ## [#](<#step-4-defining-output-fields>) Step 4 - Defining output fields
 
 This section tells us what datapills to show as the output of the trigger. The `name` attributes of each datapill should match the keys in the output of the `execute` key.
 ```ruby
-output_fields: lambda do |object_definitions, config_fields|
-```
+
+    output_fields: lambda do |object_definitions, config_fields|
       schema = [
         {
           name: "jobId"
@@ -286,17 +289,19 @@ output_fields: lambda do |object_definitions, config_fields|
     end,
 
 
+```
 
 Object definitions
 
 In this example, we make use of the `output_fields` given to us by the user in their input fields. Here is the object definition of `query_output`.
 ```ruby
-query_output: {
+
+    query_output: {
       fields: lambda do |connection, config_fields, object_definitions|
-```
         next if config_fields['output_fields'].blank?
         parse_json(config_fields['output_fields'])
       end
     }
 
 
+```

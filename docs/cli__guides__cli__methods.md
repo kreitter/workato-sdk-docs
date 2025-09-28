@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/methods.html
-> **Fetched**: 2025-09-28T02:34:12.242267
+> **Fetched**: 2025-09-27T19:17:41.402174
 
 ---
 
@@ -19,11 +19,11 @@ In this segment, we will be going through how you can run methods using the Work
 
 The code in `connector.rb`.
 ```ruby
-{
+
+    {
       title: 'Chargebee-demo',
 
       connection: {
-```
         fields: [
           {
             name: 'api_key',
@@ -41,7 +41,7 @@ The code in `connector.rb`.
         ],
 
         authorization: {
-          type: 'basic_auth',  
+          type: 'basic_auth',
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -69,10 +69,12 @@ The code in `connector.rb`.
     }
 
 
+```
 
 Credentials in `settings.yaml.enc` .
 ```ruby
-api_key: valid_api_key
+
+    api_key: valid_api_key
     domain: valid_domain
 
 
@@ -88,9 +90,9 @@ With the SDK Gem, you'll be able to invoke a method individually and gain greate
 
 The first method we will cover in the example above is the `get_customers` method, which does not have any declared input arguments. When this method is invoked with the SDK Gem, we expect the method to fetch customers and return the response from the API call
 ```bash
-$ workato exec methods.get_customers
+
+    $ workato exec methods.get_customers
     {
-```
       "list": [
         {
           "customer": {
@@ -123,6 +125,7 @@ $ workato exec methods.get_customers
     }
 
 
+```
 
 TIP
 
@@ -137,17 +140,18 @@ The second method we will cover in the example above is the `sample_method` meth
 In this case, the contents of the file `fixtures/triggers/new_updated_object/customer_input_poll.json` contains
 ```ruby
 
-```
     [
         "Hello",
         "world"
     ]
 
 
+```
 
 Here is an example the method being run:
 ```bash
-$ workato exec methods.sample_method --args='fixtures/actions/search_customers/customer_config.json' 
+
+    $ workato exec methods.sample_method --args='fixtures/actions/search_customers/customer_config.json'
     "Hello world"
 
 

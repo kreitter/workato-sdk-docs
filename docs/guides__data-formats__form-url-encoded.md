@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/form-url-encoded.html
-> **Fetched**: 2025-09-28T02:35:17.829231
+> **Fetched**: 2025-09-27T19:18:44.881795
 
 ---
 
@@ -15,18 +15,20 @@ Let's use the submit data to a form endpoint in [HubSpot API (opens new window)]
 
 A cURL example looks like this:
 ```ruby
-curl \
+
+    curl \
       https://forms.hubspot.com/uploads/form/v2/12345/67890 \
       -X POST \
       -H 'Content-Type: application/x-www-form-urlencoded' \
-```
       -d 'firstname=TestContact&lastname=FormSub&[[email protected]](</cdn-cgi/l/email-protection>)&newcustomproperty=testing&hs_context=%7B%22hutk%22%3A%2260c2ccdfe4892f0fa0593940b12c11aa%22%2C%22ipAddress%22%3A%22192.168.1.12%22%2C%22pageUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fcontact%2F%22%2C%22pageName%22%3A%22Contact%2BUs%22%2C%22redirectUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fthank-you%2F%22%7D'
 
 
+```
 
 This cURL command can be replicated in Workato:
 ```ruby
-{
+
+    {
       title: "HubSpot",
 
       connection: {
@@ -40,7 +42,6 @@ This cURL command can be replicated in Workato:
       actions: {
         submit_form: {
           input_fields: lambda do
-```
             [
               {
                 name: "portal_id",
@@ -100,11 +101,12 @@ This cURL command can be replicated in Workato:
       }
 
 
+```
 
 ## [#](<#components>) Components
 
-cURL | Workato  
----|---  
-`curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST` | `post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}")`  
-`-H 'Content-Type: application/x-www-form-urlencoded'` | `.request_format_www_form_urlencoded`  
+cURL | Workato
+---|---
+`curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST` | `post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}")`
+`-H 'Content-Type: application/x-www-form-urlencoded'` | `.request_format_www_form_urlencoded`
 `-d '{data}'` | `.request_body(input.reject { |k,v| k == 'portal_id' || k == 'form_guid' })`

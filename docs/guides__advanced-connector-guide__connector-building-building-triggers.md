@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html
-> **Fetched**: 2025-09-28T02:34:34.112159
+> **Fetched**: 2025-09-27T19:18:02.561163
 
 ---
 
@@ -14,7 +14,6 @@ Building triggers follow almost the same format as actions. To make them object 
 When dealing with object-based triggers, we first need to define something called a configuration fields. [Configuration fields](</developing-connectors/sdk/sdk-reference/triggers.html#config-fields>) are special input fields that you can define whose answers can dynamically generate other input fields. Since triggers don't often need any additional input fields, this configuration field is used to dynamically generate the expected output of this trigger.
 ```ruby
 
-```
     config_fields: [
       {
         name: 'object',
@@ -27,6 +26,7 @@ When dealing with object-based triggers, we first need to define something calle
     ],
 
 
+```
 
 ![Config fields](/assets/img/config_fields-trigger.9b259471.gif) _Selecting invoice causes invoice related data-pills to appear_
 
@@ -40,7 +40,8 @@ You can also use configuration fields to dynamically generate input fields based
 
 It is also highly recommended and really important to define helpful titles and descriptions for your actions. When dealing with object-based actions, this helps with the readability of recipes using your connector as well as improves user experience for those building recipes with your connector.
 ```ruby
-triggers: {
+
+    triggers: {
 
       new_updated_object: {
 
@@ -50,7 +51,6 @@ triggers: {
 
         description: lambda do |input, picklist_label|
           "New/updated <span class='provider'>" \
-```
           "#{picklist_label['object'] || 'object'}</span> in " \
           "<span class='provider'>XYZ Accounting</span>"
         end,
@@ -59,7 +59,7 @@ triggers: {
           {
             body:
             "Triggers when an #{picklist_label['object'] || 'object'} is created " \
-            ' or updated in XYZ.'   
+            ' or updated in XYZ.'
           }
         end,
 
@@ -77,6 +77,7 @@ triggers: {
     }
 
 
+```
 
 Over here we define title and subtitles to give users an idea of the action out of all the different actions in your connector. Remember to keep your title concise whilst using subtitles to provide a bit more information.
 
@@ -92,8 +93,8 @@ Since triggers do not need much configuration from the user, there is no need fo
 
 ### [#](<#input-fields>) Input fields
 ```ruby
-input_fields: lambda do
-```
+
+    input_fields: lambda do
       [
         {
           name: 'since',
@@ -108,6 +109,7 @@ input_fields: lambda do
     end,
 
 
+```
 
 ## [#](<#defining-the-poll-block>) Defining the poll block
 
@@ -119,8 +121,8 @@ When building polling triggers, it's best to use endpoints that return a list of
 
 ### [#](<#expected-json-response-from-xyz-accounting>) Expected JSON response from XYZ accounting
 ```ruby
-{
-```
+
+    {
       "results": [
         {
           "TxnDate": "2019-09-19",
@@ -176,14 +178,15 @@ When building polling triggers, it's best to use endpoints that return a list of
     }
 
 
+```
 
 ### [#](<#poll-block>) poll block
 ```ruby
-poll: lambda do |connection, input, closure|
+
+    poll: lambda do |connection, input, closure|
       limit = 100
       closure = closure || {}
 
-```
       updated_since = (closure['last_updated_since'] || input['since']).to_time.utc.iso8601
 
       params = {
@@ -215,6 +218,7 @@ poll: lambda do |connection, input, closure|
     end,
 
 
+```
 
 In the poll block, we first prepare the payload with the appropriate parameters to query for only records after the last time we polled. This is done by referencing the closure values of the last poll.
 
@@ -226,12 +230,13 @@ The parameters are passed into an object-specific method to execute the poll and
 
 For each record in the array of records passed on from the poll block, Workato also checks to see if it has seen the record before. To do so, the dedup block should contain a string that combines various parts of a record to ensure that it is unique. In the example below, we've used the `invoice` id and `invoice` last updated timestamp to see if this updated record has been seen before.
 ```ruby
-dedup: lambda do |record|
-```
+
+    dedup: lambda do |record|
       "#{record['results']['Id']}@#{record['results']['MetaData']['LastUpdatedTime']}"
     end,
 
 
+```
 
 ## [#](<#defining-the-output-fields>) Defining the output fields
 
@@ -239,18 +244,20 @@ Output fields can be defined using the same schema method used earlier. When cal
 
 ### [#](<#output-fields>) Output fields
 ```ruby
-output_fields: lambda do |object_definitions, connection, config_fields|
-```
+
+        output_fields: lambda do |object_definitions, connection, config_fields|
           object = config_fields['object']
 
           input_schema = object_definitions[object]
         end,
 
 
+```
 
 ### [#](<#object-definition>) Object definition
 ```ruby
-invoice: {
+
+        invoice: {
           fields: lambda do |connection, config_fields, object_definitions|
             # same schema as above
           end
@@ -265,15 +272,16 @@ Sample outputs are a great way to hint to give users context about the data-pill
 
 ### [#](<#sample-output>) Sample output
 ```ruby
-sample_output: lambda do |connection, input|
+
+    sample_output: lambda do |connection, input|
       payload = {
         "limit" => 1
       }
-```
       call("search_#{input['object']}_execute", payload)
     end
 
 
+```
 
 The output of this block is then passed to the output fields block and rendered to the right of every data-pill which is matched. This could significantly reduce the amount of time it takes for users whilst troubleshooting.
 

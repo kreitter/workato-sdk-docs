@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/debugging.html
-> **Fetched**: 2025-09-28T02:35:22.547564
+> **Fetched**: 2025-09-27T19:18:49.396757
 
 ---
 
@@ -9,10 +9,10 @@
 
 Defining your connector's actions is one thing, but debugging your connector - like any other software project - is a crucial part of the journey. To facilitate this, our connector SDK has two options, each with its own benefits.
 
-Tool | Description  
----|---  
-SDK **Test code** tab | Available directly on the Workato platform. No setup is required. Test individual actions, triggers, and connections, and debug UI elements for Workato schema.  
-SDK CLI tool | Build and debug directly from your own local machine. Minimal setup needed. Test individual lambdas like `object_definitions`, `pick_lists`, and methods or entire actions, triggers, or connections. No UI-level debugging. Ability to write automated unit tests.  
+Tool | Description
+---|---
+SDK **Test code** tab | Available directly on the Workato platform. No setup is required. Test individual actions, triggers, and connections, and debug UI elements for Workato schema.
+SDK CLI tool | Build and debug directly from your own local machine. Minimal setup needed. Test individual lambdas like `object_definitions`, `pick_lists`, and methods or entire actions, triggers, or connections. No UI-level debugging. Ability to write automated unit tests.
 
 Depending on your situation, both tools may be necessary. For simpler builds, however, the **Test code** tab should suffice and is the focus of this guide. Refer to our [CLI reference](</developing-connectors/sdk/cli.html#sdk-cli>) to learn more about the SDK CLI.
 
@@ -52,7 +52,8 @@ Any fields defined in the `fields` attribute of your connection hash appear when
 
 In the preceding image, the debug trace is generated from this request sent within the `test` block:
 ```ruby
-test: lambda do |_connection|
+
+    test: lambda do |_connection|
         get('/users/me')&.
           after_error_response(/.*/) do |_code, body, _header, message|
             error("#{message}: #{body}")
@@ -100,7 +101,8 @@ Testing individual pick_lists, methods and object_definitions are not supported 
 
 For example:
 ```ruby
-actions: {
+
+    actions: {
         test: {
           execute: lambda do |connection, input|
             # Print the output of the sample method to see if it works as intended
@@ -116,8 +118,8 @@ actions: {
 
 Formula mode does not work in the UI popup today and this feature is disabled. However, in some cases, you can see some fields that use formula mode by default such as arrays of primitive types. For example
 ```ruby
-input_fields: lambda do 
-```
+
+    input_fields: lambda do
         [
             {
                 name: "customer_ids",
@@ -129,5 +131,6 @@ input_fields: lambda do
     end
 
 
+```
 
 In situations like this, you must use the raw JSON view of the **Test code** tab to provide your inputs manually.

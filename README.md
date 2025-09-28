@@ -1,6 +1,9 @@
 # Workato SDK Documentation Mirror
 
 [![Last Update](https://img.shields.io/github/last-commit/kreitter/workato-sdk-docs/main.svg?label=docs%20updated)](https://github.com/kreitter/workato-sdk-docs/commits/main)
+[![CI](https://github.com/kreitter/workato-sdk-docs/actions/workflows/test.yml/badge.svg)](https://github.com/kreitter/workato-sdk-docs/actions/workflows/test.yml)
+[![Coverage](https://codecov.io/gh/kreitter/workato-sdk-docs/branch/main/graph/badge.svg)](https://codecov.io/gh/kreitter/workato-sdk-docs)
+[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-blue)]()
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -23,6 +26,42 @@ This command:
 1. Installs the documentation to `~/.workato-sdk-docs`
 2. Enables the `/workato-sdk` command in Claude Code
 3. Fetches the latest documentation
+
+## 🧪 Testing
+
+### Running Tests
+
+```bash
+# Run all tests
+make test
+
+# Run specific test categories
+make test-unit         # Unit tests only
+make test-integration  # Integration tests only
+make test-regression   # Regression tests only
+make test-performance  # Performance tests only
+
+# Run with coverage report
+make coverage
+
+# Run fast tests (unit + regression)
+make test-fast
+```
+
+### Test Coverage
+
+The test suite includes:
+- **Unit Tests**: Core functionality testing
+- **Integration Tests**: End-to-end workflow validation
+- **Regression Tests**: HTML parsing and content validation
+- **Performance Tests**: Resource usage monitoring
+
+All tests run automatically on:
+- **Pre-commit hooks** (before every commit)
+- **GitHub Actions** (on every push/PR)
+- **Manual execution** (via make commands)
+
+For detailed test execution information, see the [Development Workflow](#development-workflow) section.
 
 ## 📖 Usage
 
@@ -108,12 +147,43 @@ This removes:
 
 ## 📝 Development
 
+### Setup
+
 ```bash
-# Clone and test
+# Clone repository
 git clone https://github.com/kreitter/workato-sdk-docs.git
 cd workato-sdk-docs
-uv run python scripts/fetch_workato_docs.py
+
+# Install development dependencies
+make install-dev
+
+# Set up pre-commit hooks
+make setup-precommit
 ```
+
+### Development Workflow
+
+```bash
+# Make changes
+# ... edit code ...
+
+# Run tests during development
+make test-fast  # Fast feedback
+
+# Format and lint code
+make format     # Format with black and isort
+make lint       # Run linting checks
+
+# Run full test suite
+make test
+
+# Check coverage
+make coverage
+```
+
+### Testing
+
+See [Testing](#testing) section above for detailed test commands and coverage information.
 
 ### Contributing
 

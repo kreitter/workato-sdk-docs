@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/multi_auth.html
-> **Fetched**: 2025-09-28T02:34:46.765814
+> **Fetched**: 2025-09-27T19:18:14.876282
 
 ---
 
@@ -19,11 +19,11 @@ This guide assumes you have basic knowledge of the other forms of authentication
 
 To learn more about this connector, see [Stripe API Authentication (opens new window)](<https://stripe.com/docs/api/authentication>) documentation.
 ```ruby
-{
+
+    {
       title: 'Stripe',
 
       connection: {
-```
         fields: [
           {
             name: "auth_type",
@@ -91,6 +91,7 @@ To learn more about this connector, see [Stripe API Authentication (opens new wi
     }
 
 
+```
 
 ## [#](<#build-a-connector-with-multiple-authentication-flows>) Build a connector with multiple authentication flows
 
@@ -105,8 +106,8 @@ When planning for multiple authentication flows for the connector, start by deci
 The example we use in this discussion, Stripe, has only the authentication type as a common connection field.
 
 Authentication Type
-    The authentication type from a defined picklist.  
-Has the following important attributes 
+    The authentication type from a defined picklist.
+Has the following important attributes
 
 Schema attribute
     `extends_schema: true` tells Workato to evaluate the connection schema again when the use changes the value of this field
@@ -116,7 +117,6 @@ Picklist values
 This is done in the `fields` key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
 ```ruby
 
-```
         fields: [
           {
             name: "auth_type",
@@ -128,6 +128,7 @@ This is done in the `fields` key, which accepts an array of hashes. Each hash in
         ]
 
 
+```
 
 2
 
@@ -135,16 +136,17 @@ Define the pathway to the selected authentication flow
 
 This component informs Workato what to do with the values it receives from the input fields, and what authentication flow to use. It is implemented through the `authorization` key. Start by defining the `type` of authorization as `"multi"`.
 ```ruby
-authorization: {
+
+        authorization: {
           type: "multi",
 
           selected: lambda do |connection|
-```
             connection["auth_type"]
           end,
         },
 
 
+```
 
 3
 
@@ -152,11 +154,11 @@ Define the various authentication flows
 
 Define the multiple authentication flows within the `options` hash that contains all flows for your connector. Implement this through the `selected` lambda that receives the `connection` argument. This enables you to reference all connection inputs defined in `fields`, and expects a string value as the output.
 ```ruby
-authorization: {
+
+        authorization: {
           type: "multi",
 
           selected: lambda do |connection|
-```
             connection["auth_type"]
           end,
 
@@ -199,6 +201,7 @@ authorization: {
         },
 
 
+```
 
 Each key in the `option` hash must correspond exactly to one possible output value of the `selected` lambda. In our case, you can see that the result value of `selected` can be either `stripe_oauth2` or `stripe_api_key`, because they are the only two possible options that we defined in the `auth_type` input field. This matches exactly to the keys you defined in the `options` hash.
 
@@ -216,12 +219,13 @@ Use the `||` operator to specify the existing authentication method as the defau
 
 In the following example, the value left of the `||` operator, `auth_type`, is evaluated first. If the value is `nil` or `false`, the right value, `api_key`, is evaluated.
 ```ruby
-selected: lambda do |connection|
-```
+
+    selected: lambda do |connection|
       connection["auth_type"] || 'api_key'
     end,
 
 
+```
 
 4
 
@@ -229,7 +233,8 @@ Set the API's base URI
 
 The API's base URI instructs Workato on the base URL of the API. This key is optional; however, it enables you to provide relative-only paths in the rest of your connector definition through HTTP requests. Learn how to configure your [base URI](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
 ```ruby
-base_uri: lambda do
+
+        base_uri: lambda do
            "https://api.stripe.com/"
         end
 
@@ -240,7 +245,8 @@ URI CONNECTION ARGUMENT
 
 This lambda function has access to the `connection` argument. This is very useful when the base URI of the API changes depending on the user's instance. You can access the `connection` argument in the following format:
 ```ruby
-base_uri: lambda do |connection|
+
+        base_uri: lambda do |connection|
           #some code here
         end
 
@@ -249,16 +255,17 @@ base_uri: lambda do |connection|
 
 Additionally, if the base URI changes with the authentication type, you can implement `IF-ELSE` structures to change it dynamically, as demonstrated in the following example:
 ```ruby
-base_uri: lambda do |connection|
-```
+
+        base_uri: lambda do |connection|
           if connection['auth_type'] == "stripe_oauth2"
            "https://api.stripe.com/"
-          else 
-           "https://www.stripe.com/api" 
+          else
+           "https://www.stripe.com/api"
           end
         end
 
 
+```
 
 5
 
@@ -266,7 +273,8 @@ Test the connection
 
 After defining the fields and the flows for each authentication option, you must test the new connection. Use the `test` key:
 ```ruby
-test: lambda do |connection|
+
+      test: lambda do |connection|
         get('/customers', limit: 1)
       end,
 

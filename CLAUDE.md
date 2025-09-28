@@ -38,6 +38,36 @@ gh run list --workflow=update-docs.yml
 gh run view <run-id> --log
 ```
 
+### Development & Testing Commands
+```bash
+# Development workflow
+make install-dev       # Install development dependencies
+make setup-precommit   # Set up pre-commit hooks
+
+# Testing (comprehensive test suite available)
+make test             # Run all tests
+make test-unit        # Unit tests only
+make test-integration # Integration tests only
+make test-regression  # Regression tests only
+make test-performance # Performance tests only
+make test-fast        # Fast tests (unit + regression)
+
+# Code quality
+make lint             # Run linting checks
+make format           # Format code with black and isort
+make coverage         # Run tests with coverage report
+
+# Cleanup
+make clean            # Remove temporary files and caches
+```
+
+### Testing Workflow
+- **Pre-commit**: Tests run automatically before commits (fast unit tests)
+- **CI/CD**: Full test suite runs on GitHub Actions for all PRs/pushes
+- **Coverage**: Reports uploaded to Codecov with quality gates
+- **43+ tests** covering unit, integration, regression, and error conditions
+```
+
 ## Architecture
 
 ### Two Installation Methods

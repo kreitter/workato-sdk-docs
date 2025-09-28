@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-planning.html
-> **Fetched**: 2025-09-28T02:34:37.588185
+> **Fetched**: 2025-09-27T19:18:05.948328
 
 ---
 
@@ -91,12 +91,12 @@ A great exercise would be to envision building recipes around the integration us
 
 As the developer at XYZ labs building the XYZ connector on Workato, another important integration use case for our customers was the ability to use XYZ's integrated bank transfer functionality from a workplace messaging app like Slack. When drawing out the skeleton of the integration, we arrived at these steps:
 
-Recipe: New command on Slackbot executes bank transfer on XYZ accounting | Action supported?  
----|---  
-Trigger: New “Post bank transfer” command on Slack | Yes  
-1\. Search for a supplier on XYZ accounting | Yes  
-2\. Execute bank transfer on XYZ accounting using supplier ID | No  
-3\. Post reply on Slack to notify user | Yes  
+Recipe: New command on Slackbot executes bank transfer on XYZ accounting | Action supported?
+---|---
+Trigger: New “Post bank transfer” command on Slack | Yes
+1\. Search for a supplier on XYZ accounting | Yes
+2\. Execute bank transfer on XYZ accounting using supplier ID | No
+3\. Post reply on Slack to notify user | Yes
 
 Using this skeleton, it’s easy to see that we’ve missed out on an “Execute bank transfer” action which would be critical in this use case.
 
@@ -108,14 +108,14 @@ Workato recommends gaining experience with recipe building before creating a cus
 
 By the end of this exercise, you should have a list of actions and triggers that you plan to build. When placed into a table format, it should look something similar to this:
 
-| New/updated trigger | Create action | Retrieve action | Update action | Delete action | Search action | Execute action  
----|---|---|---|---|---|---|---  
-Invoices | Yes | Yes | Yes | Yes | Yes | Yes |   
-Products | Yes | Yes | Yes | Yes | Yes | Yes |   
-Payments | Yes | Yes | Yes | Yes | Yes | Yes |   
-Vendors | Yes | Yes | Yes | Yes | Yes | Yes |   
-Expense reports | Yes | Yes | Yes | Yes | Yes | Yes |   
-Bank Transfer | Yes |  | Yes |  |  | Yes | Yes  
+| New/updated trigger | Create action | Retrieve action | Update action | Delete action | Search action | Execute action
+---|---|---|---|---|---|---|---
+Invoices | Yes | Yes | Yes | Yes | Yes | Yes |
+Products | Yes | Yes | Yes | Yes | Yes | Yes |
+Payments | Yes | Yes | Yes | Yes | Yes | Yes |
+Vendors | Yes | Yes | Yes | Yes | Yes | Yes |
+Expense reports | Yes | Yes | Yes | Yes | Yes | Yes |
+Bank Transfer | Yes |  | Yes |  |  | Yes | Yes
 
 ### [#](<#connector-building-time>) Connector building time
 

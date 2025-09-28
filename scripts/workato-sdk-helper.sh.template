@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Workato SDK Documentation Helper Script v1.0
-# This script handles all /workato-sdk command functionality  
+# This script handles all /workato-sdk command functionality
 # Installation path: ~/.workato-sdk-docs/workato-sdk-helper.sh
 
 # Script version
@@ -82,33 +82,32 @@ auto_commit_timestamps() {
     # Stage all the doc changes
     git add docs/ 2>/dev/null || true
 
-    # Determine the type of changes for the commit message
-    local has_content_changes=0
-    local changed_files_count=$(git diff --cached --name-only | wc -l | tr -d ' ')
-
-    # Check if there are content changes (not just timestamps)
-    while IFS= read -r file; do
-        if [[ "$file" == docs/*.md ]]; then
-            local diff_lines=$(git diff --cached "$file" | grep "^[+-]" | grep -v "^[+-][+-][+-]" | grep -v "^[+-]> \*\*Fetched\*\*:" || true)
-            if [[ -n "$diff_lines" ]]; then
-                has_content_changes=1
-                break
-            fi
+    # Check for meaningful changes in manifest metadata
+    local has_meaningful_changes=0
+    if [[ -f "$MANIFEST" ]]; then
+        if command -v jq >/dev/null 2>&1; then
+            has_meaningful_changes=$(jq -r '.fetch_metadata.has_meaningful_changes // 0' "$MANIFEST" 2>/dev/null)
         fi
-    done < <(git diff --cached --name-only)
+    fi
+
+    # Determine the type of changes for the commit message
+    local changed_files_count=$(git diff --cached --name-only | wc -l | tr -d ' ')
 
     # Create appropriate commit message
     local commit_date=$(date +"%Y-%m-%d %H:%M")
     local commit_message=""
 
-    if [[ $has_content_changes -eq 1 ]]; then
-        commit_message="Update SDK docs - content and timestamps - $commit_date
+    if [[ $has_meaningful_changes -eq 1 ]]; then
+        commit_message="Update Workato SDK docs - meaningful content changes - $commit_date
 
-Auto-generated commit: Documentation content and metadata updated from Workato"
+Auto-generated commit: Documentation content updated from Workato (meaningful changes detected)"
+    elif [[ $changed_files_count -gt 0 ]]; then
+        commit_message="Update Workato SDK docs - metadata only - $commit_date
+
+Auto-generated commit: Documentation metadata updated (no content changes)"
     else
-        commit_message="Update SDK docs timestamps - $commit_date
-
-Auto-generated commit: Documentation fetch timestamps updated"
+        echo "📝 No changes to commit"
+        return 0
     fi
 
     git commit -m "$commit_message" >/dev/null 2>&1
@@ -125,7 +124,7 @@ Auto-generated commit: Documentation fetch timestamps updated"
 # Function to show documentation sync status
 show_freshness() {
     print_doc_header
-    
+
     # Read manifest
     if [[ ! -f "$MANIFEST" ]]; then
         echo "❌ Error: SDK documentation not found at ~/.workato-sdk-docs"
@@ -133,11 +132,11 @@ show_freshness() {
         echo "curl -fsSL https://raw.githubusercontent.com/kreitter/workato-sdk-docs/main/install.sh | bash"
         exit 1
     fi
-    
+
     # Try to sync with GitHub
     auto_update
     local sync_status=$?
-    
+
     if [[ $sync_status -eq 2 ]]; then
         echo "⚠️  Could not sync with GitHub (using local cache)"
         echo "Check your internet connection or GitHub access"
@@ -150,7 +149,7 @@ show_freshness() {
         fi
         local AHEAD=$(git rev-list origin/"$COMPARE_BRANCH"..HEAD --count 2>/dev/null || echo "0")
         local BEHIND=$(git rev-list HEAD..origin/"$COMPARE_BRANCH" --count 2>/dev/null || echo "0")
-        
+
         if [[ "$AHEAD" -gt 0 ]]; then
             echo "⚠️  Local version is ahead of GitHub by $AHEAD commit(s)"
         elif [[ "$BEHIND" -gt 0 ]]; then
@@ -159,13 +158,13 @@ show_freshness() {
             echo "✅ You have the latest SDK documentation"
         fi
     fi
-    
+
     # Show current branch and version
     cd "$DOCS_PATH" 2>/dev/null || exit 1
     local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
     echo "📍 Branch: ${BRANCH}"
     echo "📦 Version: ${SCRIPT_VERSION}"
-    
+
     # Show last fetch time from manifest
     if command -v jq >/dev/null 2>&1; then
         local LAST_FETCH=$(jq -r '.fetch_metadata.last_fetch_completed // "unknown"' "$MANIFEST" 2>/dev/null)
@@ -176,20 +175,20 @@ show_freshness() {
 # Function to read documentation
 read_doc() {
     local topic=$(sanitize_input "$1")
-    
+
     # Strip .md extension if user included it
     topic="${topic%.md}"
-    
+
     local doc_path="$DOCS_PATH/docs/${topic}.md"
-    
+
     if [[ -f "$doc_path" ]]; then
         print_doc_header
-        
+
         # Quick check if we're up to date
         cd "$DOCS_PATH" 2>/dev/null || exit 1
         local BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "main")
         local VERSION=$SCRIPT_VERSION
-        
+
         # Do the fetch to check status
         local COMPARE_BRANCH="$BRANCH"
         if ! git fetch --quiet origin "$BRANCH" 2>/dev/null; then
@@ -204,11 +203,11 @@ read_doc() {
                 return
             fi
         fi
-        
+
         local LOCAL=$(git rev-parse HEAD 2>/dev/null)
         local REMOTE=$(git rev-parse origin/"$COMPARE_BRANCH" 2>/dev/null)
         local BEHIND=$(git rev-list HEAD..origin/"$COMPARE_BRANCH" --count 2>/dev/null || echo "0")
-        
+
         if [[ "$LOCAL" != "$REMOTE" ]] && [[ "$BEHIND" -gt 0 ]]; then
             echo "🔄 Updating to latest SDK documentation..."
 git pull --quiet origin "$COMPARE_BRANCH" 2>&1 | grep -v "Merge made by" || true
@@ -230,7 +229,7 @@ git pull --quiet origin "$COMPARE_BRANCH" 2>&1 | grep -v "Merge made by" || true
             fi
         fi
         echo ""
-        
+
         cat "$doc_path"
         echo ""
         echo "📖 Official page: https://docs.workato.com/en/developing-connectors/sdk/${topic}.html"
@@ -239,18 +238,18 @@ git pull --quiet origin "$COMPARE_BRANCH" 2>&1 | grep -v "Merge made by" || true
         print_doc_header
         echo "🔍 Searching for: $topic"
         echo ""
-        
+
         # Try to extract keywords from the topic
         local keywords=$(echo "$topic" | grep -o '[a-zA-Z0-9_-]\+' | grep -v -E '^(tell|me|about|explain|what|is|are|how|do|to|show|find|search|the|for|in)$' | tr '\n' ' ')
-        
+
         if [[ -n "$keywords" ]]; then
             # Search for matching topics
             local escaped_keywords=$(echo "$keywords" | sed 's/[[\.*^$()+?{|]/\\&/g')
             local matches=$(ls "$DOCS_PATH/docs" 2>/dev/null | grep '\.md$' | sed 's/\.md$//' | grep -i -E "$(echo "$escaped_keywords" | tr ' ' '|')" | sort)
-            
+
             if [[ -n "$matches" ]]; then
                 echo "Found these related SDK topics:"
-                echo "$matches" | sed 's/^/  • /' 
+                echo "$matches" | sed 's/^/  • /'
                 echo ""
                 echo "Try: /workato-sdk <topic> to read a specific document"
             else
@@ -269,10 +268,10 @@ git pull --quiet origin "$COMPARE_BRANCH" 2>&1 | grep -v "Merge made by" || true
 # Function to list available documentation
 list_docs() {
     print_doc_header
-    
+
     # Auto-update to ensure fresh list
     auto_update
-    
+
     echo "Available Workato SDK documentation topics:"
     echo ""
     ls "$DOCS_PATH/docs" 2>/dev/null | grep '\.md$' | sed 's/\.md$//' | sort | column -c 80
@@ -288,30 +287,30 @@ hook_check() {
 # Function to show what's new
 whats_new() {
     set +e
-    
+
     print_doc_header
-    
+
     # Auto-update first
     auto_update || true
-    
+
     cd "$DOCS_PATH" 2>/dev/null || {
         echo "❌ Error: Could not access documentation directory"
         return 1
     }
-    
+
     echo "📚 Recent SDK documentation updates:"
     echo ""
-    
+
     # Get recent commits
     local count=0
-    
+
     while IFS= read -r commit_line && [[ $count -lt 5 ]]; do
         local hash=$(echo "$commit_line" | cut -d' ' -f1)
         local date=$(git show -s --format=%cr "$hash" 2>/dev/null || echo "unknown")
-        
+
         echo "• $date:"
         echo "  📎 https://github.com/kreitter/workato-sdk-docs/commit/$hash"
-        
+
         # Show which docs changed
         local changed_docs=$(git diff-tree --no-commit-id --name-only -r "$hash" -- docs/*.md 2>/dev/null | sed 's|docs/||' | sed 's|\.md$||' | head -5)
         if [[ -n "$changed_docs" ]]; then
@@ -322,14 +321,14 @@ whats_new() {
         echo ""
         ((count++))
     done < <(git log --oneline -10 -- docs/*.md 2>/dev/null | grep -v "Merge" || true)
-    
+
     if [[ $count -eq 0 ]]; then
         echo "No recent SDK documentation updates found."
         echo ""
     fi
-    
+
     echo "📎 Full changelog: https://github.com/kreitter/workato-sdk-docs/commits/main/docs"
-    
+
     set -e
     return 0
 }
@@ -340,13 +339,13 @@ uninstall() {
     echo "To uninstall Workato SDK Documentation Mirror"
     echo "============================================"
     echo ""
-    
+
     echo "This will remove:"
     echo "  • The /workato-sdk command from ~/.claude/commands/workato-sdk.md"
     echo "  • The auto-update hook from ~/.claude/settings.json"
     echo "  • The installation directory ~/.workato-sdk-docs"
     echo ""
-    
+
     echo "Run this command in your terminal:"
     echo ""
     echo "  ~/.workato-sdk-docs/uninstall.sh"

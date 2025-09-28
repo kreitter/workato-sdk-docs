@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/enable-ci-cd-on-github.html
-> **Fetched**: 2025-09-28T02:34:21.420873
+> **Fetched**: 2025-09-27T19:17:50.327961
 
 ---
 
@@ -21,11 +21,11 @@ Next, you'll create a [GitHub Actions (opens new window)](<https://docs.github.c
 
 In your repository's `.github/workflows` folder, create a new `ruby.yml` file. For example:
 ```ruby
-name: Connector Unit Test
 
-    on: 
+    name: Connector Unit Test
+
+    on:
       pull_request:
-```
         branches: [ main ]
 
     jobs:
@@ -42,13 +42,14 @@ name: Connector Unit Test
           uses: ruby/setup-ruby@v1
           with:
             ruby-version: ${{ matrix.ruby-version }}
-            bundler-cache: true 
+            bundler-cache: true
         - name: Run tests
           env: # Only needed if using encrypted files.
-            WORKATO_CONNECTOR_MASTER_KEY: ${{ secrets.WORKATO_CONNECTOR_MASTER_KEY }} 
+            WORKATO_CONNECTOR_MASTER_KEY: ${{ secrets.WORKATO_CONNECTOR_MASTER_KEY }}
           run: bundle exec rspec
 
 
+```
 
 In this example, our project is using encrypted settings ([`settings.yaml.enc`](</developing-connectors/sdk/cli/reference/cli-project-directory-reference.html#settings-yaml-enc-settings-yaml>)). When using encryption, make sure to:
 
@@ -65,11 +66,11 @@ Now, you might also want to automate the deployment of your connector to your DE
 
 In your repository's `.github/workflows` folder, create a new `ruby.yml` file. For example:
 ```ruby
-name: Connector Unit Test & Deployment
 
-    on: 
+    name: Connector Unit Test & Deployment
+
+    on:
       push:
-```
         branches: [ main ]
 
     jobs:
@@ -86,17 +87,18 @@ name: Connector Unit Test & Deployment
           uses: ruby/setup-ruby@v1
           with:
             ruby-version: ${{ matrix.ruby-version }}
-            bundler-cache: true 
+            bundler-cache: true
         - name: Run tests
           env: # Only needed if using encrypted files.
-            WORKATO_CONNECTOR_MASTER_KEY: ${{ secrets.WORKATO_CONNECTOR_MASTER_KEY }} 
+            WORKATO_CONNECTOR_MASTER_KEY: ${{ secrets.WORKATO_CONNECTOR_MASTER_KEY }}
           run: bundle exec rspec
         - name: Push to DEV workspace Use this to push to DEV. This can be enabled when a PR is merged.
           env: # Only needed if using encrypted files.
-            WORKATO_API_TOKEN: ${{ secrets.WORKATO_DEV_ENVIRONMENT_API_TOKEN}} 
-          run: bundle exec workato push -n "${{ github.event.head_commit.message }}" 
+            WORKATO_API_TOKEN: ${{ secrets.WORKATO_DEV_ENVIRONMENT_API_TOKEN}}
+          run: bundle exec workato push -n "${{ github.event.head_commit.message }}"
 
 
+```
 
 ## [#](<#what-s-next>) What's next?
 

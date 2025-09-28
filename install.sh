@@ -16,7 +16,7 @@ detect_repo_url() {
         echo "$WORKATO_SDK_REPO_URL"
         return 0
     fi
-    
+
     # 2. Try to detect from current git repository (if running from cloned repo)
     if [[ -d ".git" ]] && command -v git &> /dev/null; then
         local detected_url=$(git remote get-url origin 2>/dev/null || true)
@@ -30,7 +30,7 @@ detect_repo_url() {
             return 0
         fi
     fi
-    
+
     # 3. Fall back to default repository
     echo "https://github.com/kreitter/workato-sdk-docs.git"
 }
@@ -104,10 +104,10 @@ fi
 safe_git_update() {
     local repo_dir="$1"
     cd "$repo_dir"
-    
+
     local current_branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "unknown")
     local target_branch="$INSTALL_BRANCH"
-    
+
     # Check for local changes
     if [[ -n "$(git status --porcelain)" ]]; then
         echo "⚠️  Local changes detected in ~/.workato-sdk-docs"
@@ -122,17 +122,17 @@ safe_git_update() {
         echo ""
         read -p "Choose option (1-3): " -n 1 -r choice
         echo
-        
+
         case $choice in
-            1) 
+            1)
                 echo "  Stashing local changes..."
                 git stash push -m "Auto-stash before workato-sdk-docs update $(date +%Y%m%d-%H%M%S)"
-                
+
                 # Fetch and update
                 git fetch origin "$target_branch"
                 git checkout -B "$target_branch" "origin/$target_branch"
                 git pull origin "$target_branch"
-                
+
                 # Try to restore stashed changes
                 echo "  Restoring stashed changes..."
                 if git stash pop; then
@@ -142,23 +142,23 @@ safe_git_update() {
                     echo "  Your changes are saved in: git stash list"
                 fi
                 ;;
-            2) 
+            2)
                 echo "  Skipping update - keeping local changes"
                 echo "  ⚠️  You may need to manually merge updates later"
                 return 0
                 ;;
-            3) 
+            3)
                 echo "  Discarding local changes..."
                 git reset --hard HEAD
                 git clean -fd
-                
+
                 # Now update normally
                 git fetch origin "$target_branch"
                 git checkout -B "$target_branch" "origin/$target_branch"
                 git pull origin "$target_branch"
                 echo "  ✓ Updated to latest version (local changes discarded)"
                 ;;
-            *) 
+            *)
                 echo "  ❌ Invalid choice - aborting installation"
                 echo "  Your local changes are preserved"
                 exit 1
@@ -171,39 +171,39 @@ safe_git_update() {
         else
             echo "  Updating $target_branch branch..."
         fi
-        
+
         # Set git config for pull strategy if not set
         if ! git config pull.rebase >/dev/null 2>&1; then
             git config pull.rebase false
         fi
-        
+
         # Try regular pull
         if git pull origin "$target_branch" 2>/dev/null; then
             echo "  ✓ Updated successfully"
             return 0
         fi
-        
+
         # If pull failed, try to recover
         echo "  Standard update failed, attempting recovery..."
-        
+
         # Fetch latest
         if ! git fetch origin "$target_branch" 2>/dev/null; then
             echo "  ⚠️  Could not fetch from GitHub (offline?)"
             echo "  Installation will continue with existing version"
             return 1
         fi
-        
+
         # Abort any in-progress merge/rebase
         git merge --abort >/dev/null 2>&1 || true
         git rebase --abort >/dev/null 2>&1 || true
-        
+
         # Reset to remote state
         git checkout -B "$target_branch" "origin/$target_branch"
         git reset --hard "origin/$target_branch"
-        
+
         echo "  ✓ Updated successfully to clean state"
     fi
-    
+
     return 0
 }
 
@@ -214,7 +214,7 @@ echo ""
 if [[ -d "$INSTALL_DIR" && -f "$INSTALL_DIR/docs/docs_manifest.json" ]]; then
     echo "✓ Found installation at ~/.workato-sdk-docs"
     echo "  Updating to latest version..."
-    
+
     # Update it safely
     safe_git_update "$INSTALL_DIR" || {
         echo "❌ Error: Failed to update existing installation"
@@ -229,7 +229,7 @@ if [[ -d "$INSTALL_DIR" && -f "$INSTALL_DIR/docs/docs_manifest.json" ]]; then
 else
     # Fresh installation
     echo "Installing fresh to ~/.workato-sdk-docs..."
-    
+
     if ! git clone -b "$INSTALL_BRANCH" "$REPO_URL" "$INSTALL_DIR" 2>/dev/null; then
         echo "❌ Error: Failed to clone repository from $REPO_URL"
         echo "  Please check:"
@@ -316,10 +316,10 @@ HOOK_COMMAND="~/.workato-sdk-docs/workato-sdk-helper.sh hook-check"
 if [ -f ~/.claude/settings.json ]; then
     # Update existing settings.json
     echo "  Updating Claude settings..."
-    
+
     # First remove any existing workato-sdk-docs hooks
     jq '.hooks.PreToolUse = [(.hooks.PreToolUse // [])[] | select(.hooks[0].command | contains("workato-sdk-docs") | not)]' ~/.claude/settings.json > ~/.claude/settings.json.tmp
-    
+
     # Then add our new hook
     jq --arg cmd "$HOOK_COMMAND" '.hooks.PreToolUse = [(.hooks.PreToolUse // [])[]] + [{"matcher": "Read", "hooks": [{"type": "command", "command": $cmd}]}]' ~/.claude/settings.json.tmp > ~/.claude/settings.json
     rm -f ~/.claude/settings.json.tmp

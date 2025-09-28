@@ -1,0 +1,34 @@
+# Codecov configuration for Workato SDK Documentation Mirror
+
+coverage:
+  precision: 2
+  round: down
+  range: "70...95"
+
+  status:
+    project:
+      default:
+        target: 85%
+        threshold: 1%
+        if_no_uploads: error
+    patch:
+      default:
+        target: 80%
+        threshold: 5%
+        if_no_uploads: error
+
+  ignore:
+    - "tests/"
+    - "scripts/requirements.txt"
+    - "**/*.md"
+    - "**/__pycache__/**"
+
+comment:
+  layout: "header, diff, flags, files, footer"
+  behavior: default
+  require_changes: false
+  require_base: no
+  require_head: yes
+
+github_checks:
+  annotations: true

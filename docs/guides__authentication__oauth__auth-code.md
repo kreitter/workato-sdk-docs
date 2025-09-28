@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code.html
-> **Fetched**: 2025-09-28T02:34:49.094495
+> **Fetched**: 2025-09-27T19:18:17.146606
 
 ---
 
@@ -11,11 +11,11 @@ The OAuth 2.0 Authorization code flow is a way for Workato to impersonate a spec
 
 ## [#](<#sample-connector-podio>) Sample Connector - Podio
 ```ruby
-{
+
+    {
       title: 'My Podio connector',
 
       connection: {
-```
         fields: [
           {
             name: 'client_id',
@@ -66,7 +66,7 @@ The OAuth 2.0 Authorization code flow is a way for Workato to impersonate a spec
                 access_token: response["access_token"],
                 refresh_token: response["refresh_token"]
               }
-            ]   
+            ]
           end,
         }
       },
@@ -79,6 +79,7 @@ The OAuth 2.0 Authorization code flow is a way for Workato to impersonate a spec
     }
 
 
+```
 
   * Check out the [Podio API (opens new window)](<https://developers.podio.com/authentication/server_side>)
 
@@ -86,15 +87,14 @@ The OAuth 2.0 Authorization code flow is a way for Workato to impersonate a spec
 
 This component tells Workato what fields to show to a user trying to establish a connection. In the case of Authentication code authentication, you would need the Client ID and Client Secret that the user has generated in Podio.
 
-Information needed | Description  
----|---  
-Client ID | This is the "username" that this specific custom connector has registered with the API. This might mean signing Workato up as a verified application in the application.  
-Client secret | This is the "password" that this specific custom connector has registered with the API. This might mean signing Workato up as a verified application in the application. **Never share your client secret with others**  
+Information needed | Description
+---|---
+Client ID | This is the "username" that this specific custom connector has registered with the API. This might mean signing Workato up as a verified application in the application.
+Client secret | This is the "password" that this specific custom connector has registered with the API. This might mean signing Workato up as a verified application in the application. **Never share your client secret with others**
 
 This is done in the `fields` key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
 ```ruby
 
-```
         fields: [
           {
             name: 'client_id',
@@ -108,6 +108,7 @@ This is done in the `fields` key, which accepts an array of hashes. Each hash in
         ],
 
 
+```
 
 ![Configured Podio connection fields](/assets/img/podio_conn.be0fbb1a.png)
 
@@ -125,7 +126,8 @@ You can remove the fields for `client_id` or `client_secret` from the connection
 
 **Example for HubSpot**
 ```ruby
-authorization_url: lambda do |connection|
+
+    authorization_url: lambda do |connection|
       client_id = account_property('hubspot_webhook_client_id')
       "https://app.hubspot.com/oauth/authorize?client_id=#{client_id}&response_type=code&scope=crm.objects.companies.read crm.objects.contacts.read crm.objects.deals.read"
     end,
@@ -140,7 +142,6 @@ authorization_url: lambda do |connection|
           code: auth_code,
           redirect_uri: redirect_uri).
         request_format_www_form_urlencoded
-```
       [
         {
           access_token: response['access_token'],
@@ -152,12 +153,14 @@ authorization_url: lambda do |connection|
     end,
 
 
+```
 
 ## [#](<#step-2-defining-the-authorization-type>) Step 2 - Defining the authorization type
 
 This component instructs Workato what to do with the values received from the input fields to establish a connection. This is handled through your `authorization` key. In this key, you begin by first defining the `type` of authorization. In this case, you should use `oauth2`.
 ```ruby
-type: "oauth2",
+
+          type: "oauth2",
 
 
 ```
@@ -176,7 +179,8 @@ With the authorization code grant variant of OAuth 2, you supply 4 key attribute
   * The client secret - The private key of the OAuth app assigned to this connection.
 
 ```ruby
-authorization_url: lambda do |connection|
+
+        authorization_url: lambda do |connection|
           "https://podio.com/oauth/authorize"
         end,
 
@@ -185,7 +189,6 @@ authorization_url: lambda do |connection|
         end,
 
         client_id: lambda do |connection|
-```
           connection['client_id']
         end,
 
@@ -194,6 +197,7 @@ authorization_url: lambda do |connection|
         end,
 
 
+```
 
 When defining the `authorization_url` lambda function, you do not have to explicitly pass in the client ID, redirect URI, or state. Workato does that for you. Sometimes, you may have to add scope to the URL.
 
@@ -201,49 +205,56 @@ However, if the application requires you to register the redirect URI beforehand
 
 ### [#](<#us-data-center-callback-url>) US data center callback URL
 ```ruby
-https://app.workato.com/oauth/callback
+
+    https://app.workato.com/oauth/callback
 
 
 ```
 
 ### [#](<#europe-data-center-callback-url>) Europe data center callback URL
 ```ruby
-https://app.eu.workato.com/oauth/callback
+
+    https://app.eu.workato.com/oauth/callback
 
 
 ```
 
 ### [#](<#japan-data-center-callback-url>) Japan data center callback URL
 ```ruby
-https://app.jp.workato.com/oauth/callback
+
+    https://app.jp.workato.com/oauth/callback
 
 
 ```
 
 ### [#](<#singapore-data-center-callback-url>) Singapore data center callback URL
 ```ruby
-https://app.sg.workato.com/oauth/callback
+
+    https://app.sg.workato.com/oauth/callback
 
 
 ```
 
 ### [#](<#australia-data-center-callback-url>) Australia data center callback URL
 ```ruby
-https://app.au.workato.com/oauth/callback
+
+    https://app.au.workato.com/oauth/callback
 
 
 ```
 
 ### [#](<#israel-data-center-callback-url>) Israel data center callback URL
 ```ruby
-https://app.il.workato.com/oauth/callback
+
+    https://app.il.workato.com/oauth/callback
 
 
 ```
 
 ### [#](<#developer-sandbox-callback-url>) Developer sandbox callback URL
 ```ruby
-https://app.trial.workato.com/oauth/callback
+
+    https://app.trial.workato.com/oauth/callback
 
 
 ```
@@ -254,7 +265,8 @@ When defining the `client_id` and `client_secret`, you may use inputs from the e
 
 When Workato exchanges the short-lived authorization code for a longer-living access token, we expect the response from the `token_url` endpoint to contain 2 main values - `access_token` and `refresh_token`. Here is a sample response:
 ```ruby
-{
+
+    {
       "access_token": "my-authentication-token",
       "token_type": "bearer",
       "expires_in": "seconds-until-expiration",
@@ -278,7 +290,8 @@ In the apply key, we apply the acquired access token as a header input.
 
 We can retrieve the `access_token` by referencing simply passing in `access_token` as a parameter into the apply key. This argument `access_token` is automatically assigned from the output of the `token_url` lambda function.
 ```ruby
-apply: lambda do |connection, access_token|
+
+        apply: lambda do |connection, access_token|
           headers("Authorization": "OAuth2 #{access_token}")
         end,
 
@@ -298,7 +311,6 @@ Not all APIs issue refresh token credentials. Check with the API about this requ
 When the access-token expires, you can define the behavior that your connector should take to refresh the access token using the refresh token.
 ```ruby
 
-```
         refresh_on: [401, 403],
 
         refresh: lambda do |connection, refresh_token|
@@ -315,10 +327,11 @@ When the access-token expires, you can define the behavior that your connector s
               access_token: response["access_token"],
               refresh_token: response["refresh_token"]
             }
-          ]   
+          ]
         end,
 
 
+```
 
 To refresh your access token, you have to use two keys in the `authorization` key - `refresh_on` and `refresh`. `refresh_on` accepts an array that may contain HTTP response codes or regex strings. If an HTTP request in the connector receives any of the HTTP response codes, or if the body of the payload matches a regex string, it will execute the code in the `refresh` key to attempt to retrieve a new access token.
 
@@ -330,7 +343,8 @@ To learn more about the refresh lambda, see [SDK Reference - authorization](</de
 
 This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to configure your `base_uri` [here](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
 ```ruby
-base_uri: lambda do |connection|
+
+        base_uri: lambda do |connection|
           'https://podio.com'
         end
 
@@ -341,18 +355,20 @@ TIP
 
 This lambda function also has access to the `connection` argument. This is especially useful if the base URI of the API might change based on the user's instance. The `connection` argument can be accessed in the following format:
 ```ruby
-base_uri: lambda do |connection|
-```
+
+        base_uri: lambda do |connection|
           "https://#{connection['domain'].com/api}"
         end
 
 
+```
 
 ## [#](<#step-7-testing-the-connection>) Step 7 - Testing the connection
 
 Now that we have defined the fields we need to collect from an end user and what to do with the inputs from those fields, we now need a way to test this connection. This is handled in the `test` key.
 ```ruby
-test: lambda do
+
+        test: lambda do
           get('/oauth/scope')
         end,
 
@@ -373,13 +389,13 @@ Using the `acquire` block instead of the `token_url` block is often recommended 
 
 In the case below, we used the acquire key to send a `POST` HTTP call with basic authentication since our `token_url` block defaults to header authentication. You can then pull the `access_token` and `refresh_token` from the response to the `POST` call.
 ```ruby
-authorization: {
+
+        authorization: {
           type: "oauth2",
 
           authorization_url: lambda do |connection|
             params = {
               response_type: "code",
-```
               client_id: connection["client_id"]
             }.to_param
 
@@ -397,7 +413,7 @@ authorization: {
               password(connection["client_secret"]).
               request_format_www_form_urlencoded
 
-            # After defining the POST method, we now need to define the 
+            # After defining the POST method, we now need to define the
             # output of the acquire key in a fashion that we can recognise
               [
                 {
@@ -407,7 +423,7 @@ authorization: {
                 },
                 nil,
                 # Optional. Will be merged into connection hash
-                { instance_id: nil } 
+                { instance_id: nil }
               ]
             end,
 
@@ -418,12 +434,14 @@ authorization: {
         },
 
 
+```
 
 The methods `.user` and `.password` are the equivalent of appending `Authorization: BASIC` and `<user>:<password>` in BASE-64 String encoding in the `POST` request header. Note that the request must be sent with `request_format_www_form_urlencoded`.
 
 Upon receiving a the request, the API returns a JSON response like below:
 ```ruby
-{
+
+    {
       "access_token": "token",
       "token_type": "bearer",
       "expires_in": 86400,
@@ -443,7 +461,6 @@ Take note that an array of hashes is the expected output when using the `acquire
 Which matches the connector code here:
 ```ruby
 
-```
       [
         {
           access_token: response["access_token"],
@@ -452,10 +469,11 @@ Which matches the connector code here:
         },
         nil,
         # Optional. Will be merged into connection hash
-        { instance_id: nil } 
+        { instance_id: nil }
       ]
 
 
+```
 
 ## [#](<#connections-sdk-reference>) Connections SDK reference
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/getting-started.html
-> **Fetched**: 2025-09-28T02:34:19.151587
+> **Fetched**: 2025-09-27T19:17:48.139499
 
 ---
 
@@ -30,8 +30,8 @@ Learn more [here (opens new window)](<https://www.ruby-lang.org/en/documentation
 
 You can verify your Ruby version by running the following command, or the appropriate command for your Ruby version manager (for example: `rvm current`):
 ```bash
-$ ruby -v
-    ruby 2.7.X
+ $ ruby -v
+        ruby 2.7.X
 
 
 ```
@@ -48,7 +48,8 @@ Complete the following steps to install SDK gem using the command line (CLI):
 
 Run the following command to install the gem from [rubygems.org (opens new window)](<https://rubygems.org/gems/workato-connector-sdk>):
 ```bash
-$ gem install workato-connector-sdk
+
+    $ gem install workato-connector-sdk
 
 
 ```
@@ -59,13 +60,13 @@ Verify that your gem is correctly installed by typing in the command `workato` i
 
 3
 ```bash
-$ workato
+
+    $ workato
 
     Commands:
       workato edit <PATH>            # Edit encrypted file, e.g. settings.yaml.enc
       workato exec <PATH>            # Execute connector defined block
       workato generate <SUBCOMMAND>  # Generates code from template
-```
       workato help [COMMAND]         # Describe available commands or one specific command
       workato new <CONNECTOR_PATH>   # Inits new connector folder
       workato push <FOLDER>          # Upload and release connector's code
@@ -74,6 +75,7 @@ $ workato
       [--verbose], [--no-verbose]
 
 
+```
 
 WINDOWS USERS ADDITIONAL INSTALLATION STEP
 
@@ -83,7 +85,8 @@ If you use Windows, you may need to install tzinfo-data gem by running the comma
 
 Optional. Run `gem which` to check the exact location of the gem:
 ```bash
-$ gem which workato-connector-sdk
+
+    $ gem which workato-connector-sdk
 
 
 ```
@@ -100,7 +103,8 @@ Now that you're all set up, let's dive into the exciting stuff: Making connector
 
 Create a new connector project using the [`workato new`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-new>) command, replacing `<PATH>` with the path you'd like to use for the project:
 ```bash
-$ workato new <PATH>
+
+    $ workato new <PATH>
 
 
 ```
@@ -111,7 +115,8 @@ This creates the project in the directory you're currently in.
 
 Complete the prompts about HTTP mocking behavior:
 ```ruby
-Please select default HTTP mocking behavior suitable for your project?
+
+    Please select default HTTP mocking behavior suitable for your project?
 
     1 - secure. Cause an error to be raised for any unknown requests, all request recordings are encrypted.
                 To record a new cassette you need set VCR_RECORD_MODE environment variable
@@ -149,14 +154,16 @@ Run the [`workato edit`](</developing-connectors/sdk/cli/reference/cli-commands.
 
 Example - Mac users
 ```bash
-$ EDITOR="<EDITOR>" workato edit settings.yaml.enc
+
+    $ EDITOR="<EDITOR>" workato edit settings.yaml.enc
 
 
 ```
 
 Example - Windows users
 ```bash
-$ set EDITOR=notepad
+
+    $ set EDITOR=notepad
     $ workato edit settings.yaml.enc
 
 
@@ -170,13 +177,14 @@ Go to your project's `settings.yaml.enc` or `settings.yaml` file and add your cr
 
 We're going to use a single set of credentials for this example, so we can define them at the root level:
 ```bash
-## settings.yaml.enc
 
-```
+    ## settings.yaml.enc
+
     api_key: [api_key]
     domain: [domain]
 
 
+```
 
 Refer to the [settings file reference](</developing-connectors/sdk/cli/reference/cli-project-directory-reference.html#settings-yaml-enc-settings-yaml>) for more info, including how to provide multiple sets of credentials.
 
@@ -190,7 +198,8 @@ Test your connector's connection, triggers, or actions with [`workato exec`](</d
 
 For example:
 ```bash
-# Executes the execute block of the new_record action
+
+    # Executes the execute block of the new_record action
     $ workato exec actions.new_record.execute
 
     # Invokes a polling trigger for the updated_record trigger
@@ -214,7 +223,8 @@ You can push your connector code from your local environment to your Workato wor
 
 Run the [`workato push`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-push>) command:
 ```bash
-$ workato push
+
+    $ workato push
 
 
 ```
@@ -257,14 +267,16 @@ Ensure that your project structure is set up.
 
 Open your CLI, go to your home directory, and run the following command:
 ```ruby
-bundle exec rspec
+
+    bundle exec rspec
 
 
 ```
 
 RSpec runs all spec files in your spec folder by default. You can run only specific tests at a time by running the following command, changing the line number (16) for your testing requirements:
 ```bash
-# Runs the test(s) at line 16 of your spec file.
+
+    # Runs the test(s) at line 16 of your spec file.
     $ bundle exec rspec ./spec/connector_spec.rb:16
 
 

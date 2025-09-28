@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-code-patterns.html
-> **Fetched**: 2025-09-28T02:34:35.277208
+> **Fetched**: 2025-09-27T19:18:03.698473
 
 ---
 
@@ -13,14 +13,16 @@ There are some known limitations to Workato's platform that have fixes in the wo
 
 One known limitation of relates closely to datapills in Workato. When input or output fields are defined with names that have these special characters, input fields don’t show up and output datapills render incorrectly.
 ```ruby
--<>!@#$%^&*()+={}:;'"`~,.?
+
+    -<>!@#$%^&*()+={}:;'"`~,.?
 
 
 ```
 
 For example, schema defined where
 ```ruby
-{
+
+    {
       name: “due-date”
     }
 
@@ -41,14 +43,14 @@ Fortunately, there is a workaround which we highly recommend you build into your
 
 Sample code snippet:
 ```ruby
-format_schema: lambda do |schema|
+
+    format_schema: lambda do |schema|
       if schema.is_a?(Array)
         schema.map do |array_value|
           call('format_schema', array_value)
         end
       elsif schema.is_a?(Hash)
         schema.map do |key,value|
-```
           if %w[name].include?(key.to_s)
             value = call('replace_special_characters',value.to_s)
           elsif %w[properties toggle_field].include?(key.to_s)
@@ -60,11 +62,11 @@ format_schema: lambda do |schema|
     end,
 
 
+```
 
 Since fields where names contain keys cause errors, we need a service method that can take invalid schema and convert any names into formats we can handle. The method above recursively searches through a given schema and replaces any special characters with a valid string. For example,
 ```ruby
 
-```
     [
       {
         control_type: "text",
@@ -75,11 +77,11 @@ Since fields where names contain keys cause errors, we need a service method tha
     ]
 
 
+```
 
 Would be converted to
 ```ruby
 
-```
     [
       {
         control_type: "text",
@@ -90,6 +92,7 @@ Would be converted to
     ]
 
 
+```
 
 This allows the field to be displayed in Workato with no observable difference to the end user as labels are preserved. This service method can be called on either static or dynamic schema.
 
@@ -97,7 +100,8 @@ This allows the field to be displayed in Workato with no observable difference t
 
 Sample code snippet:
 ```ruby
-format_payload: lambda do |payload|
+
+    format_payload: lambda do |payload|
       if payload.is_a?(Array)
         payload.map do |array_value|
           call('format_payload', array_value)
@@ -122,7 +126,8 @@ This method should be called when input from the job is passed through the `exec
 
 Sample code snippet:
 ```ruby
-format_response: lambda do |payload|
+
+    format_response: lambda do |payload|
       if payload.is_a?(Array)
         payload.map do |array_value|
           call('format_response', array_value)
@@ -147,8 +152,8 @@ When working with responses, we still need to match them back to the Workato val
 
 Samples code snippet:
 ```ruby
-replace_special_characters: lambda do |input|
-```
+
+    replace_special_characters: lambda do |input|
       input.gsub(/[-<>!@#$%^&*()+={}:;'"`~,.?|]/,
       '-' => '__hyp__',
       '<' => '__lt__',
@@ -213,6 +218,7 @@ replace_special_characters: lambda do |input|
     end
 
 
+```
 
 ## [#](<#avoid-encoded-query-parameters>) Avoid encoded query parameters
 
@@ -220,13 +226,14 @@ Workato's SDK automatically encodes query parameters in GET requests, which can 
 
 For example:
 ```ruby
-url = "https://api.example.com/reports"
-```
+
+    url = "https://api.example.com/reports"
     query_string = "addressVerification=true&poi[latitude]=#{input['latitude']}&poi[longitude]=#{input['longitude']}"
 
     get("#{url}?#{query_string}")
 
 
+```
 
 This preserves the exact casing and structure required by the API. Use this pattern when the API expects raw query strings or rejects encoded characters.
 
@@ -239,11 +246,11 @@ This issue affects only the console interface. The SDK console formats header na
 For example:
 ```ruby
 
-```
     case_sensitive_headers(BPMCSRF: connection['BPMCSRF'],
                            Cookie: connection['Cookie'])
 
 
+```
 
 In the console, a header like `BPMCSRF` may display as `Bpmcsrf`, but the actual request uses the correct casing. You don't need to change your code.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/request_format_multipart_form.html
-> **Fetched**: 2025-09-28T02:35:20.135327
+> **Fetched**: 2025-09-27T19:18:47.075495
 
 ---
 
@@ -17,19 +17,21 @@ Let's use the Convert document endpoint in [IBM Watson API (opens new window)](<
 
 A cURL example looks like this:
 ```ruby
-curl \
+
+    curl \
       https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 \
       -X POST \
       -u "{username}":"{password}" \
       -F config="{\"conversion_target\":\"answer_units\"}" \
-```
       -F "[[email protected]](</cdn-cgi/l/email-protection>);type=application/pdf"
 
 
+```
 
 Workato:
 ```ruby
-{
+
+    {
       title: "IBM Watson",
 
       connection: {
@@ -43,7 +45,6 @@ Workato:
       actions: {
         upload_file: {
           input_fields: lambda do
-```
             [
               { name: "file_name", type: "string" },
               { name: "file_data", type: "string" },
@@ -80,22 +81,23 @@ Workato:
       }
 
 
+```
 
 In the SDK, notice that the `file` key in the payload takes an array of length 2. This defines the request as form data. The first item in the array is the file data and the second item is the media type (MIME type) of the input file.
 
 ## [#](<#components>) Components
 
-cURL | Workato  
----|---  
-`curl https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 -X POST` | `post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document")`  
-`.params(version: "2015-12-15")`  
-`-u "{username}":"{password}"` | This is defined in the [connection](../authentication/basic-authentication.md) key and is automatically added onto the outgoing request.  
-`-F config="{\"conversion_target\":\"answer_units\"}"`  
-`-F "[[email protected]](</cdn-cgi/l/email-protection>);type=application/pdf"` | `.request_format_multipart_form`  
-`.payload(`  
-`file: [input['file_data'], 'application/pdf'], `  
-`file_name: input['file_name'],`  
-`config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")`  
+cURL | Workato
+---|---
+`curl https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 -X POST` | `post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document")`
+`.params(version: "2015-12-15")`
+`-u "{username}":"{password}"` | This is defined in the [connection](../authentication/basic-authentication.md) key and is automatically added onto the outgoing request.
+`-F config="{\"conversion_target\":\"answer_units\"}"`
+`-F "[[email protected]](</cdn-cgi/l/email-protection>);type=application/pdf"` | `.request_format_multipart_form`
+`.payload(`
+`file: [input['file_data'], 'application/pdf'], `
+`file_name: input['file_name'],`
+`config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")`
 
 ## [#](<#variations>) Variations
 
@@ -105,13 +107,14 @@ FILE_NAME IS DIFFERENT FROM FILE
 
 `file_name` in the following example is different from the payload key (`file`).
 ```ruby
-execute: lambda do |connection, input|
+
+    execute: lambda do |connection, input|
       post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document").
         params(version: "2015-12-15").
         request_format_multipart_form.
-```
         payload(file: [input['file_data'], 'application/pdf', input['file_name']],
                 config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")
     end
 
 
+```

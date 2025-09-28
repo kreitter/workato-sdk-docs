@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/troubleshooting.html
-> **Fetched**: 2025-09-28T02:34:27.136945
+> **Fetched**: 2025-09-27T19:17:55.877569
 
 ---
 
@@ -25,10 +25,10 @@ When I try to use the workato push command, I get an error
 The `workato push` command tries to release your connector on Workato. If there are syntax errors in your connector, the output of the command will relay that to you.
 ```ruby
 
-```
     Unable to publish custom adapter Chargebee Demo1: Syntax [["method require not allowed", 1, 0, 1, 16]] and Publish Can not publish adapter with code errors
 
 
+```
 
 Where this is telling you that there is 1 error (denoted by 1 index in the root array) and the error is from line 1 position 0 to line 1 position 16.
 
@@ -41,7 +41,8 @@ VCR records and matches HTTP requests based on your configurations in your `spec
 
 Example: Relaxing VCR matching to accept different Authorization Headers by adjusting `spec_helper.rb`
 ```ruby
-config.register_request_matcher :headers_without_user_agent do |request1, request2|
+
+    config.register_request_matcher :headers_without_user_agent do |request1, request2|
       request1.headers.except('User-Agent', 'Authorization') == request2.headers.except('User-Agent', 'Authorization')
     end
 

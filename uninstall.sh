@@ -30,13 +30,13 @@ fi
 # Remove hooks from settings.json
 if [[ -f ~/.claude/settings.json ]]; then
     cp ~/.claude/settings.json ~/.claude/settings.json.backup
-    
+
     # Remove ALL hooks containing workato-sdk-docs
     jq '.hooks.PreToolUse = [(.hooks.PreToolUse // [])[] | select(.hooks[0].command | contains("workato-sdk-docs") | not)]' ~/.claude/settings.json > ~/.claude/settings.json.tmp
-    
+
     # Clean up empty structures
     jq 'if .hooks.PreToolUse == [] then .hooks |= if . == {PreToolUse: []} then {} else del(.PreToolUse) end else . end | if .hooks == {} then del(.hooks) else . end' ~/.claude/settings.json.tmp > ~/.claude/settings.json.tmp2
-    
+
     mv ~/.claude/settings.json.tmp2 ~/.claude/settings.json
     rm -f ~/.claude/settings.json.tmp
     echo "✓ Removed hooks (backup: ~/.claude/settings.json.backup)"
@@ -47,7 +47,7 @@ if [[ -d "$HOME/.workato-sdk-docs" ]]; then
     # Check if it has uncommitted changes
     if [[ -d "$HOME/.workato-sdk-docs/.git" ]]; then
         cd "$HOME/.workato-sdk-docs"
-        
+
         if [[ -z "$(git status --porcelain 2>/dev/null)" ]]; then
             cd - >/dev/null
             rm -rf "$HOME/.workato-sdk-docs"

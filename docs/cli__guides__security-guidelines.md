@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/security-guidelines.html
-> **Fetched**: 2025-09-28T02:34:26.014850
+> **Fetched**: 2025-09-27T19:17:54.796896
 
 ---
 
@@ -35,7 +35,8 @@ The SDK gem makes it easy to do this when you set up your connector project.
 
 After you run [`workato new`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-new>), select `secure` at the HTTP binding prompt:
 ```ruby
-Please select default HTTP mocking behavior suitable for your project?
+
+    Please select default HTTP mocking behavior suitable for your project?
 
     1 - secure. Cause an error to be raised for any unknown requests, all request recordings are encrypted.
                 To record a new cassette you need set VCR_RECORD_MODE environment variable

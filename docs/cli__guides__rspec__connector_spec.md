@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/connector_spec.html
-> **Fetched**: 2025-09-28T02:34:20.290622
+> **Fetched**: 2025-09-27T19:17:49.233608
 
 ---
 
@@ -13,11 +13,11 @@ In this segment, we will be going through how you can write tests for your conne
 
 The code in `connector.rb`.
 ```ruby
-{
+
+    {
       title: 'Chargebee-demo',
 
       connection: {
-```
         fields: [
           {
             name: 'api_key',
@@ -35,7 +35,7 @@ The code in `connector.rb`.
         ],
 
         authorization: {
-          type: 'basic_auth',  
+          type: 'basic_auth',
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -53,10 +53,12 @@ The code in `connector.rb`.
     }
 
 
+```
 
 Credentials in `settings.yaml.enc`.
 ```ruby
-api_key: valid_api_key
+
+    api_key: valid_api_key
     domain: valid_domain
 
 
@@ -70,7 +72,8 @@ Your project should have already come with a sample `connector_spec.rb` file if 
 
 The code in `connector_spec.rb`.
 ```ruby
-RSpec.describe 'connector', :vcr do
+
+    RSpec.describe 'connector', :vcr do
 
       let(:connector) { Workato::Connector::Sdk::Connector.from_file('connector.rb', settings) }
       let(:settings) { Workato::Connector::Sdk::Settings.from_default_file }
@@ -88,7 +91,6 @@ RSpec.describe 'connector', :vcr do
           it 'returns response that is formatted properly' do
             # large Test responses might also cause connections to be evaluated wrongly
             expect(output.to_s.length).to be < 5000
-```
             expect(output['list']).to be_kind_of(::Array)
           end
         end
@@ -96,6 +98,7 @@ RSpec.describe 'connector', :vcr do
     end
 
 
+```
 
 Here, we have defined 2 tests for the `test` lambda but lets go over it step by step.
 
@@ -103,7 +106,8 @@ Here, we have defined 2 tests for the `test` lambda but lets go over it step by 
 
 To begin testing, you need to use the Workato SDK Gem to create an instance of your connector.
 ```ruby
-let(:connector) { Workato::Connector::Sdk::Connector.from_file('connector.rb', settings) }
+
+      let(:connector) { Workato::Connector::Sdk::Connector.from_file('connector.rb', settings) }
 
 
 ```
@@ -112,14 +116,16 @@ let(:connector) { Workato::Connector::Sdk::Connector.from_file('connector.rb', s
 
 To begin testing, you need to use the Workato SDK Gem to create an instance of your settings. This is synonymous with your connection on Workato. Take note that, your connector instance previously defined also uses this settings instance.
 ```ruby
-let(:settings) { Workato::Connector::Sdk::Settings.from_default_file }
+
+      let(:settings) { Workato::Connector::Sdk::Settings.from_default_file }
 
 
 ```
 
 To instantiate your settings from an alternative setting file, you can use `from_encrypted_file` or `from_file`.
 ```ruby
-let(:settings) { Workato::Connector::Sdk::Settings.from_encrypted_file('invalid_settings.yaml.enc') }
+
+      let(:settings) { Workato::Connector::Sdk::Settings.from_encrypted_file('invalid_settings.yaml.enc') }
 
 
 ```
@@ -128,7 +134,8 @@ let(:settings) { Workato::Connector::Sdk::Settings.from_encrypted_file('invalid_
 
 Here, we describe the "family" of tests we are hoping to run. In this case, we use the keyword `test`. After that, we also define a `subject` of our tests. This is where we assign the value of `output` to our connector instance running the `test` lambda. This is done with the `connector.test(settings)` defined.
 ```ruby
-describe 'test' do
+
+      describe 'test' do
         subject(:output) { connector.test(settings) }
 
 
@@ -142,7 +149,8 @@ Over here, we are declaring that we "expect" the output of the `test` lambda to 
 
 We also "expect" that the output of the `test` lambda to be less than 5000 characters long and that its `list` attribute is an array. This satisfies the test - "returns response that is formatted properly"
 ```ruby
-context 'given valid credentials' do
+
+        context 'given valid credentials' do
           it 'establishes valid connection' do
             expect(output).to be_truthy
           end
@@ -150,18 +158,19 @@ context 'given valid credentials' do
           it 'returns response that is formatted properly' do
             # large Test responses might also cause connections to be evaluated wrongly
             expect(output.to_s.length).to be < 5000
-```
             expect(output['list']).to be_kind_of(::Array)
           end
         end
 
 
+```
 
 ## [#](<#step-5-run-your-rspec-tests>) Step 5 - Run your RSpec tests
 
 Now the last step is to run your RSpec tests. This is done with the `bundle exec rspec spec/connector_spec.rb` command.
 ```bash
-$ bundle exec rspec spec/connector_spec.rb
+
+    $ bundle exec rspec spec/connector_spec.rb
 
     connector
       is expected to be present

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/vcr.html
-> **Fetched**: 2025-09-28T02:34:23.721208
+> **Fetched**: 2025-09-27T19:17:52.545988
 
 ---
 
@@ -25,7 +25,8 @@ When you generate a connector project using the command `workato new [PATH]`, VC
 
 If you setup the project with the `secure` option, the VCR recordings are also encrypted. We recommend you use the `secure` option. In any case, your `spec_helper.rb` contains all information about your VCR recording configurations. Setting your project to `secure` ensures your VCR recordings are encrypted with your `master.key`. Below you can find an example of a `spec_helper.rb` which includes encryption.
 ```bash
-# frozen_string_literal: true
+
+    # frozen_string_literal: true
 
     require 'bundler/setup'
     require 'json'
@@ -51,7 +52,6 @@ If you setup the project with the `secure` option, the VCR recordings are also e
     VCR.configure do |config|
       config.cassette_library_dir = "tape_library"
       config.hook_into :webmock
-```
       config.cassette_serializers[:encrypted] = Workato::Testing::VCREncryptedCassetteSerializer.new
       config.register_request_matcher :headers_without_user_agent do |request1, request2|
         request1.headers.except("User-Agent") == request2.headers.except("User-Agent")
@@ -68,6 +68,7 @@ If you setup the project with the `secure` option, the VCR recordings are also e
     end
 
 
+```
 
 TIP
 
@@ -79,7 +80,8 @@ You can do so in `spec_helper.rb`. You can modify the spec_helper to suite your 
 
 Example: Relaxing VCR matching to accept different Authorization Headers by adjusting `spec_helper.rb`
 ```ruby
-config.register_request_matcher :headers_without_user_agent do |request1, request2|
+
+    config.register_request_matcher :headers_without_user_agent do |request1, request2|
       request1.headers.except('User-Agent', 'Authorization') == request2.headers.except('User-Agent', 'Authorization')
     end
 

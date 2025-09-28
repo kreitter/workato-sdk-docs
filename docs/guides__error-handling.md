@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/error-handling.html
-> **Fetched**: 2025-09-28T02:35:23.700977
+> **Fetched**: 2025-09-27T19:18:50.500895
 
 ---
 
@@ -19,7 +19,8 @@ This is a Workato SDK specific method to raise a job error with a custom message
 
 #### [#](<#sample-code-snippet>) Sample code snippet
 ```ruby
-execute: lambda do |connection, input|
+
+    execute: lambda do |connection, input|
       error("Provide at least one search criteria") if input.blank?
       get("", input)
     end
@@ -47,19 +48,20 @@ For example, we can use the `after_response` method to check the contents of the
 
 #### [#](<#sample-code-snippet-2>) Sample code snippet
 ```ruby
-post("https://api.intacct.com/ia/xml/xmlgw.phtml", payload).
+
+    post("https://api.intacct.com/ia/xml/xmlgw.phtml", payload).
       format_xml("request").
       after_response do |code, body, headers|
         result = body.dig("response", 0, "operation", 0, "result", 0)
         if result.dig("status", 0, "content!") == "failure"
           error(result.dig("errormessage", 0))
         else
-```
           result["data"]
         end
       end
 
 
+```
 
 ### [#](<#after-error-response>) `after_error_response`
 
@@ -73,8 +75,8 @@ Next, it also accepts a conditional path that will be executed when a HTTP respo
 
 Let's take a look at an `after_error_response` example, using **Airtable** API.
 ```ruby
-execute: lambda do |connection, input|
-```
+
+    execute: lambda do |connection, input|
       patch("https://api.airtable.com/v0/#{connection['base_id']}/users/#{id}", payload).
         after_error_response(404) do |code, body, header, message|
           error("#{message}: #{body}")
@@ -82,6 +84,7 @@ execute: lambda do |connection, input|
     end
 
 
+```
 
 When you try to update a row with an invalid ID, a HTTP error will be returned. The Error code used is `404` with a JSON body `{"error":"NOT_FOUND"}`.
 
@@ -112,7 +115,6 @@ Reissue the request manually using the redirected URL from the `location` header
 For example:
 ```ruby
 
-```
     file: get("/api/packages/#{input['package_id']}/download").
       response_format_raw.
       ignore_redirection.
@@ -129,19 +131,21 @@ For example:
       end
 
 
+```
 
 ### [#](<#conditionally-skip-authentication-for-redirected-domains>) Conditionally skip authentication for redirected domains
 
 Some redirected domains, such as Amazon S3, may reject authentication headers. Use `current_url` in the `apply:` block to conditionally exclude headers:
 ```ruby
-apply: lambda do |connection|
+
+    apply: lambda do |connection|
       unless current_url.include?('.amazonaws.com/')
-```
         headers(Authorization: "Bearer #{connection['api_token']}")
       end
     end
 
 
+```
 
 ## [#](<#handling-picklist-errors>) Handling Picklist errors
 
@@ -149,11 +153,11 @@ The `after_error_response` helper method can also be chained to HTTP verb method
 
 #### [#](<#sample-code-snippet-4>) Sample code snippet
 ```ruby
-pick_lists: {
+
+    pick_lists: {
       parsers: lambda do
         get('https://slack.com/api/users.list').
           after_error_response(400) do |code, body, headers, message|
-```
             error("Error loading parser pick list: #{body[/(?<=error\"\:\").*(?=\"\})/]}")
           end.
           pluck("label", "id")
@@ -161,6 +165,7 @@ pick_lists: {
     }
 
 
+```
 
 HTTP error will be displayed in the recipe editor when the custom adapter tries to load the pick list. In the example, the API key was reset, resulting in an invalid API keys used in the request.
 
@@ -172,10 +177,10 @@ This can also be used in [dynamic fields](</developing-connectors/sdk/sdk-refere
 
 #### [#](<#sample-code-snippet-5>) Sample code snippet
 ```ruby
-object_definitions: {
+
+    object_definitions: {
       parsed_data: {
         fields: lambda do |connection, config_fields, object_definitions|
-```
           get("https://api.docparser.com/v1/results/#{config_fields['parser_id']}1/schema").
           after_error_response(400) do |code, body, headers, message|
             error("Error loading parser schema: body[/(?<=error\"\:\").*(?=\"\})/]")
@@ -185,6 +190,7 @@ object_definitions: {
     }
 
 
+```
 
 HTTP error will be displayed in the recipe editor when the custom adapter tries to fetch schema for an unknown parser.
 
