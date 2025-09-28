@@ -1,7 +1,11 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/trigger-limit.html
+<<<<<<< Updated upstream
 > **Fetched**: 2025-09-27T19:18:52.774942
+=======
+> **Fetched**: 2025-09-27T11:59:50.840420
+>>>>>>> Stashed changes
 
 ---
 

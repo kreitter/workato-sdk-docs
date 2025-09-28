@@ -1,7 +1,11 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli.html
+<<<<<<< Updated upstream
 > **Fetched**: 2025-09-27T19:17:37.971825
+=======
+> **Fetched**: 2025-09-27T11:58:36.108183
+>>>>>>> Stashed changes
 
 ---
 

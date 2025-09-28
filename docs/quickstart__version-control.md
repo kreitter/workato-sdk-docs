@@ -1,7 +1,11 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/version-control.html
+<<<<<<< Updated upstream
 > **Fetched**: 2025-09-27T19:19:00.515886
+=======
+> **Fetched**: 2025-09-27T11:59:58.614318
+>>>>>>> Stashed changes
 
 ---
 
