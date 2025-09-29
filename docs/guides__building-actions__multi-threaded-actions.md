@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multi-threaded-actions.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:27.117116
-=======
-> **Fetched**: 2025-09-27T11:59:25.349919
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:50.635351
 
 ---
 
@@ -29,7 +25,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
 
 ## [#](<#sample-connector-intercom>) Sample connector - Intercom
 ```ruby
-
+ 
     {
       title: 'My Intercom connector',
 
@@ -42,7 +38,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
 
             description: "Create contacts in Intercom",
 
-            input_fields: lambda do
+            input_fields: lambda do 
               [
                 {
                   name: "contacts",
@@ -85,7 +81,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
             end,
 
             execute: lambda do |connection, input, eis, eos|
-              # Pre-processing of the data.
+              # Pre-processing of the data. 
               # For multithreading, we need to create an array of requests which we do over here.
               number_of_batches = input['contacts'].size
               batches = input['contacts'].map do |contact|
@@ -104,13 +100,13 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
 
               # Post-processing
               # Boolean to tell the user that all records were successful
-              success = results[0]
+              success = results[0] 
               # An array of all the responses for successful records
               records_ingested = results[1].compact
               # Collecting all the failed records into an array
               records_failed = []
               results[2].each_with_index do |item, index|
-                next unless item
+                next unless item 
                 failed_record = {
                   code: item,
                   record: input['contacts'][index]
@@ -145,8 +141,8 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 This component tells Workato what fields to show to a user trying to execute the insert batch action. In the case of inserting a batch of contacts in Intercom for example, the user has to provide us with an array (list) of contacts.
 ```ruby
-
-      input_fields: lambda do
+ 
+      input_fields: lambda do 
         [
           {
             name: "contacts",
@@ -203,8 +199,8 @@ The execute lambda is responsible for
 
 In the first part of the execute lambda, we first create an array of requests with a single request for each contact. Take note that the requests are not actually sent out at this point but only when the array of requests is passed to the `parallel` method.
 ```bash
-
-      # Pre-processing of the data.
+ 
+      # Pre-processing of the data. 
       # For multithreading, we need to create an array of requests which we do over here.
       number_of_batches = input['contacts'].size
       batches = input['contacts'].map do |contact|
@@ -218,7 +214,7 @@ In the first part of the execute lambda, we first create an array of requests wi
 
 In the next step we call the parallel method which takes in the array of requests as well as parameters for the execution like the total number of threads and any throttling of requests required. Take note that `rpm` is optional and excluding it will result in no throttling of requests.
 ```ruby
-
+ 
     results = parallel(
         batches, # Each index in the batch array represents a single request
         threads: 20, # The max number of threads. Defaults to 1 and max is 20
@@ -234,7 +230,7 @@ The output of the parallel method is an array which describes the successful and
 
 **Sample output of the parallel method**
 ```ruby
-
+ 
     [
       false, # Boolean that indicates all requests were successful
       [
@@ -254,16 +250,16 @@ The output of the parallel method is an array which describes the successful and
 
 Lastly, we need to do some transformations to ensure that the output of this action contains both the successfully ingested records and the failed records so the user can retry these failed records or store this somewhere.
 ```bash
-
+ 
       # Post-processing
       # Boolean to tell the user that all records were successful
-      success = results[0]
+      success = results[0] 
       # An array of all the responses for successful records
       records_ingested = results[1].compact
       # Collecting all the failed records into an array
       records_failed = []
       results[2].each_with_index do |item, index|
-        next unless item
+        next unless item 
         failed_record = {
           code: item,
           record: input['contacts'][index]
@@ -284,7 +280,7 @@ Lastly, we need to do some transformations to ensure that the output of this act
 
 This section tells us what datapills to show as the output of the trigger. The `name` attributes of each datapill should match the keys in the output of the `execute` key.
 ```ruby
-
+ 
     output_fields: lambda do |object_definitions, config_fields|
       object_definitions['insert_contacts_output']
     end

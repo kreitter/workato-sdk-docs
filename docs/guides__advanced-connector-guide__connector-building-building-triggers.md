@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:02.561163
-=======
-> **Fetched**: 2025-09-27T11:59:01.003303
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:26.687842
 
 ---
 
@@ -17,7 +13,7 @@ Building triggers follow almost the same format as actions. To make them object 
 
 When dealing with object-based triggers, we first need to define something called a configuration fields. [Configuration fields](</developing-connectors/sdk/sdk-reference/triggers.html#config-fields>) are special input fields that you can define whose answers can dynamically generate other input fields. Since triggers don't often need any additional input fields, this configuration field is used to dynamically generate the expected output of this trigger.
 ```ruby
-
+ 
     config_fields: [
       {
         name: 'object',
@@ -44,7 +40,7 @@ You can also use configuration fields to dynamically generate input fields based
 
 It is also highly recommended and really important to define helpful titles and descriptions for your actions. When dealing with object-based actions, this helps with the readability of recipes using your connector as well as improves user experience for those building recipes with your connector.
 ```ruby
-
+ 
     triggers: {
 
       new_updated_object: {
@@ -63,7 +59,7 @@ It is also highly recommended and really important to define helpful titles and 
           {
             body:
             "Triggers when an #{picklist_label['object'] || 'object'} is created " \
-            ' or updated in XYZ.'
+            ' or updated in XYZ.'   
           }
         end,
 
@@ -97,7 +93,7 @@ Since triggers do not need much configuration from the user, there is no need fo
 
 ### [#](<#input-fields>) Input fields
 ```ruby
-
+ 
     input_fields: lambda do
       [
         {
@@ -125,7 +121,7 @@ When building polling triggers, it's best to use endpoints that return a list of
 
 ### [#](<#expected-json-response-from-xyz-accounting>) Expected JSON response from XYZ accounting
 ```ruby
-
+ 
     {
       "results": [
         {
@@ -186,7 +182,7 @@ When building polling triggers, it's best to use endpoints that return a list of
 
 ### [#](<#poll-block>) poll block
 ```ruby
-
+ 
     poll: lambda do |connection, input, closure|
       limit = 100
       closure = closure || {}
@@ -234,7 +230,7 @@ The parameters are passed into an object-specific method to execute the poll and
 
 For each record in the array of records passed on from the poll block, Workato also checks to see if it has seen the record before. To do so, the dedup block should contain a string that combines various parts of a record to ensure that it is unique. In the example below, we've used the `invoice` id and `invoice` last updated timestamp to see if this updated record has been seen before.
 ```ruby
-
+ 
     dedup: lambda do |record|
       "#{record['results']['Id']}@#{record['results']['MetaData']['LastUpdatedTime']}"
     end,
@@ -248,7 +244,7 @@ Output fields can be defined using the same schema method used earlier. When cal
 
 ### [#](<#output-fields>) Output fields
 ```ruby
-
+ 
         output_fields: lambda do |object_definitions, connection, config_fields|
           object = config_fields['object']
 
@@ -260,7 +256,7 @@ Output fields can be defined using the same schema method used earlier. When cal
 
 ### [#](<#object-definition>) Object definition
 ```ruby
-
+ 
         invoice: {
           fields: lambda do |connection, config_fields, object_definitions|
             # same schema as above
@@ -276,7 +272,7 @@ Sample outputs are a great way to hint to give users context about the data-pill
 
 ### [#](<#sample-output>) Sample output
 ```ruby
-
+ 
     sample_output: lambda do |connection, input|
       payload = {
         "limit" => 1

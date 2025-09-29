@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/custom-action.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:24.893762
-=======
-> **Fetched**: 2025-09-27T11:59:23.127300
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:48.451481
 
 ---
 
@@ -21,7 +17,7 @@ You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_met
 
 ## [#](<#sample-connector-code>) Sample connector code
 ```ruby
-
+ 
     {
       title: 'Acme',
       connection: {
@@ -112,7 +108,7 @@ In the example above, we have included a simple example for OAuth2 where users m
 
 ## [#](<#step-2-define-the-custom-action>) Step 2 - Define the custom action
 ```ruby
-
+ 
       custom_action: true,
 
       custom_action_help: {

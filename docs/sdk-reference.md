@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:19:01.626302
-=======
-> **Fetched**: 2025-09-27T11:59:59.699062
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:34:24.601317
 
 ---
 
@@ -34,7 +30,7 @@ In addition to this, the SDK reference also contains the following information r
 
 Each connector in Workato is a big hash that contains the root keys detailed above. Below, we have an example of a summarized connector. Not all keys are required.
 ```ruby
-
+ 
     {
       title: 'My sample connector',
 

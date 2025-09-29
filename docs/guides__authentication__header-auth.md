@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/header-auth.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:12.627082
-=======
-> **Fetched**: 2025-09-27T11:59:10.998818
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:36.427390
 
 ---
 
@@ -15,7 +11,7 @@ For APIs requiring header authentication, this can be easily accomplished if the
 
 ## [#](<#sample-connector-generic-connector>) Sample connector - Generic connector
 ```ruby
-
+ 
     {
       title: 'My connector',
 
@@ -70,7 +66,7 @@ In the `apply` key, we pass in the token provided by the user in `header()` in t
 
 This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to configure your `base_uri` [here](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
 ```ruby
-
+ 
         base_uri: lambda do |connection|
           "https://api.acmestudios.com"
         end
@@ -82,7 +78,7 @@ TIP
 
 This lambda function also has access to the `connection` argument. This is especially useful if the base URI of the API might change based on the user's instance. The `connection` argument can be accessed in the following format:
 ```ruby
-
+ 
         base_uri: lambda do |connection|
           "https://#{connection['domain'].com/api}"
         end
@@ -94,7 +90,7 @@ This lambda function also has access to the `connection` argument. This is espec
 
 Now that we have defined the fields we need to collect from an end user and what to do with the inputs from those fields, we now need a way to test this connection. This is handled in the `test` key.
 ```ruby
-
+ 
         test: lambda do |connection|
           get("/me")
         end

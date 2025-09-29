@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-code-patterns.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:03.698473
-=======
-> **Fetched**: 2025-09-27T11:59:02.134009
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:27.784437
 
 ---
 
@@ -17,7 +13,7 @@ There are some known limitations to Workato's platform that have fixes in the wo
 
 One known limitation of relates closely to datapills in Workato. When input or output fields are defined with names that have these special characters, input fields don’t show up and output datapills render incorrectly.
 ```ruby
-
+ 
     -<>!@#$%^&*()+={}:;'"`~,.?
 
 
@@ -25,7 +21,7 @@ One known limitation of relates closely to datapills in Workato. When input or o
 
 For example, schema defined where
 ```ruby
-
+ 
     {
       name: “due-date”
     }
@@ -47,7 +43,7 @@ Fortunately, there is a workaround which we highly recommend you build into your
 
 Sample code snippet:
 ```ruby
-
+ 
     format_schema: lambda do |schema|
       if schema.is_a?(Array)
         schema.map do |array_value|
@@ -70,7 +66,7 @@ Sample code snippet:
 
 Since fields where names contain keys cause errors, we need a service method that can take invalid schema and convert any names into formats we can handle. The method above recursively searches through a given schema and replaces any special characters with a valid string. For example,
 ```ruby
-
+ 
     [
       {
         control_type: "text",
@@ -85,7 +81,7 @@ Since fields where names contain keys cause errors, we need a service method tha
 
 Would be converted to
 ```ruby
-
+ 
     [
       {
         control_type: "text",
@@ -104,7 +100,7 @@ This allows the field to be displayed in Workato with no observable difference t
 
 Sample code snippet:
 ```ruby
-
+ 
     format_payload: lambda do |payload|
       if payload.is_a?(Array)
         payload.map do |array_value|
@@ -130,7 +126,7 @@ This method should be called when input from the job is passed through the `exec
 
 Sample code snippet:
 ```ruby
-
+ 
     format_response: lambda do |payload|
       if payload.is_a?(Array)
         payload.map do |array_value|
@@ -156,7 +152,7 @@ When working with responses, we still need to match them back to the Workato val
 
 Samples code snippet:
 ```ruby
-
+ 
     replace_special_characters: lambda do |input|
       input.gsub(/[-<>!@#$%^&*()+={}:;'"`~,.?|]/,
       '-' => '__hyp__',
@@ -230,7 +226,7 @@ Workato's SDK automatically encodes query parameters in GET requests, which can 
 
 For example:
 ```ruby
-
+ 
     url = "https://api.example.com/reports"
     query_string = "addressVerification=true&poi[latitude]=#{input['latitude']}&poi[longitude]=#{input['longitude']}"
 
@@ -249,7 +245,7 @@ This issue affects only the console interface. The SDK console formats header na
 
 For example:
 ```ruby
-
+ 
     case_sensitive_headers(BPMCSRF: connection['BPMCSRF'],
                            Cookie: connection['Cookie'])
 

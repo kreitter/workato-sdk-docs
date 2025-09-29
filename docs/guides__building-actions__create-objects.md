@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/create-objects.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:23.783667
-=======
-> **Fetched**: 2025-09-27T11:59:22.028492
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:47.380684
 
 ---
 
@@ -19,7 +15,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
 
 ## [#](<#sample-connector-zuora>) Sample connector - Zuora
 ```ruby
-
+ 
     {
       title: 'My Zuora connector',
 
@@ -42,7 +38,7 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
               {
                 name: "AccountNumber",
                 label: "Account Number",
-                hint: "Unique account number assigned to the account. " \
+                hint: "Unique account number assigned to the account. " \ 
                 "Leave null to auto-generate."
               },
               {
@@ -103,7 +99,7 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 ## [#](<#step-2-define-input-fields>) Step 2 - Define input fields
 ```ruby
-
+ 
       input_fields: lambda do |object_definitions|
         [
           {
@@ -145,7 +141,7 @@ To know more about this, take a look at our [SDK reference](</developing-connect
 
 The execute key tells Workato the endpoint to send the request to and using which HTTP request method. In this example, we send our request to `https://rest.zuora.com/v1/object/account` using the `POST` method. We also append the `after_error_response` method to the request to catch any errors and to display them to users to aid in the debugging during recipe building.
 ```ruby
-
+ 
       execute: lambda do |connection, input|
         post("https://rest.zuora.com/v1/object/account", input).
           after_error_response(/.*/) do |_, body, _, message|
@@ -164,7 +160,7 @@ To know more about the execute key, take a look at our [SDK reference](</develop
 
 This section tells us what datapills to show as the output of the trigger. The `name` attributes of each datapill should match the keys in the output of the `execute` key.
 ```ruby
-
+ 
       output_fields: lambda do |object_definitions|
         [
           { name: "Success", type: "boolean", control_type: "checkbox" },
@@ -195,7 +191,7 @@ To know more about this, take a look at our [SDK reference](</developing-connect
 
 A supplementary component to a connector, the sample output key nonetheless greatly improves a user's experience by telling users the general data type and format of output fields to expect. This allows users to build recipes more quickly.
 ```ruby
-
+ 
       sample_output: lambda do |connection, input|
         {
           "success" => "true",

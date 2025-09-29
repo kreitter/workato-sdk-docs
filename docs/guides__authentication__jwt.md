@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/jwt.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:13.747378
-=======
-> **Fetched**: 2025-09-27T11:59:12.098677
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:37.528550
 
 ---
 
@@ -21,7 +17,7 @@ Click [here (opens new window)](<https://jwt.io/introduction/>) to know more abo
 
 ## [#](<#sample-connector-google-calendar-connector>) Sample connector - Google calendar connector
 ```ruby
-
+ 
     {
       title: 'My Google calendar connector',
 
@@ -64,8 +60,8 @@ Click [here (opens new window)](<https://jwt.io/introduction/>) to know more abo
             }
             private_key = connection['private_key'].gsub(/\\n/, "\n")
             jwt_token = workato.jwt_encode(
-              jwt_body_claim,
-              private_key,
+              jwt_body_claim, 
+              private_key, 
               "RS256"
             )
 
@@ -104,15 +100,15 @@ Click [here (opens new window)](<https://jwt.io/introduction/>) to know more abo
 
 This component tells Workato what fields to show to a user trying to establish a connection. In the case of Client Credentials Authentication, you would need the Client ID and Client Secret that the user has generated in Percolate.
 
-Information needed | Description
----|---
-Issuer | The "iss" (issuer) claim identifies the principal that issued the JWT.
-Subject | The "sub" (subject) claim identifies the principal that is the subject of the JWT. The claims in a JWT are normally statements about the subject. In this case, it is the email address of the user that you are impersonating.
-Private/public key | This is the "password" that is obtained from the downloaded JSON.
+Information needed | Description  
+---|---  
+Issuer | The "iss" (issuer) claim identifies the principal that issued the JWT.  
+Subject | The "sub" (subject) claim identifies the principal that is the subject of the JWT. The claims in a JWT are normally statements about the subject. In this case, it is the email address of the user that you are impersonating.  
+Private/public key | This is the "password" that is obtained from the downloaded JSON.  
 
 This is done in the `fields` key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
 ```ruby
-
+ 
         fields: [
           {
             name: 'iss',
@@ -152,7 +148,7 @@ To know more about how to define input fields in Workato, click [here.](</develo
 
 This component tells Workato what to do with the values received from the input fields to establish a connection. This is handled through your `authorization` key. In this key, you begin by first defining the `type` of authorization. For JWT authentication, you should use `custom_auth`.
 ```ruby
-
+ 
         type: 'custom_auth'
 
 
@@ -162,7 +158,7 @@ This component tells Workato what to do with the values received from the input 
 
 In the `acquire` key, we first generate a JWT token by creating a JWT body claim and signing it with the private key that the user provided. We do this by passing in the `jwt_body_claim` and `private_key` to Workato, note that this must be sent with `jwt_encode` under the `RS256` signing algorithm. Next, we then pass in the generated token to Google API's token URL as payload. Here, we assign the `grant_type` and `assertion` as `urn:ietf:params:oauth:grant-type:jwt-bearer` and the generated JWT token respectively. Note that the payload of the request must be sent with `request_format_www_form_urlencoded`.
 ```ruby
-
+ 
         acquire: lambda do |connection|
           jwt_body_claim = {
             "iat": now.to_i,
@@ -186,7 +182,7 @@ In the `acquire` key, we first generate a JWT token by creating a JWT body claim
 
 Upon receiving a the request, the API returns a JSON response.
 ```ruby
-
+ 
     {
       "access_token": "my-authentication-token",
       "token_type": "bearer",
@@ -201,7 +197,7 @@ Upon receiving a the request, the API returns a JSON response.
 
 Next, you need to tell Workato how to make use of the access token it has retrieved from Google calendar. This is done in the `apply` block where you can reference the access token now stored in the `connection` argument. Any instructions you introduce in the `apply` block are subsequently applied to all HTTP requests this connector sends after connection is established.
 ```ruby
-
+ 
         apply: lambda do |connection|
           headers("Authorization": "Bearer #{connection['access_token']}")
         end
@@ -215,7 +211,7 @@ In this example, we have defined the access token (`connection['access_token']`)
 
 As JWT tokens are only valid for short amounts of time, we need to tell this connector to refresh the JWT token when it expires. This can be easily done with the `refresh_on` key, that contains a list of HTTP response codes or regex functions. This list is matched to any responses to a HTTP request and triggers the `acquire` key is a match is found.
 ```ruby
-
+ 
         refresh_on: [401, 403],
 
 
@@ -225,7 +221,7 @@ As JWT tokens are only valid for short amounts of time, we need to tell this con
 
 This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to configure your `base_uri` [here](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
 ```ruby
-
+ 
         base_uri: lambda do
           'https://www.googleapis.com/calendar/v3'
         end
@@ -237,7 +233,7 @@ TIP
 
 This lambda function also has access to the `connection` argument. This is especially useful if the base URI of the API might change based on the user's instance. The `connection` argument can be accessed in the following format:
 ```ruby
-
+ 
         base_uri: lambda do |connection|
           "https://#{connection['domain'].com/api}"
         end
@@ -249,7 +245,7 @@ This lambda function also has access to the `connection` argument. This is espec
 
 Now that we have defined the fields we need to collect from an end user and what to do with the inputs from those fields, we now need a way to test this connection. This is handled in the `test` key.
 ```ruby
-
+ 
         test: lambda do |connection|
           get("/colors")
         end
