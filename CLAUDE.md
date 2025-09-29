@@ -39,28 +39,62 @@ gh run view <run-id> --log
 gh run list --workflow=test.yml
 ```
 
-### Development & Testing Commands
-See Makefile for all available commands. Key ones:
-- `make test` - Run full test suite
-- `make test-fast` - Quick validation during development (<5s)
-- `make test-commit` - Test then guide you to commit (recommended workflow)
-- `make precommit-test` - Test pre-commit hooks without committing
-- `make lint` / `make format` - Code quality checks
-- `make coverage` - Generate coverage report
+### Development Setup
+```bash
+# Clone repository
+git clone https://github.com/kreitter/workato-sdk-docs.git
+cd workato-sdk-docs
 
-### Testing Workflow (Optimized for Speed)
-- **Pre-commit**: Only formatting/linting (~2s) - tests moved to manual/CI-CD
-- **Manual Testing**: Run `make test-fast` before committing important changes
-- **CI/CD**: Full test suite on GitHub Actions (`.github/workflows/test.yml`)
-- **Coverage**: Codecov integration with 80% minimum threshold
+# Install development dependencies
+make install-dev
 
-### Commit Workflow Options
-1. **Fast commits** (for iterative development): `git commit -m "message"`
+# Set up pre-commit hooks (formatting only, ~2s per commit)
+make setup-precommit
+```
+
+### Testing Commands
+```bash
+# Test Categories
+make test              # Full test suite (~30s)
+make test-unit         # Unit tests only
+make test-integration  # Integration tests (network calls)
+make test-regression   # Regression tests
+make test-performance  # Performance benchmarks
+make test-fast         # Quick unit tests (<5s)
+make coverage          # Generate coverage report
+
+# Development Workflow
+make format            # Auto-format code (black, isort)
+make lint              # Check code quality (flake8)
+make test-commit       # Test then guide to commit
+make precommit-test    # Test pre-commit hooks without committing
+```
+
+### Testing Architecture
+- **Test Suite**: 40+ tests covering unit, integration, regression, performance
+- **Coverage**: 80% minimum threshold enforced (Codecov integration)
+- **CI/CD**: Full test suite runs on GitHub Actions (`.github/workflows/test.yml`)
+- **Performance**: Tests mocked to avoid real network delays (`time.sleep` disabled)
+
+### Commit Workflow (Optimized for Speed)
+1. **Fast commits** (iterative development): `git commit -m "message"`
    - Runs only formatting checks (~2s)
-2. **Safe commits** (for completed features): `make test-commit && git commit -m "message"`
+   - Tests run in CI/CD asynchronously
+
+2. **Safe commits** (completed features): `make test-commit && git commit -m "message"`
    - Runs tests first, then commit if passing
-3. **Skip all checks** (emergency): `git commit --no-verify -m "EMERGENCY: message"`
-   - Use sparingly, always follow up with proper testing
+   - Recommended for significant changes
+
+3. **Emergency commits**: `git commit --no-verify -m "EMERGENCY: message"`
+   - Skips all checks
+   - Always follow up with proper testing
+
+### Pre-Commit Hook Configuration
+Pre-commit hooks are optimized for speed (2-3 seconds):
+- **Included**: formatting (black, isort), linting (flake8), file checks
+- **Excluded**: ALL tests (moved to manual/CI-CD for speed)
+- **Parallel**: Hooks run concurrently where possible
+- See `.pre-commit-config.yaml` for full configuration
 
 ## Architecture
 
