@@ -19,7 +19,7 @@ In this segment, we will be going through how you can run actions using the Work
 
 The code in `connector.rb`.
 ```ruby
- 
+
     {
       title: 'Chargebee-demo',
 
@@ -41,7 +41,7 @@ The code in `connector.rb`.
         ],
 
         authorization: {
-          type: 'basic_auth',  
+          type: 'basic_auth',
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -107,7 +107,7 @@ The code in `connector.rb`.
 
 Credentials in `settings.yaml.enc` .
 ```ruby
- 
+
     api_key: valid_api_key
     domain: valid_domain
 
@@ -130,10 +130,10 @@ Sometimes, you may find yourself with a sample payload request or response. You 
 
 Your input_fields lambda is expected to return Workato schema which corresponds to the input fields we should show to the user. In the case we have above, it simply returns the Workato schema stored within.
 ```bash
- 
-    $ workato exec actions.search_customers.input_fields 
 
-    [  
+    $ workato exec actions.search_customers.input_fields
+
+    [
       {
         "name": "name",
         "label": "Name to query by",
@@ -150,7 +150,7 @@ Your input_fields lambda is expected to return Workato schema which corresponds 
 
 But you may also provide additional arguments when required. For example, if your input_fields is dependent on your `config_fields`, you would be required to pass `config_fields` for it to work. This can be done using something similar to below - where `customer_config.json` represents the `config_fields` argument of the lambda.
 ```bash
- 
+
     $ workato exec actons.search_customers.input_fields --config-fields='fixtures/actions/search_customers/customer_config.json'
 
 
@@ -168,7 +168,7 @@ Your execute lambda is expected to return a hash which represents the output of 
 
 In this case, the contents of the file `fixtures/actions/search_customers/input.json` contains
 ```ruby
- 
+
     {
       "name": "bennett",
       "limit": 1
@@ -179,7 +179,7 @@ In this case, the contents of the file `fixtures/actions/search_customers/input.
 
 When we run the CLI command to run the `execute` lambda:
 ```bash
- 
+
     $ workato exec actions.search_customers.execute --input='fixtures/actions/search_customers/input.json' --verbose
 
     SETTINGS
@@ -194,7 +194,7 @@ When we run the CLI command to run the `execute` lambda:
     }
 
     RestClient.get "https://test.chargebee.com/api/v2/customers?limit=1&name=bennett", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 753 bytes                                                                                
+    # => 200 OK | application/json 753 bytes
     Progress: |--=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=-|
 
     OUTPUT
@@ -247,7 +247,7 @@ Whilst running your execute lambda allows you to stub the `input` argument, ofte
 
 For example, when a user gives you input for the above example where `limit` is provided as a string, you would need to convert this value to an integer.
 ```bash
- 
+
     #fixtures/actions/search_customers/input.json
     {
       "name": "bennett",
@@ -259,8 +259,8 @@ For example, when a user gives you input for the above example where `limit` is 
 
 This can be done with schema attributes like `convert_input` which takes this value and done the conversion.
 ```ruby
- 
-    [  
+
+    [
       {
         "name": "name",
         "label": "Name to query by",
@@ -278,7 +278,7 @@ This can be done with schema attributes like `convert_input` which takes this va
 
 After transformation, your `input` argument to the `execute` lambda will look like this:
 ```ruby
- 
+
     {
       "name": "bennett",
       "limit": 1
@@ -295,7 +295,7 @@ Learn more about [converting input and converting output](</developing-connector
 
 To test this transformation out that occurs from schema, when we have to run the CLI command to run the entire action:
 ```bash
- 
+
     $ workato exec actions.search_customers --input='fixtures/actions/search_customers/input.json' --verbose
 
     SETTINGS
@@ -310,7 +310,7 @@ To test this transformation out that occurs from schema, when we have to run the
     }
 
     RestClient.get "https://test.chargebee.com/api/v2/customers?limit=1&name=bennett", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 753 bytes                                                                                
+    # => 200 OK | application/json 753 bytes
     Progress: |--=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=-|
 
     OUTPUT

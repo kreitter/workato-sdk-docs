@@ -7,14 +7,14 @@
 
 # [#](<#connector-sdk-limits>) Connector SDK limits
 
-Description |  Limit   
----|---  
-Maximum number of SDK/custom connectors in one workspace| 150  
-Timeout for HTTP request inside SDK connectors in the Test code console| 40 seconds  
-Timeout for HTTP request inside SDK connectors in a job at runtime| 3 minutes  
-Timeout for compiling an SDK connector| 5 seconds  
-SDK Timeout credentials refresh| 30 seconds  
-SDK memory limit for a single action execution| This limit varies by data center: 
+Description |  Limit
+---|---
+Maximum number of SDK/custom connectors in one workspace| 150
+Timeout for HTTP request inside SDK connectors in the Test code console| 40 seconds
+Timeout for HTTP request inside SDK connectors in a job at runtime| 3 minutes
+Timeout for compiling an SDK connector| 5 seconds
+SDK Timeout credentials refresh| 30 seconds
+SDK memory limit for a single action execution| This limit varies by data center:
 
   * US: 2 GB
   * EU: 1 GB
@@ -22,13 +22,13 @@ SDK memory limit for a single action execution| This limit varies by data center
   * JP: 500 MB
   * AU: 500 MB
 
-Maximum number of swap outs in multi-step actions| 100  
-Minimum swap interval in multi-step actions| 60 seconds  
-Maximum number of job suspensions| 50  
-[Maximum consecutive polling without any jobs produced](</developing-connectors/sdk/guides/trigger-limit.html#consecutive-polls-in-a-single-poll-cycle-without-jobs>)| 600  
-[Maximum number of events in a single poll](</developing-connectors/sdk/guides/trigger-limit.html#number-of-events-per-poll>)| 1,000  
-Maximum data allowed in custom connector code| 10 MB  
-Compatible code formats| UTF-8 and JSON compatible  
+Maximum number of swap outs in multi-step actions| 100
+Minimum swap interval in multi-step actions| 60 seconds
+Maximum number of job suspensions| 50
+[Maximum consecutive polling without any jobs produced](</developing-connectors/sdk/guides/trigger-limit.html#consecutive-polls-in-a-single-poll-cycle-without-jobs>)| 600
+[Maximum number of events in a single poll](</developing-connectors/sdk/guides/trigger-limit.html#number-of-events-per-poll>)| 1,000
+Maximum data allowed in custom connector code| 10 MB
+Compatible code formats| UTF-8 and JSON compatible
 
 FURTHER READING
 

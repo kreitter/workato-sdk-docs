@@ -3,9 +3,16 @@ Pytest configuration and shared fixtures for Workato SDK Documentation Mirror te
 """
 
 import tempfile
+import time
 from pathlib import Path
 
 import pytest
+
+
+@pytest.fixture(autouse=True)
+def no_sleep(monkeypatch):
+    """Prevent all tests from actually sleeping - eliminates retry delays."""
+    monkeypatch.setattr(time, "sleep", lambda x: None)
 
 
 @pytest.fixture

@@ -17,7 +17,7 @@ Store object definition in one place and reuse throughout the custom connector.
 
 ## [#](<#structure>) Structure
 ```ruby
- 
+
         object_definitions: {
 
           [Unique_object_definition_name]: {
@@ -36,16 +36,16 @@ Store object definition in one place and reuse throughout the custom connector.
 
 * * *
 
-Attribute | Description  
----|---  
-Key | `fields`  
-Type | lambda function  
-Required | True  
-Description | This lambda function is invoked whenever its parent object_definition's key is called in an action or trigger. It is able to make HTTP requests to dynamically build schema from metadata endpoints. The output of this lambda function should be an array of hashes that represents the input or output fields. This is called Workato Schema. Find out more [here](</developing-connectors/sdk/sdk-reference/schema.html>)  
-Possible Arguments | `connection` \- Hash representing user given inputs defined in the connection.   
-`config_fields` \- Hash representing the user given inputs from config fields in the action or trigger that referenced this object definition.   
-`object_definitions` \- Allows you to reference other object_definitions.  
-Expected Output | Array  
+Attribute | Description
+---|---
+Key | `fields`
+Type | lambda function
+Required | True
+Description | This lambda function is invoked whenever its parent object_definition's key is called in an action or trigger. It is able to make HTTP requests to dynamically build schema from metadata endpoints. The output of this lambda function should be an array of hashes that represents the input or output fields. This is called Workato Schema. Find out more [here](</developing-connectors/sdk/sdk-reference/schema.html>)
+Possible Arguments | `connection` \- Hash representing user given inputs defined in the connection.
+`config_fields` \- Hash representing the user given inputs from config fields in the action or trigger that referenced this object definition.
+`object_definitions` \- Allows you to reference other object_definitions.
+Expected Output | Array
 
 DEFINE ARGUMENTS FOR OBJECT DEFINITIONS
 
@@ -53,9 +53,9 @@ You must define arguments for your object definitions, even if they are not used
 
 **Static object definition**
 ```ruby
- 
+
     lead: {
-      fields: lambda do 
+      fields: lambda do
         [
           { name: "name", type: :boolean },
           { name: "email" },
@@ -69,7 +69,7 @@ You must define arguments for your object definitions, even if they are not used
 
 **Dynamic object definition**
 ```ruby
- 
+
     lead: {
       fields: lambda do |connection, config_fields, object_definitions|
         [
@@ -89,7 +89,7 @@ Example - fields
 
 Object_definitions can be static and simply store an array. When this object definition is referenced, the `fields` lambda function returns this array.
 ```ruby
- 
+
         object_definitions: {
           lead: {
             fields: lambda do |connection, config_fields, object_definitions|
@@ -107,7 +107,7 @@ Object_definitions can be static and simply store an array. When this object def
 
 Object_definitions can also be dynamic and make HTTP requests to metadata endpoints. When this object definition is referenced, the `fields` lambda function makes this request, receives the response and should massage the response into the same array that can be returned to the `input_fields` or `output_fields` lambda function that referenced it. Find out more about defining these `input_fields` and `output_fields` (called Workato schema) [here](</developing-connectors/sdk/sdk-reference/schema.html>)
 ```ruby
- 
+
         object_definitions: {
           form: {
             fields: lambda do |connection|
@@ -124,7 +124,7 @@ Example - Building schema from multiple object_definitions
 
 To keep your code DRY, our recommendation is to logically break up your schema definitions into separate object_definitions. These object_definitions may be dynamically generated separately and pieced together.
 ```ruby
- 
+
         object_definitions: {
           create_object_output: {
             fields: lambda do |connection, config_fields, object_definitions|

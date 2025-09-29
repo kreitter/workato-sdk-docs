@@ -45,7 +45,7 @@ The OAuth2 (Auth code grant) connection is confirmed by Workato when a token is 
 
 The code in `connector.rb`.
 ```ruby
- 
+
     {
       title: 'Chargebee-demo',
 
@@ -67,7 +67,7 @@ The code in `connector.rb`.
         ],
 
         authorization: {
-          type: 'basic_auth',  
+          type: 'basic_auth',
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -89,7 +89,7 @@ The code in `connector.rb`.
 
 Credentials in `settings.yaml.enc`.
 ```ruby
- 
+
     api_key: valid_api_key
     domain: valid_domain
 
@@ -100,7 +100,7 @@ Credentials in `settings.yaml.enc`.
 
 When you run the command
 ```bash
- 
+
     $ workato exec test
 
 
@@ -108,7 +108,7 @@ When you run the command
 
 You get the output
 ```ruby
- 
+
     {
       "list": [
         {
@@ -155,7 +155,7 @@ You can also use other options like `--verbose` to see the detailed logs of any 
 
 The code in `connector.rb`.
 ```ruby
- 
+
     {
         name: "Percolate",
         connection: {
@@ -219,7 +219,7 @@ The code in `connector.rb`.
 
 Credentials in `settings.yaml.enc`.
 ```ruby
- 
+
     client_id: valid_client_id
     client_secret: valid_client_secret
     environment: production
@@ -231,7 +231,7 @@ Credentials in `settings.yaml.enc`.
 
 When you run the command
 ```ruby
- 
+
     workato exec test --verbose
 
 
@@ -239,7 +239,7 @@ When you run the command
 
 You may get the output
 ```ruby
- 
+
     SETTINGS
     {
       "client_id": "valid_client_id",
@@ -251,14 +251,14 @@ You may get the output
     }
 
     RestClient.get "https://percolate.com/api/v5/me", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer ", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 401 Unauthorized | application/json 65 bytes         
+    # => 401 Unauthorized | application/json 65 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
     RestClient.post "https://percolate.com/auth/v5/token/", "grant_type=client_credentials", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Basic ", "Content-Length"=>"29", "Content-Type"=>"application/x-www-form-urlencoded", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 25 bytes                                       
+    # => 200 OK | application/json 25 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
 
     Refresh token triggered on response "401 Unauthorized"
-    Update settings file with new connection attributes? (Yes or No) 
+    Update settings file with new connection attributes? (Yes or No)
 
 
 ```
@@ -271,10 +271,10 @@ The `refresh_on` attribute in the `acquire` lambda triggers if the current acces
 
 Lastly, the Gem asks for permissions to override your settings file, which is synonymous with your `connection` hash on the Workato platform. If you type "Yes", the Gem will now update your settings file with the output of the `acquire` lambda.
 ```ruby
- 
+
     Update settings file with new connection attributes? (Yes or No) Yes
     RestClient.get "https://percolate.com/api/v5/me", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer example_token", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 65 bytes         
+    # => 200 OK | application/json 65 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
 
     OUTPUT
@@ -285,7 +285,7 @@ Lastly, the Gem asks for permissions to override your settings file, which is sy
 
 Your credentials in `settings.yaml.enc` will be updated.
 ```ruby
- 
+
     client_id: valid_client_id
     client_secret: valid_client_secret
     environment: production
@@ -308,7 +308,7 @@ For Auth code grant flows, the Workato Gem allows you to emulate the OAuth2 flow
 
 The code in `connector.rb`.
 ```ruby
- 
+
     {
       title: 'TrackVia',
       connection: {
@@ -398,7 +398,7 @@ The code in `connector.rb`.
       },
 
       test: lambda do |connection|
-        get('views') 
+        get('views')
       end,
     }
 
@@ -407,7 +407,7 @@ The code in `connector.rb`.
 
 Credentials in `settings.yaml.enc`.
 ```ruby
- 
+
     client_id: valid_client_id
     client_secret: valid_client_secret
 
@@ -416,7 +416,7 @@ Credentials in `settings.yaml.enc`.
 
 You can now run the following commands to go through the OAuth2 Authorization code flow which includes a browser popup. Include `--verbose` to enable detailed logging of the OAuth2 flow.
 ```ruby
- 
+
     workato oauth2 --verbose
 
 
@@ -428,7 +428,7 @@ This will simulate the entire flow from the browser popup to the output url of t
 
 At the end of the flow, you should have a `settings.yaml.enc` file that is updated with the latest credentials.
 ```ruby
- 
+
     client_id: valid_client_id
     client_secret: valid_client_secret
     user_key: valid_user_key
@@ -452,7 +452,7 @@ Now after you've successfully gone through the flow, you may be use the same `wo
 
 Depending on when you received your token, you may also see a intermediary command from the Gem asking if you'd like to refresh your access tokens (if it has expired). This is done when HTTP requests are made which have a response that triggers the `refresh_on` block. Selecting yes would cause the Gem to update your settings file with the latest auth credentials.
 ```bash
- 
+
     $ workato exec test --verbose
 
 
@@ -460,7 +460,7 @@ Depending on when you received your token, you may also see a intermediary comma
 
 You may get the output
 ```ruby
- 
+
     SETTINGS
     {
       "client_id": "valid_client_id",
@@ -479,14 +479,14 @@ You may get the output
     }
 
     RestClient.get "https://go.trackvia.com/openapi/views", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer valid_access_token", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 401 Unauthorized | application/json 65 bytes         
+    # => 401 Unauthorized | application/json 65 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
     RestClient.post "https://go.trackvia.com/oauth/token", "grant_type"=>"client_credentials", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "refresh_token"=>"valid_refresh_token", "Content-Length"=>"29", "Content-Type"=>"application/x-www-form-urlencoded", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 25 bytes                                       
+    # => 200 OK | application/json 25 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
 
     Refresh token triggered on response "401 Unauthorized"
-    Updated settings file with new connection attributes? (Yes or No) 
+    Updated settings file with new connection attributes? (Yes or No)
 
 
 ```
@@ -499,10 +499,10 @@ The `refresh_on` attribute in the `acquire` lambda triggers if the current acces
 
 Lastly, the Gem asks for permissions to override your settings file, which is synonymous with your `connection` hash on the Workato platform. If you type "Yes", the Gem will now update your settings file with the output of the `acquire` lambda.
 ```ruby
- 
+
     Updated settings file with new connection attributes? (Yes or No) Yes
     RestClient.get "https://go.trackvia.com/openapi/views", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer new_valid_access_token", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 65 bytes                
+    # => 200 OK | application/json 65 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
 
     OUTPUT
@@ -513,7 +513,7 @@ Lastly, the Gem asks for permissions to override your settings file, which is sy
 
 Your credentials in `settings.yaml.enc` will be updated.
 ```ruby
- 
+
     client_id: valid_client_id
     client_secret: valid_client_secret
     user_key: valid_user_key

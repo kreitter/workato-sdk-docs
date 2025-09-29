@@ -10,7 +10,9 @@ help:
 	@echo "  test-integration  Run integration tests only"
 	@echo "  test-regression   Run regression tests only"
 	@echo "  test-performance  Run performance tests only"
-	@echo "  test-fast         Run unit + regression tests (fast)"
+	@echo "  test-fast         Run unit + regression tests (fast, <5s)"
+	@echo "  test-commit       Run tests then commit (safe workflow)"
+	@echo "  precommit-test    Test pre-commit hooks without committing"
 	@echo "  install-dev       Install development dependencies"
 	@echo "  lint              Run linting checks"
 	@echo "  format            Format code with black and isort"
@@ -64,3 +66,14 @@ clean:
 setup-precommit:
 	pip install pre-commit
 	pre-commit install
+
+# Developer convenience commands
+test-commit:
+	@echo "Running tests before commit..."
+	@$(MAKE) test-fast
+	@echo "Tests passed! Ready to commit."
+	@echo "Use: git commit -m 'your message'"
+
+precommit-test:
+	@echo "Testing pre-commit hooks (without committing)..."
+	pre-commit run --all-files

@@ -30,7 +30,7 @@ In addition to this, the SDK reference also contains the following information r
 
 Each connector in Workato is a big hash that contains the root keys detailed above. Below, we have an example of a summarized connector. Not all keys are required.
 ```ruby
- 
+
     {
       title: 'My sample connector',
 

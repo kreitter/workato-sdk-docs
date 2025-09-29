@@ -1,29 +1,39 @@
 # Pre-commit hooks for Workato SDK Documentation Mirror
 # Install with: pip install pre-commit && pre-commit install
+#
+# OPTIMIZED FOR SPEED: Tests moved to manual/CI-CD execution
+# Run tests manually with: make test-fast
 
 repos:
+  # Fast formatting checks (runs in parallel)
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
       - id: trailing-whitespace
+        exclude: ^docs/  # Skip generated docs
       - id: end-of-file-fixer
+        exclude: ^docs/  # Skip generated docs
       - id: check-yaml
       - id: check-added-large-files
       - id: check-merge-conflict
       - id: debug-statements
+        language_version: python3
 
+  # Python formatting - only runs on Python files
   - repo: https://github.com/psf/black
     rev: 23.12.1
     hooks:
       - id: black
         language_version: python3
         args: [--line-length=100]
+        require_serial: false
 
   - repo: https://github.com/pycqa/isort
     rev: 5.13.2
     hooks:
       - id: isort
-        args: ["--profile", "black"]
+        args: ["--profile", "black", "--line-length", "100"]
+        require_serial: false
 
   - repo: https://github.com/pycqa/flake8
     rev: 7.0.0
@@ -32,21 +42,11 @@ repos:
         args:
           - --max-line-length=100
           - --ignore=E203,W503
+        exclude: ^docs/
+        require_serial: false
 
-  - repo: local
-    hooks:
-      - id: pytest-unit
-        name: Run unit tests
-        entry: uv run pytest tests/test_unit_core.py tests/test_basic_setup.py -v
-        language: system
-        pass_filenames: false
-        files: ^.*$
-        require_serial: true
-
-      - id: pytest-fast
-        name: Run fast tests (no integration)
-        entry: uv run pytest tests/test_unit_core.py tests/test_basic_setup.py tests/test_integration_fetch.py -v
-        language: system
-        pass_filenames: false
-        files: ^.*$
-        require_serial: true
+# Tests removed from pre-commit for speed
+# Run manually:
+#   make test-fast     # Quick unit tests
+#   make test          # Full test suite
+#   make test-commit   # Test then commit

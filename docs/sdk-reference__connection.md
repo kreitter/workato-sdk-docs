@@ -20,7 +20,7 @@ To put it simply, the `connection` hash contains all the instructions your conne
 
 ## [#](<#structure>) Structure
 ```ruby
- 
+
       connection: {
         fields: Array,
 
@@ -51,7 +51,7 @@ Type
 Required
     False
 Description
-    Accepts an array of hashes. Each hash in this array corresponds to a separate input field.  
+    Accepts an array of hashes. Each hash in this array corresponds to a separate input field.
 To learn how to define input fields in Workato, see [SDK Reference - Schema](</developing-connectors/sdk/sdk-reference/schema.html>).
 
 ### [#](<#picklists-in-connection-fields>) Picklists in connection fields
@@ -66,7 +66,7 @@ References to any picklists you defined in your connector are not accessible in 
 
 ![](/assets/img/connection-picklist.5a158c7b.png)
 ```ruby
- 
+
         fields: [
           {
             name: 'api_key',
@@ -127,7 +127,7 @@ In this case, `extended_fields` provides you with the added benefit of controlli
 
 ### [#](<#example-connection-fields-with-extended-fields>) Example: Connection fields with extended_fields
 ```ruby
- 
+
         fields: [
           {
             name: "api_key",
@@ -167,7 +167,7 @@ Workato passes the connection hash to all other lambdas, including `authorizatio
 
 The following example shows how to use `extends_schema` within `extended_fields` to create a connection setup that has multiple steps.
 ```ruby
- 
+
       connection: {
         fields: [
           {
@@ -196,7 +196,7 @@ The following example shows how to use `extends_schema` within `extended_fields`
                     optional: false,
                     url: ".acme.com"
                   }
-                end 
+                end
               ),
               (
                 if connection['custom_domain'] == "true"
@@ -207,7 +207,7 @@ The following example shows how to use `extends_schema` within `extended_fields`
                     optional: false,
                     options: [ ["Production", "production"], ["Sandbox", "sandbox"]]
                   }
-                end 
+                end
               ),
               (
                 if connection['instance_type'] == "sandbox"
@@ -278,7 +278,7 @@ Possible Arguments
 connection
     Hash that represents user-provided inputs defined in `Connection`.
 Expected Output
-    `String`, such as one of:  
+    `String`, such as one of:
 
   * `"https://#{connection['host']}.com/"`
   * `"https://api.acme.com"`

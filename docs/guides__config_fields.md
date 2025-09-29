@@ -15,7 +15,7 @@ Config fields keys can be used in both actions and triggers to introduce dynamic
 
 ## [#](<#sample-connector-chargebee>) Sample connector - Chargebee
 ```ruby
- 
+
     {
       title: "Chargebee",
 
@@ -68,7 +68,7 @@ Config fields keys can be used in both actions and triggers to introduce dynamic
                 if value.is_a?(Integer)
                   type = 'integer'
                   control_type = 'number'
-                else 
+                else
                   type = 'string'
                   control_type = 'text'
                 end
@@ -112,7 +112,7 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 The `config_fields` key allows us to first collect some input from the end user to generate more input fields. In this action, we want the user to first select the object that they want to create, then use that input to generate fields relevant to the object they have just selected.
 ```ruby
- 
+
       config_fields: [
         {
           name: "object",
@@ -134,7 +134,7 @@ Here, we are using the `select` control_type which indicates a select drop-down 
 
 With config_fields defined, we can now utilize the `config_fields` argument passed to the `input_fields` lambda function. We can reference the input given for the Object input drop-down from this argument and route it to the proper object_definition.
 ```ruby
- 
+
       input_fields: lambda do |object_definitions, connection, config_fields|
         object = config_fields['object']
 
@@ -146,7 +146,7 @@ With config_fields defined, we can now utilize the `config_fields` argument pass
 
 For example, if the user selects the `Customer` input in the drop-down, the `input_fields` key would call the `object_definition['customer']`.
 ```ruby
- 
+
       object_definitions: {
         customer: {
           fields: lambda do |connection, config_fields, object_definitions|
@@ -156,7 +156,7 @@ For example, if the user selects the `Customer` input in the drop-down, the `inp
                 if value.is_a?(Integer)
                   type = 'integer'
                   control_type = 'number'
-                else 
+                else
                   type = 'string'
                   control_type = 'text'
                 end
@@ -184,7 +184,7 @@ The `object_definition['customer']` key sends a secondary request to Chargebee a
 
 The execute key tells Workato the endpoint to send the request to and using which HTTP request method. In this example, we send our request to the `/api/v2/customers` endpoint. Chargebee requires the input to be form urlencoded so we use the `.request_format_www_form_urlencoded`
 ```ruby
- 
+
       execute: lambda do |connection, input|
         post("/api/v2/customers", input).
           request_format_www_form_urlencoded
@@ -197,7 +197,7 @@ The execute key tells Workato the endpoint to send the request to and using whic
 
 For the output fields, we use the same logic as step 3 to generate the output fields.
 ```ruby
- 
+
       output_fields: lambda do |object_definitions, connection, config_fields|
         object = config_fields['object']
 

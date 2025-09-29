@@ -35,7 +35,7 @@ The SDK gem makes it easy to do this when you set up your connector project.
 
 After you run [`workato new`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-new>), select `secure` at the HTTP binding prompt:
 ```ruby
- 
+
     Please select default HTTP mocking behavior suitable for your project?
 
     1 - secure. Cause an error to be raised for any unknown requests, all request recordings are encrypted.

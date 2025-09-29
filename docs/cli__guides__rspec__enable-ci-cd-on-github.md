@@ -21,10 +21,10 @@ Next, you'll create a [GitHub Actions (opens new window)](<https://docs.github.c
 
 In your repository's `.github/workflows` folder, create a new `ruby.yml` file. For example:
 ```ruby
- 
+
     name: Connector Unit Test
 
-    on: 
+    on:
       pull_request:
         branches: [ main ]
 
@@ -42,10 +42,10 @@ In your repository's `.github/workflows` folder, create a new `ruby.yml` file. F
           uses: ruby/setup-ruby@v1
           with:
             ruby-version: ${{ matrix.ruby-version }}
-            bundler-cache: true 
+            bundler-cache: true
         - name: Run tests
           env: # Only needed if using encrypted files.
-            WORKATO_CONNECTOR_MASTER_KEY: ${{ secrets.WORKATO_CONNECTOR_MASTER_KEY }} 
+            WORKATO_CONNECTOR_MASTER_KEY: ${{ secrets.WORKATO_CONNECTOR_MASTER_KEY }}
           run: bundle exec rspec
 
 
@@ -66,10 +66,10 @@ Now, you might also want to automate the deployment of your connector to your DE
 
 In your repository's `.github/workflows` folder, create a new `ruby.yml` file. For example:
 ```ruby
- 
+
     name: Connector Unit Test & Deployment
 
-    on: 
+    on:
       push:
         branches: [ main ]
 
@@ -87,15 +87,15 @@ In your repository's `.github/workflows` folder, create a new `ruby.yml` file. F
           uses: ruby/setup-ruby@v1
           with:
             ruby-version: ${{ matrix.ruby-version }}
-            bundler-cache: true 
+            bundler-cache: true
         - name: Run tests
           env: # Only needed if using encrypted files.
-            WORKATO_CONNECTOR_MASTER_KEY: ${{ secrets.WORKATO_CONNECTOR_MASTER_KEY }} 
+            WORKATO_CONNECTOR_MASTER_KEY: ${{ secrets.WORKATO_CONNECTOR_MASTER_KEY }}
           run: bundle exec rspec
         - name: Push to DEV workspace Use this to push to DEV. This can be enabled when a PR is merged.
           env: # Only needed if using encrypted files.
-            WORKATO_API_TOKEN: ${{ secrets.WORKATO_DEV_ENVIRONMENT_API_TOKEN}} 
-          run: bundle exec workato push -n "${{ github.event.head_commit.message }}" 
+            WORKATO_API_TOKEN: ${{ secrets.WORKATO_DEV_ENVIRONMENT_API_TOKEN}}
+          run: bundle exec workato push -n "${{ github.event.head_commit.message }}"
 
 
 ```

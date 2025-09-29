@@ -68,7 +68,7 @@ These best practices relate directly to the development of a custom connector on
 
 ## [#](<#security>) Security
 
-  * Perform validations in the `execute` lambda that are necessary to safeguard your end user's target application. Expect that users may map data from applications such as Slack, Teams, or external forms and there may be attempts to perform injection or path traversal attacks. 
+  * Perform validations in the `execute` lambda that are necessary to safeguard your end user's target application. Expect that users may map data from applications such as Slack, Teams, or external forms and there may be attempts to perform injection or path traversal attacks.
     * If you control the application, ensure that the applications you work with handle these inputs by sanitizing inputs received from API requests. API providers should understand more deeply the situations where specific inputs are sensitive to malicious user input.
     * On the Workato end, ensure you make additional attempts to prevent malicious input by validating inputs.
     * Advise your end users to avoid providing free-form user input into sensitive fields. For example, specifying drop-downs of enumerated values where possible.
@@ -189,7 +189,7 @@ These best practices relate directly to the development of a custom connector on
 
   * Actions should be clearly named
 
-    * Naming conventions for actions: 
+    * Naming conventions for actions:
       * Get - Get only one specific record by ID
       * Search - Return 0, 1, or more records based on a search query
       * List - List out all records
@@ -221,7 +221,7 @@ These best practices relate directly to the development of a custom connector on
   * **Optimize recipe actions**
     * Remove redundant or unnecessarily heavy attributes from the action inputs, keeping only fields that are actually required.
     * Review the size of entities that are passed into the action to avoid excessive payloads.
-    * Use streaming or pagination when working with large files or datasets. 
+    * Use streaming or pagination when working with large files or datasets.
       * For example, download or upload files in chunks (for example, 5–10 MB at a time) rather than reading the entire file into memory.
       * For APIs that support pagination or cursors, process pages sequentially instead of loading all records at once.
 
@@ -371,7 +371,7 @@ API versions of the application you are connecting to help manage expectations f
 
 Different objects may require different action level help hints. Help texts can be easily changed based on the object users select.
 ```ruby
- 
+
     help: lambda do |input, picklist_label|
       if input['object'] == 'invoice'
         {
@@ -408,7 +408,7 @@ Hints are an essential way to guide your users on how to use a specific input fi
 
 In cases where it is critical for your users to read this to configure the action properly, we suggest using field level help. This should be used sparingly.
 ```ruby
- 
+
     [
       {
         control_type: "text",

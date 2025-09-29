@@ -15,21 +15,21 @@ This guide assumes you know the basics of creating static or dynamic webhook tri
 
 ## [#](<#sample-connector-hubspot-webhooks>) Sample Connector - HubSpot Webhooks
 ```ruby
- 
+
           webhook_payload_type: "raw", # Workato does a JSON.parse on incoming webhooks but we need to calculate the signature based on the raw payload
 
           webhook_notification: lambda do |input, payload, extended_input_schema, extended_output_schema, headers, params, connection, webhook_subscribe_output|
             original_payload = payload
-            client_secret = connection['client_secret'] 
+            client_secret = connection['client_secret']
             if client_secret.present?
               source_string = client_secret + original_payload # Build the string to SHA256 which is a concatenation of client secret + payload
               v1_signature = source_string.encode_sha256.encode_hex
             end
 
             # If condition below verifies that the signature we calculated is the same as the X-Hubspot-Signature we got in the webhook event
-            if (client_secret.present? && v1_signature == headers['X-Hubspot-Signature']) 
+            if (client_secret.present? && v1_signature == headers['X-Hubspot-Signature'])
               # Don't forget to parse the payload into JSON as we dictated that the payload would be `raw`
-                { 
+                {
                   events: workato.parse_json(payload),
                   headers: headers,
                   webhook_validated: client_secret.present? ? true : false
@@ -50,9 +50,9 @@ Workato's webhook gateway always attempts to parse incoming payloads as JSON. In
 
 Another important part of verifying the authenticity of a webhook is to compute your own webhook signature from the incoming webhook event. This is often done through an encryption algorithm such as SHA256 or HMAC algorithms using the payload and a secret that is only known by you and the webhook provider.
 ```ruby
- 
+
       original_payload = payload
-      client_secret = connection['client_secret'] 
+      client_secret = connection['client_secret']
       if client_secret.present?
         source_string = client_secret + original_payload # Build the string to SHA256 which is a concatenation of client secret + payload
         v1_signature = source_string.encode_sha256.encode_hex
@@ -67,11 +67,11 @@ In the case of HubSpot, we create the key to be encrypted from the payload and t
 
 The next step would be to compare your generated signature in step 2 with the signature present in the webhook event. Normally, this would be contained in the header of the webhook event which you have access to in the `webhook_notification` lambda.
 ```bash
- 
+
             # If condition below verifies that the signature we calculated is the same as the X-Hubspot-Signature we got in the webhook event
-            if (client_secret.present? && v1_signature == headers['X-Hubspot-Signature']) 
+            if (client_secret.present? && v1_signature == headers['X-Hubspot-Signature'])
               # Don't forget to parse the payload into JSON as we dictated that the payload would be `raw`
-                { 
+                {
                   events: workato.parse_json(payload),
                   headers: headers,
                   webhook_validated: client_secret.present? ? true : false

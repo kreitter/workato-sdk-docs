@@ -17,7 +17,7 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
 
 ## [#](<#sample-connector>) Sample connector
 ```ruby
- 
+
     {
       title: 'Upload file to URL',
 
@@ -33,9 +33,9 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
           end,
 
           execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
-            # Calling workato.stream.in runs in a loop where the input should be file. 
+            # Calling workato.stream.in runs in a loop where the input should be file.
             # It can accept both entire files or the output of a streaming-enabled download file action
-            workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range| 
+            workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
               put(input['url']).
                 headers("Content-Range": "bytes #{starting_byte_range}-#{ending_byte_range}/*").
                 request_body(chunk).presence
@@ -69,7 +69,7 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 ## [#](<#step-2-define-input-fields>) Step 2 - Define input fields
 ```ruby
- 
+
       input_fields: lambda do |object_definitions|
         [
           { name: "file_name", type: "string" },
@@ -91,15 +91,15 @@ After calling `workato.stream.in` you're required to define a block that signifi
 
 After the stream is consumed, we send a POST request to commit the entire upload as a new file.
 ```ruby
- 
+
       execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
-        # Calling workato.stream.in runs in a loop where the input should be file. 
+        # Calling workato.stream.in runs in a loop where the input should be file.
         # It can accept both entire files or the output of a streaming-enabled download file action
-        workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range| 
+        workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
           put(input['url']).
             headers("Content-Range": "bytes #{starting_byte_range}-#{ending_byte_range}/*").
             request_body(chunk).
-            presence # presence is required as a way to force the HTTP request to be sent. 
+            presence # presence is required as a way to force the HTTP request to be sent.
         end
 
         # This commits the upload
@@ -118,7 +118,7 @@ Take note that we assume the API accepts `*` as a wildcard range, indicating tha
 
 This section tells us what datapills to show as the output of the trigger. The `name` attributes of each datapill should match the keys in the output of the `execute` key. Here, we assume the response from the final POST request returns the `file_name`, `file_path` and `file_size`.
 ```ruby
- 
+
       output_fields: lambda do |object_definitions|
         [
           { name: "file_name", type: "string" },
@@ -138,16 +138,16 @@ When defining the `workato.stream.in` method, you are able to define an addition
 
 When `checkpoint!` is called, it checks if action's current execution time is larger than 120 seconds, and if so, refreshes the action timeout after a short waiting period. This can be used in conjunction with the `from` argument to tell Workato's streaming library where to continue from the last byte offset.
 ```ruby
- 
+
       execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
         next_from = closure["next_from"].presence || 0
-        # Calling workato.stream.in runs in a loop where the input should be file. 
+        # Calling workato.stream.in runs in a loop where the input should be file.
         # It can accept both entire files or the output of a streaming-enabled download file action
-        workato.stream.in(input["file"], from: next_from) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range| 
+        workato.stream.in(input["file"], from: next_from) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
           put(input['url']).
             headers("Content-Range": "bytes #{starting_byte_range}-#{ending_byte_range}/*").
             request_body(chunk).
-            presence # presence is required as a way to force the HTTP request to be sent. 
+            presence # presence is required as a way to force the HTTP request to be sent.
 
             # Call checkpoint unless it is the end of file.
             checkpoint!(continue: { next_from: next_starting_byte_range }) unless eof
@@ -167,15 +167,15 @@ When Workato attempts to retrieve a file chunk from an API, it defaults to reque
 
 Take note that this does not guarantee that you will receive a chunk size of 20MB from all producers. You can make necessary precautions by storing a temporary buffer as well.
 ```ruby
- 
+
       execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
         # 20MB in bytes
-        frame_size = 20971520 
+        frame_size = 20971520
         next_from = closure["next_from"].presence || 0
         buffer = ""
-        # Calling workato.stream.in runs in a loop where the input should be file. 
+        # Calling workato.stream.in runs in a loop where the input should be file.
         # It can accept both entire files or the output of a streaming-enabled download file action
-        workato.stream.in(input["file"], from: next_from, frame_size: frame_size) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range| 
+        workato.stream.in(input["file"], from: next_from, frame_size: frame_size) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
           # save chunk to buffer
           buffer << chunk
 
@@ -186,7 +186,7 @@ Take note that this does not guarantee that you will receive a chunk size of 20M
           put(input['url']).
             headers("Content-Range": "bytes #{starting_byte_range}-#{ending_byte_range}/*").
             request_body(buffer).
-            presence # presence is required as a way to force the HTTP request to be sent. 
+            presence # presence is required as a way to force the HTTP request to be sent.
 
           #reset buffer
           buffer = ""

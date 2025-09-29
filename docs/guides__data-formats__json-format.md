@@ -5,7 +5,7 @@
 
 ---
 
-# [#](<#how-to-guides-json-data-format>) How-to guides - JSON data format  
+# [#](<#how-to-guides-json-data-format>) How-to guides - JSON data format
 
 The Workato SDK's default expected data format is JSON. Action and trigger inputs will be passed as JSON payloads if no data format is specified. A JSON parser error will be shown if the SDK expected JSON and got another data format.
 
@@ -15,7 +15,7 @@ Below we have an example of an action titled `post_message`. This simple action 
 
 ## [#](<#sample-code-snippet>) Sample code snippet
 ```ruby
- 
+
     {
       title: 'My cisco connector',
 
@@ -102,7 +102,7 @@ HEADERS AND BODY SECTIONS
 
 Since no data format was declared in our action, Workato defaults to JSON and assigns `Content-Type` to `application/json`. This tells the API we sent the request to that our request body is in a JSON data format.
 ```ruby
- 
+
     POST https://api.ciscospark.com/v1/messages
     Accept  application/json
     Content-Type  application/json
@@ -115,7 +115,7 @@ Since no data format was declared in our action, Workato defaults to JSON and as
 
 This request body is generated based on the user's input and transformed into a JSON format by Workato. This request body corresponds to a user's input for the `roomId` field being `1234` and `text` field being `testing`.
 ```ruby
- 
+
     {
       "roomId":"1234",
       "text":"testing"
@@ -140,7 +140,7 @@ This is similar to request headers and contains metadata about the response body
 
 The response body is where the API sends the most of information in response to your request.
 ```ruby
- 
+
     {
       "id":"1",
       "roomId":"1234",

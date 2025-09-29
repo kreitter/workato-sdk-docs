@@ -15,7 +15,7 @@ When you define a static webhook trigger for your connector, take note that you 
 
 ## [#](<#sample-connector-cisco-webex>) Sample connector - Cisco Webex
 ```ruby
- 
+
     {
       title: 'My Cisco Webex connector',
 
@@ -101,7 +101,7 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 This component tells Workato what fields to show to a user configuring this trigger. In this case, we want a simple input field that allows a user to pick the type of Candidate event. This will be used in our trigger code later on create the trigger's personal webhook key.
 ```ruby
- 
+
         input_fields: lambda do |object_definitions|
           [
             {
@@ -133,7 +133,7 @@ When a recipe is started, a webhook subscription should be created. This webhook
 
 Below we have the lambda function inside our `new_message` trigger that handles the subscription of our webhook_url. Inside this block, we send a POST request to the Cisco spark API endpoint with the relevant details documented [here (opens new window)](<https://developer.webex.com/docs/api/v1/webhooks/create-a-webhook>).
 ```ruby
- 
+
         webhook_subscribe: lambda do |webhook_url, connection, input, recipe_id|
           post("https://api.ciscospark.com/v1/webhooks",
                name: "Workato recipe #{recipe_id}",
@@ -152,7 +152,7 @@ If the HTTP request in the `webhook_subscribe` results in an error, this will be
 
 The next step is to define the webhook handling in the `webhook_notifications` lambda function. You have numerous arguments available which represent both the user's inputs to the trigger as well as the webhook itself. To send the payload of the webhook as a job, you can simply pass on the `payload` argument. You may also add on attributes from the `headers` if required. In the case of Cisco, we have stripped away some irrelevant details from the payload found [here (opens new window)](<https://developer.webex.com/docs/api/guides/webhooks#creating-a-webhook>)
 ```ruby
- 
+
         webhook_notification: lambda do |input, payload, extended_input_schema, extended_output_schema, headers, params|
           payload["data"]
         end,
@@ -169,7 +169,7 @@ The last part is to tear down this webhook subscription when the recipe is stopp
 
 We can use this argument to discern the created subscription's `id` and send a matching `DELETE` request to the `v1/webhooks` endpoint to delete this webhook.
 ```ruby
- 
+
         webhook_unsubscribe: lambda do |webhook_subscribe_output, connection|
           delete("https://api.ciscospark.com/v1/webhooks/#{webhook_subscribe_output['id']}")
         end,
@@ -185,7 +185,7 @@ This section tells us what datapills to show as the output of the trigger as wel
 
 For datapills, use the `output_fields` lambda function. The `name` attributes of each datapill should match the keys of a Hash that is the output of the `webhook_notifications` lambda function.
 ```ruby
- 
+
         dedup: lambda do |message|
           message["id"]
         end,

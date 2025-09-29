@@ -42,7 +42,7 @@ Workato also executes the `poll` lambda every 12 hours to ensure that in case of
 
 ## [#](<#sample-connector-chargebee>) Sample connector - Chargebee
 ```ruby
- 
+
     {
       title: 'My Chargebee connector',
 
@@ -92,7 +92,7 @@ Workato also executes the `poll` lambda every 12 hours to ensure that in case of
           poll: lambda do |connection, input, closure|
             page_size = 100
              closure = {} unless closure.present?
-             closure['updated_since'] = (closure['updated_since'] || input['since'] || 1.hours.ago).to_time.utc.to_i 
+             closure['updated_since'] = (closure['updated_since'] || input['since'] || 1.hours.ago).to_time.utc.to_i
 
              params = {
                 "sort_by[asc]": 'updated_at',
@@ -100,7 +100,7 @@ Workato also executes the `poll` lambda every 12 hours to ensure that in case of
                 "updated_at[after]": closure['updated_since']
              }
 
-             params['offset'] = closure['offset'] 
+             params['offset'] = closure['offset']
 
              response = get("/api/v2/subscriptions", params)
 
@@ -108,14 +108,14 @@ Workato also executes the `poll` lambda every 12 hours to ensure that in case of
                closure['offset'] = response['next_offset']
              else
                closure['offset'] = nil
-               closure['updated_since'] = response['list'].last[input['object']]['updated_at'] unless response['list'].size == 0 
+               closure['updated_since'] = response['list'].last[input['object']]['updated_at'] unless response['list'].size == 0
              end
 
              {
                events: response['list'],
                next_poll: closure,
                can_poll_more: response['next_offset'].present?
-             } 
+             }
           end,
 
           dedup: lambda do |record|
@@ -143,11 +143,11 @@ For dynamic webhook triggers, you are expected to define the `webhook_subscribe`
 
 Instead of defining the `webhook_notification` lambda, building a hybrid trigger requires that you define the `poll` lambda instead. The `poll` lambda should function similar to any other polling trigger, whereby it needs an API endpoint to pull new records. [Refer to our polling trigger guides to understand more.](</developing-connectors/sdk/guides/building-triggers/poll.html>)
 ```ruby
- 
-          poll: lambda do 
+
+          poll: lambda do
             page_size = 100
              closure = {} unless closure.present?
-             closure['updated_since'] = (closure['updated_since'] || input['since'] || 1.hours.ago).to_time.utc.to_i 
+             closure['updated_since'] = (closure['updated_since'] || input['since'] || 1.hours.ago).to_time.utc.to_i
 
              params = {
                 "sort_by[asc]": 'updated_at',
@@ -155,7 +155,7 @@ Instead of defining the `webhook_notification` lambda, building a hybrid trigger
                 "updated_at[after]": closure['updated_since']
              }
 
-             params['offset'] = closure['offset'] 
+             params['offset'] = closure['offset']
 
              response = get("/api/v2/subscriptions", params)
 
@@ -163,14 +163,14 @@ Instead of defining the `webhook_notification` lambda, building a hybrid trigger
                closure['offset'] = response['next_offset']
              else
                closure['offset'] = nil
-               closure['updated_since'] = response['list'].last[input['object']]['updated_at'] unless response['list'].size == 0 
+               closure['updated_since'] = response['list'].last[input['object']]['updated_at'] unless response['list'].size == 0
              end
 
              {
                events: response['list'],
                next_poll: closure,
                can_poll_more: response['next_offset'].present?
-             } 
+             }
           end,
 
 
@@ -182,7 +182,7 @@ In our example, we simply query Chargebee's subscription API to give us the subs
 
 When defining the output fields and dedup, take note that this should be based on the `poll` lambda's output and not the actual webhook payload. Essentially, the webhook payload is discarded in favor of the records received in the `poll` lambda.
 ```ruby
- 
+
           dedup: lambda do |record|
             "#{record['subscription']['id']}@#{record['subscription']['updated_at']}"
           end,

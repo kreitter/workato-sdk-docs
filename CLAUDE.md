@@ -42,15 +42,25 @@ gh run list --workflow=test.yml
 ### Development & Testing Commands
 See Makefile for all available commands. Key ones:
 - `make test` - Run full test suite
-- `make test-fast` - Quick validation during development
+- `make test-fast` - Quick validation during development (<5s)
+- `make test-commit` - Test then guide you to commit (recommended workflow)
+- `make precommit-test` - Test pre-commit hooks without committing
 - `make lint` / `make format` - Code quality checks
 - `make coverage` - Generate coverage report
 
-### Testing Workflow
-- **Pre-commit**: Fast tests run automatically before commits
+### Testing Workflow (Optimized for Speed)
+- **Pre-commit**: Only formatting/linting (~2s) - tests moved to manual/CI-CD
+- **Manual Testing**: Run `make test-fast` before committing important changes
 - **CI/CD**: Full test suite on GitHub Actions (`.github/workflows/test.yml`)
 - **Coverage**: Codecov integration with 80% minimum threshold
-- **Test Categories**: unit, integration, regression, performance, error handling
+
+### Commit Workflow Options
+1. **Fast commits** (for iterative development): `git commit -m "message"`
+   - Runs only formatting checks (~2s)
+2. **Safe commits** (for completed features): `make test-commit && git commit -m "message"`
+   - Runs tests first, then commit if passing
+3. **Skip all checks** (emergency): `git commit --no-verify -m "EMERGENCY: message"`
+   - Use sparingly, always follow up with proper testing
 
 ## Architecture
 

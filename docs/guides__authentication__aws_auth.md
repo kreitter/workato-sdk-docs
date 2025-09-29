@@ -24,7 +24,7 @@ Refer to the [IAM role-based authentication for AWS](</security/data-protection/
 
 ## [#](<#sample-connector-generic-connector>) Sample connector - Generic connector
 ```ruby
- 
+
     {
       title: "Sample AWS S3 Connector",
 
@@ -157,7 +157,7 @@ Compared to other ways to authenticate, AWS requires a unique signature for each
 
 Instead, you should use the `aws.generate_signature` method to get the valid URL and signature before making an API call. In our example, you can see that we have created a method `list_buckets` that makes a GET request to S3.
 ```ruby
- 
+
         list_buckets: lambda do |connection|
           signature = aws.generate_signature(
             # The connection object defined earlier.
@@ -204,7 +204,7 @@ Instead, you should use the `aws.generate_signature` method to get the valid URL
 
 With the method defined earlier, you'd be able to call this method in the test to verify the user's credentials.
 ```ruby
- 
+
       test: lambda do |connection|
         call(:list_buckets, connection)
       end,
@@ -216,7 +216,7 @@ With the method defined earlier, you'd be able to call this method in the test t
 
 Ensuring your AWS signature is correct may be hard to verify by testing your connection. Our recommendation is to wrap a simple API request in a method - like what we did with the example above - and stubbing the connection when you first start. This allows you to test an action
 ```ruby
- 
+
     {
       title: "Sample AWS S3 Connector",
 
