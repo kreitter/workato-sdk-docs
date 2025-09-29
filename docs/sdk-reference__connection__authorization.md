@@ -596,7 +596,6 @@ The `identity` lambda displays additional information about the connection. This
 
 ![](/assets/img/identity_lambda.ff4f3859.png)
 
-<<<<<<< Updated upstream
 Attribute | Description
 ---|---
 Key | `identity`

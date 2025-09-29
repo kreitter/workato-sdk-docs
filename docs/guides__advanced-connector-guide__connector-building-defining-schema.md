@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:04.843304
-=======
-> **Fetched**: 2025-09-27T11:59:03.257440
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:28.898596
 
 ---
 
@@ -56,7 +52,7 @@ Consider using a collapsible section for these code blocks. The sheer length mak
 
 As a developer building the connector to XYZ labs, the representation of an “Invoice” object in our application might look something like this:
 ```ruby
-
+ 
       {
         "TxnDate": "2019-09-19",
         "ID": "1",
@@ -111,7 +107,7 @@ As a developer building the connector to XYZ labs, the representation of an “I
 
 While a create “Invoice” action may require a POST request similar to this:
 ```ruby
-
+ 
       POST /invoice/create
       Content type:application/json
 
@@ -138,7 +134,7 @@ While a create “Invoice” action may require a POST request similar to this:
 
 and an update “Invoice” action may require a POST similar to this:
 ```ruby
-
+ 
       POST /invoice/update
       Content type:application/json
 
@@ -166,7 +162,7 @@ and an update “Invoice” action may require a POST similar to this:
 
 As a general rule of thumb, when defining schema of an object in Workato, we want to be able to reuse as much of it as possible across different actions (such as create invoice and update invoice actions). As such, the schema we define should be a superset of all the possible parameters for this “Invoice” object. We should arrive at something like the following:
 ```ruby
-
+ 
       object_definitions: {
         invoice: lambda do |connection, config_fields|
           [
@@ -246,7 +242,7 @@ In most cases, we highly recommend using metadata endpoints whenever available t
 
 In cases like these, we want to make a request to this endpoint and use the response to build the input and output schema in a format Workato understands. Below we have a sample response from HubSpot’s metadata endpoint which gives us an array of JSON objects, each representing a “Contact” property.
 ```ruby
-
+ 
     [
       {
         "name": "example_property_name",
@@ -279,7 +275,7 @@ In cases like these, we want to make a request to this endpoint and use the resp
 
 Using this, we can define a method called `contact_schema` which takes in the same `action_type` argument as our earlier example on static definitions.
 ```ruby
-
+ 
       object_definitions: {
         contact: lambda do |connection, config_fields|
           get('/properties/v1/contacts/properties').map do |property|
@@ -319,7 +315,7 @@ Using this, we can define a method called `contact_schema` which takes in the sa
         end,
       },
 
-    methods: {
+    methods: {  
         type_mapping: lambda do |input|
           case input
           when 'datetime'

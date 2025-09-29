@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/basic-authentication.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:11.505124
-=======
-> **Fetched**: 2025-09-27T11:59:09.892658
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:35.334080
 
 ---
 
@@ -15,7 +11,7 @@ Typically, a basic authentication requires a username and password combination w
 
 ## [#](<#sample-connector-clicktime>) Sample Connector - ClickTime
 ```ruby
-
+ 
     {
       title: 'ClickTime',
 
@@ -63,14 +59,14 @@ Typically, a basic authentication requires a username and password combination w
 
 This component tells Workato what fields to show to a user trying to establish a connection. In the case of Basic Authentication, you would need the `username` and `password` of the end user to establish a connection.
 
-Information from User | Description
----|---
-username | The username of the individual who will authenticate the connection.
-password | The password of the individual who will authenticate the connection.
+Information from User | Description  
+---|---  
+username | The username of the individual who will authenticate the connection.  
+password | The password of the individual who will authenticate the connection.  
 
 This is done in the `fields` key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
 ```ruby
-
+ 
         fields: [
           {
             name: 'username',
@@ -98,7 +94,7 @@ To know more about how to define input fields in Workato, click [here.](</develo
 
 This component tells Workato what to do with the values received from the input fields to establish a connection. This is handled through your `authorization` key. In this key, you begin by first defining the `type` of authorization. For Basic authentication, you should use `basic_auth`.
 ```ruby
-
+ 
         authorization: {
           type: 'basic_auth',
 
@@ -121,7 +117,7 @@ In this example, we have defined the username we received (`connection['username
 
 This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to configure your `base_uri` [here](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
 ```ruby
-
+ 
         base_uri: lambda do |connection|
           "https://app.clicktime.com"
         end
@@ -133,7 +129,7 @@ TIP
 
 This lambda function also has access to the `connection` argument. This is especially useful if the base URI of the API might change based on the user's instance. The `connection` argument can be accessed in the following format:
 ```ruby
-
+ 
         base_uri: lambda do |connection|
           "https://#{connection['domain']}.com/api"
         end
@@ -145,7 +141,7 @@ This lambda function also has access to the `connection` argument. This is espec
 
 Now that we have defined the fields we need to collect from an end user and what to do with the inputs from those fields, we now need a way to test this connection. This is handled in the `test` key. Take note that this is a root level key - outside of the `connection` definition.
 ```ruby
-
+ 
         test: lambda do |connection|
           get("/api/1.3/session")
         end

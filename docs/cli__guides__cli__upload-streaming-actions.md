@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/upload-streaming-actions.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:17:47.025802
-=======
-> **Fetched**: 2025-09-27T11:58:45.452674
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:11.455548
 
 ---
 
@@ -26,11 +22,11 @@ We will be using the [generic upload file to url connector](</developing-connect
 
 With upload file streaming actions, the definition of the input is important here as it has to contain information about an incoming file stream that the action will utilize. There are numerous options to simulate a file stream which we will go over.
 ```ruby
-
+ 
     execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
-      # Calling workato.stream.in runs in a loop where the input should be file.
+      # Calling workato.stream.in runs in a loop where the input should be file. 
       # It can accept both entire files or the output of a streaming-enabled download file action
-      workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
+      workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range| 
         put(input['url']).
           headers("Content-Range": "bytes #{starting_byte_range}-#{ending_byte_range}/*").
           request_body(chunk).presence
@@ -46,11 +42,11 @@ With upload file streaming actions, the definition of the input is important her
 
 Alongside the execute lambda, you will also need a input JSON file such as `upload_file_input.json` when executing the upload file action in the SDK CLI. Below, we have an example of a mocked stream whose chunks are defined explicitly - each chunk is a separate key in the `chunks` hash.
 ```ruby
-
+ 
     {
         "file_name": "sample_file",
         "file": {
-          # this hash simulates a file stream which is
+          # this hash simulates a file stream which is 
           # the output of a download file object
           "__stream__": true,
           "chunks": {
@@ -68,7 +64,7 @@ Alongside the execute lambda, you will also need a input JSON file such as `uplo
 
 To run the upload file action, you give the same command as you would a standard action.
 ```ruby
-
+ 
     workato exec actions.upload_to_url.execute --input='upload_file_input.json' --verbose
 
     SETTINGS
@@ -89,19 +85,19 @@ To run the upload file action, you give the same command as you would a standard
     }
 
     RestClient.put "https://www.friendly_upload_url.com", "Content-Range"=>"bytes=0-3", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 201 Created | 0 bytes, 1.46s
+    # => 201 Created | 0 bytes, 1.46s    
 
     RestClient.put "https://www.friendly_upload_url.com", "Content-Range"=>"bytes=4-7", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 201 Created | 0 bytes, 1.46s
+    # => 201 Created | 0 bytes, 1.46s 
 
     RestClient.put "https://www.friendly_upload_url.com", "Content-Range"=>"bytes=8-11", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 201 Created | 0 bytes, 1.46s
+    # => 201 Created | 0 bytes, 1.46s 
 
     RestClient.put "https://www.friendly_upload_url.com", "Content-Range"=>"bytes=11-13", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 201 Created | 0 bytes, 1.46s
+    # => 201 Created | 0 bytes, 1.46s 
 
     RestClient.post "https://www.friendly_upload_url.com", "{\"commit\":true}", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"88", "Content-Type"=>"application/json", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 201 Created | 0 bytes, 1.46s
+    # => 201 Created | 0 bytes, 1.46s   
 
     OUTPUT
     {
@@ -123,7 +119,7 @@ Take note that streams can take longer than your average actions to finish execu
 
 Mock streams with each chunk explicitly
 ```ruby
-
+ 
     {
         "file": {
           "__stream__": true,
@@ -141,7 +137,7 @@ Mock streams with each chunk explicitly
 
 Mock streams by utilizing a stream implemented for a download file action/trigger in the same connector
 ```ruby
-
+ 
     {
         "file": {
           "__stream__": true,
@@ -157,7 +153,7 @@ Mock streams by utilizing a stream implemented for a download file action/trigge
 
 Mock streams by providing a static stream
 ```ruby
-
+ 
     {
         "file": {
           "data": "123456789",
@@ -170,7 +166,7 @@ Mock streams by providing a static stream
 
 Mock streams by providing a string
 ```ruby
-
+ 
     {
         "file": "qwertyuiop[]"
     }

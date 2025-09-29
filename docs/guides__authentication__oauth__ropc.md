@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/ropc.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:19.382955
-=======
-> **Fetched**: 2025-09-27T11:59:17.617683
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:43.051422
 
 ---
 
@@ -15,7 +11,7 @@ The OAuth 2.0 resource owner password credentials flow is traditionally a server
 
 ## [#](<#sample-connector-microsoft-entra-id>) Sample Connector - Microsoft Entra ID
 ```ruby
-
+ 
     {
       title: 'My Azure connector',
 
@@ -50,7 +46,7 @@ The OAuth 2.0 resource owner password credentials flow is traditionally a server
 
           acquire: lambda do |connection|
             token_url = "https://login.microsoftonline.com/#{connection['tenant_id']}/oauth2/v2.0/token"
-            response = post(token_url).
+            response = post(token_url). 
                         payload(client_id: "#{connection['client_id']}",
                           client_secret: "#{connection['client_secret']}",
                           username: "#{connection['username']}",
@@ -86,16 +82,16 @@ The OAuth 2.0 resource owner password credentials flow is traditionally a server
 
 This component tells Workato what fields to show to a user trying to establish a connection. In the case of resource owner password credentials, you would need the Client ID and Client Secret that the user has generated in Azure. You will also need to provide the Username and Password of the user account that you will be using to authorize the connection.
 
-Information needed | Description
----|---
-Client ID | This is the public ID of the OAuth app that should be tied to Workato. This might mean signing Workato up as a verified application in the application
-Client secret | This is the matching private key that the API will verify along with the Client ID. This might mean signing Workato up as a verified application in the application. **Never share your client secret with others**
-Username | This is the username of the user account that is giving permission to authenticate the client.
-Password | This is the password of the user account that is giving permission to authenticate the client.
+Information needed | Description  
+---|---  
+Client ID | This is the public ID of the OAuth app that should be tied to Workato. This might mean signing Workato up as a verified application in the application  
+Client secret | This is the matching private key that the API will verify along with the Client ID. This might mean signing Workato up as a verified application in the application. **Never share your client secret with others**  
+Username | This is the username of the user account that is giving permission to authenticate the client.  
+Password | This is the password of the user account that is giving permission to authenticate the client.  
 
 This is done in the `fields` key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
 ```ruby
-
+ 
         fields: [
           {
             name: 'tenant_id',
@@ -136,7 +132,7 @@ To know more about how to define input fields in Workato, click [here.](</develo
 
 This component tells Workato what type of authentication type this connection should use. This is handled through your `type` key in the `authorization` object. For Client Credentials authentication, you should use `custom_auth`.
 ```ruby
-
+ 
           type: 'custom_auth'
 
 
@@ -146,7 +142,7 @@ This component tells Workato what type of authentication type this connection sh
 
 In the `acquire` key, we pass in the `client_id`, `client_secret`, `username`, and `password` provided by users of connector as payload. Note that the payload of the request must be sent with `request_format_www_form_urlencoded`. We also identify `password` as the grant type and we pass this in as payload in the `POST` request. This request is then sent to Microsoft's Token URL.
 ```ruby
-
+ 
         acquire: lambda do |connection|
           response = post("https://login.microsoftonline.com/#{connection['tenant_id']}/oauth2/v2.0/token"). # Token URL
                         payload(client_id: "#{connection['client_id']}",
@@ -166,7 +162,7 @@ In the `acquire` key, we pass in the `client_id`, `client_secret`, `username`, a
 
 Upon receiving a the request, the API returns a JSON response.
 ```ruby
-
+ 
     {
       "access_token": "my-authentication-token",
       "token_type": "bearer",
@@ -179,7 +175,7 @@ Upon receiving a the request, the API returns a JSON response.
 
 The expected output of the `acquire` lambda function is a hash which is merged into the original connection hash. For example:
 ```bash
-
+ 
     # Original Connection hash
     {
       client_id: "abcd1234",
@@ -200,7 +196,7 @@ The expected output of the `acquire` lambda function is a hash which is merged i
 
 Next, you need to tell Workato how to make use of the access token it has retrieved from Microsoft. This is done in the `apply` key where you can reference the access token now stored in the `connection` argument. Any instructions you introduce in the `apply` block are subsequently applied to all HTTP requests this connector sends after connection is established.
 ```ruby
-
+ 
         apply: lambda do |connection|
           headers("Authorization": "Bearer #{connection['access_token']}")
         end
@@ -218,7 +214,7 @@ TIP
 
 This lambda function also has access to the `connection` argument. This is especially useful if the base URI of the API might change based on the user's instance. The `connection` argument can be accessed in the following format:
 ```ruby
-
+ 
         base_uri: lambda do |connection|
           #some code here
         end
@@ -230,7 +226,7 @@ This lambda function also has access to the `connection` argument. This is espec
 
 Now that we have defined the fields we need to collect from an end user and what to do with the inputs from those fields, we now need a way to test this connection. This is handled in the `test` key.
 ```ruby
-
+ 
         test: lambda do
           get(# Some accessible code)
         end,

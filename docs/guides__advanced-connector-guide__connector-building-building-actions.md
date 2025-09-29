@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:01.448487
-=======
-> **Fetched**: 2025-09-27T11:58:59.893591
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:25.593834
 
 ---
 
@@ -17,7 +13,7 @@ Now that we’ve defined objects schema in methods, we can now start building ou
 
 When dealing with object-based actions, we first need to define something called configuration fields. [Configuration fields](</developing-connectors/sdk/sdk-reference/actions.html#config-fields>) are special input fields that you can define whose answers can dynamically generate other input fields.
 ```ruby
-
+ 
     config_fields: [
       {
         name: 'object',
@@ -44,7 +40,7 @@ You can also use configuration fields to dynamically generate input fields based
 
 It is also highly recommended and really important to define helpful titles and descriptions for your actions. When dealing with object-based actions, this helps with the readability of recipes using your connector as well as improves user experience for those building recipes with your connector.
 ```ruby
-
+ 
     actions: {
       create_object: {
         title: 'Create object',
@@ -61,7 +57,7 @@ It is also highly recommended and really important to define helpful titles and 
           "Creates an #{picklist_label['object'] || 'object'} in XYZ. First, select from a list of " \
           'objects that we currently support. After selecting your object,' \
           ' dynamic input fields specific to the object selected ' \
-          'will be populated.'
+          'will be populated.'   
         end,
 
         config_fields: [
@@ -95,7 +91,7 @@ Another feature of creating clean and scalable input fields are that a single ac
 
 ### [#](<#input-fields>) Input fields
 ```ruby
-
+ 
     input_fields: lambda do |object_definitions, connection, config_fields|
 
       object = config_fields['object']
@@ -115,7 +111,7 @@ Another feature of creating clean and scalable input fields are that a single ac
 
 ### [#](<#object-definition>) Object definition
 ```ruby
-
+ 
       object_definitions: {
         invoice: lambda do |connection, config_fields, object_definitions|
           [
@@ -165,7 +161,7 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
 
 ### [#](<#execute-block>) Execute block
 ```ruby
-
+ 
     execute: lambda do |connection,input|
       object_name = input.delete('object')
 
@@ -182,7 +178,7 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
 
 ### [#](<#action-object-method>) `action`-`object` method
 ```ruby
-
+ 
     create_invoice_execute: lambda do |payload|
       post('api/invoice/create', payload)
     end,
@@ -196,7 +192,7 @@ Output fields can be defined in the same way as input fields using the same sche
 
 ### [#](<#output-fields>) Output fields
 ```ruby
-
+ 
     output_fields: lambda do |object_definitions, connection, config_fields|
       object = config_fields['object']
 
@@ -214,7 +210,7 @@ Below, we go through one full example for an update object action in XYZ account
 
 ### [#](<#sample-code>) Sample code
 ```ruby
-
+ 
     methods: {
       update_invoice_execute: lambda do |payload|
         patch('api/invoice/update', payload)
@@ -250,7 +246,7 @@ Below, we go through one full example for an update object action in XYZ account
             "Updates an #{picklist_label['object'] || 'object'} in XYZ. First, select from a list of " \
             'objects that we currently support. After selecting your object,' \
             ' dynamic input fields specific to the object selected ' \
-            'will be populated.'
+            'will be populated.'   
           }
         end,
 

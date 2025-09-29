@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/security-guidelines.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:17:54.796896
-=======
-> **Fetched**: 2025-09-27T11:58:53.228900
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:19.011948
 
 ---
 
@@ -39,7 +35,7 @@ The SDK gem makes it easy to do this when you set up your connector project.
 
 After you run [`workato new`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-new>), select `secure` at the HTTP binding prompt:
 ```ruby
-
+ 
     Please select default HTTP mocking behavior suitable for your project?
 
     1 - secure. Cause an error to be raised for any unknown requests, all request recordings are encrypted.

@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/pick_lists.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:17:43.606130
-=======
-> **Fetched**: 2025-09-27T11:58:41.930395
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:08.067823
 
 ---
 
@@ -23,7 +19,7 @@ In this segment, we will be going through how you can run methods Picklists the 
 
 The code in `connector.rb`.
 ```ruby
-
+ 
     {
       title: 'Chargebee-demo',
 
@@ -45,7 +41,7 @@ The code in `connector.rb`.
         ],
 
         authorization: {
-          type: 'basic_auth',
+          type: 'basic_auth',  
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -71,7 +67,7 @@ The code in `connector.rb`.
           ]
         end,
 
-        dynamic: lambda do
+        dynamic: lambda do 
           get('/api/v2/customers')['list'].map do |index|
               [
                 index['customer']['first_name'],
@@ -106,7 +102,7 @@ The code in `connector.rb`.
 
 Credentials in `settings.yaml.enc` .
 ```ruby
-
+ 
     api_key: valid_api_key
     domain: valid_domain
 
@@ -125,7 +121,7 @@ The first pick_list we will cover in the example above is the `static` pick_list
 
 Here is an example the pick_list being run:
 ```bash
-
+ 
     $ workato exec pick_lists.static
     [
       [
@@ -151,7 +147,7 @@ The next pick_list is one that sends a request out and massages the response int
 
 Here is an example the pick_list being run:
 ```bash
-
+ 
     $ workato exec pick_lists.dynamic
     [
       [
@@ -173,7 +169,7 @@ The next pick_list is one that sends a request out and massages the response int
 
 In this case, the contents of the file `fixtures/pick_lists/dependent/input.json` contains
 ```ruby
-
+ 
     {
         "limit": "1"
     }
@@ -183,8 +179,8 @@ In this case, the contents of the file `fixtures/pick_lists/dependent/input.json
 
 Here is an example the pick_list being run:
 ```bash
-
-    $ workato exec pick_lists.dependent --args='fixtures/pick_lists/dependent/input.json'
+ 
+    $ workato exec pick_lists.dependent --args='fixtures/pick_lists/dependent/input.json' 
     [
       [
         "dd",
@@ -201,7 +197,7 @@ In other cases, you might have a picklist that accepts named arguments. In this 
 
 When you pass the arguments via CLI, the contents of the file `fixtures/pick_lists/dependent_with_names/input.json` should look like this:
 ```ruby
-
+ 
     {
         "limit": "1"
     }
@@ -211,8 +207,8 @@ When you pass the arguments via CLI, the contents of the file `fixtures/pick_lis
 
 Here is an example the pick_list being run:
 ```bash
-
-    $ workato exec pick_lists.dependent_with_names --args='fixtures/pick_lists/dependent_with_names/input.json'
+ 
+    $ workato exec pick_lists.dependent_with_names --args='fixtures/pick_lists/dependent_with_names/input.json' 
     [
       [
         "dd",

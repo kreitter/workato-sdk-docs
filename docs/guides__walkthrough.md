@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/walkthrough.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:53.902949
-=======
-> **Fetched**: 2025-09-27T11:59:51.957068
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:34:17.145836
 
 ---
 
@@ -69,7 +65,7 @@ Open the **Source code** tab.
 
 Copy and paste the following code snippet into the code editor:
 ```ruby
-
+ 
     {
       title: 'Star Wars Information',
 
@@ -144,7 +140,7 @@ Complete the following steps to create an action:
 
 Replace the existing code in the **Source code** tab with the following snippet:
 ```ruby
-
+ 
     {
       title: 'Star Wars Information',
 
@@ -290,12 +286,12 @@ This code snippet includes the following keys:
   * `get_person_by_id`
   * Defines the **Get person by ID** action. The action name inherits this key, replacing underscores (`_`) with spaces. Ensure the key name accurately reflects the action's purpose. Don't use spaces in the key name.
   * `input_fields`
-  * Declares the input fields that appear when users configure your action during recipe building. This example includes a single input field named `id`. The `label` variable defines the name displayed to users, while `type` specifies the data type. Setting `optional` to `false` makes this field mandatory.
+  * Declares the input fields that appear when users configure your action during recipe building. This example includes a single input field named `id`. The `label` variable defines the name displayed to users, while `type` specifies the data type. Setting `optional` to `false` makes this field mandatory.  
 ![Input fields](/assets/img/input-field-screen.d0f83522.png)
   * `execute`
   * Declares the HTTP request, target URL, and additional actions required for the recipe. The placeholder `#{input["id"]}` dynamically captures the user-provided ID, appending it to the target URL to retrieve the character's information.
   * `output_fields`
-  * Declares the datapills returned by the action. These output fields should match the JSON object returned by the `GET` request specified in the `execute` key.
+  * Declares the datapills returned by the action. These output fields should match the JSON object returned by the `GET` request specified in the `execute` key.  
 ![Output fields](/assets/img/output-field-screen.c24f928b.png)
 
 How can I define a nested array or object?

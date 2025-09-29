@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/client-credentials.html
-<<<<<<< Updated upstream
-> **Fetched**: 2025-09-27T19:18:18.268249
-=======
-> **Fetched**: 2025-09-27T11:59:16.518827
->>>>>>> Stashed changes
+> **Fetched**: 2025-09-29T02:33:41.964372
 
 ---
 
@@ -15,7 +11,7 @@ The OAuth 2.0 Client Credentials flow is traditionally a way for server to serve
 
 ## [#](<#sample-connector-percolate>) Sample Connector - Percolate
 ```ruby
-
+ 
     {
       title: 'My Percolate connector',
 
@@ -38,7 +34,7 @@ The OAuth 2.0 Client Credentials flow is traditionally a way for server to serve
           acquire: lambda do |connection|
             hash = ("#{connection['client_id']}:#{connection['client_secret']}").base64.gsub("\n", '')
               # Token URL
-            response = post('https://percolate.com/auth/v5/token/').
+            response = post('https://percolate.com/auth/v5/token/'). 
                           payload(grant_type: 'client_credentials').
                           headers(Authorization: "Basic " + hash).
                           request_format_www_form_urlencoded
@@ -81,14 +77,14 @@ The OAuth 2.0 Client Credentials flow is traditionally a way for server to serve
 
 This component tells Workato what fields to show to a user trying to establish a connection. In the case of Client Credentials Authentication, you would need the Client ID and Client Secret that the user has generated in Percolate.
 
-Information needed | Description
----|---
-Client ID | This is the public ID of the OAuth app that should be tied to Workato. This might mean signing Workato up as a verified application in the application
-Client secret | This is the matching private key that the API will verify along with the Client ID. This might mean signing Workato up as a verified application in the application. **Never share your client secret with others**
+Information needed | Description  
+---|---  
+Client ID | This is the public ID of the OAuth app that should be tied to Workato. This might mean signing Workato up as a verified application in the application  
+Client secret | This is the matching private key that the API will verify along with the Client ID. This might mean signing Workato up as a verified application in the application. **Never share your client secret with others**  
 
 This is done in the `fields` key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
 ```ruby
-
+ 
         fields: [
           {
             name: 'client_id',
@@ -116,7 +112,7 @@ To know more about how to define input fields in Workato, click [here.](</develo
 
 This component tells Workato what type of authentication type this connection should use. This is handled through your `type` key in the `authorization` object. For Client Credentials authentication, you should use `custom_auth`.
 ```ruby
-
+ 
           type: 'custom_auth'
 
 
@@ -126,7 +122,7 @@ This component tells Workato what type of authentication type this connection sh
 
 The next step is to define what this connector should do to retrieve an access token. This is done in the `acquire` lambda function.
 ```ruby
-
+ 
           acquire: lambda do |connection|
             hash = ("client:#{connection['client_id']}:#{connection['client_secret']}").base64.gsub("\n", '')
             response = post('https://percolate.com/auth/v5/token/'). # Token URL
@@ -146,7 +142,7 @@ In the `acquire` key, we pass in the `client_id` and `client_secret` which were 
 
 Upon receiving a the request, the API returns a JSON response.
 ```ruby
-
+ 
     {
       "access_token": "my-authentication-token",
       "token_type": "bearer",
@@ -159,7 +155,7 @@ Upon receiving a the request, the API returns a JSON response.
 
 The output of the `acquire` lambda function is expected to be an object which is merged into the original connection object. For example:
 ```bash
-
+ 
     # Original Connection hash
     {
       client_id: "abcd1234",
@@ -180,7 +176,7 @@ The output of the `acquire` lambda function is expected to be an object which is
 
 Next, you need to tell Workato how to make use of the access token it has retrieved from Percolate. This is done in the `apply` key where you can reference the access token now stored in the `connection` argument. Any instructions you introduce in the `apply` key are subsequently applied to all HTTP requests this connector sends after connection is established.
 ```ruby
-
+ 
         apply: lambda do |connection|
           headers("Authorization": "Bearer #{connection['access_token']}")
         end
@@ -198,7 +194,7 @@ If an HTTP request in the connector receives any of the HTTP response codes, it 
 
 In the example using `type: custom_auth`, it will execute the code in the `acquire` key.
 ```ruby
-
+ 
         refresh_on: [401, 403],
 
 
@@ -206,7 +202,7 @@ In the example using `type: custom_auth`, it will execute the code in the `acqui
 
 When the `acquire` lambda is run again, this is the expected response from Percolate.
 ```ruby
-
+ 
     {
       "access_token": "my-NEW-authentication-token",
       "token_type": "bearer",
@@ -219,7 +215,7 @@ When the `acquire` lambda is run again, this is the expected response from Perco
 
 The expected output of the `acquire` lambda function is a hash which is merged into the original connection hash. For example:
 ```bash
-
+ 
     # Original Connection hash
     {
       client_id: "abcd1234",
@@ -241,7 +237,7 @@ The expected output of the `acquire` lambda function is a hash which is merged i
 
 This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to configure your `base_uri` [here](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
 ```ruby
-
+ 
         base_uri: lambda do |connection|
           'https://percolate.com'
         end
@@ -253,7 +249,7 @@ TIP
 
 This lambda function also has access to the `connection` argument. This is especially useful if the base URI of the API might change based on the user's instance. The `connection` argument can be accessed in the following format:
 ```ruby
-
+ 
         base_uri: lambda do |connection|
           "https://#{connection['domain'].com/api}"
         end
@@ -265,7 +261,7 @@ This lambda function also has access to the `connection` argument. This is espec
 
 Now that we have defined the fields we need to collect from an end user and what to do with the inputs from those fields, we now need a way to test this connection. This is handled in the `test` key.
 ```ruby
-
+ 
         test: lambda do
           get('/api/v5/me')
         end,
