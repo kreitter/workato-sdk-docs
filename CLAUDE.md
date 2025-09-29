@@ -16,14 +16,11 @@ uv run python scripts/fetch_workato_docs.py
 # Install and configure Claude Code integration
 uvx --from git+https://github.com/kreitter/workato-sdk-docs.git workato-sdk-install
 
-# Alternative: legacy installation (deprecated)
-./install.sh
-
 # Manual update of documentation cache
 cd ~/.workato-sdk-docs && uv run python scripts/fetch_workato_docs.py
 
-# Test single URL conversion
-python3 -c "from scripts.fetch_workato_docs import WorkatoDocsConverter; WorkatoDocsConverter().convert_single('https://docs.workato.com/en/developing-connectors/sdk/cli.html')"
+# Test single URL conversion (run from repo root)
+cd /path/to/repo && python3 -c "from scripts.fetch_workato_docs import WorkatoDocsConverter; WorkatoDocsConverter().convert_single('https://docs.workato.com/en/developing-connectors/sdk/cli.html')"
 ```
 
 ### GitHub Actions & CI/CD
@@ -36,48 +33,34 @@ gh run list --workflow=update-docs.yml
 
 # Check workflow logs for debugging
 gh run view <run-id> --log
+
+# Test workflow runs automatically on push/PR
+# View test results
+gh run list --workflow=test.yml
 ```
 
 ### Development & Testing Commands
-```bash
-# Development workflow
-make install-dev       # Install development dependencies
-make setup-precommit   # Set up pre-commit hooks
-
-# Testing (comprehensive test suite available)
-make test             # Run all tests
-make test-unit        # Unit tests only
-make test-integration # Integration tests only
-make test-regression  # Regression tests only
-make test-performance # Performance tests only
-make test-fast        # Fast tests (unit + regression)
-
-# Code quality
-make lint             # Run linting checks
-make format           # Format code with black and isort
-make coverage         # Run tests with coverage report
-
-# Cleanup
-make clean            # Remove temporary files and caches
-```
+See Makefile for all available commands. Key ones:
+- `make test` - Run full test suite
+- `make test-fast` - Quick validation during development
+- `make lint` / `make format` - Code quality checks
+- `make coverage` - Generate coverage report
 
 ### Testing Workflow
-- **Pre-commit**: Tests run automatically before commits (fast unit tests)
-- **CI/CD**: Full test suite runs on GitHub Actions for all PRs/pushes
-- **Coverage**: Reports uploaded to Codecov with quality gates
-- **43+ tests** covering unit, integration, regression, and error conditions
-```
+- **Pre-commit**: Fast tests run automatically before commits
+- **CI/CD**: Full test suite on GitHub Actions (`.github/workflows/test.yml`)
+- **Coverage**: Codecov integration with 80% minimum threshold
+- **Test Categories**: unit, integration, regression, performance, error handling
 
 ## Architecture
 
-### Two Installation Methods
+### Installation Method
 
-1. **Modern uv-based** (pyproject.toml): Isolated Python environment via `uvx`, avoids system Python conflicts
-2. **Legacy bash-based** (install.sh): Direct system installation, deprecated due to PEP 668 restrictions
+**uv-based** (pyproject.toml): Isolated Python environment via `uvx`, avoids system Python conflicts and PEP 668 restrictions
 
 ### Documentation Processing Pipeline
 
-1. **Direct URL Fetching**: Hardcoded list of 90 SDK URLs in `scripts/fetch_workato_docs.py` (lines 36-127)
+1. **Direct URL Fetching**: Hardcoded list of 90 SDK URLs in `scripts/fetch_workato_docs.py` (lines 202-410)
 2. **HTML Extraction**: `WorkatoDocsConverter` class extracts content using BeautifulSoup selectors
 3. **Markdown Conversion**: html2text converts with custom configuration
 4. **Local Storage**: `docs/` directory with content hashing for change detection
@@ -112,10 +95,10 @@ selectors = [
 ```
 
 ### URL Management
-- `SDK_URLS` list (lines 36-127): 90 hardcoded SDK documentation URLs
-- No crawling or discovery - explicit list prevents scope creep
+- `SDK_URLS` list in `scripts/fetch_workato_docs.py`: Hardcoded SDK documentation URLs (currently ~90)
+- Explicit list approach - no crawling to prevent scope creep
 - Excludes non-SDK pages (e.g., import-via-oas)
-- Add new URLs directly to list when Workato adds documentation
+- Add new URLs directly to the `SDK_URLS` list when Workato adds documentation
 
 ### Fork Support
 Installer automatically detects repository from:
@@ -162,10 +145,10 @@ ls -la ~/.workato-sdk-docs/workato-sdk-helper.sh
 
 ### Adding New Documentation URLs
 ```python
-# Edit scripts/fetch_workato_docs.py lines 36-127
+# Edit scripts/fetch_workato_docs.py - find SDK_URLS list
 SDK_URLS = [
     # ... existing URLs ...
-    "https://docs.workato.com/en/developing-connectors/sdk/new-page.html",  # Add here
+    "https://docs.workato.com/en/developing-connectors/sdk/new-page.html",  # Add new URL here
 ]
 ```
 
@@ -174,8 +157,8 @@ SDK_URLS = [
 # Test import
 python3 -c "from scripts.fetch_workato_docs import WorkatoDocsConverter"
 
-# Test single URL
-uv run python -c "from scripts.fetch_workato_docs import WorkatoDocsConverter; WorkatoDocsConverter().convert_single('URL')"
+# Test single URL (replace URL_HERE with actual URL)
+uv run python -c "from scripts.fetch_workato_docs import WorkatoDocsConverter; WorkatoDocsConverter().convert_single('URL_HERE')"
 
 # Full fetch test
 uv run python scripts/fetch_workato_docs.py
@@ -185,10 +168,14 @@ uvx --from . workato-sdk-install  # From repo root
 ```
 
 ### GitHub Actions Updates
-- Schedule: `.github/workflows/update-docs.yml` line 6 (cron expression)
-- Runs daily at 02:00 UTC
-- Creates issues on failures with `bug`, `automation`, `sdk-docs` labels
-- Commits with descriptive messages listing changed files
+- **Documentation Update**: `.github/workflows/update-docs.yml`
+  - Schedule: Daily at 02:00 UTC (line 6 cron expression)
+  - Creates issues on failures with `bug`, `automation`, `sdk-docs` labels
+  - Commits with descriptive messages listing changed files
+- **Test Suite**: `.github/workflows/test.yml`
+  - Runs on every push and pull request
+  - Executes full test suite with coverage reporting
+  - Uploads results to Codecov
 
 ## Technical Details
 

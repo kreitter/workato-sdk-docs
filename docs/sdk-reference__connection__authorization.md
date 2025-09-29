@@ -1,11 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection/authorization.html
-<<<<<<< Updated upstream
 > **Fetched**: 2025-09-27T19:19:05.024690
-=======
-> **Fetched**: 2025-09-27T12:00:03.198661
->>>>>>> Stashed changes
 
 ---
 
@@ -609,16 +605,6 @@ Required | False.
 Description | The lambda allows you to display additional information about the connection object. You can make an HTTP request to retrieve user identity details, or reference existing values from the connection object. Refer to the [acquire lambda documentation](</developing-connectors/sdk/sdk-reference/connection/authorization.html#acquire>) for details on appending values from the acquire lambda to the connection object. You can reference these values in the `identity` lambda.
 Possible arguments | `connection` \- A hash representing inputs defined in the `Connection` object.
 Expected output | A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#d4a1a7b1a694b1acb5b9a4b8b1fab7bbb9>)", "Refresh token expires in 86400 seconds")
-=======
-Attribute | Description  
----|---  
-Key | `identity`  
-Type | Lambda function  
-Required | False.  
-Description | The lambda allows you to display additional information about the connection object. You can make an HTTP request to retrieve user identity details, or reference existing values from the connection object. Refer to the [acquire lambda documentation](</developing-connectors/sdk/sdk-reference/connection/authorization.html#acquire>) for details on appending values from the acquire lambda to the connection object. You can reference these values in the `identity` lambda.  
-Possible arguments | `connection` \- A hash representing inputs defined in the `Connection` object.  
-Expected output | A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#077274627547627f666a776b622964686a>)", "Refresh token expires in 86400 seconds")  
->>>>>>> Stashed changes
 Example - identity
 
 In this example, the `identity` lambda makes an HTTP GET request to retrieve user information from a third-party API. It extracts the user’s email and displays it on the connection page. Use this when the connection object doesn't directly include the email.

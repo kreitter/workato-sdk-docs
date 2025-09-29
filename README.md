@@ -13,7 +13,7 @@ Local mirror of Workato Connector SDK documentation, updated daily via GitHub Ac
 
 ### Prerequisites
 - **Claude Code** ([install here](https://claude.ai/code))
-- **Python 3.10+** (dependencies installed automatically)
+- **Python 3.10+** (required for modern type hints and match statements)
 
 ### Installation
 
@@ -29,39 +29,18 @@ This command:
 
 ## 🧪 Testing
 
-### Running Tests
-
 ```bash
 # Run all tests
 make test
 
-# Run specific test categories
-make test-unit         # Unit tests only
-make test-integration  # Integration tests only
-make test-regression   # Regression tests only
-make test-performance  # Performance tests only
-
 # Run with coverage report
 make coverage
 
-# Run fast tests (unit + regression)
+# Run fast tests for quick feedback
 make test-fast
 ```
 
-### Test Coverage
-
-The test suite includes:
-- **Unit Tests**: Core functionality testing
-- **Integration Tests**: End-to-end workflow validation
-- **Regression Tests**: HTML parsing and content validation
-- **Performance Tests**: Resource usage monitoring
-
-All tests run automatically on:
-- **Pre-commit hooks** (before every commit)
-- **GitHub Actions** (on every push/PR)
-- **Manual execution** (via make commands)
-
-For detailed test execution information, see the [Development Workflow](#development-workflow) section.
+Tests run automatically via pre-commit hooks and GitHub Actions. The test suite maintains 80% minimum code coverage.
 
 ## 📖 Usage
 
@@ -164,30 +143,23 @@ make setup-precommit
 ### Development Workflow
 
 ```bash
-# Make changes
-# ... edit code ...
+# Install dev dependencies and pre-commit hooks
+make install-dev
+make setup-precommit
 
-# Run tests during development
-make test-fast  # Fast feedback
+# During development
+make test-fast  # Quick validation
+make format     # Auto-format code
+make lint       # Check code quality
 
-# Format and lint code
-make format     # Format with black and isort
-make lint       # Run linting checks
-
-# Run full test suite
-make test
-
-# Check coverage
-make coverage
+# Before committing
+make test       # Full test suite
+make coverage   # Verify coverage threshold
 ```
-
-### Testing
-
-See [Testing](#testing) section above for detailed test commands and coverage information.
 
 ### Contributing
 
-- Add new URLs to `SDK_URLS` list in `fetch_workato_docs.py` (lines 36-127)
+- Add new URLs to `SDK_URLS` list in `fetch_workato_docs.py` (lines 202-410)
 - Test changes with `uv run python scripts/fetch_workato_docs.py`
 - Submit pull request
 
@@ -223,8 +195,3 @@ This is an unofficial tool not affiliated with Workato, Inc. It's a community pr
 
 - **Version**: 3.1.0 | **Python**: 3.10+ | **Docs**: 90 SDK pages
 - **Compatibility**: macOS, Linux | All Claude Code versions
-# Test comment
-# Another test comment
-# Final test comment
-# Fixed integration tests
-# All tests passing
