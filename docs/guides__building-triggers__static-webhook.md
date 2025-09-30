@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/static-webhook.html
-> **Fetched**: 2025-09-29T02:34:05.151298
+> **Fetched**: 2025-09-30T02:30:59.508524
 
 ---
 
@@ -15,7 +15,7 @@ When you define a static webhook trigger for your connector, take note that you 
 
 ## [#](<#sample-connector-greenhouse>) Sample connector - Greenhouse
 ```ruby
-
+ 
     {
       title: 'My Greenhouse connector',
 
@@ -138,7 +138,7 @@ When you define a static webhook trigger for your connector, take note that you 
   * With this definition
 
 ```ruby
-
+ 
         webhook_keys: lambda do |params, headers, payload|
           "#{params['org_id']}@#{payload['action']}"
         end,
@@ -149,7 +149,7 @@ When you define a static webhook trigger for your connector, take note that you 
   * and an incoming webhook with the following shortened body from Greenhouse
 
 ```ruby
-
+ 
     URL: https://www.workato.com/user/123/connector/abc?org_id=555
     {
       "action": "candidate_stage_change",
@@ -166,7 +166,7 @@ When you define a static webhook trigger for your connector, take note that you 
             "id": 31,
             "name": "Agency"
           },
-      # More information here
+      # More information here    
     }
 
 
@@ -188,7 +188,7 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 Another important part of building a static webhook trigger is displaying the webhook url prominently so users can take this and register it. To do this, you can utilize the `help` lambda that allows you to display your connector's static webhook url. Additionally, you may add query parameters in the displayed webhook URL which can be utilized in conjunction with `webhook_key` and `webhook_keys` to route events to specific recipes.
 ```ruby
-
+ 
           help: lambda do |input, picklist_label, connection, webhook_base_url|
             next unless webhook_base_url.present?
             <<~HTML
@@ -210,7 +210,7 @@ To know more about the `help`, take a look at our [SDK reference](</developing-c
 
 This component tells Workato what fields to show to a user configuring this trigger. In this case, we want a simple input field that allows a user to pick the type of Candidate event. This will be used in our trigger code later on create the trigger's personal webhook key.
 ```ruby
-
+ 
         input_fields: lambda do |object_definitions|
           [
             {
@@ -243,7 +243,7 @@ After defining the inputs from the end user, we can now move on to define the co
 
 With this `webhook_key` and `webhook_keys` in step 1, you now have 2 unique strings generated. When an incoming webhook is received to your connector's webhook URL, the resultant output string from the `webhook_keys` lambda function is matched against strings generated from `webhook_key` lambda functions within each trigger. If there is a match, the webhook is routed to this trigger (and all others that match).
 ```ruby
-
+ 
         webhook_key: lambda do |connection, input|
           "#{connection['org_id']}@#{input['event_type']}"
         end,
@@ -257,7 +257,7 @@ In our webhook example from step 1, you can see that the `webhook_keys` output s
 
 The `webhook_notification` lambda function describes what your connector should do with all webhooks routed to it. You have numerous arguments available which represent both the user's inputs to the trigger as well as the webhook itself. To send the payload of the webhook as a job, you can simply pass on the `payload` argument. You may also add on attributes from the `headers` if required. In the case of Greenhouse, we have stripped away some irrelevant details from the payload found [here (opens new window)](<https://developers.greenhouse.io/webhooks.html#candidate-stage-change>).
 ```ruby
-
+ 
         webhook_notification: lambda do |input, payload, extended_input_schema, extended_output_schema, headers, params|
           payload.dig('payload', 'application')
         end,
@@ -278,7 +278,7 @@ This section tells us what datapills to show as the output of the trigger as wel
 
 For datapills, use the `output_fields` key. The `name` attributes of each datapill should match the keys of a single webhook payload.
 ```ruby
-
+ 
         dedup: lambda do |record|
           record['id']
         end,
@@ -322,7 +322,7 @@ For datapills, use the `output_fields` key. The `name` attributes of each datapi
 
 ![New event output fields](/assets/img/event_output.e83bf35f.png) _New event output fields_
 ```bash
-
+ 
       # Sample output of the webhook_notification: lambda function
       {
         "id": "a1241",
@@ -349,7 +349,7 @@ To know more about this, take a look at our [SDK reference](</developing-connect
 
 A optional supplementary component to the trigger, the sample output key nonetheless greatly improves a user's experience by giving him/her some context to what the datapill's value could be. This allows users to build recipes more quickly.
 ```ruby
-
+ 
         sample_output: lambda do |connection, input|
           if input['event_type'] == "candidate_stage_change"
             get("v1/applications?per_page=1")&.dig(0) || {}

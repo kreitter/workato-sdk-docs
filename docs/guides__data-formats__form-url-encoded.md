@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/form-url-encoded.html
-> **Fetched**: 2025-09-29T02:34:08.387861
+> **Fetched**: 2025-09-30T02:31:02.768069
 
 ---
 
@@ -15,7 +15,7 @@ Let's use the submit data to a form endpoint in [HubSpot API (opens new window)]
 
 A cURL example looks like this:
 ```ruby
-
+ 
     curl \
       https://forms.hubspot.com/uploads/form/v2/12345/67890 \
       -X POST \
@@ -27,7 +27,7 @@ A cURL example looks like this:
 
 This cURL command can be replicated in Workato:
 ```ruby
-
+ 
     {
       title: "HubSpot",
 
@@ -105,8 +105,8 @@ This cURL command can be replicated in Workato:
 
 ## [#](<#components>) Components
 
-cURL | Workato
----|---
-`curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST` | `post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}")`
-`-H 'Content-Type: application/x-www-form-urlencoded'` | `.request_format_www_form_urlencoded`
+cURL | Workato  
+---|---  
+`curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST` | `post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}")`  
+`-H 'Content-Type: application/x-www-form-urlencoded'` | `.request_format_www_form_urlencoded`  
 `-d '{data}'` | `.request_body(input.reject { |k,v| k == 'portal_id' || k == 'form_guid' })`

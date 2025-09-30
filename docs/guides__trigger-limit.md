@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/trigger-limit.html
-> **Fetched**: 2025-09-29T02:34:16.049390
+> **Fetched**: 2025-09-30T02:31:10.494937
 
 ---
 
@@ -9,10 +9,10 @@
 
 Workato enforces specific limits on SDK triggers to optimize performance and ensure system stability. We apply limits to the following trigger processing functions:
 
-Description |  Limit
----|---
-[Maximum consecutive polling without any jobs produced](</developing-connectors/sdk/guides/trigger-limit.html#consecutive-polls-in-a-single-poll-cycle-without-jobs>)| 600
-[Maximum number of events in a single poll](</developing-connectors/sdk/guides/trigger-limit.html#number-of-events-per-poll>)| 1,000
+Description |  Limit   
+---|---  
+[Maximum consecutive polling without any jobs produced](</developing-connectors/sdk/guides/trigger-limit.html#consecutive-polls-in-a-single-poll-cycle-without-jobs>)| 600  
+[Maximum number of events in a single poll](</developing-connectors/sdk/guides/trigger-limit.html#number-of-events-per-poll>)| 1,000  
 
 ## [#](<#consecutive-polls-in-a-single-poll-cycle-without-jobs>) Consecutive polls in a single poll cycle without jobs
 
@@ -65,7 +65,7 @@ This is typically done by:
 
 For example:
 ```ruby
-
+ 
     poll: lambda do |connection, input, closure, _eis, _eos|
       updated_since = (closure || input['since']).to_time.utc.iso8601
       request_page_size = 100

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/on-prem.html
-> **Fetched**: 2025-09-29T02:33:44.118978
+> **Fetched**: 2025-09-30T02:30:38.538938
 
 ---
 
@@ -33,7 +33,7 @@ Configure TLS client certificates in the OPA connection profile instead of your 
 
 For example:
 ```ruby
-
+ 
     {
       title: 'On-prem example connector',
       secure_tunnel: true,
@@ -60,7 +60,7 @@ Use the `||` operator to specify the existing authentication method as the defau
 
 In the following example, the value left of the `||` operator, `auth_type`, is evaluated first. If the value is `nil` or `false`, the right value, `api_key`, is evaluated.
 ```ruby
-
+ 
     selected: lambda do |connection|
       connection["auth_type"] || 'api_key'
     end,

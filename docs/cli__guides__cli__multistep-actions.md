@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/multistep-actions.html
-> **Fetched**: 2025-09-29T02:33:06.976910
+> **Fetched**: 2025-09-30T02:30:00.891234
 
 ---
 
@@ -21,7 +21,7 @@ For this example we will be using the BigQuery connector example [here](</develo
 
 Credentials in `settings.yaml.enc` .
 ```ruby
-
+ 
     iss: [[email protected]](</cdn-cgi/l/email-protection>)
     private_key: "-----BEGIN PRIVATE KEY-----...-----END
       PRIVATE KEY-----\\n"
@@ -42,7 +42,7 @@ With the SDK Gem, you'll be able to invoke individual lambda functions in your a
 
 With multistep actions, we need to take note that special methods like `reinvoke_after` will cause the job in Workato to be put to sleep for a defined amount of time.
 ```ruby
-
+ 
     reinvoke_after(seconds: 10, continue: { current_step: current_step + 1, jobid: continue['jobid']})
 
 
@@ -56,7 +56,7 @@ The above method call in your `execute` lambda will results in the job being put
 
 In this case, the contents of the file `bigquery_input.json` contains
 ```ruby
-
+ 
     {
         "project_id": "named-reporter-237205",
         "query": "SELECT * FROM `named-reporter-237205.Lead_data.2mill_table` t1",
@@ -68,7 +68,7 @@ In this case, the contents of the file `bigquery_input.json` contains
 
 To run a multistep action, you give the same command as you would a standard action.
 ```ruby
-
+ 
     workato exec actions.query.execute --input='bigquery_input.json' --verbose
 
     SETTINGS
@@ -88,7 +88,7 @@ To run a multistep action, you give the same command as you would a standard act
     }
 
     RestClient.post "https://bigquery.googleapis.com/bigquery/v2/projects/named-reporter-237205/queries", "{\"query\":\"SELECT * FROM `named-reporter-237205.Lead_data.2mill_table` t1 left join `named-reporter-237205.Lead_data.2mill_table` t2 on t1.start_time = t2.start_time\",\"timeoutMs\":\"25000\",\"useLegacySql\":false}", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer ya29.c.Kp8BFQgUT1EOcK5YBwTEv60KokPYvLLWJRFsbfd9S0oGEB3cW5cp1pXTJRZreYPB4B06Z1_YdvhLQByhe9fP_FjziQc6rCtEfGs9zZdMZpXKUFHWEqzG44qxni-jibwaLEgWLw3zaqv42y00x28jUmZQdP3AQilOPdn1xRwf6s-gWi_95d1t0qDe478VnclTIrZ_SmCMtDTTbdU1yvkA80TQ...", "Content-Length"=>"207", "Content-Type"=>"application/json", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 176 bytes
+    # => 200 OK | application/json 176 bytes       
 
     RestClient.get "https://bigquery.googleapis.com/bigquery/v2/projects/named-reporter-237205/jobs/job_LnXWC2bcE64hzeBlYMPWNCsMwavn", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer ya29.c.Kp8BFQgUT1EOcK5YBwTEv60KokPYvLLWJRFsbfd9S0oGEB3cW5cp1pXTJRZreYPB4B06Z1_YdvhLQByhe9fP_FjziQc6rCtEfGs9zZdMZpXKUFHWEqzG44qxni-jibwaLEgWLw3zaqv42y00x28jUmZQdP3AQilOPdn1xRwf6s-gWi_95d1t0qDe478VnclTIrZ_SmCMtDTTbdU1yvkA80TQ...", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
     # => 200 OK | application/json 2062 bytes

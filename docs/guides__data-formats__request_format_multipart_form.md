@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/request_format_multipart_form.html
-> **Fetched**: 2025-09-29T02:34:10.542605
+> **Fetched**: 2025-09-30T02:31:04.936076
 
 ---
 
@@ -17,7 +17,7 @@ Let's use the Convert document endpoint in [IBM Watson API (opens new window)](<
 
 A cURL example looks like this:
 ```ruby
-
+ 
     curl \
       https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 \
       -X POST \
@@ -30,7 +30,7 @@ A cURL example looks like this:
 
 Workato:
 ```ruby
-
+ 
     {
       title: "IBM Watson",
 
@@ -87,17 +87,17 @@ In the SDK, notice that the `file` key in the payload takes an array of length 2
 
 ## [#](<#components>) Components
 
-cURL | Workato
----|---
-`curl https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 -X POST` | `post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document")`
-`.params(version: "2015-12-15")`
-`-u "{username}":"{password}"` | This is defined in the [connection](../authentication/basic-authentication.md) key and is automatically added onto the outgoing request.
-`-F config="{\"conversion_target\":\"answer_units\"}"`
-`-F "[[email protected]](</cdn-cgi/l/email-protection>);type=application/pdf"` | `.request_format_multipart_form`
-`.payload(`
-`file: [input['file_data'], 'application/pdf'], `
-`file_name: input['file_name'],`
-`config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")`
+cURL | Workato  
+---|---  
+`curl https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document?version=2015-12-15 -X POST` | `post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document")`  
+`.params(version: "2015-12-15")`  
+`-u "{username}":"{password}"` | This is defined in the [connection](../authentication/basic-authentication.md) key and is automatically added onto the outgoing request.  
+`-F config="{\"conversion_target\":\"answer_units\"}"`  
+`-F "[[email protected]](</cdn-cgi/l/email-protection>);type=application/pdf"` | `.request_format_multipart_form`  
+`.payload(`  
+`file: [input['file_data'], 'application/pdf'], `  
+`file_name: input['file_name'],`  
+`config: "{\"conversion_target\":\"#{input['conversion_target']}\"}")`  
 
 ## [#](<#variations>) Variations
 
@@ -107,7 +107,7 @@ FILE_NAME IS DIFFERENT FROM FILE
 
 `file_name` in the following example is different from the payload key (`file`).
 ```ruby
-
+ 
     execute: lambda do |connection, input|
       post("https://gateway.watsonplatform.net/document-conversion/api/v1/convert_document").
         params(version: "2015-12-15").

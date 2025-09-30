@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/writing_tests.html
-> **Fetched**: 2025-09-29T02:33:17.945242
+> **Fetched**: 2025-09-30T02:30:12.032253
 
 ---
 
@@ -13,7 +13,7 @@ In this segment, we will be going through how you can write tests for any lambda
 
 The code in `connector.rb`.
 ```ruby
-
+ 
     {
       title: 'Chargebee-demo',
 
@@ -35,7 +35,7 @@ The code in `connector.rb`.
         ],
 
         authorization: {
-          type: 'basic_auth',
+          type: 'basic_auth',  
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -101,7 +101,7 @@ The code in `connector.rb`.
 
 Credentials in `settings.yaml.enc` .
 ```ruby
-
+ 
     api_key: valid_api_key
     domain: valid_domain
 
@@ -114,7 +114,7 @@ You can create a separate spec file for each action or generate your tests based
 
 ### [#](<#sample-rspec-contents>) Sample RSpec contents
 ```ruby
-
+ 
     RSpec.describe 'actions/search_customers', :vcr do
 
       subject(:output) { connector.actions.search_customers(input) }
@@ -173,7 +173,7 @@ Here, you can see that we have stubs for various tests for this action. This is 
 
 To begin testing, you need to use the Workato SDK Gem to create an instance of your connector.
 ```ruby
-
+ 
       let(:connector) { Workato::Connector::Sdk::Connector.from_file('connector.rb', settings) }
 
 
@@ -183,7 +183,7 @@ To begin testing, you need to use the Workato SDK Gem to create an instance of y
 
 Next, you need to use the Workato SDK Gem to create an instance of your settings. This is synonymous with your connection on Workato. Take note that, your connector instance previously defined also uses this settings instance.
 ```ruby
-
+ 
       let(:settings) { Workato::Connector::Sdk::Settings.from_default_file }
 
 
@@ -193,7 +193,7 @@ Next, you need to use the Workato SDK Gem to create an instance of your settings
 
 After creating the related instances, we instantiate the `action` so we can reference it more easily in the rest of the tests.
 ```ruby
-
+ 
       let(:action) { connector.actions.search_customers }
 
 
@@ -203,7 +203,7 @@ After creating the related instances, we instantiate the `action` so we can refe
 
 Here, we describe the "family" of tests we are hoping to run. In this case, we use the keyword `execute`. After that, we also define a `subject` of our tests. This is where we assign the value of `output` to our connector instance running the `execute` lambda of the `search_customers` action. This is done with the `action.execute(settings,input)` defined.
 ```ruby
-
+ 
       describe 'execute' do
         subject(:output) { action.execute(settings, input) }
 
@@ -220,7 +220,7 @@ For a test to pass or fail, there needs to be a declared comparison.
 
 Over here, we are declaring that we "expect" the output of the `execute` lambda to be equals to a previously known response where we gave it a valid input. This was done by creating 2 new variables, `input` and `expected_output`. Generating `expected_output` doesn't need to be done manually but can be done when you run the CLI commands to invoke the `execute` lambda. For example, `workato exec actions.search_customers.execute --input='fixtures/actions/search_customers/input.json' --output='fixtures/actions/search_customers/output.json'`.
 ```ruby
-
+ 
       describe 'execute' do
         subject(:output) { action.execute(settings, input) }
         let(:input) { JSON.parse(File.read('fixtures/actions/search_customers/input.json')) }
@@ -240,8 +240,8 @@ Over here, we are declaring that we "expect" the output of the `execute` lambda 
 
 Now the last step is to run your RSpec tests. This is done with the `bundle exec rspec spec/actions/search_customers_spec.rb` command.
 ```bash
-
-    $ bundle exec rspec spec/actions/search_customers_spec.rb
+ 
+    $ bundle exec rspec spec/actions/search_customers_spec.rb 
 
     actions/search_customers
       execute

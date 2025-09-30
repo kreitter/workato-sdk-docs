@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/methods.html
-> **Fetched**: 2025-09-29T02:34:31.233041
+> **Fetched**: 2025-09-30T02:31:25.903690
 
 ---
 
@@ -15,7 +15,7 @@ Reusable methods are the same as custom functions that can be called in any port
 
 ## [#](<#structure>) Structure
 ```ruby
-
+ 
         methods: {
 
           [Unique_method_name]: lambda do |[unique_argument_name]|
@@ -32,14 +32,14 @@ Reusable methods are the same as custom functions that can be called in any port
 
 * * *
 
-Attribute | Description
----|---
-Key | `[Unique_method_name]`
-Type | lambda function
-Required | True
-Description | This lambda function can be invoked anywhere in the connector code such as actions, triggers, object_definitions, or even other methods. This is done by the using the special syntax `call('unique_method_name', input)`
-Possible Arguments | Arguments can be defined by you. There can be any number of arguments. Splat operators are not allowed.
-Expected Output | Variable
+Attribute | Description  
+---|---  
+Key | `[Unique_method_name]`  
+Type | lambda function  
+Required | True  
+Description | This lambda function can be invoked anywhere in the connector code such as actions, triggers, object_definitions, or even other methods. This is done by the using the special syntax `call('unique_method_name', input)`  
+Possible Arguments | Arguments can be defined by you. There can be any number of arguments. Splat operators are not allowed.  
+Expected Output | Variable  
 Example - methods: - Using a reusable method
 
 Use the `call()` method to reference a method. This method takes in two parameters:
@@ -49,7 +49,7 @@ Use the `call()` method to reference a method. This method takes in two paramete
 
 Here we have the definition of a recursive method which returns the factorial of a number.
 ```ruby
-
+ 
         methods: {
           factorial: lambda do |input|
             number = input['number']

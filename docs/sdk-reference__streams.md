@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/streams.html
-> **Fetched**: 2025-09-29T02:34:36.988469
+> **Fetched**: 2025-09-30T02:31:31.728360
 
 ---
 
@@ -15,16 +15,16 @@ The `streams` key must be used in conjunction with an action or trigger. It enab
 
 ## [#](<#structure>) Structure
 ```ruby
-
+ 
         streams: {
 
           [Unique_stream_name]: lambda do |input, starting_byte_range, ending_byte_range, byte_size|
             Array
-          end,
+          end, 
 
           [Another_unique_stream_name]: lambda do |input, starting_byte_range, ending_byte_range, byte_size|
             Array
-          end,
+          end, 
         },
 
 
@@ -32,26 +32,26 @@ The `streams` key must be used in conjunction with an action or trigger. It enab
 
 * * *
 
-Attribute | Description
----|---
-Key | `[Unique_stream_name]`
-Type | lambda function
-Description | This lambda function can be invoked by any streaming action using the `workato.stream.out` callback.
-Possible Arguments | `input` \- Hash representing user given inputs defined in `workato.stream.out`
-`starting_byte_range` \- Integer representing the requested start byte range for this particular chunk.
-`ending_byte_range`\- Integer representing the requested ending byte range for this particular chunk.
-`byte_size`\- Integer representing the exact amount of bytes for this particular chunk.
-Expected Output | Array of size 2. The first index represents the actual bytes for this particular chunk. The second index is a boolean value that tells the Workato framework whether this is the last chunk in the file.
+Attribute | Description  
+---|---  
+Key | `[Unique_stream_name]`  
+Type | lambda function  
+Description | This lambda function can be invoked by any streaming action using the `workato.stream.out` callback.  
+Possible Arguments | `input` \- Hash representing user given inputs defined in `workato.stream.out`   
+`starting_byte_range` \- Integer representing the requested start byte range for this particular chunk.   
+`ending_byte_range`\- Integer representing the requested ending byte range for this particular chunk.   
+`byte_size`\- Integer representing the exact amount of bytes for this particular chunk.  
+Expected Output | Array of size 2. The first index represents the actual bytes for this particular chunk. The second index is a boolean value that tells the Workato framework whether this is the last chunk in the file.  
 Creating a file stream
 
 File streams on Workato are made by leveraging the common [HTTP RFC standard for `Range` headers (opens new window)](<https://datatracker.ietf.org/doc/html/rfc7233>). Below we have a simple download file action with file streaming.
 ```ruby
-
+ 
     actions: {
       download_file: {
         title: "Download file",
 
-        input_fields: lambda do
+        input_fields: lambda do 
           [
             {
               name: "file_id",
@@ -66,11 +66,11 @@ File streams on Workato are made by leveraging the common [HTTP RFC standard for
           }
         end,
 
-        output_fields: lambda do
+        output_fields: lambda do 
           [
             {
               name: "file_contents"
-            }
+            } 
           ]
         end
       }
@@ -85,17 +85,17 @@ As such, the arguments passed to this callback provide you clear inputs that you
 
 The output of the stream lambda is an array which expects the byte string in the first index and in the second index, a boolean value which should be true if this is the end of the file.
 ```ruby
-
+ 
     streams: {
         download_file: lambda do |input, starting_byte_range, ending_byte_range, byte_size|
           # Example starting_byte_range = 0
-          # Example ending_byte_range = 10485759
+          # Example ending_byte_range = 10485759 
           # Example byte_size = 10485760 (10MB)
           # input passed from action can be assumed to be a friendly URL
           chunk = get("/#{input['file_id']}/download").
             headers("Range": "bytes=#{starting_byte_range}-#{ending_byte_range}").
             response_format_raw
-          # if the chunk.size is smaller than the requested byte_size,
+          # if the chunk.size is smaller than the requested byte_size, 
           # then we know we are at the end of the file.
           [chunk, chunk.size < byte_size]
         end

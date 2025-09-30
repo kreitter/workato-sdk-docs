@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/triggers.html
-> **Fetched**: 2025-09-29T02:33:10.376439
+> **Fetched**: 2025-09-30T02:30:04.289687
 
 ---
 
@@ -19,7 +19,7 @@ In this segment, we will be going through how you can run triggers using the Wor
 
 The code in `connector.rb`.
 ```ruby
-
+ 
     {
       title: 'Chargebee-demo',
 
@@ -41,7 +41,7 @@ The code in `connector.rb`.
         ],
 
         authorization: {
-          type: 'basic_auth',
+          type: 'basic_auth',  
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -78,7 +78,7 @@ The code in `connector.rb`.
               {
                 name: 'since',
                 type: :date_time,
-                optional: true,
+                optional: true, 
                 sticky: true
               }
             ]
@@ -137,7 +137,7 @@ The code in `connector.rb`.
 
 Credentials in `settings.yaml.enc` .
 ```ruby
-
+ 
     api_key: valid_api_key
     domain: valid_domain
 
@@ -160,7 +160,7 @@ Sometimes, you may find yourself with a sample payload request or response. You 
 
 Your output_fields lambda is expected to return Workato schema which corresponds to the input fields we should show to the user. In the case we have above, when you invoke the `output_fields` lambda, the Gem will handle the evaluation of any downstream `object_definitions` or `methods` you have referenced.
 ```bash
-
+ 
     $ workato exec triggers.new_updated_object.output_fields --config-fields='fixtures/triggers/new_updated_object/customer_config.json'
 
     [
@@ -201,7 +201,7 @@ This is done with the command `.poll` which tells the SDK Gem to paginate throug
 
 In this case, the contents of the file `fixtures/triggers/new_updated_object/customer_input_poll.json` contains
 ```ruby
-
+ 
     {
       "object": "customer",
       "since": "6/09/2021"
@@ -225,9 +225,9 @@ In this case, the contents of the file `fixtures/triggers/new_updated_object/cus
     }
 
     RestClient.get "https://live_Zbaoo7hGqvi3cqrza8WiXxQa8kBPAPQF@empressporridge.chargebee.com/api/v2/customers?limit=10&offset=&sort_by%5Basc%5D=updated_at&updated_at%5Bafter%5D=1630857600", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 2608 bytes
+    # => 200 OK | application/json 2608 bytes                                                                                           
     RestClient.get "https://live_Zbaoo7hGqvi3cqrza8WiXxQa8kBPAPQF@empressporridge.chargebee.com/api/v2/customers?limit=10&offset=%5B%221630857607410%22%2C%2240736845%22%5D&sort_by%5Basc%5D=updated_at&updated_at%5Bafter%5D=1630857600", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 1800 bytes
+    # => 200 OK | application/json 1800 bytes                                                                                           
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---|
 
     OUTPUT
@@ -283,7 +283,7 @@ You can see that the `config_field` \- `object` is passed in the input json. In 
 
 This is done with the command `.poll_page` which tells the SDK Gem to only invoke the `poll` lambda once regardless of the `can_poll_more` value. In the example below, you can see that we have given `.poll` and given the `since` input of `6/09/2021`. The SDK Gem sends a single request and stops execution after the first request is done.
 ```ruby
-
+ 
     workato exec triggers.new_updated_object.poll_page --input='fixtures/triggers/new_updated_object/customer_input_poll.json' --verbose
 
     SETTINGS
@@ -298,7 +298,7 @@ This is done with the command `.poll_page` which tells the SDK Gem to only invok
     }
 
     RestClient.get "https://live_Zbaoo7hGqvi3cqrza8WiXxQa8kBPAPQF@empressporridge.chargebee.com/api/v2/customers?limit=10&offset=&sort_by%5Basc%5D=updated_at&updated_at%5Bafter%5D=1630857600", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 2608 bytes
+    # => 200 OK | application/json 2608 bytes 
 
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---|
 

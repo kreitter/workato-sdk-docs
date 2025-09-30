@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/download-streaming-actions.html
-> **Fetched**: 2025-09-29T02:33:04.827938
+> **Fetched**: 2025-09-30T02:29:58.704089
 
 ---
 
@@ -24,7 +24,7 @@ With download file actions, it is important to note that when the action/trigger
 
 As such, in the SDK Gem, you may test your download file action as a normal action; and your `streams` callback separately. Let's go over the download file action first.
 ```ruby
-
+ 
     execute: lambda do |connection, input|
       file_path = input['file_path']&.gsub(/%2F/, '/')
 
@@ -40,7 +40,7 @@ As such, in the SDK Gem, you may test your download file action as a normal acti
 
 Alongside the execute lambda, you will also need a input JSON file such as `egnyte_download_file_input.json` when executing the download file action in the SDK CLI.
 ```ruby
-
+ 
     {
         "file_path": "/path/to/sample/file"
     }
@@ -50,7 +50,7 @@ Alongside the execute lambda, you will also need a input JSON file such as `egny
 
 To run a download file action, you give the same command as you would a standard action.
 ```ruby
-
+ 
     workato exec actions.download_object.execute --input='egnyte_download_file_input.json' --verbose
 
     SETTINGS
@@ -69,7 +69,7 @@ To run a download file action, you give the same command as you would a standard
     }
 
     RestClient.get "https://acme.egnyte.com/pubapi/v1/fs/path/to/sample/file", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer valid_access_token", "Content-Length"=>"207", "Content-Type"=>"application/json", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 176 bytes
+    # => 200 OK | application/json 176 bytes       
 
     OUTPUT
     {
@@ -98,16 +98,16 @@ You can also use other options like `--output` to save the output of the functio
 
 Now, to debug and test the `streams` lambda directly, you can use the CLI to invoke the lambda directly.
 ```ruby
-
+ 
     streams: {
       download_file_by_path: lambda do |input, starting_byte_range, ending_byte_range, requested_byte_size|
         # Example starting_byte_range = 0
-        # Example ending_byte_range = 10485759
+        # Example ending_byte_range = 10485759 
         # Example requested_byte_size = 10485760 (10MB)
         chunk = get("/pubapi/v1/fs-content/#{file_path}").
                   headers("Range": "bytes=#{starting_byte_range}-#{ending_byte_range}").
                   response_format_raw
-        # if the chunk.size is smaller than the requested byte_size,
+        # if the chunk.size is smaller than the requested byte_size, 
         # then we know we are at the end of the file.
         [chunk, chunk.size < requested_byte_size]
       end
@@ -120,7 +120,7 @@ With the SDK Gem, you are able to invoke the specific streaming callback lambda 
 
 To read a single chunk, you can simply invoke the stream with 3 parameters
 ```ruby
-
+ 
     workato exec streams.download_file_by_path --input='egnyte_download_file_input.json' --from=0 --frame_size=256 --verbose
 
     SETTINGS
@@ -139,7 +139,7 @@ To read a single chunk, you can simply invoke the stream with 3 parameters
     }
 
     RestClient.get "https://acme.egnyte.com/pubapi/v1/fs-content/path/to/sample/file", "Range"=>"bytes=0-255", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer valid_access_token", "Content-Length"=>"207", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 206 PartialContent | text/csv 255 bytes, 1.85s
+    # => 206 PartialContent | text/csv 255 bytes, 1.85s       
 
     OUTPUT
     [
@@ -152,7 +152,7 @@ To read a single chunk, you can simply invoke the stream with 3 parameters
 
 To read all chunks, you can invoke the stream with the same 3 parameters but with a bang (`!`) method.
 ```ruby
-
+ 
     workato exec streams.download_file_by_path! --input='egnyte_download_file_input.json' --frame_size=256 --verbose
 
 
