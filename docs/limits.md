@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/limits.html
-> **Fetched**: 2025-10-02T02:31:06.716377
+> **Fetched**: 2025-10-03T02:30:36.316213
 
 ---
 
@@ -14,14 +14,6 @@ Timeout for HTTP request inside SDK connectors in the Test code console| 40 seco
 Timeout for HTTP request inside SDK connectors in a job at runtime| 3 minutes  
 Timeout for compiling an SDK connector| 5 seconds  
 SDK Timeout credentials refresh| 30 seconds  
-SDK memory limit for a single action execution| This limit varies by data center: 
-
-  * US: 2 GB
-  * EU: 1 GB
-  * SG: 800 MB
-  * JP: 500 MB
-  * AU: 500 MB
-
 Maximum number of swap outs in multi-step actions| 100  
 Minimum swap interval in multi-step actions| 60 seconds  
 Maximum number of job suspensions| 50  
