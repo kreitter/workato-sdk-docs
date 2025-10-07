@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/error-handling.html
-> **Fetched**: 2025-10-06T02:33:05.295376
+> **Fetched**: 2025-10-07T02:31:08.477312
 
 ---
 
