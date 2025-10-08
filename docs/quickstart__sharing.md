@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/sharing.html
-> **Fetched**: 2025-10-07T02:31:17.836150
+> **Fetched**: 2025-10-08T02:31:31.050749
 
 ---
 
@@ -19,7 +19,7 @@ Your connector's _shared_ version is the version which others receive when they 
 
 REQUIRED PERMISSIONS
 
-Uploading connectors to the community library requires [full access to the Connector SDK](</privileges.html#connector-sdk>). If you don't have the required permissions, contact your workspace admin to help you upload the connector.
+Uploading connectors to the community library requires [full access to the Connector SDK](</user-accounts-and-teams/role-based-access/new-model/privileges-reference.html#connector-sdk>). If you don't have the required permissions, contact your workspace admin to help you upload the connector.
 
 Upload your connector to the community library
 
