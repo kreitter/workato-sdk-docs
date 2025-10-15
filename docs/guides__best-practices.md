@@ -1,20 +1,13 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2025-10-14T02:32:03.239602
+> **Fetched**: 2025-10-15T02:33:40.809031
 
 ---
 
 # [#](<#sdk-development-best-practices>) SDK Development Best Practices
 
-SUMMARY
-
-  * Keep code clean and understandable, and be expressive in naming.
-  * Use secure authentication and user-friendly fields, and don't include sensitive data in code.
-  * Use minimal, low-privilege endpoints for tests.
-  * Prefer dynamic object definitions over static, include user-friendly labels, and use `control_type` judiciously.
-
-Below, we have compiled a list of best practices which makes development of your custom connector easier to build, test, and maintain. We have organized this best practices in the following way:
+Refer to the following list of best practices which makes development of your custom connector easier to build, test, and maintain:
 
   * [General best practices](<#general>)
   * [Security best practices](<#security>)
@@ -22,6 +15,13 @@ Below, we have compiled a list of best practices which makes development of your
   * [Action best practices](<#actions>)
   * [Trigger best practices](<#triggers>)
   * [Usability and testing best practices](<#usability-and-testing>)
+
+SUMMARY
+
+  * Keep code clean and understandable, and be expressive in naming.
+  * Use secure authentication and user-friendly fields, and don't include sensitive data in code.
+  * Use minimal, low-privilege endpoints for tests.
+  * Prefer dynamic object definitions over static, include user-friendly labels, and use `control_type` judiciously.
 
 * * *
 

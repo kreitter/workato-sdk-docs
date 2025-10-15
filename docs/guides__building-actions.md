@@ -1,15 +1,11 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions.html
-> **Fetched**: 2025-10-14T02:32:04.312785
+> **Fetched**: 2025-10-15T02:33:41.896432
 
 ---
 
 # [#](<#building-actions>) Building actions
-
-TIP
-
-Before we start, it is also important to get familiar with the different types of [HTTP request methods](</developing-connectors/sdk/sdk-reference/http.html>) which power all actions.
 
 Once you have figured out how to connect to your applications, you can build actions for your connectors. Actions give your connectors functionality and purpose, without them, your connectors can't really do much. In this segment, we go through the building of various types of actions:
 
@@ -21,6 +17,10 @@ Once you have figured out how to connect to your applications, you can build act
   * Adding custom actions
   * Multi-step actions that work with Asynchronous APIs
   * Multi-threaded actions which support sending multiple requests
+
+TIP
+
+Before we start, it is also important to get familiar with the different types of [HTTP request methods](</developing-connectors/sdk/sdk-reference/http.html>) which power all actions.
 
 ACTION TIMEOUT
 

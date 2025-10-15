@@ -1,9 +1,13 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2025-10-14T02:32:53.062363
+> **Fetched**: 2025-10-15T02:34:30.174334
 
 ---
+
+# [#](<#available-ruby-methods>) Available Ruby methods
+
+Workato implements a subset of Ruby's public instance methods within its SDK framework. This document lists the Ruby methods that are available when building your connectors. You can request to add additional methods to this list using the [Workato feedback widget (opens new window)](<https://ideas.workato.com/app/#/login>).
 
 WHITELIST REMOVAL
 
@@ -12,10 +16,6 @@ Workato has removed whitelisting for its SDK framework, starting March 2025. Thi
 [Learn more](</developing-connectors/sdk/sdk-reference/whitelist-removal.html>) about the capabilities available with the removal of ruby whitelisting.
 
 This enhancement doesn't apply to the Ruby code connector.
-
-# [#](<#available-ruby-methods>) Available Ruby methods
-
-Workato implements a subset of Ruby's public instance methods within its SDK framework. This document lists the Ruby methods that are available when building your connectors. You can request to add additional methods to this list using the [Workato feedback widget (opens new window)](<https://ideas.workato.com/app/#/login>).
 
 PERSONAL REUSABLE METHODS
 
