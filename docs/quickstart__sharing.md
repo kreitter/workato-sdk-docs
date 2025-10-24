@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/sharing.html
-> **Fetched**: 2025-10-23T02:34:03.195255
+> **Fetched**: 2025-10-24T02:32:39.362612
 
 ---
 
@@ -16,10 +16,6 @@ Shared version | Released version
 Your connector's _shared_ version is the version which others receive when they install your connector for the first time. When you share a new version, everyone who installed your connector receives an option to update their connectors as well, including child connectors. | Your connector's _released_ version is the version all your recipes use. When you release a new version of your connector, all recipes using this connector update to use this version immediately.  
 
 ## [#](<#sharing-your-connector-with-the-community>) Upload a connector to the community library
-
-REQUIRED PERMISSIONS
-
-Uploading connectors to the community library requires [full access to the Connector SDK](</user-accounts-and-teams/role-based-access/new-model/privileges-reference.html#connector-sdk>). If you don't have the required permissions, contact your workspace admin to help you upload the connector.
 
 Upload your connector to the community library
 
@@ -84,6 +80,10 @@ Click **List connector** to submit your connector for review.
 Wait one business day for your connector to be reviewed. You can monitor the status of your submission in your connector's **Share** tab. Workato will notify you through your community profile's email when your connector has been reviewed.
 
 ![Monitor your connector's status](/assets/img/connector-approval.09c7c90d.png)_Monitor your connector's status_
+
+REQUIRED PERMISSIONS
+
+Uploading connectors to the community library requires [full access to the Connector SDK](</user-accounts-and-teams/role-based-access/new-model/privileges-reference.html#connector-sdk>). If you don't have the required permissions, contact your workspace admin to help you upload the connector.
 
 ## [#](<#closed-source-code>) Share a connector with a link 
 
