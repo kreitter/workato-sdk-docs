@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/jwt.html
-> **Fetched**: 2025-10-24T02:31:52.785910
+> **Fetched**: 2025-10-25T02:32:20.644277
 
 ---
 
