@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-project-directory-reference.html
-> **Fetched**: 2025-11-09T02:35:48.804932
+> **Fetched**: 2025-11-10T02:37:04.655314
 
 ---
 

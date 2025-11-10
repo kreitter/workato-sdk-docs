@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/xml-format.html
-> **Fetched**: 2025-11-09T02:36:37.905047
+> **Fetched**: 2025-11-10T02:37:55.927109
 
 ---
 
