@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/enable-ci-cd-on-github.html
-> **Fetched**: 2025-11-14T02:35:26.668138
+> **Fetched**: 2025-11-15T02:33:39.792794
 
 ---
 
