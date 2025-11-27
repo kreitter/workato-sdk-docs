@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/json-format.html
-> **Fetched**: 2025-11-26T02:37:26.184756
+> **Fetched**: 2025-11-27T02:36:43.745773
 
 ---
 
