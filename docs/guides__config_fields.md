@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/config_fields.html
-> **Fetched**: 2025-11-28T02:35:38.557562
+> **Fetched**: 2025-11-29T02:35:34.937869
 
 ---
 
