@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection/authorization.html
-> **Fetched**: 2025-12-13T02:37:33.214003
+> **Fetched**: 2025-12-14T02:44:45.157548
 
 ---
 
@@ -603,7 +603,7 @@ Type | Lambda function
 Required | False.  
 Description | The lambda allows you to display additional information about the connection object. You can make an HTTP request to retrieve user identity details, or reference existing values from the connection object. Refer to the [acquire lambda documentation](</developing-connectors/sdk/sdk-reference/connection/authorization.html#acquire>) for details on appending values from the acquire lambda to the connection object. You can reference these values in the `identity` lambda.  
 Possible arguments | `connection` \- A hash representing inputs defined in the `Connection` object.  
-Expected output | A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#047177617644617c65697468612a676b69>)", "Refresh token expires in 86400 seconds")  
+Expected output | A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#3144425443715449505c415d541f525e5c>)", "Refresh token expires in 86400 seconds")  
 Example - identity
 
 In this example, the `identity` lambda makes an HTTP GET request to retrieve user information from a third-party API. It extracts the user’s email and displays it on the connection page. Use this when the connection object doesn't directly include the email.
