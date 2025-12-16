@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/create-objects.html
-> **Fetched**: 2025-12-15T02:43:18.741629
+> **Fetched**: 2025-12-16T02:39:53.919650
 
 ---
 
