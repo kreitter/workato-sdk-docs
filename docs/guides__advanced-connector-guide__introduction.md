@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/introduction.html
-> **Fetched**: 2025-12-30T02:41:14.750961
+> **Fetched**: 2025-12-31T02:41:03.827096
 
 ---
 
