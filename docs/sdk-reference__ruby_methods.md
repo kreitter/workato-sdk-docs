@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-01-05T02:52:07.487096
+> **Fetched**: 2026-01-06T02:43:34.871935
 
 ---
 
@@ -444,7 +444,7 @@ For more details, refer to the [count (opens new window)](<https://apidock.com/r
 
 ## [#](<#csv-parse>) csv.parse
 
-Allows you to parse a CSV string into a JSON array that makes it easy to display as data pills.
+Allows you to parse a CSV string into a JSON array that makes it easy to display as datapills.
 ```ruby
  
     workato.csv.parse("blue;1\nwhite;2\n", headers: "color;count", col_sep: ";")

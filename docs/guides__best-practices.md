@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2026-01-05T02:51:17.961649
+> **Fetched**: 2026-01-06T02:42:45.343503
 
 ---
 
@@ -297,7 +297,7 @@ For real-time monitoring, webhooks are more efficient than polling triggers. Web
 
 ### [#](<#trigger-sample-output>) Sample output
 
-  * In Workato recipes, every action or trigger should have sample output data populated with output data pills under app data section
+  * In Workato recipes, every action or trigger should have sample output data populated with output datapills under app data section
 
     * This gives users information about the data being passed to downstream systems, improving usability
   * Static sample output data is preferred for the objects with fewer fields
