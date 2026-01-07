@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/http.html
-> **Fetched**: 2026-01-06T02:43:30.225809
+> **Fetched**: 2026-01-07T02:44:03.448489
 
 ---
 
@@ -299,4 +299,4 @@ The resultant output of this action will contain all 3 parts of the response.
 
 You can easily verify this while developing your custom connector. When you include post-request handling, the output tab should reflect the expected JSON object.
 
-![Output with response code and header values](/assets/img/response_with_headers.8ce095a2.png) Output with response code and header values*
+![Output with response code and header values](/assets/img/response_with_headers.8ce095a2.png) _Output with response code and header values_
