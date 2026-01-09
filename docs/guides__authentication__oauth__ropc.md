@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/ropc.html
-> **Fetched**: 2026-01-08T02:42:33.087487
+> **Fetched**: 2026-01-09T02:43:04.788685
 
 ---
 
