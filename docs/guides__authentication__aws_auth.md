@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/aws_auth.html
-> **Fetched**: 2026-01-09T02:42:55.989916
+> **Fetched**: 2026-01-10T02:38:42.915931
 
 ---
 
@@ -212,7 +212,7 @@ With the method defined earlier, you'd be able to call this method in the test t
 
 ```
 
-# [#](<#troubleshooting-tips>) Troubleshooting tips
+## [#](<#troubleshooting-tips>) Troubleshooting tips
 
 Ensuring your AWS signature is correct may be hard to verify by testing your connection. Our recommendation is to wrap a simple API request in a method - like what we did with the example above - and stubbing the connection when you first start. This allows you to test an action
 ```ruby
