@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html
-> **Fetched**: 2026-01-14T02:48:18.157460
+> **Fetched**: 2026-01-15T02:44:02.891126
 
 ---
 
@@ -549,19 +549,47 @@ This allows you to configure the expected data formats when defining the schema 
 
 ### [#](<#predefined-convert-input-values>) Predefined `convert_input` values
 
-  * "integer_conversion" - converts input into data type integer
-  * "float_conversion" - converts input into data type float
-  * "date_conversion" - converts input into data type date
-  * "render_iso8601_timestamp" - converts input into date string that conforms to ISO8601 standards
-  * "boolean_conversion" - converts input into data type boolean
+  * `integer_conversion`
+
+  * Converts input into data type integer
+
+  * `float_conversion`
+
+  * Converts input into data type float
+
+  * `date_conversion`
+
+  * Converts input into data type date
+
+  * `render_iso8601_timestamp`
+
+  * Converts input into date string that conforms to ISO8601 standards
+
+  * `boolean_conversion`
+
+  * Converts input into data type boolean
 
 ### [#](<#predefined-convert-output-values>) Predefined `convert_output` values
 
-  * "integer_conversion" - converts output into data type integer/number
-  * "float_conversion" - converts output into data type float
-  * "date_conversion" - converts output into data type date
-  * "date_time_conversion" - converts output into a format that matches Javascript's Date object's `toJSON` method
-  * "boolean_conversion" - converts output into data type boolean
+  * `integer_conversion`
+
+  * Converts output into data type integer/number
+
+  * `float_conversion`
+
+  * Converts output into data type float
+
+  * `date_conversion`
+
+  * Converts output into data type date
+
+  * `date_time_conversion`
+
+  * Converts output into a format that matches Javascript's Date object's `toJSON` method
+
+  * `boolean_conversion`
+
+  * Converts output into data type boolean
 
 TIP
 

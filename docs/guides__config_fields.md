@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/config_fields.html
-> **Fetched**: 2026-01-14T02:47:47.294744
+> **Fetched**: 2026-01-15T02:43:33.346245
 
 ---
 
@@ -22,7 +22,7 @@ Config fields keys can be used in both actions and triggers to introduce dynamic
       # More connector code here
 
       actions: {
-        create_customer: {
+        create_object: {
           title: "Create object",
           subtitle: "Create object in Chargebee",
 
@@ -47,7 +47,21 @@ Config fields keys can be used in both actions and triggers to introduce dynamic
           end,
 
           execute: lambda do |connection, input|
-            post("/api/v2/customers", input).
+            object = input.delete('object')
+
+            # Route to the appropriate endpoint based on selected object
+            endpoint = case object
+            when 'customer'
+              '/api/v2/customers'
+            when 'subscription'
+              '/api/v2/subscriptions'
+            when 'plan'
+              '/api/v2/plans'
+            else
+              raise "Unsupported object type: #{object}"
+            end
+
+            post(endpoint, input).
               request_format_www_form_urlencoded
           end,
 
@@ -82,6 +96,54 @@ Config fields keys can be used in both actions and triggers to introduce dynamic
                 }
               end
           end
+        },
+
+        subscription: {
+          fields: lambda do |connection, config_fields, object_definitions|
+            get("/api/v2/subscriptions", limit: 1).
+              dig('list',0,'subscription').
+              map do |key, value|
+                if value.is_a?(Integer)
+                  type = 'integer'
+                  control_type = 'number'
+                else 
+                  type = 'string'
+                  control_type = 'text'
+                end
+
+                {
+                  name: key,
+                  label: key.labelize,
+                  type: type,
+                  control_type: control_type,
+                  sticky: true
+                }
+              end
+          end
+        },
+
+        plan: {
+          fields: lambda do |connection, config_fields, object_definitions|
+            get("/api/v2/plans", limit: 1).
+              dig('list',0,'plan').
+              map do |key, value|
+                if value.is_a?(Integer)
+                  type = 'integer'
+                  control_type = 'number'
+                else 
+                  type = 'string'
+                  control_type = 'text'
+                end
+
+                {
+                  name: key,
+                  label: key.labelize,
+                  type: type,
+                  control_type: control_type,
+                  sticky: true
+                }
+              end
+          end
         }
       },
 
@@ -94,7 +156,6 @@ Config fields keys can be used in both actions and triggers to introduce dynamic
           ]
         end,
       }
-
     }
 
 
@@ -182,16 +243,54 @@ The `object_definition['customer']` key sends a secondary request to Chargebee a
 
 ## [#](<#step-4-defining-the-execute-key>) Step 4 - Defining the execute key
 
-The execute key tells Workato the endpoint to send the request to and using which HTTP request method. In this example, we send our request to the `/api/v2/customers` endpoint. Chargebee requires the input to be form urlencoded so we use the `.request_format_www_form_urlencoded`
+The execute key tells Workato the endpoint to send the request to and which HTTP request method to use. Different objects usually require posting to different endpoints. Extract the config field value from the `input` hash before you send the request to the API.
 ```ruby
  
       execute: lambda do |connection, input|
-        post("/api/v2/customers", input).
+        object = input.delete('object')
+
+        # Route to the appropriate endpoint based on selected object
+        endpoint = case object
+        when 'customer'
+          '/api/v2/customers'
+        when 'subscription'
+          '/api/v2/subscriptions'
+        when 'plan'
+          '/api/v2/plans'
+        else
+          raise "Unsupported object type: #{object}"
+        end
+
+        post(endpoint, input).
           request_format_www_form_urlencoded
       end,
 
 
 ```
+
+In this example:
+
+  * We extract the selected object using `input.delete('object')`, which returns the value and removes it from the input hash
+  * We use a `case` statement to map each object type to its corresponding API endpoint
+  * We construct the appropriate POST request to the endpoint for the selected object
+  * Chargebee requires the input to be form urlencoded so we use `.request_format_www_form_urlencoded`
+
+USE STRING INTERPOLATION TO SIMPLIFY ROUTING
+
+You can simplify routing with string interpolation when your API endpoints follow a consistent pattern (such as `/api/v2/{object}s`):
+```ruby
+ 
+    execute: lambda do |connection, input|
+      object = input.delete('object')
+
+      post("/api/v2/#{object}s", input).
+        request_format_www_form_urlencoded
+    end,
+
+
+```
+
+Use the explicit `case` statement approach shown in the preceding example when endpoint paths vary or require additional logic.
 
 ## [#](<#step-5-defining-output-fields>) Step 5 - Defining output fields
 
