@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/limits.html
-> **Fetched**: 2026-01-15T02:43:45.220539
+> **Fetched**: 2026-01-16T02:44:30.018376
 
 ---
 
