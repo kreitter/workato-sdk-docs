@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html
-> **Fetched**: 2026-01-16T02:44:47.806327
+> **Fetched**: 2026-01-17T02:38:40.537071
 
 ---
 
@@ -585,7 +585,7 @@ This allows you to configure the expected data formats when defining the schema 
 
   * `date_time_conversion`
 
-  * Converts output into a format that matches Javascript's Date object's `toJSON` method
+  * Converts output into a format that matches JavaScript's Date object's `toJSON` method
 
   * `boolean_conversion`
 
