@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.html
-> **Fetched**: 2026-01-19T02:48:28.211639
+> **Fetched**: 2026-01-20T02:44:54.524409
 
 ---
 
@@ -89,7 +89,7 @@ For descriptions, we allow you to use a lambda function (as shown in the example
 
 Another feature of creating clean and scalable input fields are that a single action can support multiple objects with a single `object_definitions` call. Since the value of configuration fields can only be accessed through an object_definitions method, we suggest calling a generic object_definitions that can later pull the appropriate schema based on the object the user has selected.
 
-### [#](<#input-fields>) Input fields
+### [#](<#input>) Input
 ```ruby
  
     input_fields: lambda do |object_definitions, connection, config_fields|
@@ -190,7 +190,7 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
 
 Output fields can be defined in the same way as input fields using the same schema method used earlier. When calling the schema method, remember to pass the parameter `output` so your method knows to return fields expected in the response. Often this includes metadata about the object that cannot be changed by users such as `created_at` or `updated_at` timestamps.
 
-### [#](<#output-fields>) Output fields
+### [#](<#output>) Output
 ```ruby
  
     output_fields: lambda do |object_definitions, connection, config_fields|

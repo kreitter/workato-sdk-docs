@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html
-> **Fetched**: 2026-01-19T02:48:29.309820
+> **Fetched**: 2026-01-20T02:44:55.622172
 
 ---
 
@@ -91,7 +91,7 @@ For descriptions, we allow you to use a lambda function (as shown in the example
 
 Since triggers do not need much configuration from the user, there is no need for any object definitions to be called in our example here. One pattern that we do recommend in triggers whenever possible is to add an optional input field so users can retrospectively pull data when the trigger is first started. This input field will take in a timestamp value and use that to pull any data.
 
-### [#](<#input-fields>) Input fields
+### [#](<#input>) Input
 ```ruby
  
     input_fields: lambda do
@@ -242,7 +242,7 @@ For each record in the array of records passed on from the poll block, Workato a
 
 Output fields can be defined using the same schema method used earlier. When calling the schema method, remember to pass the parameter `output` so your method knows to return fields expected in the response. Often this includes metadata about the object that cannot be changed by users such as `created_at` or `updated_at` timestamps.
 
-### [#](<#output-fields>) Output fields
+### [#](<#output>) Output
 ```ruby
  
         output_fields: lambda do |object_definitions, connection, config_fields|

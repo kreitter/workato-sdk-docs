@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/get-objects.html
-> **Fetched**: 2026-01-19T02:48:52.496694
+> **Fetched**: 2026-01-20T02:45:19.490464
 
 ---
 
