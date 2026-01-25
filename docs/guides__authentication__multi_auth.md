@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/multi_auth.html
-> **Fetched**: 2026-01-24T02:40:29.493516
+> **Fetched**: 2026-01-25T02:52:14.413156
 
 ---
 
