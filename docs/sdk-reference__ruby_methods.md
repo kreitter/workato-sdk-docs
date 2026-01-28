@@ -1,13 +1,13 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-01-27T02:49:27.798972
+> **Fetched**: 2026-01-28T02:46:54.292690
 
 ---
 
 # [#](<#available-ruby-methods>) Available Ruby methods
 
-Workato implements a subset of Ruby's public instance methods within its SDK framework. This document lists the Ruby methods that are available when building your connectors. You can request to add additional methods to this list using the [Workato feedback widget (opens new window)](<https://ideas.workato.com/app/#/login>).
+Workato implements a subset of Ruby's public instance methods within its SDK framework. This document lists the Ruby methods that are available when building your connectors.
 
 WHITELIST REMOVAL
 
