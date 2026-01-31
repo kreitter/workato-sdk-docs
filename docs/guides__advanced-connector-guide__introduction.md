@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/introduction.html
-> **Fetched**: 2026-01-30T02:59:27.434963
+> **Fetched**: 2026-01-31T02:55:49.790304
 
 ---
 
@@ -17,16 +17,6 @@ This guide should help organize your thoughts around building connectors that ar
 
 If you're reading this guide to build a connector on Workato to your own web API, one great resource would be this guide by google over [here (opens new window)](<https://cloud.google.com/apis/design/>) which goes through resource-oriented API designs. Well built APIs greatly ease the connector building experience as well as integration experience for users of your application when creating recipes on Workato.
 
-## [#](<#looking-to-submit-your-custom-connector-to-our-platform>) Looking to submit your custom connector to our platform?
-
-If you're building this connector to be accessible by our active community of Workato chefs, head over to our [support site to submit a ticket (opens new window)](<https://support.workato.com/support/tickets/new>). We'll route you to the proper channels and also set up some time to review your connector.
-
-**Expect to see the following benefits:**
-
-  1. Increased usage of your API for your customers as they integrate with Workato
-  2. More leads for your services as users on Workato are constantly searching for new business applications that make their lives easier
-  3. Greater exposure to integration use cases from our fantastic community
-
 ## [#](<#object-based-connectors>) Object-based connectors
 
 You may find yourself wondering what object-based connectors are in the first place but before that we must first clarify what resources and procedures are in applications.
@@ -38,3 +28,7 @@ On the other hand, applications also provide a whole host of other services beyo
 When building connectors in Workato, we've found that object-based connectors can encompass **both** but often, we see that working with resources is often the foundation of a connector before moving on to specific processes.
 
 In the next chapter, we will go through thought exercises that can better help you plan out your connectors.
+
+## [#](<#share-a-completed-connector>) Share a completed connector
+
+You can [upload your connector to the community library](</community-library/upload-connectors.html>) to share it with other users. Sharing your connector can provide increased API adoption, more leads for your services, and greater exposure to integration use cases.
