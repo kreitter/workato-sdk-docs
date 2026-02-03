@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html
-> **Fetched**: 2026-02-02T03:06:49.900807
+> **Fetched**: 2026-02-03T03:04:13.799455
 
 ---
 
@@ -107,7 +107,7 @@ list_mode | Optional. Used when `type: "array"` and `of: "object"`. Workato defa
 list_mode_toggle | Optional. Used when `type: "array"` and `of: "object"`. Allows users to toggle between static and dynamic lists when working with arrays. Defaults to true. Set list_mode_toggle: false to disallow users to toggle list modes.  
 item_label | Optional. Only used with `control_type: "schema-designer"` or `control_type: "key_value"`. This allows you to configure the item name stated in the modal popup. Setting item_label: "Item Label" results in the following: ![](/assets/img/item_label.dca2262f.png)  
 add_field_label | Optional. Only used with `control_type: "schema-designer"` or `control_type: "key_value"`. This allows you to configure the label of the add button. Setting add_field_label: "Custom Add Label" results in the following: ![](/assets/img/add_field_label.51f61bc5.png)  
-empty_schema_message | Optional. Only used with `control_type: "schema-designer"` or `control_type: "key_value"`. This allows you to configure the message when the input field is empty. Setting empty_schema_message: `Custom empty schema message that allows to add field and generate schema` results in the following: ![](/assets/img/empty_schema_message.699396d6.png)  
+empty_schema_message | Optional. Only used with `control_type: "schema-designer"` or `control_type: "key_value"`. This allows you to configure the message when the input field is empty. Setting empty_schema_message: `Custom empty schema message that allows you to add field and generate schema` results in the following: ![](/assets/img/empty_schema_message.699396d6.png)  
 sample_data_type | Optional. Only used with `control_type: "schema-designer"`. This allows you to configure the type of data the schema-designer input field accepts. Setting `sample_data_type: csv` results in the following: ![](/assets/img/sample_data_type.a34390ce.png) Other possible inputs are json_input and xml. The schema-designer defaults to json_input.  
 ngIf | Optional. Allows you to define a boolean statement. If true, this field displays. The boolean statement can reference other inputs in the same schema. For example, `ngIf: 'input.object_name != "approval"'` where the root node is `input` and you can traverse to a specific field via dot notation. Click [here](<#using-ngif-to-conditionally-hide-or-display-fields>) for more details.  
 tree_options | Optional. Only used when `control_type: 'tree'`. This allows you to control the behavior of the `tree` picklist. This key expects a Hash which has three possible keys - `selectable_folder`,`multi_select` and `force_selection_hierarchy`. Find out more [here](</developing-connectors/sdk/sdk-reference/picklists.html>).  
@@ -412,7 +412,7 @@ In some cases, the input fields you plan to show in an action depend on the answ
               hint: 'Hint for schema designer field',
               item_label: 'button',
               add_field_label: 'Custom Add Label',
-              empty_schema_message: 'Custom empty schema message that allows to <button type="button" data-action="addField">add field</button> and <button type="button" data-action="generateSchema">generate schema</button>',
+              empty_schema_message: 'Custom empty schema message that allows you to <button type="button" data-action="addField">add field</button> and <button type="button" data-action="generateSchema">generate schema</button>',
               sample_data_type: 'csv' # json_input / xml
             },
             if input_schema.present?
