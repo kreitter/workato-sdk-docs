@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-02-11T03:07:26.530842
+> **Fetched**: 2026-02-12T03:07:03.849891
 
 ---
 
@@ -1479,7 +1479,7 @@ See [minmax_by (opens new window)](<https://apidock.com/ruby/v2_5_5/Enumerable/m
 
 ## [#](<#min-by>) min_by
 
-Returns the object in enum that gives the minimum value from the given block
+Returns the object in enum that gives the minimum value from the given block.
 ```ruby
  
     a = %w(albatross dog horse)
@@ -2743,7 +2743,7 @@ See [ruby_loops (opens new window)](<https://www.tutorialspoint.com/ruby/ruby_lo
 
 ## [#](<#wrap>) wrap
 
-Wraps its argument in an array unless it is already an array
+Wraps its argument in an array unless it is already an array.
 
 The wrap method is often used in the execute block of the while loop statement.
 ```ruby

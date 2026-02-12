@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.html
-> **Fetched**: 2026-02-11T03:06:16.738659
+> **Fetched**: 2026-02-12T03:05:53.076653
 
 ---
 
@@ -151,7 +151,7 @@ When the object definition `invoice` is called, the schema relevant to the invoi
 
 When defining the execute block, we first store any generic methods for pre processing or post processing of data in the execute block. In the example below, use to generic methods that format payloads before being sent out the target API. After the formatting of the payload, a call is then made to a method which houses any specific data processing that needs to be done on a `action`-`object` level as well as the final HTTP call to the appropriate endpoint.
 
-Another key feature to take note is the use of error handling to surface appropriate error messages for users of your connectors. During recipe design time and the debugging of any errors, these error messages save large amounts of time for users
+Error handling surfaces relevant error messages, saving users significant time during recipe design and debugging.
 
 ACTION TIMEOUT
 

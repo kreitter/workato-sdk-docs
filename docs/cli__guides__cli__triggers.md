@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/triggers.html
-> **Fetched**: 2026-02-11T03:06:01.163313
+> **Fetched**: 2026-02-12T03:05:37.398212
 
 ---
 
@@ -199,7 +199,7 @@ Your poll lambda is expected to return a hash which represents the output of the
 
 This is done with the command `.poll` which tells the SDK Gem to paginate through all records if `can_poll_more` is true. In the example below, you can see that we have given `.poll` and given the `since` input of `6/09/2021`. The SDK Gem would then send as many requests as necessary to simulate the polling mechanism. You can see that we have referenced an `input` in the command which points to a JSON file stored in our `fixtures` folder. This file should contain the actual value passed to the `poll` lambda from the `input_fields` and `config_fields`.
 
-In this case, the contents of the file `fixtures/triggers/new_updated_object/customer_input_poll.json` contains
+The `fixtures/triggers/new_updated_object/customer_input_poll.json` file in this example contains the following:
 ```ruby
  
     {

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/actions.html
-> **Fetched**: 2026-02-11T03:05:54.435886
+> **Fetched**: 2026-02-12T03:05:30.482156
 
 ---
 
@@ -166,7 +166,7 @@ You do not need to pass anything for the object_definitions argument as the gem 
 
 Your execute lambda is expected to return a hash which represents the output of the action. In the case we have above, it returns response that Chargebee sends to us. You can see that we have referenced an `input` in the command which points to a JSON file stored in our `fixtures` folder. This file should contain the actual value passed to the `execute` lambda from the `input_fields`.
 
-In this case, the contents of the file `fixtures/actions/search_customers/input.json` contains
+In this situation, the contents of the file `fixtures/actions/search_customers/input.json` contains:
 ```ruby
  
     {

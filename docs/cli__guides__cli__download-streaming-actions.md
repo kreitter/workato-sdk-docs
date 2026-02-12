@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/download-streaming-actions.html
-> **Fetched**: 2026-02-11T03:05:55.536585
+> **Fetched**: 2026-02-12T03:05:31.612188
 
 ---
 
@@ -118,7 +118,7 @@ Now, to debug and test the `streams` lambda directly, you can use the CLI to inv
 
 With the SDK Gem, you are able to invoke the specific streaming callback lambda to simulate the download of a single chunk, or loop over the entire download process to download multiple chunks sequentially.
 
-To read a single chunk, you can simply invoke the stream with 3 parameters
+You can invoke the stream using the following parameters to read a single chunk:
 ```ruby
  
     workato exec streams.download_file_by_path --input='egnyte_download_file_input.json' --from=0 --frame_size=256 --verbose

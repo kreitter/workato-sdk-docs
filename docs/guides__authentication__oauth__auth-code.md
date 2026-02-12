@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code.html
-> **Fetched**: 2026-02-11T03:06:32.413825
+> **Fetched**: 2026-02-12T03:06:08.782272
 
 ---
 
@@ -201,63 +201,15 @@ With the authorization code grant variant of OAuth 2, you supply 4 key attribute
 
 When defining the `authorization_url` lambda function, you do not have to explicitly pass in the client ID, redirect URI, or state. Workato does that for you. Sometimes, you may have to add scope to the URL.
 
-However, if the application requires you to register the redirect URI beforehand, use the callback URL for your regional data center:
-
-### [#](<#us-data-center-callback-url>) US data center callback URL
+However, if the application requires you to register the redirect URI beforehand, use this callback URL:
 ```ruby
  
-    https://app.workato.com/oauth/callback
+    https://www.workato.com/oauth/callback
 
 
 ```
 
-### [#](<#europe-data-center-callback-url>) Europe data center callback URL
-```ruby
- 
-    https://app.eu.workato.com/oauth/callback
-
-
-```
-
-### [#](<#japan-data-center-callback-url>) Japan data center callback URL
-```ruby
- 
-    https://app.jp.workato.com/oauth/callback
-
-
-```
-
-### [#](<#singapore-data-center-callback-url>) Singapore data center callback URL
-```ruby
- 
-    https://app.sg.workato.com/oauth/callback
-
-
-```
-
-### [#](<#australia-data-center-callback-url>) Australia data center callback URL
-```ruby
- 
-    https://app.au.workato.com/oauth/callback
-
-
-```
-
-### [#](<#israel-data-center-callback-url>) Israel data center callback URL
-```ruby
- 
-    https://app.il.workato.com/oauth/callback
-
-
-```
-
-### [#](<#developer-sandbox-callback-url>) Developer sandbox callback URL
-```ruby
- 
-    https://app.trial.workato.com/oauth/callback
-
-
-```
+This unified callback URL works across all Workato data centers.
 
 When defining the `token_url` lambda function, you do not have to explicitly pass in the client ID, client secret, and grant_type. Workato does that for you. For the `token_url` request, we follow RFC standards and use a `POST` request with the relevant information in the payload body.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/methods.html
-> **Fetched**: 2026-02-11T03:05:56.636035
+> **Fetched**: 2026-02-12T03:05:32.697807
 
 ---
 
@@ -88,7 +88,7 @@ With the SDK Gem, you'll be able to invoke a method individually and gain greate
 
 ## [#](<#example-1-running-the-get-customers-method>) Example 1. Running the `get_customers` method
 
-The first method we will cover in the example above is the `get_customers` method, which does not have any declared input arguments. When this method is invoked with the SDK Gem, we expect the method to fetch customers and return the response from the API call
+The `get_customers` method in the preceding example has no declared input arguments. The method fetches customers and returns the API response when the SDK Gem invokes it.
 ```bash
  
     $ workato exec methods.get_customers
@@ -137,7 +137,7 @@ If no `settings.yaml` file is defined, the SDK Gem will assume the default `sett
 
 The second method we will cover in the example above is the `sample_method` method, which has 2 arguments. You can see that we have referenced an `args` in the command which points to a JSON file stored in our `fixtures` folder. This file should contain an array **where each index in the array corresponds to a single argument.**
 
-In this case, the contents of the file `fixtures/triggers/new_updated_object/customer_input_poll.json` contains
+The `fixtures/triggers/new_updated_object/customer_input_poll.json` file in this example contains the following:
 ```ruby
  
     [

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/multistep-actions.html
-> **Fetched**: 2026-02-11T03:05:57.704712
+> **Fetched**: 2026-02-12T03:05:33.823898
 
 ---
 
@@ -54,7 +54,7 @@ On the Workato platform, step time is set to be a minimum of 60 seconds. On the 
 
 The above method call in your `execute` lambda will results in the job being put to sleep for 10 seconds before being awoken again where execution begins at the **start of the execute block**. The SDK Gem emulates this behavior so you'll be able to examine how your action might behave on Workato.
 
-In this case, the contents of the file `bigquery_input.json` contains
+The `bigquery_input.json` file in this example contains the following:
 ```ruby
  
     {

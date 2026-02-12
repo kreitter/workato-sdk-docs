@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/rspec-commands.html
-> **Fetched**: 2026-02-11T03:06:14.530825
+> **Fetched**: 2026-02-12T03:05:50.854723
 
 ---
 
@@ -320,7 +320,7 @@ Usage | `connector.actions.[action_name].input_fields(settings, config_fields)`)
 
 TIP
 
-You might be wondering where `object_definitions` is since its present in the input_fields lambda. You do not need to pass the `object_definitions` argument as its implied from your connector instance already!.
+You don't need to explicitly pass the `object_definitions` argument because it's automatically available from your connector instance.
 
 ### [#](<#testing-your-output-fields-lambda>) Testing your output_fields lambda
 
@@ -339,7 +339,7 @@ Usage | `connector.actions.[action_name].output_fields(settings, config_fields)`
 
 TIP
 
-You might be wondering where `object_definitions` is since its present in the input_fields lambda. You do not need to pass the `object_definitions` argument as its implied from your connector instance already!.
+You don't need to explicitly pass the `object_definitions` argument because it's automatically available from your connector instance.
 
 ### [#](<#testing-your-sample-output-lambda>) Testing your sample_output lambda
 

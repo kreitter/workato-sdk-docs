@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/pick_lists.html
-> **Fetched**: 2026-02-11T03:05:58.823582
+> **Fetched**: 2026-02-12T03:05:34.956437
 
 ---
 
@@ -167,7 +167,7 @@ Here is an example the pick_list being run:
 
 The next pick_list is one that sends a request out and massages the response into a pick_list format. Here, the connection settings required to authorize the request is assumed to be the default `settings.yaml.enc` file. If this is not what you want, you can use `--settings` to override this.
 
-In this case, the contents of the file `fixtures/pick_lists/dependent/input.json` contains
+The `fixtures/pick_lists/dependent/input.json` file in this example contains the following:
 ```ruby
  
     {
