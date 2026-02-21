@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming.html
-> **Fetched**: 2026-02-20T03:02:15.934603
+> **Fetched**: 2026-02-21T02:57:39.320572
 
 ---
 
