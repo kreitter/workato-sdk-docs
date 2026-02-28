@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce.html
-> **Fetched**: 2026-02-27T03:00:54.722205
+> **Fetched**: 2026-02-28T02:51:04.919912
 
 ---
 
@@ -208,7 +208,9 @@ To learn more about the available parameters and keys in the connection object, 
 
 In most cases, OAuth 2.0 Authentication has both short-lived access tokens and long-lived refresh tokens. Sometimes, refresh tokens never expire.
 
-::: warn Note that not all APIs issue refresh token credentials. Check with the API about this requirement. :::
+WARNING
+
+Note that not all APIs issue refresh token credentials. Check with the API about this requirement.
 
 When the access-token expires, you can define the behavior that your connector should take to refresh the access token using the refresh token.
 ```ruby
