@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/multistep-actions.html
-> **Fetched**: 2026-03-01T03:05:50.370885
+> **Fetched**: 2026-03-02T03:01:31.189231
 
 ---
 
