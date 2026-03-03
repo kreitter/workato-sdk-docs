@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/whitelist-removal.html
-> **Fetched**: 2026-03-02T03:03:04.698218
+> **Fetched**: 2026-03-03T03:05:12.384859
 
 ---
 
