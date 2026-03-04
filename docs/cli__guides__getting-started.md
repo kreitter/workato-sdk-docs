@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/getting-started.html
-> **Fetched**: 2026-03-03T03:03:34.331941
+> **Fetched**: 2026-03-04T02:58:36.110588
 
 ---
 
@@ -290,7 +290,7 @@ You can use the command `rspec` in place of `bundle exec rspec`, however, using 
 
 The Workato SDK Gem works with RSpec and VCR to provide you a way to write unit tests, store HTTP interactions (requests and responses) so that you can continue to run these unit tests without constantly having to send the request to the API. This also has the benefit of replaying the same responses so you needn't have to worry about changes of the actual data in the Application.
 
-When you generate a project using Workato, these settings are automatically generated for you in the `spec_helper.rb` with some default VCR configurations. These VCR recordings also depend on your chosen security settings when you first setup the project. If you selected `secure`, your VCR recordings would be encrypted using your `master.key`.
+When you generate a project using Workato, these settings are automatically generated for you in the `spec_helper.rb` with some default VCR configurations. These VCR recordings also depend on your chosen security settings when you first set up the project. If you selected `secure`, your VCR recordings would be encrypted using your `master.key`.
 
 Learn more about [using VCR](</developing-connectors/sdk/cli/guides/rspec/vcr.html>).
 

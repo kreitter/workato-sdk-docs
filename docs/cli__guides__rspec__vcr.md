@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/vcr.html
-> **Fetched**: 2026-03-03T03:03:38.855517
+> **Fetched**: 2026-03-04T02:58:40.474339
 
 ---
 
@@ -23,7 +23,7 @@ This removes one aspect of variability in your tests and ensures that you're onl
 
 When you generate a connector project using the command `workato new [PATH]`, VCR will be set up automatically.
 
-If you setup the project with the `secure` option, the VCR recordings are also encrypted. We recommend you use the `secure` option. In any case, your `spec_helper.rb` contains all information about your VCR recording configurations. Setting your project to `secure` ensures your VCR recordings are encrypted with your `master.key`. Below you can find an example of a `spec_helper.rb` which includes encryption.
+If you set up the project with the `secure` option, the VCR recordings are also encrypted. We recommend you use the `secure` option. In any case, your `spec_helper.rb` contains all information about your VCR recording configurations. Setting your project to `secure` ensures your VCR recordings are encrypted with your `master.key`. Below you can find an example of a `spec_helper.rb` which includes encryption.
 ```bash
  
     # frozen_string_literal: true
