@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id.html
-> **Fetched**: 2026-03-04T02:59:19.069542
+> **Fetched**: 2026-03-05T03:01:13.787657
 
 ---
 
@@ -13,7 +13,7 @@ ACTION TIMEOUT
 
 SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeouts>) limit.
 
-You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](<#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
+You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id.html#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
 
 ## [#](<#sample-connector>) Sample connector
 ```ruby
