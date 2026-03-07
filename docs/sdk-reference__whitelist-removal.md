@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/whitelist-removal.html
-> **Fetched**: 2026-03-06T03:01:47.509646
+> **Fetched**: 2026-03-07T02:55:11.765828
 
 ---
 
@@ -27,6 +27,7 @@ Developers can now directly use a selection of pre-installed Ruby gems without r
     * `concurrent-ruby` (1.2.3)
     * `gyoku` (1.3.1)
     * `i18n` (0.9.5)
+    * `jwe` (1.1.1)
     * `jwt` (2.1.0)
     * `loofah` (2.21.3)
     * `mime-types` (3.5.2)

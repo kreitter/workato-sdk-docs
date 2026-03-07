@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/multistep-actions.html
-> **Fetched**: 2026-03-06T03:00:15.697869
+> **Fetched**: 2026-03-07T02:53:38.588034
 
 ---
 
@@ -17,7 +17,7 @@ In this segment, we will be going through how you can run and easily debug multi
 
 ## [#](<#sample-connector-google-bigquery>) Sample connector - Google BigQuery
 
-For this example we will be using the BigQuery connector example [here](</developing-connectors/sdk/guides/building-actions/multistep-actions.html#sample-connector-google-bigquery>).
+This example is based on the [BigQuery connector example](</developing-connectors/sdk/guides/building-actions/multistep-actions.html#sample-connector-google-bigquery>) from the multistep actions guide.
 
 Credentials in `settings.yaml.enc` .
 ```ruby
@@ -34,9 +34,9 @@ Credentials in `settings.yaml.enc` .
 
 TIP
 
-If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Find out more [here](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-edit>).
+If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Refer to [workato edit](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-edit>) for more information on editing encrypted files.
 
-With the SDK Gem, you'll be able to invoke individual lambda functions in your action and gain greater control over how each part of your action works. For example, you may run your `execute` lambda function independently from your `input_fields` lambda. Check out the guide [here](</developing-connectors/sdk/cli/guides/cli/actions.html>) to understand about running your `input_fields` and `output_fields` lambdas.
+With the SDK Gem, you'll be able to invoke individual lambda functions in your action and gain greater control over how each part of your action works. For example, you may run your `execute` lambda function independently from your `input_fields` lambda. Refer to the [actions guide](</developing-connectors/sdk/cli/guides/cli/actions.html>) for more information on running your `input_fields` and `output_fields` lambdas.
 
 ## [#](<#running-your-execute-lambda-for-multistep-actions>) Running your execute lambda for multistep actions
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/update-objects.html
-> **Fetched**: 2026-03-06T03:01:05.205467
+> **Fetched**: 2026-03-07T02:54:28.892569
 
 ---
 
@@ -133,7 +133,7 @@ This component tells Workato what fields to show to a user trying to update an o
 
 Do note the differences from the [create object](</developing-connectors/sdk/guides/building-actions/create-objects.html>) action, it is typical that the fields for different actions to differ, although the particular object involved remain the same. From the example provided, the `AccountNumber` of the account is not updatable, hence the field should not be available to users in this action. Also, the `Currency` field is now optional to fill in as there is already an existing currency attached to the account.
 
-Various other key value pairs exist for input/output fields other than the ones defined above. Click [here](</developing-connectors/sdk/sdk-reference/actions.html#input-fields>) to find out more.
+Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</developing-connectors/sdk/sdk-reference/actions.html#input-fields>) for more information.
 
 Object definitions
 

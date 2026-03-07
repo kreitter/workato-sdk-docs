@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html
-> **Fetched**: 2026-03-06T03:00:35.132951
+> **Fetched**: 2026-03-07T02:53:58.389323
 
 ---
 
@@ -224,7 +224,7 @@ In the poll block, we first prepare the payload with the appropriate parameters 
 
 The parameters are passed into an object-specific method to execute the poll and the response is expected to be the JSON response above. The closure values are reset based on response of the poll and the output of each poll block is a hash with 3 expected values - the records, the closure hash and "can_poll_more" - a boolean value which determines whether the trigger should poll again.
 
-[Read more about polling triggers here](</developing-connectors/sdk/sdk-reference/triggers.html>)
+Refer to [Polling triggers](</developing-connectors/sdk/sdk-reference/triggers.html>) for more information.
 
 ## [#](<#defining-the-dedup-block>) Defining the dedup block
 

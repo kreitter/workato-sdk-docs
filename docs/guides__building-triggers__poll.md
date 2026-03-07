@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/poll.html
-> **Fetched**: 2026-03-06T03:01:10.570783
+> **Fetched**: 2026-03-07T02:54:34.363579
 
 ---
 
@@ -144,7 +144,7 @@ This component tells Workato what fields to show to a user configuring this trig
 
 ![New/updated ticket input fields](/assets/img/new_ticket_input.dfe073e7.png) _New/updated ticket input fields_
 
-Various other key value pairs exist for input/output fields other than the ones defined above. Click [here](</developing-connectors/sdk/sdk-reference/triggers.html#input-fields>) to find out more.
+Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</developing-connectors/sdk/sdk-reference/triggers.html#input-fields>) for more information.
 
 Object definitions
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/basic-authentication.html
-> **Fetched**: 2026-03-06T03:00:43.675576
+> **Fetched**: 2026-03-07T02:54:07.038632
 
 ---
 
@@ -52,7 +52,7 @@ Typically, a basic authentication requires a username and password combination w
 
 ```
 
-  * Check out the full connector code [here (opens new window)](<https://github.com/workato/custom_connector_docs/blob/master/custom_connectors/basic_auth/click_time_connector.rb>)
+  * Refer to the [full ClickTime connector code (opens new window)](<https://github.com/workato/custom_connector_docs/blob/master/custom_connectors/basic_auth/click_time_connector.rb>) for a complete example.
   * Check out the [ClickTime API (opens new window)](<https://support.clicktime.com/hc/en-us/articles/360002884071-REST-API-v2-General-Information#basic>)
 
 ## [#](<#step-1-defining-connection-fields>) Step 1 - Defining Connection fields
@@ -88,7 +88,7 @@ TIP
 
 When defining fields, you need to at least provide the `name` key. Additional attributes like `optional`, `hint` and `control_type` allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the `control_type` as `password`.
 
-To know more about how to define input fields in Workato, click [here.](</developing-connectors/sdk/sdk-reference/connection.html#fields>)
+Refer to [Connection fields](</developing-connectors/sdk/sdk-reference/connection.html#fields>) for more information on defining input fields in Workato.
 
 ## [#](<#step-2-defining-authorization>) Step 2 - Defining authorization
 
@@ -115,7 +115,7 @@ In this example, we have defined the username we received (`connection['username
 
 ## [#](<#step-4-setting-the-api-s-base-uri>) Step 4 - Setting the API's base URI
 
-This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to configure your `base_uri` [here](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
+This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Refer to [base URI configuration](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>) for more information on configuring your `base_uri`.
 ```ruby
  
         base_uri: lambda do |connection|

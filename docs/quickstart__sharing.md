@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/sharing.html
-> **Fetched**: 2026-03-06T03:01:29.852782
+> **Fetched**: 2026-03-07T02:54:53.769340
 
 ---
 
@@ -218,11 +218,11 @@ Click **Update connector**. ![Update connector](/assets/img/change-source-code-s
 
 You can use the [Recipe lifecycle management](</recipe-development-lifecycle.html>) tool to export and import entire folders of recipes from a sandbox environment to a production environment in Workato. Recipes that you plan to export from one account and import into another often contain custom connectors that you have built or cloned. Workato helps to export custom connectors in the manifests when you export these recipes.
 
-The **latest released version** and the attached version note of your custom connector used in recipes are included in the manifest export. [Find out more about exporting here](</recipe-development-lifecycle/export.html>).
+The **latest released version** and the attached version note of your custom connector used in recipes are included in the manifest export. Refer to [Exporting recipes](</recipe-development-lifecycle/export.html>) for more information.
 
 ## [#](<#importing-a-manifest-with-custom-connectors>) Import a manifest with custom connectors
 
-Workato first checks for an existing copy of the custom connector when you import a manifest. If no existing copy is found, a new custom connector is created with the latest released version as version 1. If an existing copy is found, a new latest version is created instead. In both cases, importing a manifest immediately releases the latest version of the custom connector for you because the recipes you are importing use that latest version. [Find out more about importing here](</recipe-development-lifecycle/import.html>).
+Workato first checks for an existing copy of the custom connector when you import a manifest. If no existing copy is found, a new custom connector is created with the latest released version as version 1. If an existing copy is found, a new latest version is created instead. In both cases, importing a manifest immediately releases the latest version of the custom connector for you because the recipes you are importing use that latest version. Refer to [Importing recipes](</recipe-development-lifecycle/import.html>) for more information.
 
 EXPLORE RECIPE DEPENDENCIES
 

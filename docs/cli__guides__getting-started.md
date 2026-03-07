@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/getting-started.html
-> **Fetched**: 2026-03-06T03:00:21.154154
+> **Fetched**: 2026-03-07T02:53:44.136694
 
 ---
 
@@ -24,7 +24,7 @@ For Mac users, you can use [RVM (Ruby Version Manager) (opens new window)](<http
 
 For Windows users, you can use [Ruby Installer (opens new window)](<https://rubyinstaller.org/>).
 
-Learn more [here (opens new window)](<https://www.ruby-lang.org/en/documentation/installation/>) in Ruby's official docs.
+Refer to the [Ruby installation documentation (opens new window)](<https://www.ruby-lang.org/en/documentation/installation/>) for more information.
 
   * **A supported version of Ruby**. We prefer `2.7.X`, but you can use versions `3.0.X` or `3.1.X`. If you don't have Ruby installed, [follow these instructions to install it (opens new window)](<https://www.ruby-lang.org/en/documentation/installation/>).
 

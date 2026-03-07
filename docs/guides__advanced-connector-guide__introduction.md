@@ -1,13 +1,13 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/introduction.html
-> **Fetched**: 2026-03-06T03:00:39.422915
+> **Fetched**: 2026-03-07T02:54:02.728509
 
 ---
 
 # [#](<#workato-advanced-connector-building-guide>) Workato advanced connector building guide
 
-Here is a final guide that focuses on the usability and the code quality of a connector. We will be going through exercises that can help you plan out robust connectors as well as guidelines on writing connector code. At this point, we assume that you have read through the basics of connector building found over [here.](</developing-connectors/sdk.html>)
+Here is a final guide that focuses on the usability and the code quality of a connector. We will be going through exercises that can help you plan out robust connectors as well as guidelines on writing connector code. At this point, we assume that you have read through the basics of connector building found in the [Connector SDK](</developing-connectors/sdk.html>) documentation.
 
 In this guide, we introduce the concept of object-based connectors, something that you should have seen before if you have used NetSuite, Salesforce, or numerous other connectors on Workato. Object-based connectors are ones that reduce the amount of clutter by allowing users to first select a verb such as “Create” or “Update” before selecting the object they want to create or update.
 
@@ -15,7 +15,7 @@ In this guide, we introduce the concept of object-based connectors, something th
 
 This guide should help organize your thoughts around building connectors that are usable by a wide audience. While custom connectors could be used as a quick way for your team to connect to unsupported web APIs on Workato, this guide looks at a sustainable approach of connector building. Workato also allows users from our community to promote their custom connectors to become platform-wide connectors - ones that can be found and used by anyone on the platform.
 
-If you're reading this guide to build a connector on Workato to your own web API, one great resource would be this guide by google over [here (opens new window)](<https://cloud.google.com/apis/design/>) which goes through resource-oriented API designs. Well built APIs greatly ease the connector building experience as well as integration experience for users of your application when creating recipes on Workato.
+If you're reading this guide to build a connector on Workato to your own web API, one great resource would be the [Google API design guide (opens new window)](<https://cloud.google.com/apis/design/>) which goes through resource-oriented API designs. Well built APIs greatly ease the connector building experience as well as integration experience for users of your application when creating recipes on Workato.
 
 ## [#](<#object-based-connectors>) Object-based connectors
 

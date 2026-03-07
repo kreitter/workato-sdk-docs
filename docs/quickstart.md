@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart.html
-> **Fetched**: 2026-03-06T03:01:26.696526
+> **Fetched**: 2026-03-07T02:54:50.607015
 
 ---
 
@@ -13,7 +13,7 @@ Workato's Connector SDK has many features that enable you to build, test, develo
 
 ### [#](<#navigating-to-the-sdk-platform-homepage>) Navigating to the SDK platform homepage
 
-Go to **Tools > Connector SDK**. Your custom connectors registry appears, and you can now see all custom connectors that you built yourself, or cloned from your colleagues. [Click here (opens new window)](<https://www.workato.com/custom_adapters>) if you're signed in to be taken to this page.
+Go to **Tools > Connector SDK**. Your custom connectors registry appears, and you can now see all custom connectors that you built yourself, or cloned from your colleagues. Visit the [Connector SDK page (opens new window)](<https://www.workato.com/custom_adapters>) if you're signed in.
 
 ![Navigating to SDK](/assets/img/Navigating-to-SDK.6b40667e.png) _Located in the top navigation bar in Workato. This may appear differently on your screen, depending on your subscription plan._
 

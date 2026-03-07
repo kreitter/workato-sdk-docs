@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/header-auth.html
-> **Fetched**: 2026-03-06T03:00:44.751465
+> **Fetched**: 2026-03-07T02:54:08.120782
 
 ---
 
@@ -56,7 +56,7 @@ TIP
 
 When defining fields, you need to at least provide the `name` key. Additional attributes like `optional`, `hint` and `control_type` allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the `control_type` as `password`.
 
-To know more about how to define input fields in Workato, click [here.](</developing-connectors/sdk/sdk-reference/connection.html#fields>)
+Refer to [Connection fields](</developing-connectors/sdk/sdk-reference/connection.html#fields>) for more information on defining input fields in Workato.
 
 ## [#](<#step-2-applying-the-token-to-subsequent-http-requests>) Step 2 - Applying the token to subsequent HTTP requests
 
@@ -64,7 +64,7 @@ In the `apply` key, we pass in the token provided by the user in `header()` in t
 
 ## [#](<#step-3-setting-the-api-s-base-uri>) Step 3 - Setting the API's base URI
 
-This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to configure your `base_uri` [here](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
+This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Refer to [base URI configuration](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>) for more information on configuring your `base_uri`.
 ```ruby
  
         base_uri: lambda do |connection|

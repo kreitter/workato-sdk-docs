@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/jwt.html
-> **Fetched**: 2026-03-06T03:00:45.831892
+> **Fetched**: 2026-03-07T02:54:09.228927
 
 ---
 
@@ -13,7 +13,7 @@ In authentication, JWTS are signed either using a private or public key. For exa
 
 JWTs are designed to be compact, URL-safe, and usable especially in a web-browser single-sign-on (SSO) context.
 
-Click [here (opens new window)](<https://jwt.io/introduction/>) to know more about JSON web tokens.
+Refer to the [JWT Introduction (opens new window)](<https://jwt.io/introduction/>) for more information on JSON web tokens.
 
 ## [#](<#sample-connector-google-calendar-connector>) Sample connector - Google calendar connector
 ```ruby
@@ -93,7 +93,7 @@ Click [here (opens new window)](<https://jwt.io/introduction/>) to know more abo
 
 ```
 
-  * Check out the full connector code [here (opens new window)](<https://app.workato.com/custom_adapters/27268/code?token=08f9f02a>)
+  * Refer to the [full Google Calendar connector code (opens new window)](<https://app.workato.com/custom_adapters/27268/code?token=08f9f02a>) for a complete example.
   * Check out the [Google calendar API (opens new window)](<https://developers.google.com/calendar/v3/reference>)
 
 ## [#](<#step-1-defining-connection-fields>) Step 1 - Defining Connection fields
@@ -142,7 +142,7 @@ TIP
 
 When defining fields, you need to at least provide the `name` key. Additional attributes like `optional`, `hint` and `control_type` allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the `control_type` as `password`.
 
-To know more about how to define input fields in Workato, click [here.](</developing-connectors/sdk/sdk-reference/connection.html#fields>)
+Refer to [Connection fields](</developing-connectors/sdk/sdk-reference/connection.html#fields>) for more information on defining input fields in Workato.
 
 ## [#](<#step-2-defining-the-authorization-type>) Step 2 - Defining the authorization type
 
@@ -219,7 +219,7 @@ As JWT tokens are only valid for short amounts of time, we need to tell this con
 
 ## [#](<#step-6-setting-the-api-s-base-uri>) Step 6 - Setting the API's base URI
 
-This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to configure your `base_uri` [here](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
+This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Refer to [base URI configuration](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>) for more information on configuring your `base_uri`.
 ```ruby
  
         base_uri: lambda do

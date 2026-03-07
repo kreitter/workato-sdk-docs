@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/methods.html
-> **Fetched**: 2026-03-06T03:00:14.638007
+> **Fetched**: 2026-03-07T02:53:37.502823
 
 ---
 
@@ -82,7 +82,7 @@ Credentials in `settings.yaml.enc` .
 
 TIP
 
-If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Find out more [here](</developing-connectors/sdk/cli/reference/cli-commands#workato-edit>)
+If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Refer to [workato edit](</developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) for more information on editing encrypted files.
 
 With the SDK Gem, you'll be able to invoke a method individually and gain greater control over how each method works.
 

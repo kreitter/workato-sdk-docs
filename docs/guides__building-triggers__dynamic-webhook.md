@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/dynamic-webhook.html
-> **Fetched**: 2026-03-06T03:01:08.407166
+> **Fetched**: 2026-03-07T02:54:32.168413
 
 ---
 
@@ -114,7 +114,7 @@ This component tells Workato what fields to show to a user configuring this trig
 
 ```
 
-Various other key value pairs exist for input/output fields other than the ones defined above. Click [here](</developing-connectors/sdk/sdk-reference/triggers.html#input-fields>) to find out more.
+Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</developing-connectors/sdk/sdk-reference/triggers.html#input-fields>) for more information.
 
 Object definitions
 
@@ -131,7 +131,7 @@ When a recipe is started, a webhook subscription should be created. This webhook
   3. `input` \- Corresponds to the inputs of this trigger. In this case, its the single input - `id`.
   4. `recipe_id` \- Corresponds to the recipe id that uses this specific trigger. Useful for tracking webhook subscriptions.
 
-Below we have the lambda function inside our `new_message` trigger that handles the subscription of our webhook_url. Inside this block, we send a POST request to the Cisco spark API endpoint with the relevant details documented [here (opens new window)](<https://developer.webex.com/docs/api/v1/webhooks/create-a-webhook>).
+Below we have the lambda function inside our `new_message` trigger that handles the subscription of our webhook_url. Inside this block, we send a POST request to the Cisco spark API endpoint with the relevant details documented in the [Cisco Webex webhooks API (opens new window)](<https://developer.webex.com/docs/api/v1/webhooks/create-a-webhook>).
 ```ruby
  
         webhook_subscribe: lambda do |webhook_url, connection, input, recipe_id|
@@ -150,7 +150,7 @@ TIP
 
 If the HTTP request in the `webhook_subscribe` results in an error, this will be raised to the end user and prevent the recipe from being started.
 
-The next step is to define the webhook handling in the `webhook_notifications` lambda function. You have numerous arguments available which represent both the user's inputs to the trigger as well as the webhook itself. To send the payload of the webhook as a job, you can simply pass on the `payload` argument. You may also add on attributes from the `headers` if required. In the case of Cisco, we have stripped away some irrelevant details from the payload found [here (opens new window)](<https://developer.webex.com/docs/api/guides/webhooks#creating-a-webhook>)
+The next step is to define the webhook handling in the `webhook_notifications` lambda function. You have numerous arguments available which represent both the user's inputs to the trigger as well as the webhook itself. To send the payload of the webhook as a job, you can simply pass on the `payload` argument. You may also add on attributes from the `headers` if required. In the case of Cisco, we have stripped away some irrelevant details from the payload described in the [Cisco Webex webhooks guide (opens new window)](<https://developer.webex.com/docs/api/guides/webhooks#creating-a-webhook>).
 ```ruby
  
         webhook_notification: lambda do |input, payload, extended_input_schema, extended_output_schema, headers, params|

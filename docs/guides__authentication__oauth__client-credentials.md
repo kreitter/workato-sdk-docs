@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/client-credentials.html
-> **Fetched**: 2026-03-06T03:00:50.175413
+> **Fetched**: 2026-03-07T02:54:13.624552
 
 ---
 
@@ -70,7 +70,7 @@ The OAuth 2.0 Client Credentials flow is traditionally a way for server to serve
 
 ```
 
-  * Check out the full connector code [here (opens new window)](<https://app.workato.com/custom_adapters/12095/details?token=4d19f8fa>)
+  * Refer to the [full Percolate connector code (opens new window)](<https://app.workato.com/custom_adapters/12095/details?token=4d19f8fa>) for a complete example.
   * Check out the [Percolate API (opens new window)](<https://percolate.dev/reference#createaccesstoken>)
 
 ## [#](<#step-1-defining-connection-fields>) Step 1 - Defining Connection fields
@@ -106,7 +106,7 @@ TIP
 
 When defining fields, you need to at least provide the `name` key. Additional attributes like `optional`, `hint` and `control_type` allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the `control_type` as `password`.
 
-To know more about how to define input fields in Workato, click [here.](</developing-connectors/sdk/sdk-reference/connection.html#fields>)
+Refer to [Connection fields](</developing-connectors/sdk/sdk-reference/connection.html#fields>) for more information on defining input fields in Workato.
 
 ## [#](<#step-2-defining-the-authorization-type>) Step 2 - Defining the authorization type
 
@@ -235,7 +235,7 @@ The expected output of the `acquire` lambda function is a hash which is merged i
 
 ## [#](<#step-6-setting-the-api-s-base-uri>) Step 6 - Setting the API's base URI
 
-This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to configure your `base_uri` [here](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
+This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Refer to [base URI configuration](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>) for more information on configuring your `base_uri`.
 ```ruby
  
         base_uri: lambda do |connection|

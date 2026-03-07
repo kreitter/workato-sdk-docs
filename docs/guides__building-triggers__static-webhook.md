@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/static-webhook.html
-> **Fetched**: 2026-03-06T03:01:12.742006
+> **Fetched**: 2026-03-07T02:54:36.546028
 
 ---
 
@@ -229,7 +229,7 @@ This component tells Workato what fields to show to a user configuring this trig
 
 ![New event input fields](/assets/img/new_event_input.8ae20e2b.png) _New event input fields_
 
-Various other key value pairs exist for input/output fields other than the ones defined above. Click [here](</developing-connectors/sdk/sdk-reference/triggers.html#input-fields>) to find out more.
+Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</developing-connectors/sdk/sdk-reference/triggers.html#input-fields>) for more information.
 
 Object definitions
 
@@ -255,7 +255,7 @@ In our webhook example from step 1, you can see that the `webhook_keys` output s
 
 ## [#](<#step-6-defining-how-to-handle-the-webhook>) Step 6 - Defining how to handle the webhook
 
-The `webhook_notification` lambda function describes what your connector should do with all webhooks routed to it. You have numerous arguments available which represent both the user's inputs to the trigger as well as the webhook itself. To send the payload of the webhook as a job, you can simply pass on the `payload` argument. You may also add on attributes from the `headers` if required. In the case of Greenhouse, we have stripped away some irrelevant details from the payload found [here (opens new window)](<https://developers.greenhouse.io/webhooks.html#candidate-stage-change>).
+The `webhook_notification` lambda function describes what your connector should do with all webhooks routed to it. You have numerous arguments available which represent both the user's inputs to the trigger as well as the webhook itself. To send the payload of the webhook as a job, you can simply pass on the `payload` argument. You may also add on attributes from the `headers` if required. In the case of Greenhouse, we have stripped away some irrelevant details from the payload described in the [Greenhouse webhooks documentation (opens new window)](<https://developers.greenhouse.io/webhooks.html#candidate-stage-change>).
 ```ruby
  
         webhook_notification: lambda do |input, payload, extended_input_schema, extended_output_schema, headers, params|

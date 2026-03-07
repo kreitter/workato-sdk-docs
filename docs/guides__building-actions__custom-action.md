@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/custom-action.html
-> **Fetched**: 2026-03-06T03:00:56.575117
+> **Fetched**: 2026-03-07T02:54:20.105906
 
 ---
 
@@ -128,7 +128,7 @@ This component tells Workato that you want custom actions enabled for your conne
 
 Because custom actions can allow inputs to the URL path, you must consider how custom actions will be used by users in your organization. Path traversal attacks are possible if you allow user provided inputs such as datapills in your path.
 
-Learn more about path traversal attacks [here (opens new window)](<https://portswigger.net/web-security/file-path-traversal>).
+Refer to the [PortSwigger path traversal guide (opens new window)](<https://portswigger.net/web-security/file-path-traversal>) for more information on path traversal attacks.
 
 Enhance your security posture by using the following mitigation strategies:
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/actions.html
-> **Fetched**: 2026-03-06T03:01:33.083357
+> **Fetched**: 2026-03-07T02:54:57.038364
 
 ---
 
@@ -270,7 +270,7 @@ Attribute | Description
 Key | `config_fields`  
 Type | Array  
 Required | Optional.  
-Description | This key accepts an array of hashes which show up as input fields shown to a user. Config fields are shown to a user before input fields are rendered and can be used to alter what set of input fields are shown to an end user. This is often used in generic object actions where config fields prompt a user to select the object and input fields are rendered based on that selection. To know more about how to define config fields in Workato, click [here.](</developing-connectors/sdk/sdk-reference/schema.html>)  
+Description | This key accepts an array of hashes which show up as input fields shown to a user. Config fields are shown to a user before input fields are rendered and can be used to alter what set of input fields are shown to an end user. This is often used in generic object actions where config fields prompt a user to select the object and input fields are rendered based on that selection. Refer to [Workato Schema](</developing-connectors/sdk/sdk-reference/schema.html>) for more information on defining config fields.  
 Expected Output | Array of hashes. Each hash in this array corresponds to a separate config field.  
 UI reference | ![](/assets/img/config_fields.02e2eb97.gif)  
 
@@ -287,7 +287,7 @@ Attribute | Description
 Key | `input_fields`  
 Type | lambda function  
 Required | True  
-Description | This lambda function allows you to define what input fields should be shown to a user configuring this action in the recipe editor. Output of this lambda function should be an array of hashes, where each hash in this array corresponds to a separate input field. To know more about how to define input fields in Workato, click [here.](</developing-connectors/sdk/sdk-reference/schema.html>)  
+Description | This lambda function allows you to define what input fields should be shown to a user configuring this action in the recipe editor. Output of this lambda function should be an array of hashes, where each hash in this array corresponds to a separate input field. Refer to [Workato Schema](</developing-connectors/sdk/sdk-reference/schema.html>) for more information on defining input fields.  
 Possible Arguments | `object_definitions` \- Allows you to reference an object definitions. Object definitions are stores of these arrays hashes which may be used to represent both input fields or output fields (datapills). These can be referenced by any action or trigger.   
 `connection` \- Hash representing user given inputs defined in `connection`.   
 `config_fields` \- Hash representing user given inputs defined in `config_fields`, if applicable.  
@@ -394,7 +394,7 @@ For example, when you send a request to Google BigQuery to start a query, Google
 
 Rather than having the user configure this logic in the recipe, you can now embed this entire logic into a single action with "multi-step" actions on your custom connector. To use "multi-step" actions, the `continue` argument is used in conjunction with a dedicated method called `reinvoke_after`. Below, we go through some examples of what the `continue` argument might be.
 
-To learn more about creating your "multistep" actions, read our guide [here](</developing-connectors/sdk/guides/building-actions/multistep-actions.html>).
+Refer to the [multistep actions guide](</developing-connectors/sdk/guides/building-actions/multistep-actions.html>) for more information.
 ```ruby
  
         multistep_action_sample: {
@@ -536,7 +536,7 @@ Attribute | Description
 Key | `output_fields`  
 Type | lambda function  
 Required | True  
-Description | This lambda function allows you to define what output fields (datapills) should be shown to a user configuring this action in the recipe editor. The output of this lambda function should be an array of hashes, where each hash in this array corresponds to a separate output field (datapill). To know more about how to define input fields in Workato, click [here.](</developing-connectors/sdk/sdk-reference/schema.html>)  
+Description | This lambda function allows you to define what output fields (datapills) should be shown to a user configuring this action in the recipe editor. The output of this lambda function should be an array of hashes, where each hash in this array corresponds to a separate output field (datapill). Refer to [Workato Schema](</developing-connectors/sdk/sdk-reference/schema.html>) for more information on defining output fields.  
 Possible Arguments | `object_definitions` \- Allows you to reference an object definitions. Object definitions are stores of these arrays which can represent either input and output fields. These can be referenced by any action or trigger.   
 `connection` \- Hash representing user given inputs defined in `connection`.   
 `config_fields` \- Hash representing user given inputs defined in `config_fields`, if applicable.  

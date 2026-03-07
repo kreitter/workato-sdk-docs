@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/get-objects.html
-> **Fetched**: 2026-03-06T03:00:57.635064
+> **Fetched**: 2026-03-07T02:54:21.188481
 
 ---
 
@@ -91,7 +91,7 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 This component tells Workato what fields to show to a user trying to retrieve an object. In the case of retrieving an account in Zuora for example, the user has to input the ID of the account to be retrieved.
 
-Various other key value pairs exist for input/output fields other than the ones defined above. Click [here](</developing-connectors/sdk/sdk-reference/actions.html#input-fields>) to find out more.
+Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</developing-connectors/sdk/sdk-reference/actions.html#input-fields>) for more information.
 
 Object definitions
 

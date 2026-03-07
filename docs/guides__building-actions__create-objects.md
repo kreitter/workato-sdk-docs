@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/create-objects.html
-> **Fetched**: 2026-03-06T03:00:55.513786
+> **Fetched**: 2026-03-07T02:54:19.044383
 
 ---
 
@@ -129,7 +129,7 @@ To know more about this step, take a look at our [SDK reference](</developing-co
 
 This component tells Workato what fields to show to a user trying to create an object. In the case of creating an account in Zuora for example, the user has to input the `AccountNumber`, `AccountName` and `Currency` of the new account to be created. Do take note that for the `Currency` input field, the "optional" key is assigned the value "false", this means that users must provide a value of the currency that the customer is billed in, if not, the user cannot proceed in the building of the recipe.
 
-Various other key value pairs exist for input/output fields other than the ones defined above. Click [here](</developing-connectors/sdk/sdk-reference/actions.html#input-fields>) to find out more.
+Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</developing-connectors/sdk/sdk-reference/actions.html#input-fields>) for more information.
 
 Object definitions
 
