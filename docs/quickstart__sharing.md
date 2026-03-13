@@ -1,91 +1,24 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/sharing.html
-> **Fetched**: 2026-03-12T03:03:05.870388
+> **Fetched**: 2026-03-13T03:01:05.286104
 
 ---
 
 # [#](<#sharing-your-connector>) Share a connector
 
-You can share your connector with other users in the **Share** tab after you build your custom connector. You can share your connector with open or closed source code [through the community library](<#sharing-your-connector-with-the-community>) or [using a link](<#closed-source-code>).
+You can share your connector with other users in the **Share** tab after you build your custom connector. You can share your connector as open-source or closed-source [using a link](<#closed-source-code>) or [through the community library](<#sharing-your-connector-with-the-community>).
 
 ## [#](<#released-versions-vs-shared-versions>) Released versions and shared versions
 
-Shared version | Released version  
+Version type | Description  
 ---|---  
-Your connector's _shared_ version is the version which others receive when they install your connector for the first time. When you share a new version, everyone who installed your connector receives an option to update their connectors as well, including child connectors. | Your connector's _released_ version is the version all your recipes use. When you release a new version of your connector, all recipes using this connector update to use this version immediately.  
+Released version | Determines which connector version your recipes use. All recipes that use this connector update immediately when you release a new version.  
+Shared version | Determines which connector version other users install. Users who installed your connector can choose to update their connectors, including child connectors, when you share a new version.  
 
-## [#](<#sharing-your-connector-with-the-community>) Upload a connector to the community library
+## [#](<#open-source-vs-closed-source>) Open-source and closed-source connectors
 
-Upload your connector to the community library
-
-Complete the following steps to upload a connector to the community library:
-
-1
-
-Go to **Tools > Connector SDK**.
-
-2
-
-Select the connector you plan to upload.
-
-![Click the connector](/assets/img/select-connector.099d7e40.png)_Click the connector you plan to upload_
-
-3
-
-Go to the **Share** tab, then click **Share version**.
-
-![Click Share version](/assets/img/share-connector.d5c82070.png)_Click**Share version**_
-
-4
-
-Click **Publish connector** to open the **List on community library** dialog.
-
-![Click Publish connector](/assets/img/publish-connector.2af4756e.png)_Click**Publish connector**_
-
-5
-
-Enter the name of the **App** this connector is built for. This field is case-sensitive. It will take longer to review your connector if its associated app is not listed in the drop-down menu, as Workato needs time to verify new apps.
-
-![The Add details section](/assets/img/add-details.2f479264.png)_The**Add details** section_
-
-6
-
-Select any relevant tags in the **Category tags** drop-down menu.
-
-7
-
-Enter up to three **Search keywords** separated by commas.
-
-8
-
-Click the **Prevent direct installation** toggle if you plan to hide the connector's source code and redirect visitors to your landing page to request connector access.
-
-9
-
-Provide a **Landing Page URL** if you enabled **Prevent direct installation**. The page you link should showcase the connector and provide a clear path to your private sharing link. Go to the **Sharing privately using a link** section of your connector's **Share** tab to access your private sharing link.
-
-10
-
-Read the Workato developer agreement and click the checkbox to accept the terms and conditions.
-
-![Read the Workato developer agreement](/assets/img/developer-agreement.96cfdd52.png)_Read the Workato developer agreement_
-
-11
-
-Click **List connector** to submit your connector for review.
-
-12
-
-Wait one business day for your connector to be reviewed. You can monitor the status of your submission in your connector's **Share** tab. Workato will notify you through your community profile's email when your connector has been reviewed.
-
-![Monitor your connector's status](/assets/img/connector-approval.09c7c90d.png)_Monitor your connector's status_
-
-REQUIRED PERMISSIONS
-
-Uploading connectors to the community library requires [full access to the Connector SDK](</user-accounts-and-teams/role-based-access/new-model/privileges-reference.html#connector-sdk>). If you don't have the required permissions, contact your workspace admin to help you upload the connector.
-
-## [#](<#closed-source-code>) Share a connector with a link 
+You can share your connector as open-source or closed-source. An open-source connector makes the connector's source code available for anyone to view, modify, and distribute. A closed-source connector keeps its source code private. Users can't view, modify, or distribute the source code after installation.
 
 FEATURE AVAILABILITY
 
@@ -94,65 +27,66 @@ Closed code source connector sharing is subject to the following limitations:
   * Collaborating workspaces must use the same data center as the custom connector's developer. Refer to [Share data between regions](</datacenter/datacenter-overview.html#share-data-between-regions>) for more information on cross-region collaboration.
   * Partners must be given access to this feature. Contact your Customer Success Representative to learn more.
 
-Complete the following steps to share your custom connector with a link:
+### [#](<#switch-between-open-source-and-closed-source>) Switch between open-source and closed-source
+
+Switching your connector between open-source and closed-source changes its visibility, sharing behavior, and source code access.
+
+Workato restricts visibility and hides the connector's source code when you switch to closed-source:
+
+  * Workato revokes the current sharing link.
+  * Workato hides the connector's source code. Users who already installed the connector can still view it until they update to a newer version.
+
+Workato makes the connector and its source code publicly accessible when you switch to open-source:
+
+  * The connector and its source code become visible, installable, and shareable to all workspaces.
+  * Workato revokes the existing sharing link.
+  * Users who already installed the connector continue to see the source code as hidden until they update to a newer version.
+
+Complete the following steps to switch your connector between open-source and closed-source:
 
 1
 
-Go to **Tools > Connector SDK**.
+Go to the **Share** tab of the connector you plan to modify.
 
 2
 
-Select the connector you plan to share.
+Click **Make source code hidden** or **Make source code visible**.
+
+![Change source code button](/assets/img/change-source-code-access.fac6a25a.png)_Change source code button_
+
+3
+
+Click **Update connector**.
+
+![Update connector](/assets/img/change-source-code-status.2c5887dc.png)_Click**Update connector**_
+
+## [#](<#closed-source-code>) Share a connector with a link
+
+You can use a shareable link to distribute your connector directly to specific workspaces.
+
+Complete the following steps to generate a shareable link:
+
+1
+
+Go to **Tools > Connector SDK**, select the connector you plan to share, and open the **Share** tab.
 
 ![Select a connector](/assets/img/select-connector.099d7e40.png)_Select a connector_
 
-3
-
-Go to the **Share** tab.
-
-4
-
-Click **Set up connector sharing** to open the configuration module.
-
-5
-
-If your workspace has access to closed source connector sharing, you can decide to share your connector as open or closed source:
-
-1
-
-Keep the **Share without source code** toggle off to make your source code visible to all users.
-
-![Share your connector as open source](/assets/img/set-up-connector-sharing.59965fd1.png)_Share your connector as open source_
-
 2
 
-Click **Start sharing** to make your source code visible and allow any workspace to view, install, or share your connector.
-
-1
-
-Click the **Share without source code** toggle to keep the source code of your connector private.
-
-![Share your connector without source code](/assets/img/set-up-connector-sharing-closed-source.67139e29.png)_Share your connector without source code_
-
-2
-
-Enter the email addresses of workspaces that require access to your connector. Separate each email with a comma. These workspaces can view and install your custom connector but will not have access to your connector's source code.
+Click the **Enable shareable link** toggle.
 
 3
 
-Click **Start sharing**.
+Copy the generated link and share it with the appropriate workspaces.
 
-6
+The behavior of the shareable link depends on whether your connector is open-source or closed-source. Refer to [Open-source and closed-source connectors](<#open-source-vs-closed-source>) for more details.
 
-Click the **Enable shareable link** toggle to share your custom connector with others through a link.
+### [#](<#manage-closed-source-connector-access>) Manage closed-source connector access
 
-If your connector is closed source, your source code is hidden and only workspaces granted access to your connector can use this link. ![Closed source shareable link](/assets/img/enable-shareable-link-closed.80b233a6.png)_Closed source shareable link_
+This section applies only to closed-source connectors that you share using a link. Refer to [Open-source and closed-source connectors](<#open-source-vs-closed-source>) for an overview of closed-source behavior.
 
-If your connector is open source, your source code is visible and any workspace can view, install, or share your connector. ![Open source shareable link](/assets/img/enable-shareable-link-open.943f0aa7.png)_Open source shareable link_
-
-### [#](<#manage-closed-source-connector-access>) Manage closed source connector access
-
-Complete the following steps to manage access to your closed source connector:
+Complete the following steps to manage access to your closed-source connector:
 
 1
 
@@ -168,13 +102,15 @@ Select the connector you plan to manage, then go to the **Share** tab.
 
 Click **Manage access**.
 
-![Managed access](/assets/img/closed-source-manage-access.7d988553.png)_Closed source managed access_
+![Managed access](/assets/img/closed-source-manage-access.9ec89043.png)_Closed source managed access_
 
 4
 
-Add or remove workspace email addresses to manage the workspaces that can view and install your connector. Separate each email with a comma. These workspaces do not have access to your connector's source code.
+Add workspace email addresses. Separate each email with a comma.
 
-![Manage access to your connector](/assets/img/manage-access-list.fe013f38.png)_Manage access to your connector_
+These workspaces can view and install the connector but can't access the source code.
+
+![Manage access to your connector](/assets/img/manage-access-list.e38a123f.png)_Manage access to your connector_
 
 5
 
@@ -184,35 +120,93 @@ Click the **Notify primary admins about the connector’s availability via email
 
 Click **Save changes**.
 
-### [#](<#switch-between-open-source-and-closed-source>) Switch between open source and closed source
+## [#](<#sharing-your-connector-with-the-community>) Share a connector to the community library
 
-Switching your connector between open and closed source has the following effects:
-
-  * The connector becomes exclusively visible and installable [via shareable link](<#closed-source-code>) by workspaces [you grant access to](<#manage-closed-source-connector-access>).
-
-  * The current sharing link is revoked.
-
-  * If the connector is published on the community, the listing is taken down.
-
-  * Your connector's source code becomes hidden. If other users have already installed your connector, the source code will remain visible to them until they update the connector to a new version.
-
-  * The connector and its source code become visible, installable, and shareable to all workspaces. If other users have already installed your connector, the source code will remain hidden to them until they update the connector to a new version.
-
-  * The connector's sharing link is revoked.
-
-Complete the following steps to switch your connector between open source and closed source:
+Complete the following steps to share a connector to the community library:
 
 1
 
-Go to the **Share** tab of the connector you plan to modify.
+Go to **Tools > Connector SDK**.
 
 2
 
-Click **Change to show source code** or **Change to hide source code**. ![Change source code button](/assets/img/change-source-code-access.9a6c9297.png)_Change source code button_
+Select the connector you plan to share.
+
+![Click the connector](/assets/img/select-connector.099d7e40.png)_Click the connector you plan to upload_
 
 3
 
-Click **Update connector**. ![Update connector](/assets/img/change-source-code-status.4814c0d1.png)_Click**Update connector**_
+Go to the **Share** tab, then click **Share version**.
+
+![Click Share version](/assets/img/share-connector.d5c82070.png)_Click**Share version**_
+
+4
+
+Optional. Click the **Make source code hidden** button if you plan to publish a closed-source connector. This ensures your connector code isn't visible or editable by others. You can't change this setting after publishing unless you unpublish the connector.
+
+![Choose to hide your source code](/assets/img/change-source-code-hidden.b6abbb70.png)_Choose to hide your source code_
+
+5
+
+Click **Edit** in the connector description and ensure the description includes a clear way for users to contact support, such as a support email, documentation link, or help center. Submissions without support contact information may be rejected during review.
+
+![Edit connector description](/assets/img/edit-connector-description.01da6c7f.png)_Edit connector description_
+
+6
+
+Click **Publish connector** to open the **List on community library** dialog.
+
+![Click Publish connector](/assets/img/publish-connector.2af4756e.png)_Click**Publish connector**_
+
+7
+
+Enter the **App** name. This field is case-sensitive.
+
+![The Add details section](/assets/img/add-details.ff37aff4.png)_The**Add details** section_
+
+8
+
+Select any relevant tags in the **Category tags** drop-down menu.
+
+9
+
+Enter up to three **Search keywords** , separated by commas.
+
+10
+
+Optional. Click the **Prevent direct installation** toggle if you plan to redirect visitors to a landing page to request access.
+
+The following occurs when this option is enabled:
+
+  * End users can't install the connector directly from the community listing.
+  * Users can install the connector only through your private sharing link. Go to the **Sharing privately using a link** section of your connector's **Share** tab to obtain the link. Refer to [Share a connector with a link](</developing-connectors/sdk/quickstart/sharing.html#closed-source-code>) to learn how to grant access to users.
+  * You must provide a **Landing Page URL** and a clear path.
+
+Any workspace can install the connector directly from the community listing if you don't enable this toggle. Closed-source connectors hide the source code but don't restrict installation.
+
+11
+
+Provide a **Landing Page URL** if you enabled **Prevent direct installation**. The page you link to should showcase the connector and provide a clear path on how to obtain the private sharing link of the connector.
+
+12
+
+Read the Workato developer agreement and click the checkbox to accept the terms and conditions.
+
+![Read the Workato developer agreement](/assets/img/developer-agreement.96cfdd52.png)_Read the Workato developer agreement_
+
+13
+
+Click **List connector** to submit your connector for review.
+
+14
+
+Workato notifies you through your community profile's email when your connector has been reviewed.
+
+![Monitor your connector's status](/assets/img/connector-approval.09c7c90d.png)_Monitor your connector's status_
+
+REQUIRED PERMISSIONS
+
+Sharing connectors to the community library requires [full access to the Connector SDK](</user-accounts-and-teams/role-based-access/new-model/privileges-reference.html#connector-sdk>). If you don't have the required permissions, contact your workspace admin to help you share the connector.
 
 ## [#](<#exporting-packages-with-custom-connectors>) Export packages with custom connectors
 
