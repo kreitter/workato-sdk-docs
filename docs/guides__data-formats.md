@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats.html
-> **Fetched**: 2026-03-21T02:57:42.840177
+> **Fetched**: 2026-03-22T03:06:56.836771
 
 ---
 
