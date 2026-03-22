@@ -19,6 +19,9 @@ venv/
 # uv
 uv.lock
 
+# Claude Code
+.claude/
+
 # IDE
 .vscode/
 .idea/
