@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/sharing.html
-> **Fetched**: 2026-04-22T03:09:11.501180
+> **Fetched**: 2026-04-23T03:09:00.888801
 
 ---
 
