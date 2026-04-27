@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/on-prem.html
-> **Fetched**: 2026-04-26T03:08:53.660393
+> **Fetched**: 2026-04-27T03:10:08.197839
 
 ---
 
