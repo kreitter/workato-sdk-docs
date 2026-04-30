@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/api-key.html
-> **Fetched**: 2026-04-29T03:09:34.023368
+> **Fetched**: 2026-04-30T03:10:09.902223
 
 ---
 
