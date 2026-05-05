@@ -1,30 +1,38 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/aws_auth.html
-> **Fetched**: 2026-05-04T03:10:48.258887
+> **Fetched**: 2026-05-05T03:09:08.217920
 
 ---
 
-# [#](<#how-to-guides-aws-service-authentication>) How-to Guides - AWS Service Authentication
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[API authorization](</en/developing-connectors/sdk/guides/authentication>)
+
+# How-to Guides - AWS Service Authentication [​](<#how-to-guides-aws-service-authentication>)
 
 AWS services can be authenticated in two ways. Workato supports AWS libraries that simplify the authentication process by helping you to generate the AWS V4 Signature so you can focus on building actions and triggers.
 
 This guide shows you how to implement dual authentication for both:
 
-  * [Access key authentication (opens new window)](<https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>)
-  * [IAM role authentication through AWS Security Token Service (opens new window)](<https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html>)
+  * [Access key authentication](<https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html>)
+  * [IAM role authentication through AWS Security Token Service](<https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html>)
 
 RECOMMENDED IAM ROLE FOR AUTHENTICATION
 
 AWS and Workato both recommend using AWS IAM role authentication. We recommend that you make this the default authentication method for the users of your connector.
 
-## [#](<#create-iam-role-and-arn-retrieval>) Create IAM role and ARN retrieval
+## Create IAM role and ARN retrieval [​](<#create-iam-role-and-arn-retrieval>)
 
-Refer to the [IAM role-based authentication for AWS](</security/data-protection/secrets-management/iam-role-based-authentication-for-aws.html>) page for instructions on how to create an IAM role for Workato and retrieve your Amazon resource name (ARN).
+Refer to the [IAM role-based authentication for AWS](</security/data-protection/secrets-management/iam-role-based-authentication-for-aws>) page for instructions on how to create an IAM role for Workato and retrieve your Amazon resource name (ARN).
 
-## [#](<#sample-connector-generic-connector>) Sample connector - Generic connector
+## Sample connector - Generic connector [​](<#sample-connector-generic-connector>)
+
+ruby
 ```ruby
- 
+
     {
       title: "Sample AWS S3 Connector",
 
@@ -134,10 +142,9 @@ Refer to the [IAM role-based authentication for AWS](</security/data-protection/
       }
     }
 
-
 ```
 
-## [#](<#step-1-defining-connection-fields>) Step 1 - Defining Connection fields
+## Step 1 - Defining Connection fields [​](<#step-1-defining-connection-fields>)
 
 In the `connection` key, we define the input fields in the `fields` key in an array of hashes. Each hash in the array represents a single input field. Inside, we will be able to declare the name of the input field, hints that are displayed to the end user among other parameters. In this example, we're presenting two ways for users to authenticate which is decided by their input for the field `aws_auth_type`.
 
@@ -149,15 +156,17 @@ Most AWS services have the same authentication, which allows you to use the same
 
 If you do choose to add more fields, you need to at least provide the `name` key. Additional attributes like `optional`, `hint` and `control_type` allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the `control_type` as `password`.
 
-Learn how to define [input fields in Workato](</developing-connectors/sdk/sdk-reference/connection.html#fields>).
+Learn how to define [input fields in Workato](</developing-connectors/sdk/sdk-reference/connection#fields>).
 
-## [#](<#step-2-generating-the-aws-signature>) Step 2 - Generating the AWS signature
+## Step 2 - Generating the AWS signature [​](<#step-2-generating-the-aws-signature>)
 
 Compared to other ways to authenticate, AWS requires a unique signature for each request as the current time is a component of the signature. As such, your connector should not use the `apply` lambda as there are no credentials to apply on a general basis.
 
 Instead, you should use the `aws.generate_signature` method to get the valid URL and signature before making an API call. In our example, you can see that we have created a method `list_buckets` that makes a GET request to S3.
+
+ruby
 ```ruby
- 
+
         list_buckets: lambda do |connection|
           signature = aws.generate_signature(
             # The connection object defined earlier.
@@ -197,26 +206,28 @@ Instead, you should use the `aws.generate_signature` method to get the valid URL
           { "files" => files }
         end
 
-
 ```
 
-## [#](<#step-3-testing-the-connection>) Step 3 - Testing the connection
+## Step 3 - Testing the connection [​](<#step-3-testing-the-connection>)
 
 With the method defined earlier, you'd be able to call this method in the test to verify the user's credentials.
+
+ruby
 ```ruby
- 
+
       test: lambda do |connection|
         call(:list_buckets, connection)
       end,
 
-
 ```
 
-## [#](<#troubleshooting-tips>) Troubleshooting tips
+## Troubleshooting tips [​](<#troubleshooting-tips>)
 
 Testing your connection may not verify your AWS signature correctly. Instead, wrap a simple API request in a method, like in the preceding example, and stub the connection during initial development to test an action:
+
+ruby
 ```ruby
- 
+
     {
       title: "Sample AWS S3 Connector",
 
@@ -249,11 +260,12 @@ Testing your connection may not verify your AWS signature correctly. Instead, wr
       }
     }
 
-
 ```
 
 By testing the "sample_action" action, you'll have better insight for debugging into the errors raised by the Workato SDK framework or the AWS API you are connecting to.
 
-## [#](<#connections-sdk-reference>) Connections SDK reference
+## Connections SDK reference [​](<#connections-sdk-reference>)
 
-Learn about the available keys within the `connection` key in the [SDK reference](</developing-connectors/sdk/sdk-reference/connection.html>).
+Learn about the available keys within the `connection` key in the [SDK reference](</developing-connectors/sdk/sdk-reference/connection>).
+
+**Last updated:**

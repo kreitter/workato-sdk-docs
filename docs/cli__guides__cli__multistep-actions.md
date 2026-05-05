@@ -1,27 +1,35 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/multistep-actions.html
-> **Fetched**: 2026-05-04T03:10:20.632509
+> **Fetched**: 2026-05-05T03:08:39.875743
 
 ---
 
-# [#](<#how-to-guides-running-multistep-actions-on-cli>) How-to guides - Running multistep actions on CLI
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[CLI](</en/developing-connectors/sdk/cli>)
+
+Guides
+
+# How-to guides - Running multistep actions on CLI [​](<#how-to-guides-running-multistep-actions-on-cli>)
 
 In this segment, we will be going through how you can run and easily debug multistep actions using the Workato Gem.
 
-## [#](<#prerequisites>) Prerequisites
+## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started.html>) to know more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
   * You have a working connector with at least 1 multistep action.
   * You have a working set of credentials. If you are using a sample connector code, ensure that you have the appropriate credentials for the connector.
 
-## [#](<#sample-connector-google-bigquery>) Sample connector - Google BigQuery
+## Sample connector - Google BigQuery [​](<#sample-connector-google-bigquery>)
 
-This example is based on the [BigQuery connector example](</developing-connectors/sdk/guides/building-actions/multistep-actions.html#sample-connector-google-bigquery>) from the multistep actions guide.
+This example is based on the [BigQuery connector example](</developing-connectors/sdk/guides/building-actions/multistep-actions#sample-connector-google-bigquery>) from the multistep actions guide.
 
 Credentials in `settings.yaml.enc` .
+
+yaml
 ```ruby
- 
+
     iss: [[email protected]](</cdn-cgi/l/email-protection>)
     private_key: "-----BEGIN PRIVATE KEY-----...-----END
       PRIVATE KEY-----\\n"
@@ -29,22 +37,22 @@ Credentials in `settings.yaml.enc` .
     expires_in: 3599
     token_type: Bearer
 
-
 ```
 
 TIP
 
-If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Refer to [workato edit](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-edit>) for more information on editing encrypted files.
+If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Refer to [workato edit](</developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) for more information on editing encrypted files.
 
-With the SDK Gem, you'll be able to invoke individual lambda functions in your action and gain greater control over how each part of your action works. For example, you may run your `execute` lambda function independently from your `input_fields` lambda. Refer to the [actions guide](</developing-connectors/sdk/cli/guides/cli/actions.html>) for more information on running your `input_fields` and `output_fields` lambdas.
+With the SDK Gem, you'll be able to invoke individual lambda functions in your action and gain greater control over how each part of your action works. For example, you may run your `execute` lambda function independently from your `input_fields` lambda. Refer to the [actions guide](</developing-connectors/sdk/cli/guides/cli/actions>) for more information on running your `input_fields` and `output_fields` lambdas.
 
-## [#](<#running-your-execute-lambda-for-multistep-actions>) Running your execute lambda for multistep actions
+## Running your execute lambda for multistep actions [​](<#running-your-execute-lambda-for-multistep-actions>)
 
 With multistep actions, we need to take note that special methods like `reinvoke_after` will cause the job in Workato to be put to sleep for a defined amount of time.
-```ruby
- 
-    reinvoke_after(seconds: 10, continue: { current_step: current_step + 1, jobid: continue['jobid']})
 
+ruby
+```ruby
+
+    reinvoke_after(seconds: 10, continue: { current_step: current_step + 1, jobid: continue['jobid']})
 
 ```
 
@@ -55,20 +63,23 @@ On the Workato platform, step time is set to be a minimum of 60 seconds. On the 
 The above method call in your `execute` lambda will results in the job being put to sleep for 10 seconds before being awoken again where execution begins at the **start of the execute block**. The SDK Gem emulates this behavior so you'll be able to examine how your action might behave on Workato.
 
 The `bigquery_input.json` file in this example contains the following:
+
+JSON
 ```ruby
- 
+
     {
         "project_id": "named-reporter-237205",
         "query": "SELECT * FROM `named-reporter-237205.Lead_data.2mill_table` t1",
         "wait_for_query": "true"
     }
 
-
 ```
 
 To run a multistep action, you give the same command as you would a standard action.
+
+shell
 ```ruby
- 
+
     workato exec actions.query.execute --input='bigquery_input.json' --verbose
 
     SETTINGS
@@ -104,7 +115,6 @@ To run a multistep action, you give the same command as you would a standard act
       "manualLink": "https://www.example.com"
     }
 
-
 ```
 
 Note that we have used `--verbose` so the SDK gem has printed out more information including the API requests and responses. This also allows you to see the multistep in action, where the Gem allows you to wait before executing a request to check on the job execution.
@@ -112,3 +122,5 @@ Note that we have used `--verbose` so the SDK gem has printed out more informati
 TIP
 
 You can also use other options like `--output` to save the output of the function to a JSON file.
+
+**Last updated:**

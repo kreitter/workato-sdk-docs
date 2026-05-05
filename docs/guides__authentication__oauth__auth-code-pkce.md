@@ -1,17 +1,25 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce.html
-> **Fetched**: 2026-05-04T03:10:53.769713
+> **Fetched**: 2026-05-05T03:09:13.875735
 
 ---
 
-# [#](<#how-to-guide-oauth-2-0-authorization-code-variant-with-proof-key-for-code-exchange-pkce>) How-to Guide - OAuth 2.0 Authorization Code Variant with Proof Key for Code Exchange (PKCE)
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[API authorization](</en/developing-connectors/sdk/guides/authentication>)
+
+# How-to Guide - OAuth 2.0 Authorization Code Variant with Proof Key for Code Exchange (PKCE) [​](<#how-to-guide-oauth-2-0-authorization-code-variant-with-proof-key-for-code-exchange-pkce>)
 
 The OAuth 2.0 Authorization code flow is a way for Workato to impersonate a specific user when authenticating to an API. This is done by getting the user's consent via a browser popup when they first attempt to connect. In this variant with PKCE, there is an additional verification step where a challenge is presented in the authorization URL and the verifier is presented in the final token exchange request.
 
-## [#](<#sample-connector-dropbox>) Sample Connector - Dropbox
+## Sample Connector - Dropbox [​](<#sample-connector-dropbox>)
+
+ruby
 ```ruby
- 
+
     {
       title: "Dropbox pkce",
 
@@ -60,18 +68,19 @@ The OAuth 2.0 Authorization code flow is a way for Workato to impersonate a spec
       #More connector code here
     }
 
-
 ```
 
-  * Check out the [Dropbox API (opens new window)](<https://dropbox.tech/developers/pkce--what-and-why->)
+  * Check out the [Dropbox API](<https://dropbox.tech/developers/pkce--what-and-why->)
 
-## [#](<#step-1-defining-connection-fields>) Step 1 - Defining connection fields
+## Step 1 - Defining connection fields [​](<#step-1-defining-connection-fields>)
 
 This component tells Workato what fields to show to a user trying to establish a connection. In the case of authentication code grant with PKCE, you would need the Client ID and Client Secret that the user has generated in Dropbox's developer console.
 
 This is done in the `fields` key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
+
+ruby
 ```ruby
- 
+
         fields: [
           {
             name: 'client_id',
@@ -84,30 +93,32 @@ This is done in the `fields` key, which accepts an array of hashes. Each hash in
           }
         ],
 
-
 ```
 
 TIP
 
 When defining fields, you need to at least provide the `name` key. Additional attributes like `optional`, `hint` and `control_type` allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the `control_type` as `password`.
 
-Learn more about how to [define input fields](</developing-connectors/sdk/sdk-reference/connection.html#fields>) in Workato.
+Learn more about how to [define input fields](</developing-connectors/sdk/sdk-reference/connection#fields>) in Workato.
 
-## [#](<#step-2-defining-the-authorization-type>) Step 2 - Defining the authorization type
+## Step 2 - Defining the authorization type [​](<#step-2-defining-the-authorization-type>)
 
 This component instructs Workato what to do with the values received from the input fields to establish a connection. This is handled through your `authorization` key. In this key, you begin by first defining the `type` of authorization. In this case, you should use `oauth2`, similar to the Authorization Code Grant flow.
-```ruby
- 
-          type: "oauth2",
 
+ruby
+```ruby
+
+          type: "oauth2",
 
 ```
 
-## [#](<#step-3-defining-the-client-id-client-secret-and-pkce-parameters>) Step 3 - Defining the Client ID, Client Secret and PKCE parameters
+## Step 3 - Defining the Client ID, Client Secret and PKCE parameters [​](<#step-3-defining-the-client-id-client-secret-and-pkce-parameters>)
 
 These components tell the SDK framework what to use for the client ID, client secret and PKCE parameters later on.
+
+ruby
 ```ruby
- 
+
           client_id: lambda do |connection|
             connection['client_id']
           end,
@@ -124,22 +135,22 @@ These components tell the SDK framework what to use for the client ID, client se
             }
           end,
 
-
 ```
 
 In our example, we simple map the user's inputs for the client ID and secret to the relevant `client_id` and `client_secret` lambdas respectively. This is done with the `connection` argument which is a hash representing the user's inputs in the `fields` defined earlier.
 
 Next, you'll also need to define the `pkce` lambda, which is an important marker that signifies that this is an Authorization Code Grant Flow with PKCE. Within this lambda, you will receive 2 arguments which correspond to the `verifier` and `challenge`. You may simple use both of these arguments as-is and pass them as the output of the `pkce` lambda as seen in the example.
 
-## [#](<#step-4-defining-authorization-url-and-token-url>) Step 4 - Defining authorization url, and token url
+## Step 4 - Defining authorization url, and token url [​](<#step-4-defining-authorization-url-and-token-url>)
 
 With the PKCE variant of OAuth 2, you supply 2 the authorization url and the token url - similar to the normal auth code grant flow.
 
   * The authorization url - where we will redirect the user via a browser popup to provide authorization.
   * The token url - where this connector will send a request to receive an access token after receiving an auth code from the authorization url
 
+ruby
 ```ruby
- 
+
       authorization_url: lambda do |connection|
         "https://www.dropbox.com/oauth2/authorize"
       end,
@@ -147,7 +158,6 @@ With the PKCE variant of OAuth 2, you supply 2 the authorization url and the tok
       token_url: lambda do |connection|
         "https://api.dropbox.com/oauth2/token"
       end,
-
 
 ```
 
@@ -168,8 +178,10 @@ When defining the `token_url` lambda function, Workato automatically passes the 
   * grant_type
 
 For the `token_url` request, we follow RFC standards and use a `POST` request with the relevant information in the payload body. When Workato exchanges the short-lived authorization code for a longer-living access token, we expect the response from the `token_url` endpoint to contain 2 main values - `access_token` and `refresh_token`. Here is a sample response:
+
+json
 ```ruby
- 
+
     {
       "access_token": "my-authentication-token",
       "token_type": "bearer",
@@ -183,28 +195,28 @@ For the `token_url` request, we follow RFC standards and use a `POST` request wi
       }
     }
 
-
 ```
 
 The authentication stores the values associated with `access_token` and `refresh_token`.
 
-## [#](<#step-5-applying-the-access-token-to-subsequent-http-requests>) Step 5 - Applying the access token to subsequent HTTP requests
+## Step 5 - Applying the access token to subsequent HTTP requests [​](<#step-5-applying-the-access-token-to-subsequent-http-requests>)
 
 In the apply key, we apply the acquired access token as a header input.
 
 We can retrieve the `access_token` by referencing simply passing in `access_token` as a parameter into the apply key. This argument `access_token` is automatically assigned from the output of the `token_url` lambda function.
+
+ruby
 ```ruby
- 
+
         apply: lambda do |connection, access_token|
           headers("Authorization": "OAuth2 #{access_token}")
         end,
 
-
 ```
 
-To learn more about the available parameters and keys in the connection object, see [SDK Reference - connection](</developing-connectors/sdk/sdk-reference/connection.html>).
+To learn more about the available parameters and keys in the connection object, see [SDK Reference - connection](</developing-connectors/sdk/sdk-reference/connection>).
 
-## [#](<#step-6-defining-token-refresh-behavior>) Step 6 - Defining token refresh behavior
+## Step 6 - Defining token refresh behavior [​](<#step-6-defining-token-refresh-behavior>)
 
 In most cases, OAuth 2.0 Authentication has both short-lived access tokens and long-lived refresh tokens. Sometimes, refresh tokens never expire.
 
@@ -213,8 +225,10 @@ WARNING
 Note that not all APIs issue refresh token credentials. Check with the API about this requirement.
 
 When the access-token expires, you can define the behavior that your connector should take to refresh the access token using the refresh token.
+
+ruby
 ```ruby
- 
+
         refresh_on: [401, 403],
 
         refresh: lambda do |connection, refresh_token|
@@ -234,58 +248,62 @@ When the access-token expires, you can define the behavior that your connector s
           ]   
         end,
 
-
 ```
 
 To refresh your access token, you have to use two keys in the `authorization` key - `refresh_on` and `refresh`. `refresh_on` accepts an array that may contain HTTP response codes or regex strings. If an HTTP request in the connector receives any of the HTTP response codes, or if the body of the payload matches a regex string, it will execute the code in the `refresh` key to attempt to retrieve a new access token.
 
 In the `refresh` key, you have access to an argument that represents the `refresh_token` received from the initial token request. The expected output of this lambda function is an array where the first index is a hash denoting the new `access_token` as well as the new `refresh_token` if applicable. These will be used to update the initial values for a long lasting connection.
 
-To learn more about the refresh lambda, see [SDK Reference - authorization](</developing-connectors/sdk/sdk-reference/connection/authorization.html#refresh>).
+To learn more about the refresh lambda, see [SDK Reference - authorization](</developing-connectors/sdk/sdk-reference/connection/authorization#refresh>).
 
-## [#](<#step-7-setting-the-api-s-base-uri>) Step 7 - Setting the API's base URI
+## Step 7 - Setting the API's base URI [​](<#step-7-setting-the-api-s-base-uri>)
 
-This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to [configure your base URI](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>).
+This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to [configure your base URI](</developing-connectors/sdk/sdk-reference/connection#base-uri>).
+
+ruby
 ```ruby
- 
+
         base_uri: lambda do |connection|
           'https://api.dropboxapi.com'
         end
-
 
 ```
 
 TIP
 
 This lambda function also has access to the `connection` argument. This is especially useful if the base URI of the API might change based on the user's instance. The `connection` argument can be accessed in the following format:
+
+ruby
 ```ruby
- 
+
         base_uri: lambda do |connection|
           "https://#{connection['domain'].com/api}"
         end
 
-
 ```
 
-## [#](<#step-8-testing-the-connection>) Step 8 - Testing the connection
+## Step 8 - Testing the connection [​](<#step-8-testing-the-connection>)
 
 Now that we have defined the fields we need to collect from an end user and what to do with the inputs from those fields, we now need a way to test this connection. This is handled in the `test` key.
+
+ruby
 ```ruby
- 
+
         test: lambda do
           post("https://api.dropboxapi.com/2/check/app", {})
         end,
-
 
 ```
 
 In this block, you need to provide an endpoint that allows us to send a sample request using the new credentials we just received. If we receive a 200 OK HTTP response, we show the connection as Successful. In the example above, we are sending a `POST` request to the `/2/check/app` endpoint and expecting a 200 response if the access token we just received is valid.
 
-## [#](<#auth-code-grant-pkce-variation>) Auth code grant PKCE variation
+## Auth code grant PKCE variation [​](<#auth-code-grant-pkce-variation>)
 
 In some cases, you may need to use the `acquire` lambda to complete the token request. Here we have an example with the same Dropbox connection, except using the `acquire` lambda.
+
+ruby
 ```ruby
- 
+
       connection: {
         fields: [
           { name: 'client_id' },
@@ -341,11 +359,12 @@ In some cases, you may need to use the `acquire` lambda to complete the token re
         },
       },
 
-
 ```
 
 Take note that you receive an additional argument, `verifier` in the `acquire` lambda which corresponds to the same verifier you passed as the output of the `pkce` lambda.
 
-## [#](<#connections-sdk-reference>) Connections SDK reference
+## Connections SDK reference [​](<#connections-sdk-reference>)
 
-To be more familiar with the available keys within the `connection` key and their parameters, check out our [SDK reference](</developing-connectors/sdk/sdk-reference/connection.html>).
+To be more familiar with the available keys within the `connection` key and their parameters, check out our [SDK reference](</developing-connectors/sdk/sdk-reference/connection>).
+
+**Last updated:**

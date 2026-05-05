@@ -1,21 +1,29 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/file_streaming.html
-> **Fetched**: 2026-05-04T03:10:29.485574
+> **Fetched**: 2026-05-05T03:08:49.006323
 
 ---
 
-# [#](<#how-to-guides-writing-tests-for-streaming-triggers-actions>) How-to guides - Writing tests for streaming triggers/actions
+[Connector SDK](</en/developing-connectors/sdk>)
 
-This segment covers writing tests for actions that utilize Workato's file streaming capabilities, using the [generic upload file to URL connector example](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range.html>) as a reference.
+[CLI](</en/developing-connectors/sdk/cli>)
 
-## [#](<#generating-your-tests>) Generating your tests
+Guides
+
+# How-to guides - Writing tests for streaming triggers/actions [​](<#how-to-guides-writing-tests-for-streaming-triggers-actions>)
+
+This segment covers writing tests for actions that utilize Workato's file streaming capabilities, using the [generic upload file to URL connector example](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range>) as a reference.
+
+## Generating your tests [​](<#generating-your-tests>)
 
 You can create a separate spec file for each action or generate your tests based on your connector by using the `workato generate test` command. This will generate a spec file which will include most of the necessary stubs for your to start writing tests.
 
-### [#](<#sample-rspec-contents>) Sample RSpec contents
+### Sample RSpec contents [​](<#sample-rspec-contents>)
+
+ruby
 ```ruby
- 
+
     RSpec.describe 'actions/upload_file_to_url', :vcr do
 
       let(:connector) { Workato::Connector::Sdk::Connector.from_file('connector.rb', settings) }
@@ -60,44 +68,48 @@ You can create a separate spec file for each action or generate your tests based
 
     end
 
-
 ```
 
-## [#](<#step-1-define-your-connector-instance>) Step 1 - Define your connector instance
+## Step 1 - Define your connector instance [​](<#step-1-define-your-connector-instance>)
 
 To begin testing, you need to use the Workato SDK Gem to create an instance of your connector.
+
+ruby
 ```ruby
- 
+
       let(:connector) { Workato::Connector::Sdk::Connector.from_file('connector.rb', settings) }
 
-
 ```
 
-## [#](<#step-2-define-your-settings-instance>) Step 2 - Define your settings instance
+## Step 2 - Define your settings instance [​](<#step-2-define-your-settings-instance>)
 
 Next, you need to use the Workato SDK Gem to create an instance of your settings. This is synonymous with your connection on Workato. Take note that, your connector instance previously defined also uses this settings instance.
+
+ruby
 ```ruby
- 
+
       let(:settings) { Workato::Connector::Sdk::Settings.from_default_file }
 
-
 ```
 
-## [#](<#step-3-define-your-action>) Step 3 - Define your action
+## Step 3 - Define your action [​](<#step-3-define-your-action>)
 
 After creating the related instances, we instantiate the `action` so we can reference it more easily in the rest of the tests.
-```ruby
- 
-      let(:action) { connector.actions.upload_file_to_url }
 
+ruby
+```ruby
+
+      let(:action) { connector.actions.upload_file_to_url }
 
 ```
 
-## [#](<#step-3-describe-your-tests-define-your-subject-and-input>) Step 3 - Describe your tests, define your subject and input
+## Step 3 - Describe your tests, define your subject and input [​](<#step-3-describe-your-tests-define-your-subject-and-input>)
 
 Here, we describe the "family" of tests we are hoping to run. In this case, we use the keyword `execute`. Next, we make the subject the output which is the outcome of the execution of the action. Lastly, we declare the `input` which is a simple stream.
+
+ruby
 ```ruby
- 
+
       describe 'execute' do
         subject(:output) { action.execute(settings, input) }
 
@@ -119,16 +131,17 @@ Here, we describe the "family" of tests we are hoping to run. In this case, we u
           }
         end
 
-
 ```
 
-## [#](<#step-4-declare-your-assertions-for-individual-tests>) Step 4 - Declare your assertions for individual tests
+## Step 4 - Declare your assertions for individual tests [​](<#step-4-declare-your-assertions-for-individual-tests>)
 
 For a test to pass or fail, there needs to be a declared comparison.
 
 Over here, we are declaring that we "expect" the output of the `execute` lambda to include keys `file_size`, `file_path` and `file_name`. Furthermore, we expect the `file_size` value to be 13.
+
+ruby
 ```ruby
- 
+
       it 'given simple stream' do
         it 'produces a file' do
           is_expected.to include(:file_size)
@@ -140,16 +153,17 @@ Over here, we are declaring that we "expect" the output of the `execute` lambda 
         end
       end
 
-
 ```
 
-## [#](<#variations-to-mock-streams-in-rspec>) Variations to mock streams in RSpec
+## Variations to mock streams in RSpec [​](<#variations-to-mock-streams-in-rspec>)
 
 Alongside mocking simple streams within your RSpec tests, you have the ability mock other variations as well.
 
 Mock streams with each chunk explicitly
+
+ruby
 ```ruby
- 
+
     let(:input) do
       {
           file_name: 'sample_file',
@@ -166,12 +180,13 @@ Mock streams with each chunk explicitly
       }
     end
 
-
 ```
 
 Mock streams by utilizing a stream implemented for a download file action/trigger in the same connector
+
+ruby
 ```ruby
- 
+
     let(:input) do
       {
           file_name: 'sample_file',
@@ -186,7 +201,6 @@ Mock streams by utilizing a stream implemented for a download file action/trigge
       }
     end
 
-
 ```
 
 Mock streams by providing the inline definition of a stream with its own authentication
@@ -194,8 +208,10 @@ Mock streams by providing the inline definition of a stream with its own authent
 TIP
 
 Advanced mocks like these are only available in RSpec tests and not in CLI execution.
+
+ruby
 ```ruby
- 
+
     let(:input) do
       {
           file_name: 'sample_file',
@@ -238,12 +254,13 @@ Advanced mocks like these are only available in RSpec tests and not in CLI execu
       }
     end
 
-
 ```
 
 Mock streams by providing a static stream
+
+ruby
 ```ruby
- 
+
     let(:input) do
       {
           file_name: 'sample_file',
@@ -255,12 +272,13 @@ Mock streams by providing a static stream
       }
     end
 
-
 ```
 
 Mock streams by providing a string
+
+ruby
 ```ruby
- 
+
     let(:input) do
       {
           file_name: 'sample_file',
@@ -269,5 +287,6 @@ Mock streams by providing a string
       }
     end
 
-
 ```
+
+**Last updated:**

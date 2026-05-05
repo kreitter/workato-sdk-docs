@@ -1,21 +1,29 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/streams.html
-> **Fetched**: 2026-05-04T03:11:51.308709
+> **Fetched**: 2026-05-05T03:10:13.104910
 
 ---
 
-# [#](<#sdk-reference-streams>) SDK Reference - `streams`
+[Connector SDK](</en/developing-connectors/sdk>)
 
-This section enumerates all the possible keys to define a streaming callback that enables you to create file stream producing actions. [Learn more about file streaming.](</developing-connectors/sdk/guides/building-actions/streaming.html>)
+[SDK reference](</en/developing-connectors/sdk/sdk-reference>)
+
+Connector key reference
+
+# SDK Reference - `streams` [​](<#sdk-reference-streams>)
+
+This section enumerates all the possible keys to define a streaming callback that enables you to create file stream producing actions. [Learn more about file streaming.](</developing-connectors/sdk/guides/building-actions/streaming>)
 
 Quick overview
 
 The `streams` key must be used in conjunction with an action or trigger. It enables you to download large amounts of data such as a CSV file or video in chunks from a compatible API. This allows you to build actions that can connect to Workato's ecosystem of file storage providers such as Workato Files, Google Cloud Storage, S3 and many more.
 
-## [#](<#structure>) Structure
+## Structure [​](<#structure>)
+
+ruby
 ```ruby
- 
+
         streams: {
 
           [Unique_stream_name]: lambda do |input, starting_byte_range, ending_byte_range, byte_size|
@@ -27,26 +35,27 @@ The `streams` key must be used in conjunction with an action or trigger. It enab
           end, 
         },
 
-
 ```
 
 * * *
 
-Attribute | Description  
+Attribute| Description  
 ---|---  
-Key | `[Unique_stream_name]`  
-Type | lambda function  
-Description | This lambda function can be invoked by any streaming action using the `workato.stream.out` callback.  
-Possible Arguments | `input` \- Hash representing user given inputs defined in `workato.stream.out`   
+Key| `[Unique_stream_name]`  
+Type| lambda function  
+Description| This lambda function can be invoked by any streaming action using the `workato.stream.out` callback.  
+Possible Arguments| `input` \- Hash representing user given inputs defined in `workato.stream.out`   
 `starting_byte_range` \- Integer representing the requested start byte range for this particular chunk.   
 `ending_byte_range`\- Integer representing the requested ending byte range for this particular chunk.   
 `byte_size`\- Integer representing the exact amount of bytes for this particular chunk.  
-Expected Output | Array of size 2. The first index represents the actual bytes for this particular chunk. The second index is a boolean value that tells the Workato framework whether this is the last chunk in the file.  
+Expected Output| Array of size 2. The first index represents the actual bytes for this particular chunk. The second index is a boolean value that tells the Workato framework whether this is the last chunk in the file.  
 Creating a file stream
 
-File streams on Workato are made by leveraging the common [HTTP RFC standard for `Range` headers (opens new window)](<https://datatracker.ietf.org/doc/html/rfc7233>). Below we have a simple download file action with file streaming.
+File streams on Workato are made by leveraging the common [HTTP RFC standard for `Range` headers](<https://datatracker.ietf.org/doc/html/rfc7233>). Below we have a simple download file action with file streaming.
+
+ruby
 ```ruby
- 
+
     actions: {
       download_file: {
         title: "Download file",
@@ -76,7 +85,6 @@ File streams on Workato are made by leveraging the common [HTTP RFC standard for
       }
     }
 
-
 ```
 
 The stream `download_file` defined in the `workato.stream.out` method is responsible for holding the code that retrieves a specific range of bytes requested by the platform - which will be sent over to a stream consumer to be uploaded into a downstream destination.
@@ -84,8 +92,10 @@ The stream `download_file` defined in the `workato.stream.out` method is respons
 As such, the arguments passed to this callback provide you clear inputs that you can use in your HTTP requests to retrieve this range of bytes.
 
 The output of the stream lambda is an array which expects the byte string in the first index and in the second index, a boolean value which should be true if this is the end of the file.
+
+ruby
 ```ruby
- 
+
     streams: {
         download_file: lambda do |input, starting_byte_range, ending_byte_range, byte_size|
           # Example starting_byte_range = 0
@@ -101,7 +111,8 @@ The output of the stream lambda is an array which expects the byte string in the
         end
     }
 
-
 ```
 
 Take note that the `download_file` lambda is only executed when the datapill for `file_contents` is mapped to a downstream action.
+
+**Last updated:**

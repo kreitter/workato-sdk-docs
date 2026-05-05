@@ -1,11 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection.html
-> **Fetched**: 2026-05-04T03:11:40.924468
+> **Fetched**: 2026-05-05T03:10:02.501542
 
 ---
 
-# [#](<#sdk-reference-connection>) SDK Reference - `connection`
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[SDK reference](</en/developing-connectors/sdk/sdk-reference>)
+
+Connector key reference
+
+# SDK Reference - `connection` [​](<#sdk-reference-connection>)
 
 This section enumerates all the possible keys available when defining your connection.
 
@@ -18,9 +24,11 @@ To put it simply, the `connection` hash contains all the instructions your conne
   * The `authorization` key tells your connector what to do with the information it has collected - use that to exchange it for an access_token.
   * The `base_uri`key tells your connector what to prepend to every HTTP request after connection is successful. This allows you to use relative paths in your connector code when defining actions and triggers.
 
-## [#](<#structure>) Structure
+## Structure [​](<#structure>)
+
+ruby
 ```ruby
- 
+
       connection: {
         fields: Array,
 
@@ -35,12 +43,11 @@ To put it simply, the `connection` hash contains all the instructions your conne
         end
       }
 
-
 ```
 
 * * *
 
-## [#](<#fields>) fields
+## fields [​](<#fields>)
 
 The 'fields' key has the following attributes:
 
@@ -54,7 +61,7 @@ Description
     Accepts an array of hashes. Each hash in this array corresponds to a separate input field.  
 To learn how to define input fields in Workato, see [SDK Reference - Schema](</developing-connectors/sdk/sdk-reference/schema.html>).
 
-### [#](<#picklists-in-connection-fields>) Picklists in connection fields
+### Picklists in connection fields [​](<#picklists-in-connection-fields>)
 
 For fields with `control_type` defined as `select` or `multiselect`, use the `options` attribute to define a static picklist instead of the `pick_list` attribute.
 
@@ -62,11 +69,13 @@ Picklist does not apply to connection hash
 
 References to any picklists you defined in your connector are not accessible in the `connection` hash because no credentials have been received at this time.
 
-### [#](<#example-connection-fields-with-picklist-nested-in-advanced-settings>) Example: Connection fields with picklist nested in advanced settings
+### Example: Connection fields with picklist nested in advanced settings [​](<#example-connection-fields-with-picklist-nested-in-advanced-settings>)
 
-![](/assets/img/connection-picklist.5a158c7b.png)
+![](/assets/connection-picklist.CwwtSTIo.png)
+
+ruby
 ```ruby
- 
+
         fields: [
           {
             name: 'api_key',
@@ -101,12 +110,11 @@ References to any picklists you defined in your connector are not accessible in 
           }
         ],
 
-
 ```
 
 * * *
 
-## [#](<#extended-fields>) extended_fields
+## extended_fields [​](<#extended-fields>)
 
 The 'extended_fields' key has the following attributes:
 
@@ -119,15 +127,17 @@ Required
 Description
     Allows you to optionally display more input fields based on your connection. The output is expected to be a valid Workato schema. Find out more about [SDK Reference - Schema](</developing-connectors/sdk/sdk-reference/schema.html>).
 
-### [#](<#how-to-use-extended-fields>) How to use extended_fields
+### How to use extended_fields [​](<#how-to-use-extended-fields>)
 
 With `extended_fields`, you can dynamically display additional fields based on previous input fields. If your connection setup is complex and consists of many input fields, consider limiting the number of fields that a user can see. Instead of displaying all fields at the same time, use `extended_fields` to control how many fields to display to the user initially, and when to display additional fields.
 
 In this case, `extended_fields` provides you with the added benefit of controlling which fields to display for the users during connection setup, and guiding them through the experience. In some cases, you may also restrict some fields from the display when they are not relevant.
 
-### [#](<#example-connection-fields-with-extended-fields>) Example: Connection fields with extended_fields
+### Example: Connection fields with extended_fields [​](<#example-connection-fields-with-extended-fields>)
+
+ruby
 ```ruby
- 
+
         fields: [
           {
             name: "api_key",
@@ -158,16 +168,17 @@ In this case, `extended_fields` provides you with the added benefit of controlli
           end
         end,
 
-
 ```
 
 Workato passes the connection hash to all other lambdas, including `authorization` and `execute`. The connection hash contains values from both `fields` and `extended_fields`.
 
-### [#](<#example-connection-fields-with-extended-fields-and-extends-schema>) Example: Connection fields with extended_fields and extends_schema
+### Example: Connection fields with extended_fields and extends_schema [​](<#example-connection-fields-with-extended-fields-and-extends-schema>)
 
 The following example shows how to use `extends_schema` within `extended_fields` to create a connection setup that has multiple steps.
+
+ruby
 ```ruby
- 
+
       connection: {
         fields: [
           {
@@ -239,12 +250,11 @@ The following example shows how to use `extends_schema` within `extended_fields`
         end
       },
 
-
 ```
 
 * * *
 
-## [#](<#authorization>) authorization
+## authorization [​](<#authorization>)
 
 The 'authorization' key has the following attributes:
 
@@ -257,11 +267,11 @@ Required
 Description
     Accepts an object with child keys corresponding to different types of authentication
 
-Find out more about the `authorization` hash in [SDK Reference - authorization](</developing-connectors/sdk/sdk-reference/connection/authorization.html>).
+Find out more about the `authorization` hash in [SDK Reference - authorization](</developing-connectors/sdk/sdk-reference/connection/authorization>).
 
 * * *
 
-## [#](<#base-uri>) base_uri
+## base_uri [​](<#base-uri>)
 
 The 'base_uri' key has the following attributes:
 
@@ -283,7 +293,7 @@ Expected Output
   * `"https://#{connection['host']}.com/"`
   * `"https://api.acme.com"`
 
-### [#](<#configuring-your-base-uri>) Configuring your base_uri
+### Configuring your base_uri [​](<#configuring-your-base-uri>)
 
 When you define your `base_uri` key, make sure to note the final URI that you provide. There are two scenarios when using `base_uri` in conjunction with any downstream HTTP requests.
 
@@ -291,6 +301,8 @@ When you define your `base_uri` key, make sure to note the final URI that you pr
 
 For example, `https://api.hubapi.com/test/` defined as your `base_uri` effectively becomes `https://api.hubapi.com`. The request is sent to `https://api.hubapi.com/hello/there`.
 
-  2. If you **don’t** have a preceding "/" (forward slash) in the verb method (such as `get('hello/there')`), we adopt the path parameters in your `base_uri`.
+  2. If you **don’t** have a preceding "/" (forward slash) in the verb method (such as ` get('hello/there')`), we adopt the path parameters in your `base_uri`.
 
 For example, `https://api.hubapi.com/test/` defined as your `base_uri` remains `https://api.hubapi.com/test/`. The request is sent to `https://api.hubapi.com/test/hello/there`.
+
+**Last updated:**

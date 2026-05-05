@@ -1,13 +1,19 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/on-prem.html
-> **Fetched**: 2026-05-04T03:10:58.163939
+> **Fetched**: 2026-05-05T03:09:18.438400
 
 ---
 
-# [#](<#how-to-guide-opa-authentication>) How-to guide - OPA authentication
+[Connector SDK](</en/developing-connectors/sdk>)
 
-HTTP requests made in a custom adapter are sent from Workato [IP addresses](</security/ip-allowlists.html#traffic-from-workato>) by default. You can configure the adapter to instead route all requests through an [on-prem agent](</on-prem.html>).
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[API authorization](</en/developing-connectors/sdk/guides/authentication>)
+
+# How-to guide - OPA authentication [​](<#how-to-guide-opa-authentication>)
+
+HTTP requests made in a custom adapter are sent from Workato [IP addresses](</security/ip-allowlists#traffic-from-workato>) by default. You can configure the adapter to instead route all requests through an [on-prem agent](</on-prem>).
 
 Complete the following steps to enable OPA authentication in a custom connector:
 
@@ -21,7 +27,7 @@ Go to **Tools > Connector SDK**.
 
 3
 
-Select the connector you plan to modify, or click **\+ New connector** to [create a new connector](</developing-connectors/sdk/guides/walkthrough.html#create-a-custom-connector>).
+Select the connector you plan to modify, or click **\+ New connector** to [create a new connector](</developing-connectors/sdk/guides/walkthrough#create-a-custom-connector>).
 
 4
 
@@ -29,11 +35,13 @@ Add `secure_tunnel` set to `true` as a top level property in your custom adapter
 
 USE OPA FOR TLS CERTIFICATES
 
-Configure TLS client certificates in the OPA connection profile instead of your SDK connector code. OPA terminates TLS to your target service, and the certificate must be configured in the HTTP profile. Refer to [On-prem agent – Connection profiles](</on-prem/agents/connection/profile.html#http-profile>) for instructions to configure TLS client certificates in OPA. The connection returns SSL errors if you configure the certificate in the SDK connector.
+Configure TLS client certificates in the OPA connection profile instead of your SDK connector code. OPA terminates TLS to your target service, and the certificate must be configured in the HTTP profile. Refer to [On-prem agent – Connection profiles](</on-prem/agents/connection/profile#http-profile>) for instructions to configure TLS client certificates in OPA. The connection returns SSL errors if you configure the certificate in the SDK connector.
 
 For example:
+
+ruby
 ```ruby
- 
+
     {
       title: 'On-prem example connector',
       secure_tunnel: true,
@@ -51,7 +59,6 @@ For example:
       }
     }
 
-
 ```
 
 ADD OPA TO AN EXISTING CONNECTOR
@@ -59,12 +66,13 @@ ADD OPA TO AN EXISTING CONNECTOR
 Use the `||` operator to specify the existing authentication method as the default when you add new authentication methods to an existing connector.
 
 In the following example, the value left of the `||` operator, `auth_type`, is evaluated first. If the value is `nil` or `false`, the right value, `api_key`, is evaluated.
+
+ruby
 ```ruby
- 
+
     selected: lambda do |connection|
       connection["auth_type"] || 'api_key'
     end,
-
 
 ```
 
@@ -76,22 +84,24 @@ Click **Save > Release latest version**.
 
 Summarize the changes you made to the connector in the **Confirm release** modal.
 
-![Change summary and confirmation window](/assets/img/confirm-version-release-window.561b4f2d.png)_Summarize your changes to the connector_
+![Change summary and confirmation window](/assets/confirm-version-release-window.Co6Sj0jz.png)_Summarize your changes to the connector_
 
 7
 
 Click **Release** to release the new version of the connector in your workspace and allow it to be used in recipes.
 
-The **New connection** page for your connector displays the **Connection type** drop-down menu after you set `secure_tunnel` to `true`. You can use this menu to select the [on-prem group](</on-prem/groups.html#on-prem-group>) you plan to use for your connection.
+The **New connection** page for your connector displays the **Connection type** drop-down menu after you set `secure_tunnel` to `true`. You can use this menu to select the [on-prem group](</on-prem/groups#on-prem-group>) you plan to use for your connection.
 
-![Connection without option to use OPA](/assets/img/OPA-example-without-secure-tunnel.18090057.png)_**New connection** page without `secure_tunnel` enabled_
+![Connection without option to use OPA](/assets/OPA-example-without-secure-tunnel.DwqWcAfP.png)_**New connection** page without `secure_tunnel` enabled_
 
-![Connection with option to use OPA](/assets/img/OPA-example-with-secure-tunnel.22653f76.png)_**New connection** page with `secure_tunnel` enabled_
+![Connection with option to use OPA](/assets/OPA-example-with-secure-tunnel.-eQlwgum.png) _**New connection** page with `secure_tunnel` enabled_
 
-## [#](<#next-steps>) Next steps
+## Next steps [​](<#next-steps>)
 
-Refer to the [SDK reference](</developing-connectors/sdk/sdk-reference/connection.html>) guide for a list of available `connection` keys and parameters or refer to the following guides set up an on-prem agent:
+Refer to the [SDK reference](</developing-connectors/sdk/sdk-reference/connection>) guide for a list of available `connection` keys and parameters or refer to the following guides set up an on-prem agent:
 
-  * [Create an on-prem group](</on-prem/groups/create-group.html>)
-  * [Add an agent to a group](</on-prem/groups/add-agent.html>)
-  * [Run an agent](</on-prem/agents/run.html>)
+  * [Create an on-prem group](</on-prem/groups/create-group>)
+  * [Add an agent to a group](</on-prem/groups/add-agent>)
+  * [Run an agent](</on-prem/agents/run>)
+
+**Last updated:**

@@ -1,25 +1,33 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/triggers.html
-> **Fetched**: 2026-05-04T03:10:24.023099
+> **Fetched**: 2026-05-05T03:08:43.378765
 
 ---
 
-# [#](<#how-to-guides-running-triggers-on-cli>) How-to guides - Running Triggers on CLI
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[CLI](</en/developing-connectors/sdk/cli>)
+
+Guides
+
+# How-to guides - Running Triggers on CLI [​](<#how-to-guides-running-triggers-on-cli>)
 
 In this segment, we will be going through how you can run triggers using the Workato Gem.
 
-## [#](<#prerequisites>) Prerequisites
+## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started.html>) to know more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
   * You have a working connector with at least 1 trigger. You use the sample provided below.
   * You have a working set of credentials. If you are using a sample connector code, ensure that you have the appropriate credentials for the connector.
 
-## [#](<#sample-connector-chargebee>) Sample connector - Chargebee
+## Sample connector - Chargebee [​](<#sample-connector-chargebee>)
 
 The code in `connector.rb`.
+
+ruby
 ```ruby
- 
+
     {
       title: 'Chargebee-demo',
 
@@ -132,15 +140,15 @@ The code in `connector.rb`.
       },
     }
 
-
 ```
 
 Credentials in `settings.yaml.enc` .
+
+yaml
 ```ruby
- 
+
     api_key: valid_api_key
     domain: valid_domain
-
 
 ```
 
@@ -150,7 +158,7 @@ If you're using an encrypted settings.yaml file, you will need to use `workato e
 
 With the SDK Gem, you'll be able to invoke individual lambda functions in your action and gain greater control over how each part of your action works. For example, you may run your `execute` lambda function independently from your `input_fields` lambda.
 
-## [#](<#running-your-input-fields-and-output-fields-lambdas>) Running your input fields and output fields lambdas
+## Running your input fields and output fields lambdas [​](<#running-your-input-fields-and-output-fields-lambdas>)
 
 In this guide, we will be covering output_fields lambdas. You can run input_fields lambdas the same way.
 
@@ -159,8 +167,10 @@ TIP
 Sometimes, you may find yourself with a sample payload request or response. You can also use the `workato generate schema` CLI command to convert this payload easily into Workato schema. Learn more about [Workato CLI generate schema](</developing-connectors/sdk/cli/reference/cli-commands#workato-generate-schema>).
 
 Your output_fields lambda is expected to return Workato schema which corresponds to the input fields we should show to the user. In the case we have above, when you invoke the `output_fields` lambda, the Gem will handle the evaluation of any downstream `object_definitions` or `methods` you have referenced.
+
+shell
 ```bash
- 
+
     $ workato exec triggers.new_updated_object.output_fields --config-fields='fixtures/triggers/new_updated_object/customer_config.json'
 
     [
@@ -179,7 +189,6 @@ Your output_fields lambda is expected to return Workato schema which corresponds
       }
     ]
 
-
 ```
 
 TIP
@@ -188,27 +197,30 @@ You can also use other options like `--verbose` to see the detailed logs of any 
 
 You do not need to pass anything for the object_definitions argument as the gem can reference it when it looks at your connector.
 
-## [#](<#running-your-poll-lambda>) Running your poll lambda
+## Running your poll lambda [​](<#running-your-poll-lambda>)
 
 Your poll lambda is expected to return a hash which represents the output of the poll lambda. You have two ways to run your poll lambda to test functionality.
 
   1. [Running your poll lambda with pagination](<#running-your-poll-lambda-with-pagination>)
   2. [Running your poll lambda without pagination](<#running-your-poll-lambda-without-pagination>)
 
-### [#](<#running-your-poll-lambda-with-pagination>) Running your poll lambda with pagination
+### Running your poll lambda with pagination [​](<#running-your-poll-lambda-with-pagination>)
 
 This is done with the command `.poll` which tells the SDK Gem to paginate through all records if `can_poll_more` is true. In the example below, you can see that we have given `.poll` and given the `since` input of `6/09/2021`. The SDK Gem would then send as many requests as necessary to simulate the polling mechanism. You can see that we have referenced an `input` in the command which points to a JSON file stored in our `fixtures` folder. This file should contain the actual value passed to the `poll` lambda from the `input_fields` and `config_fields`.
 
 The `fixtures/triggers/new_updated_object/customer_input_poll.json` file in this example contains the following:
+
+JSON
 ```ruby
- 
+
     {
       "object": "customer",
       "since": "6/09/2021"
     }
 
-
 ```
+
+shell
 ```bash
 
     $ workato exec triggers.new_updated_object.poll --input='fixtures/triggers/new_updated_object/customer_input_poll.json' --verbose
@@ -268,7 +280,6 @@ The `fixtures/triggers/new_updated_object/customer_input_poll.json` file in this
       }
     }
 
-
 ```
 
 Note that we have used `--verbose` so the SDK gem has printed out more information including the API requests and responses.
@@ -279,11 +290,13 @@ You can also use other options like `--output` to save the output of the functio
 
 You can see that the `config_field` \- `object` is passed in the input json. In Workato, config_fields are merged with normal `input_fields` when received in the `execute`, `poll` or `webhook` lambdas.
 
-### [#](<#running-your-poll-lambda-without-pagination>) Running your poll lambda without pagination
+### Running your poll lambda without pagination [​](<#running-your-poll-lambda-without-pagination>)
 
 This is done with the command `.poll_page` which tells the SDK Gem to only invoke the `poll` lambda once regardless of the `can_poll_more` value. In the example below, you can see that we have given `.poll` and given the `since` input of `6/09/2021`. The SDK Gem sends a single request and stops execution after the first request is done.
+
+shell
 ```ruby
- 
+
     workato exec triggers.new_updated_object.poll_page --input='fixtures/triggers/new_updated_object/customer_input_poll.json' --verbose
 
     SETTINGS
@@ -340,7 +353,6 @@ This is done with the command `.poll_page` which tells the SDK Gem to only invok
       "can_poll_more": true
     }
 
-
 ```
 
 Note that we have used `--verbose` so the SDK gem has printed out more information including the API requests and responses.
@@ -350,3 +362,5 @@ TIP
 You can also use other options like `--output` to save the output of the function to a JSON file.
 
 You can see that the `config_field` \- `object` is passed in the input json. In Workato, config_fields are merged with normal `input_fields` when received in the `execute`, `poll` or `webhook` lambdas.
+
+**Last updated:**

@@ -1,15 +1,19 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/walkthrough.html
-> **Fetched**: 2026-05-04T03:11:31.140551
+> **Fetched**: 2026-05-05T03:09:52.420826
 
 ---
 
-# [#](<#build-your-first-connector>) Build your first connector
+[Connector SDK](</en/developing-connectors/sdk>)
 
-This guide demonstrates how to build a custom connector with the Connector SDK and the [Star Wars API (SWAPI) (opens new window)](<https://swapi.tech/>). SWAPI provides free access to information about Star Wars characters, vehicles, and other resources.
+[How-to guides](</en/developing-connectors/sdk/guides>)
 
-## [#](<#create-a-custom-connector>) Create a custom connector
+# Build your first connector [​](<#build-your-first-connector>)
+
+This guide demonstrates how to build a custom connector with the Connector SDK and the [Star Wars API (SWAPI)](<https://swapi.tech/>). SWAPI provides free access to information about Star Wars characters, vehicles, and other resources.
+
+## Create a custom connector [​](<#create-a-custom-connector>)
 
 Complete the following steps to create a new custom connector:
 
@@ -21,19 +25,19 @@ Sign in to your Workato account.
 
 Go to **Tools > Connector SDK**.
 
-![Navigating to SDK](/assets/img/Navigating-to-SDK.6b40667e.png) _Go to Tools > Connector SDK_
+![Navigating to SDK](/assets/Navigating-to-SDK.21E186kI.png)_Go to Tools > Connector SDK_
 
 3
 
 Click **Create connector** to open the Connector SDK wizard.
 
-![Click Create connector](/assets/img/create-connector.a2642c32.png)_Click**Create connector**_
+![Click Create connector](/assets/create-connector.Ci73C_dz.png)_Click**Create connector**_
 
 4
 
 Select **Get guided from a Workato template** as your starting point, then click **Next**.
 
-![Select your starting point](/assets/img/starting-point.506e3f8e.png)_Select your starting point_
+![Select your starting point](/assets/starting-point.zPTTzjEV.png)_Select your starting point_
 
 5
 
@@ -43,7 +47,7 @@ Enter `Star Wars Information` in the **What application is this connector for?**
 
 Drag and drop a PNG or JPG file to the **Add a logo** field, or click **upload from device**.
 
-![Naming your custom connector](/assets/img/custom-connector-title-description.2fc1032a.png) _Fill in the name of your custom connector_
+![Naming your custom connector](/assets/custom-connector-title-description.Btkzt5vY.png)_Fill in the name of your custom connector_
 
 7
 
@@ -51,7 +55,7 @@ Click **Go to editor**.
 
 After these steps, the Connector SDK opens, where you can define the connection details and configure your connector.
 
-## [#](<#creating-a-connection>) Create a connection
+## Create a connection [​](<#creating-a-connection>)
 
 To connect to an API, you must first identify its required authentication method. Since SWAPI doesn't require authentication, you can send requests to SWAPI without verifying your identity.
 
@@ -64,8 +68,10 @@ Open the **Source code** tab.
 2
 
 Copy and paste the following code snippet into the code editor:
+
+ruby
 ```ruby
- 
+
     {
       title: 'Star Wars Information',
 
@@ -84,7 +90,6 @@ Copy and paste the following code snippet into the code editor:
 
       # More code below but hidden for now!
     }
-
 
 ```
 
@@ -109,7 +114,7 @@ In this example, your input determines the target URL for the HTTP call. The sni
 
 Enter a name in the **Connection name** field.
 
-![Connection input field](/assets/img/Connection-input-fields.3c8dd1ea.png) _Example of input fields for connection setup_
+![Connection input field](/assets/Connection-input-fields.BK9EVJay.png)_Example of input fields for connection setup_
 
 4
 
@@ -126,21 +131,23 @@ Enter one of the following valid inputs in the **Object** field:
 
 Click **Connect** to establish the connection. A successful connection displays the following confirmation:
 
-![successful-connection](/assets/img/successful-connection.0c160763.png) _Successful connection_
+![successful-connection](/assets/successful-connection.WSt3rXqp.png)_Successful connection_
 
-## [#](<#create-an-action>) Create an action
+## Create an action [​](<#create-an-action>)
 
-SWAPI allows you to retrieve information about Star Wars such as people, planets, and films. This example demonstrates how to build an action named `Get person by ID` that retrieves information about a Star Wars character. You can access and use the returned information in subsequent recipe steps with [datapills](</recipes/data-pills-and-mapping.html>).
+SWAPI allows you to retrieve information about Star Wars such as people, planets, and films. This example demonstrates how to build an action named `Get person by ID` that retrieves information about a Star Wars character. You can access and use the returned information in subsequent recipe steps with [datapills](</recipes/data-pills-and-mapping>).
 
-![Action revealed to user](/assets/img/get-character-by-id-action.21ec9ed9.png) _Create the Get person by ID action_
+![Action revealed to user](/assets/get-character-by-id-action.BCMcWd_G.png)_Create the Get person by ID action_
 
 Complete the following steps to create an action:
 
 1
 
 Replace the existing code in the **Source code** tab with the following snippet:
+
+ruby
 ```ruby
- 
+
     {
       title: 'Star Wars Information',
 
@@ -274,7 +281,6 @@ Replace the existing code in the **Source code** tab with the following snippet:
       }
     }
 
-
 ```
 
 How does this code snippet work?
@@ -287,18 +293,18 @@ This code snippet includes the following keys:
   * Defines the **Get person by ID** action. The action name inherits this key, replacing underscores (`_`) with spaces. Ensure the key name accurately reflects the action's purpose. Don't use spaces in the key name.
   * `input_fields`
   * Declares the input fields that appear when users configure your action during recipe building. This example includes a single input field named `id`. The `label` variable defines the name displayed to users, while `type` specifies the data type. Setting `optional` to `false` makes this field mandatory.  
-![Input fields](/assets/img/input-field-screen.d0f83522.png)
+![Input fields](/assets/input-field-screen.CMaMbdHR.png)
   * `execute`
   * Declares the HTTP request, target URL, and additional actions required for the recipe. The placeholder `#{input["id"]}` dynamically captures the user-provided ID, appending it to the target URL to retrieve the character's information.
   * `output_fields`
   * Declares the datapills returned by the action. These output fields should match the JSON object returned by the `GET` request specified in the `execute` key.  
-![Output fields](/assets/img/output-field-screen.c24f928b.png)
+![Output fields](/assets/output-field-screen.DXBkJows.png)
 
 How can I define a nested array or object?
 
 To define an array, set the `type` to `array`. This tells Workato to expect a collection of multiple values. Use the `of` attribute to specify the data type of the array's items. For example, set `of` to `string` for arrays containing URLs.
 
-## [#](<#testing-your-action>) Test your action
+## Test your action [​](<#testing-your-action>)
 
 Complete the following steps to test your action:
 
@@ -310,7 +316,7 @@ Go to the **Test code** tab.
 
 Select the **Get person by ID** action.
 
-![Select the Get person by ID action](/assets/img/select-action.a1d93c7d.png)_Select the Get person by ID action_
+![Select the Get person by ID action](/assets/select-action.BzH01Juo.png)_Select the Get person by ID action_
 
 3
 
@@ -326,12 +332,14 @@ Click **Test action**. The **Recent tests** tab opens.
 
 Click the **Output** tab to view the output of the **Get person by ID** action. The following screenshot displays a successful test:
 
-![View the output](/assets/img/test-code-output.8082b366.png)_View the output_
+![View the output](/assets/test-code-output.p9mk0IfR.png)_View the output_
 
 A successful test indicates that no errors occurred during recipe execution. However, it doesn't rule out the possibility of other issues, such as logic errors.
 
-## [#](<#creating-a-recipe-using-your-new-custom-connector>) Use your custom connector in a recipe
+## Use your custom connector in a recipe [​](<#creating-a-recipe-using-your-new-custom-connector>)
 
 You can now use the SWAPI connector and the action you created in any recipe. Search for the SWAPI connector when selecting an application to get started.
 
-![Select the Star Wars Information connector](/assets/img/building-recipe.b6c63a03.png) _Select the Star Wars Information connector_
+![Select the Star Wars Information connector](/assets/building-recipe.7m59a_qI.png)_Select the Star Wars Information connector_
+
+**Last updated:**

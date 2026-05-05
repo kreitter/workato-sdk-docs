@@ -1,15 +1,19 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/whitelist-removal.html
-> **Fetched**: 2026-05-04T03:11:54.671693
+> **Fetched**: 2026-05-05T03:10:16.560143
 
 ---
 
-# [#](<#removal-of-ruby-whitelist-for-sdk>) Removal of Ruby whitelist for SDK
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[SDK reference](</en/developing-connectors/sdk/sdk-reference>)
+
+# Removal of Ruby whitelist for SDK [​](<#removal-of-ruby-whitelist-for-sdk>)
 
 Following the migration of custom connector code execution to **isolated containers** , **Ruby whitelisting** is removed from the connector SDK. This change significantly expands the range of capabilities SDK developers can use within the platform. Developers can now leverage the **full functionality of Ruby 2.7** , including built-in libraries and Ruby gems available in the SDK container.
 
-## [#](<#key-capabilities>) Key capabilities
+## Key capabilities [​](<#key-capabilities>)
 
 With the removal of Ruby whitelisting, developers can now access the full functionality of Ruby 2.7, including built-in libraries and Ruby gems available in the SDK container.
 
@@ -37,7 +41,7 @@ Developers can now directly use a selection of pre-installed Ruby gems without r
     * `ruby_rncryptor` (3.0.2)
   * **TCP sockets**
 
-Developers can now leverage TCP sockets for low-level TCP connections. [Learn more (opens new window)](<https://ruby-doc.org/stdlib-2.7.0/libdoc/socket/rdoc/TCPSocket.html>).
+Developers can now leverage TCP sockets for low-level TCP connections. [Learn more](<https://ruby-doc.org/stdlib-2.7.0/libdoc/socket/rdoc/TCPSocket.html>).
 
     * Example use case: Implement MQTP protocol over UDP or WebSocket connections.
   * **Classes and modules**
@@ -52,7 +56,7 @@ Using the `eval` method, developers can now dynamically load and execute code. C
 
 Developers can now write multi-threaded and concurrent code.
 
-## [#](<#example-connector-ideas>) Example connector ideas
+## Example connector ideas [​](<#example-connector-ideas>)
 
   * **E-commerce data scraper**
 
@@ -85,3 +89,5 @@ A connector that uses the `jwt` gem to create and verify JSON web tokens for sec
   * **XML and HTML data handling**
 
 A connector that uses `nokogiri` and `gyoku` for parsing, transforming, and generating XML and HTML data. This can be useful for integrating with systems that use XML-based APIs or for web scraping tasks.
+
+**Last updated:**

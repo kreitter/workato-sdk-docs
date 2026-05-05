@@ -1,19 +1,27 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html
-> **Fetched**: 2026-05-04T03:10:40.572486
+> **Fetched**: 2026-05-05T03:09:00.344528
 
 ---
 
-# [#](<#connector-building-building-triggers>) Connector building - Building triggers
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[Advanced connector guide](</en/developing-connectors/sdk/guides/advanced-connector-guide/introduction>)
+
+# Connector building - Building triggers [​](<#connector-building-building-triggers>)
 
 Building triggers follow almost the same format as actions. To make them object based, we'll be making use of configuration fields as well as the schema methods we defined earlier. Below, we go through an example of a polling trigger. Do take note there are some differences in the blocks expected when creating a polling trigger, dynamic webhook trigger and a static webhook trigger.
 
-## [#](<#defining-config-fields>) Defining config fields
+## Defining config fields [​](<#defining-config-fields>)
 
-When dealing with object-based triggers, we first need to define something called a configuration fields. [Configuration fields](</developing-connectors/sdk/sdk-reference/triggers.html#config-fields>) are special input fields that you can define whose answers can dynamically generate other input fields. Since triggers don't often need any additional input fields, this configuration field is used to dynamically generate the expected output of this trigger.
+When dealing with object-based triggers, we first need to define something called a configuration fields. [Configuration fields](</developing-connectors/sdk/sdk-reference/triggers#config-fields>) are special input fields that you can define whose answers can dynamically generate other input fields. Since triggers don't often need any additional input fields, this configuration field is used to dynamically generate the expected output of this trigger.
+
+ruby
 ```ruby
- 
+
     config_fields: [
       {
         name: 'object',
@@ -25,22 +33,23 @@ When dealing with object-based triggers, we first need to define something calle
       }
     ],
 
-
 ```
 
-![Config fields](/assets/img/config_fields-trigger.9b259471.gif) _Selecting invoice causes invoice related data-pills to appear_
+![Config fields](/assets/config_fields-trigger.DeRtsn-k.gif)_Selecting invoice causes invoice related data-pills to appear_
 
-Here we also introduce a [picklist](</developing-connectors/sdk/sdk-reference/picklists.html>) which we can easily add additional objects as we introduce support for them.
+Here we also introduce a [picklist](</developing-connectors/sdk/sdk-reference/picklists>) which we can easily add additional objects as we introduce support for them.
 
 DYNAMIC INPUT FIELDS
 
 You can also use configuration fields to dynamically generate input fields based on the user's selections. Refer to the [Defining input fields](<#defining-input-fields>) section for scenarios where the selected object requires additional information before accurate input fields can be displayed.
 
-## [#](<#defining-your-title-subtitle-description-and-help-text>) Defining your title, subtitle, description, and help text
+## Defining your title, subtitle, description, and help text [​](<#defining-your-title-subtitle-description-and-help-text>)
 
 It is also highly recommended and really important to define helpful titles and descriptions for your actions. When dealing with object-based actions, this helps with the readability of recipes using your connector as well as improves user experience for those building recipes with your connector.
+
+ruby
 ```ruby
- 
+
     triggers: {
 
       new_updated_object: {
@@ -76,24 +85,25 @@ It is also highly recommended and really important to define helpful titles and 
       }
     }
 
-
 ```
 
 Over here we define title and subtitles to give users an idea of the action out of all the different actions in your connector. Remember to keep your title concise whilst using subtitles to provide a bit more information.
 
 For descriptions, we allow you to use a lambda function (as shown in the example above) to dynamically change the description of the action when a user makes a selection in the config_field. The same can be done for help text as shown in the example above.
 
-![Bad example of dynamic descriptions](/assets/img/dynamic-description-1.89256d59.png) _Bad example with no dynamic description_
+![Bad example of dynamic descriptions](/assets/dynamic-description-1.CfR1Me_n.png)_Bad example with no dynamic description_
 
-![Good example of dynamic descriptions](/assets/img/dynamic-description-2.ff679d7e.png) _Good example with dynamic description_
+![Good example of dynamic descriptions](/assets/dynamic-description-2.DhvLWrIN.png) _Good example with dynamic description_
 
-## [#](<#defining-input-fields>) Defining input fields
+## Defining input fields [​](<#defining-input-fields>)
 
 Since triggers do not need much configuration from the user, there is no need for any object definitions to be called in our example here. One pattern that we do recommend in triggers whenever possible is to add an optional input field so users can retrospectively pull data when the trigger is first started. This input field will take in a timestamp value and use that to pull any data.
 
-### [#](<#input>) Input
+### Input [​](<#input>)
+
+ruby
 ```ruby
- 
+
     input_fields: lambda do
       [
         {
@@ -108,20 +118,21 @@ Since triggers do not need much configuration from the user, there is no need fo
       ]
     end,
 
-
 ```
 
-## [#](<#defining-the-poll-block>) Defining the poll block
+## Defining the poll block [​](<#defining-the-poll-block>)
 
 For polling triggers, the poll block is where the code for each poll is executed. There are numerous arguments that can be used in the poll block including a `closure` argument which allows you to reference any data from a previous poll. This closure value is useful by allowing your trigger to store a cursor on where it last polled. Often, closure stores timestamp values of when the last record it saw as well as any offsets if it needs to poll immediately.
 
 POLLING TRIGGER BEST PRACTICES
 
-When building polling triggers, it's best to use endpoints that return a list of records and support query parameters for filtering records by timestamp. Refer to Greenhouse's [Get list candidates (opens new window)](<https://developers.greenhouse.io/harvest.html#get-list-candidates>) API documentation as an example.
+When building polling triggers, it's best to use endpoints that return a list of records and support query parameters for filtering records by timestamp. Refer to Greenhouse's [Get list candidates](<https://developers.greenhouse.io/harvest.html#get-list-candidates>) API documentation as an example.
 
-### [#](<#expected-json-response-from-xyz-accounting>) Expected JSON response from XYZ accounting
+### Expected JSON response from XYZ accounting [​](<#expected-json-response-from-xyz-accounting>)
+
+js
 ```ruby
- 
+
     {
       "results": [
         {
@@ -177,12 +188,13 @@ When building polling triggers, it's best to use endpoints that return a list of
       "more_results": true
     }
 
-
 ```
 
-### [#](<#poll-block>) poll block
+### poll block [​](<#poll-block>)
+
+ruby
 ```ruby
- 
+
     poll: lambda do |connection, input, closure|
       limit = 100
       closure = closure || {}
@@ -217,62 +229,66 @@ When building polling triggers, it's best to use endpoints that return a list of
       }
     end,
 
-
 ```
 
 In the poll block, we first prepare the payload with the appropriate parameters to query for only records after the last time we polled. This is done by referencing the closure values of the last poll.
 
 The parameters are passed into an object-specific method to execute the poll and the response is expected to be the JSON response above. The closure values are reset based on response of the poll and the output of each poll block is a hash with 3 expected values - the records, the closure hash and "can_poll_more" - a boolean value which determines whether the trigger should poll again.
 
-Refer to [Polling triggers](</developing-connectors/sdk/sdk-reference/triggers.html>) for more information.
+Refer to [Polling triggers](</developing-connectors/sdk/sdk-reference/triggers>) for more information.
 
-## [#](<#defining-the-dedup-block>) Defining the dedup block
+## Defining the dedup block [​](<#defining-the-dedup-block>)
 
 For each record in the array of records passed on from the poll block, Workato also checks to see if it has seen the record before. To do so, the dedup block should contain a string that combines various parts of a record to ensure that it is unique. In the example below, we've used the `invoice` id and `invoice` last updated timestamp to see if this updated record has been seen before.
+
+ruby
 ```ruby
- 
+
     dedup: lambda do |record|
       "#{record['results']['Id']}@#{record['results']['MetaData']['LastUpdatedTime']}"
     end,
 
-
 ```
 
-## [#](<#defining-the-output-fields>) Defining the output fields
+## Defining the output fields [​](<#defining-the-output-fields>)
 
 Output fields can be defined using the same schema method used earlier. When calling the schema method, remember to pass the parameter `output` so your method knows to return fields expected in the response. Often this includes metadata about the object that cannot be changed by users such as `created_at` or `updated_at` timestamps.
 
-### [#](<#output>) Output
+### Output [​](<#output>)
+
+ruby
 ```ruby
- 
+
         output_fields: lambda do |object_definitions, connection, config_fields|
           object = config_fields['object']
 
           input_schema = object_definitions[object]
         end,
 
-
 ```
 
-### [#](<#object-definition>) Object definition
+### Object definition [​](<#object-definition>)
+
+ruby
 ```ruby
- 
+
         invoice: {
           fields: lambda do |connection, config_fields, object_definitions|
             # same schema as above
           end
         },
 
-
 ```
 
-## [#](<#defining-your-sample-output>) Defining your sample output
+## Defining your sample output [​](<#defining-your-sample-output>)
 
 Sample outputs are a great way to hint to give users context about the data-pills they are mapping in downstream actions. When labels might still leave room for confusion, sample outputs bridge the gap in understanding by allowing you to pull data in real time from the user's own application. In the example below, we construct a payload artificially before using a search object method to retrieve the first record found in the user's own instance of XYZ accounting.
 
-### [#](<#sample-output>) Sample output
+### Sample output [​](<#sample-output>)
+
+ruby
 ```ruby
- 
+
     sample_output: lambda do |connection, input|
       payload = {
         "limit" => 1
@@ -280,13 +296,14 @@ Sample outputs are a great way to hint to give users context about the data-pill
       call("search_#{input['object']}_execute", payload)
     end
 
-
 ```
 
 The output of this block is then passed to the output fields block and rendered to the right of every data-pill which is matched. This could significantly reduce the amount of time it takes for users whilst troubleshooting.
 
-![Good example of dynamic descriptions](/assets/img/sample_output.f7a0c032.png) _Sample output renders in grey text next to each data-pill_
+![Good example of dynamic descriptions](/assets/sample_output.CSFX72XE.png)_Sample output renders in grey text next to each data-pill_
 
-### [#](<#common-code-patterns-limitations>) Common code patterns & limitations
+### Common code patterns & limitations [​](<#common-code-patterns-limitations>)
 
 Now that you've seen some examples of how to build object-based actions and triggers, we now go through some code patterns which can be reused in your connector.
+
+**Last updated:**

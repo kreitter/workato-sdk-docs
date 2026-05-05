@@ -1,33 +1,42 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/form-url-encoded.html
-> **Fetched**: 2026-05-04T03:11:22.309453
+> **Fetched**: 2026-05-05T03:09:43.297287
 
 ---
 
-# [#](<#how-to-guides-url-encoded-form>) How-to guides - URL Encoded Form
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[Handling data formats](</en/developing-connectors/sdk/guides/data-formats>)
+
+# How-to guides - URL Encoded Form [​](<#how-to-guides-url-encoded-form>)
 
 This request format can be declared in any keys (`execute`, `acquire`, `fields` etc.) in your custom connector code.
 
-## [#](<#sample-code-snippet>) Sample code snippet
+## Sample code snippet [​](<#sample-code-snippet>)
 
-Let's use the submit data to a form endpoint in [HubSpot API (opens new window)](<https://developers.hubspot.com/docs/methods/forms/submit_form>) as an example. This endpoint accepts form data in form urlencoded format.
+Let's use the submit data to a form endpoint in [HubSpot API](<https://developers.hubspot.com/docs/methods/forms/submit_form>) as an example. This endpoint accepts form data in form urlencoded format.
 
 A cURL example looks like this:
+
+sh
 ```ruby
- 
+
     curl \
       https://forms.hubspot.com/uploads/form/v2/12345/67890 \
       -X POST \
       -H 'Content-Type: application/x-www-form-urlencoded' \
       -d 'firstname=TestContact&lastname=FormSub&[[email protected]](</cdn-cgi/l/email-protection>)&newcustomproperty=testing&hs_context=%7B%22hutk%22%3A%2260c2ccdfe4892f0fa0593940b12c11aa%22%2C%22ipAddress%22%3A%22192.168.1.12%22%2C%22pageUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fcontact%2F%22%2C%22pageName%22%3A%22Contact%2BUs%22%2C%22redirectUrl%22%3A%22http%3A%2F%2Fdemo.hubapi.com%2Fthank-you%2F%22%7D'
 
-
 ```
 
 This cURL command can be replicated in Workato:
+
+ruby
 ```ruby
- 
+
     {
       title: "HubSpot",
 
@@ -100,13 +109,14 @@ This cURL command can be replicated in Workato:
         # Some code here
       }
 
-
 ```
 
-## [#](<#components>) Components
+## Components [​](<#components>)
 
-cURL | Workato  
+cURL| Workato  
 ---|---  
-`curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST` | `post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}")`  
-`-H 'Content-Type: application/x-www-form-urlencoded'` | `.request_format_www_form_urlencoded`  
-`-d '{data}'` | `.request_body(input.reject { |k,v| k == 'portal_id' || k == 'form_guid' })`
+`curl https://forms.hubspot.com/uploads/form/v2/{portal_id}/{form_guid} -X POST`| `post("https://forms.hubspot.com/uploads/form/v2/#{input['portal_id']}/#{input['form_guid']}")`  
+`-H 'Content-Type: application/x-www-form-urlencoded'`| `.request_format_www_form_urlencoded`  
+`-d '{data}'`| `.request_body(input.reject { |k,v| k == 'portal_id' || k == 'form_guid' })`  
+
+**Last updated:**

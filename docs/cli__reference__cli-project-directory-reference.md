@@ -1,15 +1,21 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-project-directory-reference.html
-> **Fetched**: 2026-05-04T03:10:36.054334
+> **Fetched**: 2026-05-05T03:08:55.734888
 
 ---
 
-# [#](<#sdk-project-directory-and-file-reference>) SDK - Project Directory and File Reference
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[CLI](</en/developing-connectors/sdk/cli>)
+
+Reference
+
+# SDK - Project Directory and File Reference [​](<#sdk-project-directory-and-file-reference>)
 
 A typical connector project built with the SDK gem usually looks something like this:
 ```ruby
- 
+
     . # root
     ├── connector.rb
     ├── fixtures
@@ -27,36 +33,35 @@ A typical connector project built with the SDK gem usually looks something like 
     ├── .gitignore 
     └── .rspec
 
-
 ```
 
 An overview of what each file or directory does:
 
-File/directory | Created | Description  
+File/directory| Created| Description  
 ---|---|---  
-**connector.rb** | Via workato new | Stores the actual connector code. This should be a replica of your connector code in Workato.   
-**fixtures** | Via workato new | Stores input and output JSON files for RSpec or CLI. See an example file in the [fixtures section](<#fixtures>).   
-**Gemfile** | Via workato new | Declares the gems (dependencies) required by the project. These are required to run RSpec. See an example file in the [Gemfile section](<#gemfile>).   
-**Gemfile.lock** | Via workato new | Stores gem dependency data, including versions and dependencies of dependencies. This file is automatically created when your project is built.   
-**logo.png** | By you | Your connector's logo. When synced with your Workato workspace via [`workato push`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-push>), this will be used as the default for your connector's logo image.   
-**master.key** | Via workato new | Stores the encryption key used to encrypt your files. These files can include credentials and other sensitive data, such as environment properties.   
+**connector.rb**|  Via workato new| Stores the actual connector code. This should be a replica of your connector code in Workato.   
+**fixtures**|  Via workato new| Stores input and output JSON files for RSpec or CLI. See an example file in the [fixtures section](<#fixtures>).   
+**Gemfile**|  Via workato new| Declares the gems (dependencies) required by the project. These are required to run RSpec. See an example file in the [Gemfile section](<#gemfile>).   
+**Gemfile.lock**|  Via workato new| Stores gem dependency data, including versions and dependencies of dependencies. This file is automatically created when your project is built.   
+**logo.png**|  By you| Your connector's logo. When synced with your Workato workspace via [`workato push`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-push>), this will be used as the default for your connector's logo image.   
+**master.key**|  Via workato new| Stores the encryption key used to encrypt your files. These files can include credentials and other sensitive data, such as environment properties.   
 
 **Note** : Created only if `secure` was selected during project setup.   
-**README.md** | By you | Used to document what your connector does and how to use it. When synced with your Workato workspace via [`workato push`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-push>), this will be used as the default file for your connector's description.   
-**settings.yaml.enc or settings.yaml** |  | Stores credentials used for testing the connector. See an example file in the [settings.yaml section](<#settings-yaml-enc-settings-yaml>).   
+**README.md**|  By you| Used to document what your connector does and how to use it. When synced with your Workato workspace via [`workato push`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-push>), this will be used as the default file for your connector's description.   
+**settings.yaml.enc or settings.yaml**| |  Stores credentials used for testing the connector. See an example file in the [settings.yaml section](<#settings-yaml-enc-settings-yaml>).   
 
 **Note** : If `secure` was selected during project setup, this will be a `.yaml.enc` file. Otherwise, this will be a `.yaml` file.   
-**spec** | Via workato new | Stores RSpec test files. [RSpec](</developing-connectors/sdk/cli/guides/rspec/vcr.html>) is a Ruby testing tool that can be used in conjunction with the [SDK gem](</developing-connectors/sdk/cli.html>) to define, write, and run unit tests for your connector.   
-**spec/connector_spec.rb** | Via workato new | Stores all unit test for the connector. This is the main RSpec file. See an example file in the [connector_spec.rb section](<#connector-spec-rb>).   
+**spec**|  Via workato new| Stores RSpec test files. [RSpec](</developing-connectors/sdk/cli/guides/rspec/vcr.html>) is a Ruby testing tool that can be used in conjunction with the [SDK gem](</developing-connectors/sdk/cli.html>) to define, write, and run unit tests for your connector.   
+**spec/connector_spec.rb**|  Via workato new| Stores all unit test for the connector. This is the main RSpec file. See an example file in the [connector_spec.rb section](<#connector-spec-rb>).   
 
 This file may be split into multiple files or folders if it helps you organize your tests. All spec tests can be run using the `bundle exec rspec` command.   
-**spec/spec_helper.rb** | Via workato new | Stores all commands that should be set up prior to each RSpec run. See an example file in the [spec_helper.rb section](<#spec-helper-rb>).   
-**tape_library** | via RSpec | Stores [VCR cassettes](<https://relishapp.com/vcr/vcr/v/6-0-0/docs/cassettes/cassette-format>), which are files that contain all info about recorded API requests and subsequent responses. These requests are essential for stable unit tests. Check out the [VCR docs](<https://relishapp.com/vcr/vcr/docs>) to learn more.   
-**.github** | By you | **Applicable if using GitHub.** Stores information about your GitHub action workflows.   
-**.gitignore** | Via workato new | Stores the names of files and/or directories that shouldn't be pushed to Git. See an example file in the [.gitignore section](<#gitignore>).   
+**spec/spec_helper.rb**|  Via workato new| Stores all commands that should be set up prior to each RSpec run. See an example file in the [spec_helper.rb section](<#spec-helper-rb>).   
+**tape_library**|  via RSpec| Stores [VCR cassettes](<https://relishapp.com/vcr/vcr/v/6-0-0/docs/cassettes/cassette-format>), which are files that contain all info about recorded API requests and subsequent responses. These requests are essential for stable unit tests. Check out the [VCR docs](<https://relishapp.com/vcr/vcr/docs>) to learn more.   
+**.github**|  By you| **Applicable if using GitHub.** Stores information about your GitHub action workflows.   
+**.gitignore**|  Via workato new| Stores the names of files and/or directories that shouldn't be pushed to Git. See an example file in the [.gitignore section](<#gitignore>).   
 
 **Note** : If your project has a `master.key`, it should be added to this file as per our [security best practices](</developing-connectors/sdk/cli/guides/security-guidelines.html>).   
-**.rspec** | Via workato new | Stores standard options to pass to RSpec when run. Some example flags:   
+**.rspec**|  Via workato new| Stores standard options to pass to RSpec when run. Some example flags:   
 
   * `--format documentation` \- Allows tests to be grouped 
   * `--color` \- Enables coloring in the RSpec output 
@@ -64,13 +69,15 @@ This file may be split into multiple files or folders if it helps you organize y
 
 * * *
 
-## [#](<#connector-spec-rb>) connector_spec.rb
+## connector_spec.rb [​](<#connector-spec-rb>)
 
 Created when `workato new` is run, the `connector_spec.rb` file contains the unit tests for your connector.
 
 An example file might look something like this:
+
+ruby
 ```bash
- 
+
     # frozen_string_literal: true
 
     RSpec.describe 'connector', :vcr do
@@ -104,32 +111,34 @@ An example file might look something like this:
       end
     end
 
-
 ```
 
-You can also use [`workato generate test`](</developing-connectors/sdk/cli/reference/cli-commands.html#workato-generate>) to generate RSpec test stubs for you. This handles most of the heavy lifting, such as such as instantiating your connector or settings.
+You can also use [`workato generate test`](</developing-connectors/sdk/cli/reference/cli-commands#workato-generate>) to generate RSpec test stubs for you. This handles most of the heavy lifting, such as such as instantiating your connector or settings.
 
-It's ultimately up to you how you want to write your unit tests. If you'd like some help getting started, [check out this tutorial (opens new window)](<https://semaphoreci.com/community/tutorials/getting-started-with-rspec>).
+It's ultimately up to you how you want to write your unit tests. If you'd like some help getting started, [check out this tutorial](<https://semaphoreci.com/community/tutorials/getting-started-with-rspec>).
 
 * * *
 
-## [#](<#fixtures>) fixtures
+## fixtures [​](<#fixtures>)
 
 The `/fixtures` folders are used to store the input and output JSON files used to test parts of your connector. This includes actions, triggers, methods, and so on.
 
 **Input** JSON files should be created and formed manually. You can design them yourself, or use the Cloud SDK's **Test code** tab to build them.
 
 **Output** JSON files can be created from CLI commands by including the `--output` option. For example:
-```ruby
- 
-    workato exec <PATH> --output
 
+shell
+```ruby
+
+    workato exec <PATH> --output
 
 ```
 
 Your `/fixtures` folder might look something like this:
+
+shell
 ```ruby
- 
+
     ├── fixtures
     │   ├── actions
     │   │   └── search_customers
@@ -151,14 +160,15 @@ Your `/fixtures` folder might look something like this:
     │           ├── customer_output_poll.json
     │           └── customer_output_poll_page.json
 
-
 ```
 
 * * *
 
-## [#](<#gemfile>) GEMFILE
+## GEMFILE [​](<#gemfile>)
+
+ruby
 ```bash
- 
+
     # frozen_string_literal: true
 
     source 'https://rubygems.org'
@@ -171,31 +181,33 @@ Your `/fixtures` folder might look something like this:
     gem 'byebug'
     gem 'rubocop' # Only if you want to use rubocop. Not added by default.
 
-
 ```
 
 * * *
 
-## [#](<#settings-yaml-enc-settings-yaml>) settings.yaml.enc, settings.yaml
+## settings.yaml.enc, settings.yaml [​](<#settings-yaml-enc-settings-yaml>)
 
 The `settings.yaml.enc`/`settings.yaml` file stores credentials used for testing. Data in this file must be valid YAML.
 
-### [#](<#single-credential-set>) Single credential set
+### Single credential set [​](<#single-credential-set>)
 
 If you only have one set of credentials, they can be defined at the root level:
+
+yaml
 ```ruby
- 
+
     api_key: valid_key
     domain: valid_domain
 
-
 ```
 
-### [#](<#multiple-credential-sets>) Multiple credential sets
+### Multiple credential sets [​](<#multiple-credential-sets>)
 
 If you have multiple sets of credentials, your settings file should be structured similarly to the following:
+
+yaml
 ```ruby
- 
+
     [one_connection_name]:
       api_key: valid_key
       domain: valid_domain
@@ -203,12 +215,11 @@ If you have multiple sets of credentials, your settings file should be structure
       api_key: invalid_key
       domain: invalid_domain
 
-
 ```
 
 * * *
 
-## [#](<#spec-helper-rb>) spec_helper.rb
+## spec_helper.rb [​](<#spec-helper-rb>)
 
 Created when `workato new` is run, the `spec_helper.rb` file stores common attributes to be used in RSpec runs.
 
@@ -218,15 +229,17 @@ This file should require, at a minimum:
   * `'workato-connector-sdk'`
   * `'json'`
 
-Learn more about additional RSpec configuration [here in the RSpec repository (opens new window)](<https://github.com/rspec/rspec-core>).
+Learn more about additional RSpec configuration [here in the RSpec repository](<https://github.com/rspec/rspec-core>).
 
 The following example shows the `spec_helper.rb` file that's created when the `secure` HTTP mocking behavior is selected for a project.
 
 This file will encrypt all VCR recordings using the project's `master.key`.
 
 However, by default the record mode for `secure` is `none`. This means that no new VCR cassettes will be recorded. To change this behavior, the `VCR_RECORD_MODE` environment variable to `once`.
+
+ruby
 ```bash
- 
+
     # frozen_string_literal: true
 
     require 'bundler/setup'
@@ -268,18 +281,17 @@ However, by default the record mode for `secure` is `none`. This means that no n
       config.configure_rspec_metadata!
     end
 
-
 ```
 
 * * *
 
-## [#](<#gitignore>) .gitignore
+## .gitignore [​](<#gitignore>)
 
 The `.gitignore` file contains a list of files and/or directories that shouldn't be pushed via Git.
 
 **Note** : If your project has a `master.key` file, you should add it to this file to ensure it isn't accidentally committed to a repository.
 ```ruby
- 
+
     /.bundle/
     /.yardoc
     /_yardoc/
@@ -293,5 +305,6 @@ The `.gitignore` file contains a list of files and/or directories that shouldn't
     # rspec failure tracking
     .rspec_status
 
-
 ```
+
+**Last updated:**

@@ -1,23 +1,31 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id.html
-> **Fetched**: 2026-05-04T03:11:09.165789
+> **Fetched**: 2026-05-05T03:09:29.725740
 
 ---
 
-# [#](<#how-to-guides-upload-file-via-file-streaming-chunk-id>) How-to guides - Upload file via file streaming (Chunk ID)
+[Connector SDK](</en/developing-connectors/sdk>)
 
-In this segment, we will be going through the creation of actions that uploads files in a target application through file streaming and utilizing assigning IDs to chunks. We will be going through [Azure Blob's API (opens new window)](<https://learn.microsoft.com/en-us/rest/api/storageservices/put-blob>) but this can be extended to many other best of breed cloud storage solutions.
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[File streaming operations](</en/developing-connectors/sdk/guides/building-actions/streaming>)
+
+# How-to guides - Upload file via file streaming (Chunk ID) [​](<#how-to-guides-upload-file-via-file-streaming-chunk-id>)
+
+In this segment, we will be going through the creation of actions that uploads files in a target application through file streaming and utilizing assigning IDs to chunks. We will be going through [Azure Blob's API](<https://learn.microsoft.com/en-us/rest/api/storageservices/put-blob>) but this can be extended to many other best of breed cloud storage solutions.
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeouts>) limit.
+SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
 
-You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id.html#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
+You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
 
-## [#](<#sample-connector>) Sample connector
+## Sample connector [​](<#sample-connector>)
+
+ruby
 ```ruby
- 
+
     {
       title: 'Upload to Azure Blob Friend URL',
 
@@ -71,18 +79,19 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
       # More connector code here
     }
 
-
 ```
 
-### [#](<#step-1-action-title-subtitles-description-and-help>) Step 1 - Action title, subtitles, description, and help
+### Step 1 - Action title, subtitles, description, and help [​](<#step-1-action-title-subtitles-description-and-help>)
 
 The first step to making a good action is to properly communicate what the actions does, how it does it and to provide additional help to users. To do so, Workato allows you to define the title, subtitles, description, and provide hints for an action. Quite simply, the title is the title of an action and the subtitle provides further details of the action. The description of the action then contains specifications and explanation on what the action accomplishes and in the context of the application it connects to. Finally, the help segment provides users any additional information required to make the action work.
 
-To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/actions.html#title>)
+To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/actions#title>)
 
-### [#](<#step-2-define-input-fields>) Step 2 - Define input fields
+### Step 2 - Define input fields [​](<#step-2-define-input-fields>)
+
+ruby
 ```ruby
- 
+
       input_fields: lambda do |object_definitions|
         [
           { name: "file", type: "stream" }, # field type must be stream
@@ -90,12 +99,11 @@ To know more about this step, take a look at our [SDK reference](</developing-co
         ]
       end,
 
-
 ```
 
 This component tells Workato what fields to show to a user trying to upload an object. In the case of this connector, we collect the `file_name`, the `file` which must be defined with `type` as `stream` and the `url` input for a friendly URL that we can upload this file to.
 
-### [#](<#step-3-defining-the-execute-key>) Step 3 - Defining the execute key
+### Step 3 - Defining the execute key [​](<#step-3-defining-the-execute-key>)
 
 In the execute action, we define the `workato.stream.in` which takes in the `file` stream input.
 
@@ -104,8 +112,10 @@ After calling `workato.stream.in` you're required to define a block that signifi
 We then send a PUT request to the friendly Azure URL alongside this block_id. `workato.stream.in` continues to loop over this block until the `stream` consumer dictates that the file has ended.
 
 After the stream is consumed, we send a final PUT request with the entire blocklist. This is in XML format as dictated by Azure Blob's API.
+
+ruby
 ```ruby
- 
+
       execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
         block_list = []
         # Calling workato.stream.in runs in a loop where the input should be file. 
@@ -136,14 +146,15 @@ After the stream is consumed, we send a final PUT request with the entire blockl
 
       end,
 
-
 ```
 
-### [#](<#step-4-defining-output-fields>) Step 4 - Defining output fields
+### Step 4 - Defining output fields [​](<#step-4-defining-output-fields>)
 
 This section tells us what datapills to show as the output of the trigger. The `name` attributes of each datapill should match the keys in the output of the `execute` key.
+
+ruby
 ```ruby
- 
+
       output_fields: lambda do |object_definitions|
           output_fields: lambda do |object_definitions|
             [
@@ -152,18 +163,19 @@ This section tells us what datapills to show as the output of the trigger. The `
           end
       end
 
-
 ```
 
-## [#](<#variations>) Variations
+## Variations [​](<#variations>)
 
-### [#](<#using-our-multistep-framework-to-extend-upload-times>) Using our multistep framework to extend upload times
+### Using our multistep framework to extend upload times [​](<#using-our-multistep-framework-to-extend-upload-times>)
 
 When defining the `workato.stream.in` method, you are able to define an additional named parameter for `from`, which can be used in conjunction with the `checkpoint!` method to extend the timeout of your upload action beyond Workato's limit of 180 seconds.
 
 When `checkpoint!` is called, it checks if action's current execution time is larger than 120 seconds, and if so, refreshes the action timeout after a short waiting period. This can be used in conjunction with the `from` argument to tell Workato's streaming library where to continue from the last byte offset.
+
+ruby
 ```ruby
- 
+
       execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
         block_list = closure["block_list"].presence || []
         next_from = closure["next_from"].presence || 0
@@ -199,16 +211,17 @@ When `checkpoint!` is called, it checks if action's current execution time is la
         } 
       end
 
-
 ```
 
-### [#](<#adjusting-the-default-10mb-chunk-size>) Adjusting the default 10MB chunk size
+### Adjusting the default 10MB chunk size [​](<#adjusting-the-default-10mb-chunk-size>)
 
 When Workato attempts to retrieve a file chunk from an API, it defaults to requesting a 10MB chunk. In some cases, your API may require a larger minimum chunk size and you can override this default by declaring your own chunk size using the `frame_size` argument.
 
 Take note that this does not guarantee that you will receive a chunk size of 20MB from all producers. You can make necessary precautions by storing a temporary buffer as well.
+
+ruby
 ```ruby
- 
+
       execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
         # 20MB in bytes
         frame_size = 20971520 
@@ -254,5 +267,6 @@ Take note that this does not guarantee that you will receive a chunk size of 20M
         } 
       end
 
-
 ```
+
+**Last updated:**

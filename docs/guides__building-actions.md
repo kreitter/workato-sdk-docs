@@ -1,11 +1,15 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions.html
-> **Fetched**: 2026-05-04T03:11:00.353825
+> **Fetched**: 2026-05-05T03:09:20.676397
 
 ---
 
-# [#](<#building-actions>) Building actions
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+# Building actions [​](<#building-actions>)
 
 Once you have figured out how to connect to your applications, you can build actions for your connectors. Actions give your connectors functionality and purpose, without them, your connectors can't really do much. In this segment, we go through the building of various types of actions:
 
@@ -20,14 +24,16 @@ Once you have figured out how to connect to your applications, you can build act
 
 TIP
 
-Before we start, it is also important to get familiar with the different types of [HTTP request methods](</developing-connectors/sdk/sdk-reference/http.html>) which power all actions.
+Before we start, it is also important to get familiar with the different types of [HTTP request methods](</developing-connectors/sdk/sdk-reference/http>) which power all actions.
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeouts>) limit.
+SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
 
-You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_methods.html#checkpoint>) method with file streaming actions to transfer files that exceed the timeout limit. The `checkpoint!` method checks the duration of an action's execution. If it exceeds 120 seconds, Workato refreshes the timeout with a slight delay to ensure fair processing.
+You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_methods#checkpoint>) method with file streaming actions to transfer files that exceed the timeout limit. The `checkpoint!` method checks the duration of an action's execution. If it exceeds 120 seconds, Workato refreshes the timeout with a slight delay to ensure fair processing.
 
-### [#](<#general-structure-of-actions>) General structure of actions
+### General structure of actions [​](<#general-structure-of-actions>)
 
-Refer to the `actions` key section in the [SDK reference](</developing-connectors/sdk/sdk-reference/actions.html>) for full details.
+Refer to the `actions` key section in the [SDK reference](</developing-connectors/sdk/sdk-reference/actions>) for full details.
+
+**Last updated:**

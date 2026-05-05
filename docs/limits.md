@@ -1,13 +1,15 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/limits.html
-> **Fetched**: 2026-05-04T03:11:32.221441
+> **Fetched**: 2026-05-05T03:09:53.518734
 
 ---
 
-# [#](<#connector-sdk-limits>) Connector SDK limits
+[Connector SDK](</en/developing-connectors/sdk>)
 
-Description |  Limit   
+# Connector SDK limits [​](<#connector-sdk-limits>)
+
+Description| Limit  
 ---|---  
 Maximum number of SDK/custom connectors in one workspace| 150  
 Timeout for HTTP request inside SDK connectors in the Test code console| 40 seconds  
@@ -24,5 +26,7 @@ Compatible code formats| UTF-8 and JSON compatible
 
 FURTHER READING
 
-  * Refer to the [SDK trigger polling limits](</developing-connectors/sdk/guides/trigger-limit.html>) documentation for more information on SDK polling trigger limits.
-  * Refer to the [Platform limits](</limits.html>) documentation for more information about Workato limits.
+  * Refer to the [SDK trigger polling limits](</developing-connectors/sdk/guides/trigger-limit>) documentation for more information on SDK polling trigger limits.
+  * Refer to the [Platform limits](</limits>) documentation for more information about Workato limits.
+
+**Last updated:**

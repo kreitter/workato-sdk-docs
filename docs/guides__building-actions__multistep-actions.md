@@ -1,11 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multistep-actions.html
-> **Fetched**: 2026-05-04T03:11:05.902737
+> **Fetched**: 2026-05-05T03:09:26.353668
 
 ---
 
-# [#](<#how-to-guides-multistep-actions>) How-to guides - Multistep actions
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[Building actions ](</en/developing-connectors/sdk/guides/building-actions>)
+
+# How-to guides - Multistep actions [​](<#how-to-guides-multistep-actions>)
 
 In this segment, we will be going through the creation of actions that work with asynchronous APIs. Typically, when working with asynchronous APIs to kickstart a long running job or process in a target application, often times you'll send a request and expect an ID that corresponds to that job or process. Your action would then want to constantly check back with the API to see if the job is completed before retrieving results or moving on to the next step in the recipe.
 
@@ -15,17 +21,19 @@ Rather than having the user configure this logic in the recipe, you can now embe
 
 DEBUGGING LIMITATION IN TEST CODE TAB
 
-You can't debug multistep actions in Workato's SDK **Test code** tab. This may trigger an `uncaught throw :return_from_action` error. Instead, use the [SDK Gem](</developing-connectors/sdk/cli.html>) to debug multistep actions.
+You can't debug multistep actions in Workato's SDK **Test code** tab. This may trigger an `uncaught throw :return_from_action` error. Instead, use the [SDK Gem](</developing-connectors/sdk/cli>) to debug multistep actions.
 
 Always release the latest version of your custom connector before testing it in the recipe editor. This applies any changes made during debugging.
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeouts>) limit.
+SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
 
-## [#](<#sample-connector-google-bigquery>) Sample connector - Google BigQuery
+## Sample connector - Google BigQuery [​](<#sample-connector-google-bigquery>)
+
+ruby
 ```ruby
- 
+
     {
       title: 'My Google BigQuery connector',
 
@@ -149,18 +157,19 @@ SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeout
           },
     }
 
-
 ```
 
-## [#](<#step-1-action-title-subtitle-description-and-help>) Step 1 - Action title, subtitle, description, and help
+## Step 1 - Action title, subtitle, description, and help [​](<#step-1-action-title-subtitle-description-and-help>)
 
 The first step to making a good action is to properly communicate what the actions does, how it does it and to provide additional help to users. To do so, Workato allows you to define the title, description, and provide hints for an action. Quite simply, the title is the title of an action and the subtitle provides further details of the action. The description of the action then contains specifications and explanation on what the action accomplishes and in the context of the application it connects to. Finally, the help segment provides users any additional information required to make the action work.
 
-To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/actions.html#title>)
+To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/actions#title>)
 
-## [#](<#step-2-define-input-fields>) Step 2 - Define input fields
+## Step 2 - Define input fields [​](<#step-2-define-input-fields>)
+
+ruby
 ```ruby
- 
+
       input_fields: lambda do 
         [
           { 
@@ -192,7 +201,6 @@ To know more about this step, take a look at our [SDK reference](</developing-co
         ]
       end,
 
-
 ```
 
 This component tells Workato what fields to show to a user trying to execute the multistep action. In the case of executing a query in BigQuery for example, the user has to provide us the following:
@@ -202,7 +210,7 @@ This component tells Workato what fields to show to a user trying to execute the
   3. Whether the action should wait for the query to complete
   4. And the output columns expected from the query
 
-## [#](<#step-3-defining-the-execute-key>) Step 3 - Defining the execute key
+## Step 3 - Defining the execute key [​](<#step-3-defining-the-execute-key>)
 
 The execute key tells Workato the endpoint to send the request to and using which HTTP request method and also controls the entire logic as to how this action should interact with this asynchronous API. When configuring multistep actions, you will need to utilize the `continue` argument together with the `reinvoke_after` method. This will allow you to first invoke the `execute` lambda function to insert the query in Google BigQuery, optionally put the job to sleep to be woken up later to check if the query is done.
 
@@ -211,8 +219,10 @@ When the job is woken up, the `execute` lambda function is invoked again with th
 TIP
 
 Step time must be set to a minimum of 60 seconds. If anything lower is supplied, Workato default to 60 seconds.
+
+ruby
 ```ruby
- 
+
       execute: lambda do |connection, input, eis, eos, continue|
         continue = {} unless continue.present? #For the first invocation, continue is nil
         current_step = continue['current_step'] || 1 #Instantiate current_step so we know what step we are on
@@ -260,14 +270,15 @@ Step time must be set to a minimum of 60 seconds. If anything lower is supplied,
         end
       end,
 
-
 ```
 
-## [#](<#step-4-defining-output-fields>) Step 4 - Defining output fields
+## Step 4 - Defining output fields [​](<#step-4-defining-output-fields>)
 
 This section tells us what datapills to show as the output of the trigger. The `name` attributes of each datapill should match the keys in the output of the `execute` key.
+
+ruby
 ```ruby
- 
+
     output_fields: lambda do |object_definitions, config_fields|
       schema = [
         {
@@ -288,14 +299,15 @@ This section tells us what datapills to show as the output of the trigger. The `
       ]
     end,
 
-
 ```
 
 Object definitions
 
 In this example, we make use of the `output_fields` given to us by the user in their input fields. Here is the object definition of `query_output`.
+
+ruby
 ```ruby
- 
+
     query_output: {
       fields: lambda do |connection, config_fields, object_definitions|
         next if config_fields['output_fields'].blank?
@@ -303,5 +315,6 @@ In this example, we make use of the `output_fields` given to us by the user in t
       end
     }
 
-
 ```
+
+**Last updated:**

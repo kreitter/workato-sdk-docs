@@ -1,10 +1,18 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/examples.html
-> **Fetched**: 2026-05-04T03:11:28.933042
+> **Fetched**: 2026-05-05T03:09:50.170851
 
 ---
 
-# [#](<#connector-examples>) Connector Examples
+[Connector SDK](</en/developing-connectors/sdk>)
 
-Our community has a wealth of connectors that you can find, install, and inspect the code. Check them out on the [Workato connector library (opens new window)](<https://app.workato.com/browse/connectors>).
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+Tips
+
+# Connector Examples [​](<#connector-examples>)
+
+Our community has a wealth of connectors that you can find, install, and inspect the code. Check them out on the [Workato connector library](<https://app.workato.com/browse/connectors>).
+
+**Last updated:**

@@ -1,15 +1,21 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/vcr.html
-> **Fetched**: 2026-05-04T03:10:30.590674
+> **Fetched**: 2026-05-05T03:08:50.116906
 
 ---
 
-# [#](<#how-to-guides-setting-up-vcr-for-your-unit-tests>) How-to guides - Setting up VCR for your unit tests
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[CLI](</en/developing-connectors/sdk/cli>)
+
+Guides
+
+# How-to guides - Setting up VCR for your unit tests [​](<#how-to-guides-setting-up-vcr-for-your-unit-tests>)
 
 In this segment, we will be going through how you can set up VCR to record HTTP interactions for your unit tests.
 
-## [#](<#why-do-i-need-vcr-for-my-unit-tests>) Why do I need VCR for my unit tests?
+## Why do I need VCR for my unit tests? [​](<#why-do-i-need-vcr-for-my-unit-tests>)
 
 The VCR gem works hand in hand with RSpec tests to record any HTTP interactions (requests) that are sent out when you are running your test suite and play back the same responses if the test suite is run again.
 
@@ -17,15 +23,17 @@ This is critical for stable RSpec tests especially when you're working with an e
 
 This removes one aspect of variability in your tests and ensures that you're only testing for changes in your code and nothing else.
 
-[Learn more about VCR (opens new window)](<https://relishapp.com/vcr/vcr/v/1-10-3/docs/getting-started>).
+[Learn more about VCR](<https://relishapp.com/vcr/vcr/v/1-10-3/docs/getting-started>).
 
-## [#](<#how-do-i-get-started>) How do I get started?
+## How do I get started? [​](<#how-do-i-get-started>)
 
 When you generate a connector project using the command `workato new [PATH]`, VCR will be set up automatically.
 
 If you set up the project with the `secure` option, the VCR recordings are also encrypted. We recommend you use the `secure` option. In any case, your `spec_helper.rb` contains all information about your VCR recording configurations. Setting your project to `secure` ensures your VCR recordings are encrypted with your `master.key`. Below you can find an example of a `spec_helper.rb` which includes encryption.
+
+ruby
 ```bash
- 
+
     # frozen_string_literal: true
 
     require 'bundler/setup'
@@ -67,23 +75,25 @@ If you set up the project with the `secure` option, the VCR recordings are also 
       config.configure_rspec_metadata!
     end
 
-
 ```
 
 TIP
 
 **By default our record mode for secure is`none` which means no new VCR cassettes are recorded. To record new VCR cassettes, run the RSpec tests with the following command `VCR_RECORD_MODE=once bundle exec rspec spec/actions/test_action_spec.rb`.**
 
-## [#](<#can-i-make-modifications-to-the-vcr-settings>) Can I make modifications to the VCR settings?
+## Can I make modifications to the VCR settings? [​](<#can-i-make-modifications-to-the-vcr-settings>)
 
 You can do so in `spec_helper.rb`. You can modify the spec_helper to suite your needs such as changing or relaxing the conditions as to how VCR matches your outgoing HTTP requests to previously recorded interactions.
 
 Example: Relaxing VCR matching to accept different Authorization Headers by adjusting `spec_helper.rb`
+
+ruby
 ```ruby
- 
+
     config.register_request_matcher :headers_without_user_agent do |request1, request2|
       request1.headers.except('User-Agent', 'Authorization') == request2.headers.except('User-Agent', 'Authorization')
     end
 
-
 ```
+
+**Last updated:**

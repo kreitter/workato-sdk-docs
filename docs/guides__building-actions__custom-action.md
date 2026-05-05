@@ -1,23 +1,31 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/custom-action.html
-> **Fetched**: 2026-05-04T03:11:02.550641
+> **Fetched**: 2026-05-05T03:09:22.919590
 
 ---
 
-# [#](<#how-to-guides-enabling-custom-actions>) How-to guides - Enabling custom actions
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[Building actions ](</en/developing-connectors/sdk/guides/building-actions>)
+
+# How-to guides - Enabling custom actions [​](<#how-to-guides-enabling-custom-actions>)
 
 In this segment, we will be going through the enabling of custom actions effectively. Custom actions are a great way to implement a "Catch All" for users of your connector. Take note that all requests sent from your custom action will inherit your authorization details like tokens as well as authorization logic for token refresh.
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors.html#timeouts>) limit.
+SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
 
-You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_methods.html#checkpoint>) method with file streaming actions to transfer files that exceed the timeout limit. The `checkpoint!` method checks the duration of an action's execution. If it exceeds 120 seconds, Workato refreshes the timeout with a slight delay to ensure fair processing.
+You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_methods#checkpoint>) method with file streaming actions to transfer files that exceed the timeout limit. The `checkpoint!` method checks the duration of an action's execution. If it exceeds 120 seconds, Workato refreshes the timeout with a slight delay to ensure fair processing.
 
-## [#](<#sample-connector-code>) Sample connector code
+## Sample connector code [​](<#sample-connector-code>)
+
+ruby
 ```ruby
- 
+
     {
       title: 'Acme',
       connection: {
@@ -95,20 +103,21 @@ You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_met
       }
     }
 
-
 ```
 
-## [#](<#step-1-configuring-the-connection>) Step 1 - Configuring the connection
+## Step 1 - Configuring the connection [​](<#step-1-configuring-the-connection>)
 
 Since the authorization credentials dictate the scope and permission of the connection, it is important to consider what custom actions may be used for - some endpoints require different scopes and permissions. This may include additional scopes and permissions that are not necessary for default actions.
 
 In the example above, we have included a simple example for OAuth2 where users may add additional OAuth scopes as needed for their custom actions in the future.
 
-![OAuth connection with scopes](/assets/img/custom_action_connection.39a45a4a.png)
+![OAuth connection with scopes](/assets/custom_action_connection.Sy7kNoIf.png)
 
-## [#](<#step-2-define-the-custom-action>) Step 2 - Define the custom action
+## Step 2 - Define the custom action [​](<#step-2-define-the-custom-action>)
+
+ruby
 ```ruby
- 
+
       custom_action: true,
 
       custom_action_help: {
@@ -119,18 +128,19 @@ In the example above, we have included a simple example for OAuth2 where users m
         body: 'Build your own Acme action with a HTTP request. The request will be authorized with your current connection.'
       }
 
-
 ```
 
 This component tells Workato that you want custom actions enabled for your connector as well as allows you to add additional guidance to users. In particular, you should add relevant help links to API documentation to make it easier for users to find a reference when configuring their custom actions.
 
-### [#](<#security-considerations>) Security considerations
+### Security considerations [​](<#security-considerations>)
 
 Because custom actions can allow inputs to the URL path, you must consider how custom actions will be used by users in your organization. Path traversal attacks are possible if you allow user provided inputs such as datapills in your path.
 
-Refer to the [PortSwigger path traversal guide (opens new window)](<https://portswigger.net/web-security/file-path-traversal>) for more information on path traversal attacks.
+Refer to the [PortSwigger path traversal guide](<https://portswigger.net/web-security/file-path-traversal>) for more information on path traversal attacks.
 
 Enhance your security posture by using the following mitigation strategies:
 
   1. Within your organization, enforce that user-defined inputs (such as datapills representing data written by users) should not be supplied to URL path inputs or any other inputs that represent a path to a file
   2. Inquire with your API vendor regarding their inputs about path traversal attacks. Understand how they mitigate such attacks and enforce further validations as needed in your recipes before allowing user inputs to be placed in sensitive fields.
+
+**Last updated:**

@@ -1,25 +1,33 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/methods.html
-> **Fetched**: 2026-05-04T03:10:19.551359
+> **Fetched**: 2026-05-05T03:08:38.771176
 
 ---
 
-# [#](<#how-to-guides-running-methods-on-cli>) How-to guides - Running methods on CLI
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[CLI](</en/developing-connectors/sdk/cli>)
+
+Guides
+
+# How-to guides - Running methods on CLI [​](<#how-to-guides-running-methods-on-cli>)
 
 In this segment, we will be going through how you can run methods using the Workato Gem.
 
-## [#](<#prerequisites>) Prerequisites
+## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started.html>) to know more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
   * You have a working connector with at least 1 method. You use the sample connector provided below.
   * You have a working set of credentials. If you are using a sample connector code, ensure that you have the appropriate credentials for the connector.
 
-## [#](<#sample-connector-chargebee>) Sample connector - Chargebee
+## Sample connector - Chargebee [​](<#sample-connector-chargebee>)
 
 The code in `connector.rb`.
+
+ruby
 ```ruby
- 
+
     {
       title: 'Chargebee-demo',
 
@@ -68,15 +76,15 @@ The code in `connector.rb`.
       },
     }
 
-
 ```
 
 Credentials in `settings.yaml.enc` .
+
+yaml
 ```ruby
- 
+
     api_key: valid_api_key
     domain: valid_domain
-
 
 ```
 
@@ -86,11 +94,13 @@ If you're using an encrypted settings.yaml file, you will need to use `workato e
 
 With the SDK Gem, you'll be able to invoke a method individually and gain greater control over how each method works.
 
-## [#](<#example-1-running-the-get-customers-method>) Example 1. Running the `get_customers` method
+## Example 1. Running the `get_customers` method [​](<#example-1-running-the-get-customers-method>)
 
 The `get_customers` method in the preceding example has no declared input arguments. The method fetches customers and returns the API response when the SDK Gem invokes it.
+
+shell
 ```bash
- 
+
     $ workato exec methods.get_customers
     {
       "list": [
@@ -124,7 +134,6 @@ The `get_customers` method in the preceding example has no declared input argume
       "next_offset": "[\"1630848839000\",\"42903379\"]"
     }
 
-
 ```
 
 TIP
@@ -133,27 +142,29 @@ You can also use other options like `--verbose` to see the detailed logs of any 
 
 If no `settings.yaml` file is defined, the SDK Gem will assume the default `settings.yaml.enc` file to utilize for any HTTP requests.
 
-## [#](<#example-2-running-the-sample-method-method>) Example 2. Running the `sample_method` method
+## Example 2. Running the `sample_method` method [​](<#example-2-running-the-sample-method-method>)
 
 The second method we will cover in the example above is the `sample_method` method, which has 2 arguments. You can see that we have referenced an `args` in the command which points to a JSON file stored in our `fixtures` folder. This file should contain an array **where each index in the array corresponds to a single argument.**
 
 The `fixtures/triggers/new_updated_object/customer_input_poll.json` file in this example contains the following:
+
+JSON
 ```ruby
- 
+
     [
         "Hello",
         "world"
     ]
 
-
 ```
 
 Here is an example the method being run:
+
+shell
 ```bash
- 
+
     $ workato exec methods.sample_method --args='fixtures/actions/search_customers/customer_config.json' 
     "Hello world"
-
 
 ```
 
@@ -162,3 +173,5 @@ TIP
 You can also use other options like `--verbose` to see the detailed logs of any HTTP requests sent when your method is ran and `--output` to save the output of the function to a JSON file.
 
 If no `settings.yaml` file is defined, the SDK Gem will assume the default `settings.yaml.enc` file to utilize for any HTTP requests.
+
+**Last updated:**

@@ -1,28 +1,36 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/upload-streaming-actions.html
-> **Fetched**: 2026-05-04T03:10:25.110371
+> **Fetched**: 2026-05-05T03:08:44.508492
 
 ---
 
-# [#](<#how-to-guides-running-upload-streaming-actions-triggers-on-cli>) How-to guides - Running upload streaming actions/triggers on CLI
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[CLI](</en/developing-connectors/sdk/cli>)
+
+Guides
+
+# How-to guides - Running upload streaming actions/triggers on CLI [​](<#how-to-guides-running-upload-streaming-actions-triggers-on-cli>)
 
 In this segment, we will be going through how you can run and easily debug actions that utilize file streaming using the Workato Gem. File streaming can be differentiated into two main components that go together - download file actions and upload file actions. Below, we will go over the steps to execute an upload file action in the CLI.
 
-## [#](<#prerequisites>) Prerequisites
+## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started.html>) to know more.
-  * You have an understanding of the mechanics of file streaming on the SDK. Read our [guides](</developing-connectors/sdk/guides/building-actions/streaming.html>) to learn more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
+  * You have an understanding of the mechanics of file streaming on the SDK. Read our [guides](</developing-connectors/sdk/guides/building-actions/streaming>) to learn more.
 
-## [#](<#upload-file-sample-connector-upload-file-to-url>) Upload file - Sample connector - Upload file to url
+## Upload file - Sample connector - Upload file to url [​](<#upload-file-sample-connector-upload-file-to-url>)
 
-We will be using the [generic upload file to url connector](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range.html>) as an example.
+We will be using the [generic upload file to url connector](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range>) as an example.
 
-### [#](<#running-the-execute-lambda-for-the-upload-file-action>) Running the `execute` lambda for the Upload file action
+### Running the `execute` lambda for the Upload file action [​](<#running-the-execute-lambda-for-the-upload-file-action>)
 
 With upload file streaming actions, the definition of the input is important here as it has to contain information about an incoming file stream that the action will utilize. There are numerous options to simulate a file stream which we will go over.
+
+ruby
 ```ruby
- 
+
     execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
       # Calling workato.stream.in runs in a loop where the input should be file. 
       # It can accept both entire files or the output of a streaming-enabled download file action
@@ -37,12 +45,13 @@ With upload file streaming actions, the definition of the input is important her
 
     end,
 
-
 ```
 
 Alongside the execute lambda, you will also need a input JSON file such as `upload_file_input.json` when executing the upload file action in the SDK CLI. Below, we have an example of a mocked stream whose chunks are defined explicitly - each chunk is a separate key in the `chunks` hash.
+
+JSON
 ```ruby
- 
+
     {
         "file_name": "sample_file",
         "file": {
@@ -59,12 +68,13 @@ Alongside the execute lambda, you will also need a input JSON file such as `uplo
         "url": "https://www.friendly_upload_url.com"
     }
 
-
 ```
 
 To run the upload file action, you give the same command as you would a standard action.
+
+shell
 ```ruby
- 
+
     workato exec actions.upload_to_url.execute --input='upload_file_input.json' --verbose
 
     SETTINGS
@@ -106,10 +116,9 @@ To run the upload file action, you give the same command as you would a standard
       "file_name": "file_name"
     }
 
-
 ```
 
-### [#](<#variations-to-mock-streams>) Variations to mock streams
+### Variations to mock streams [​](<#variations-to-mock-streams>)
 
 Beyond mocking streams by declaring chunks manually, you can mock streams in a variety of ways.
 
@@ -118,8 +127,10 @@ TIP
 Take note that streams can take longer than your average actions to finish execution - depending on the size of the file and network. It is recommended to test with smaller files rather than production sizes.
 
 Mock streams with each chunk explicitly
+
+JSON
 ```ruby
- 
+
     {
         "file": {
           "__stream__": true,
@@ -132,12 +143,13 @@ Mock streams with each chunk explicitly
         }
     }
 
-
 ```
 
 Mock streams by utilizing a stream implemented for a download file action/trigger in the same connector
+
+JSON
 ```ruby
- 
+
     {
         "file": {
           "__stream__": true,
@@ -148,12 +160,13 @@ Mock streams by utilizing a stream implemented for a download file action/trigge
         },
     }
 
-
 ```
 
 Mock streams by providing a static stream
+
+JSON
 ```ruby
- 
+
     {
         "file": {
           "data": "123456789",
@@ -161,15 +174,17 @@ Mock streams by providing a static stream
         },
     }
 
-
 ```
 
 Mock streams by providing a string
+
+JSON
 ```ruby
- 
+
     {
         "file": "qwertyuiop[]"
     }
 
-
 ```
+
+**Last updated:**

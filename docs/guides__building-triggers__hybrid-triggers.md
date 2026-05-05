@@ -1,11 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/hybrid-triggers.html
-> **Fetched**: 2026-05-04T03:11:15.709662
+> **Fetched**: 2026-05-05T03:09:36.475217
 
 ---
 
-# [#](<#how-to-guides-hybrid-polling-webhook-triggers>) How-to guides - Hybrid polling + webhook triggers
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[Building triggers](</en/developing-connectors/sdk/guides/building-triggers>)
+
+# How-to guides - Hybrid polling + webhook triggers [​](<#how-to-guides-hybrid-polling-webhook-triggers>)
 
 Webhooks open up a wide range of use cases that are time sensitive in nature, such as receiving the event when a customer makes a purchase. There are, however, scenarios where webhook events can be lost. This could be due to transient network errors that any HTTP requests can be susceptible to, or simply when the recipe is stopped for a short period of time and webhooks were sent during that period.
 
@@ -15,7 +21,7 @@ Before continuing
 
 The guide below builds on top of knowledge for both webhook and polling triggers. It is recommended that you read through the guides for those respective triggers first.
 
-## [#](<#why-implement-hybrid-triggers>) Why implement Hybrid triggers
+## Why implement Hybrid triggers [​](<#why-implement-hybrid-triggers>)
 
 Hybrid triggers present numerous benefits over traditional webhook triggers through three key improvements:
 
@@ -23,7 +29,7 @@ Hybrid triggers present numerous benefits over traditional webhook triggers thro
   2. Allow your trigger output for each job to have all data needed, instead of a skinny payload that is often sent in the webhook.
   3. Prevent job loss when a recipe is stopped for a period of time. When the recipe is started again, Workato executes a poll immediately to retrieve all records.
 
-## [#](<#mechanics-of-hybrid-triggers>) Mechanics of Hybrid triggers
+## Mechanics of Hybrid triggers [​](<#mechanics-of-hybrid-triggers>)
 
 Hybrid trigger combine important lambdas from webhook triggers and polling triggers respectively. For static webhook hybrid triggers, you will need the `webhook_keys` and `webhook_key` lambdas, alongside the `poll` lambda. For dynamic webhook hybrid triggers, you will need the `webhook_subscribe` and `webhook_unsubscribe` lambdas, alongside the `poll` lambda.
 
@@ -40,9 +46,11 @@ For example, when a burst of 100 webhook events are received over 1 minute, you 
 
 Workato also executes the `poll` lambda every 12 hours to ensure that in case of webhook outages, records are still picked up with some delay.
 
-## [#](<#sample-connector-chargebee>) Sample connector - Chargebee
+## Sample connector - Chargebee [​](<#sample-connector-chargebee>)
+
+ruby
 ```ruby
- 
+
     {
       title: 'My Chargebee connector',
 
@@ -130,20 +138,21 @@ Workato also executes the `poll` lambda every 12 hours to ensure that in case of
       # More connector code here
     }
 
-
 ```
 
-## [#](<#step-1-implement-your-chosen-webhook-trigger>) Step 1 - Implement your chosen webhook trigger
+## Step 1 - Implement your chosen webhook trigger [​](<#step-1-implement-your-chosen-webhook-trigger>)
 
 Depending on what the app you are building the connector for, build the appropriate webhook trigger type. Dynamic webhooks are always preferred as they minimize the amount of setup needed by the end user. In our example, Chargebee requires you to manually setup webhook subscriptions so we have used a static webhook trigger. Refer more to our guides on each of the types of webhooks to learn more.
 
 For dynamic webhook triggers, you are expected to define the `webhook_subscribe` and `webhook_unsubscribe` lambda. For static webhook triggers, you are expected to define the `webhook_keys` and `webhook_key` lambda.
 
-## [#](<#step-2-define-the-poll-block>) Step 2 - Define the poll block
+## Step 2 - Define the poll block [​](<#step-2-define-the-poll-block>)
 
-Instead of defining the `webhook_notification` lambda, building a hybrid trigger requires that you define the `poll` lambda instead. The `poll` lambda should function similar to any other polling trigger, whereby it needs an API endpoint to pull new records. [Refer to our polling trigger guides to understand more.](</developing-connectors/sdk/guides/building-triggers/poll.html>)
+Instead of defining the `webhook_notification` lambda, building a hybrid trigger requires that you define the `poll` lambda instead. The `poll` lambda should function similar to any other polling trigger, whereby it needs an API endpoint to pull new records. [Refer to our polling trigger guides to understand more.](</developing-connectors/sdk/guides/building-triggers/poll>)
+
+ruby
 ```ruby
- 
+
           poll: lambda do 
             page_size = 100
              closure = {} unless closure.present?
@@ -173,16 +182,17 @@ Instead of defining the `webhook_notification` lambda, building a hybrid trigger
              } 
           end,
 
-
 ```
 
 In our example, we simply query Chargebee's subscription API to give us the subscriptions created/updated after the last time we polled.
 
-## [#](<#step-4-defining-output-fields-and-dedup>) Step 4 - Defining output fields and dedup
+## Step 4 - Defining output fields and dedup [​](<#step-4-defining-output-fields-and-dedup>)
 
 When defining the output fields and dedup, take note that this should be based on the `poll` lambda's output and not the actual webhook payload. Essentially, the webhook payload is discarded in favor of the records received in the `poll` lambda.
+
+ruby
 ```ruby
- 
+
           dedup: lambda do |record|
             "#{record['subscription']['id']}@#{record['subscription']['updated_at']}"
           end,
@@ -191,9 +201,10 @@ When defining the output fields and dedup, take note that this should be based o
             object_definitions['subscription']
           end
 
-
 ```
 
-## [#](<#rate-limits>) Rate limits
+## Rate limits [​](<#rate-limits>)
 
-This trigger is subject to our [webhook gateway's limits.](</troubleshooting/webhook-gateway-limits.html>)
+This trigger is subject to our [webhook gateway's limits.](</troubleshooting/webhook-gateway-limits>)
+
+**Last updated:**

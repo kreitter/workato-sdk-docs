@@ -1,11 +1,15 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats.html
-> **Fetched**: 2026-05-04T03:11:21.234907
+> **Fetched**: 2026-05-05T03:09:42.185286
 
 ---
 
-# [#](<#handling-different-data-formats>) Handling different data formats
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+# Handling different data formats [​](<#handling-different-data-formats>)
 
 When looking to connect to an API, one of the first questions to ask is what data format the API supports. The Workato SDK supports the following data formats which should cover all but a small minority of APIs out there. The Workato Connector SDK allows you to send and receive data using various `Content-Types`:
 
@@ -14,4 +18,6 @@ When looking to connect to an API, one of the first questions to ask is what dat
   * Multipart Form
   * URL Encoded Form
 
-Before we start, it is also important to get familiar with the different types of [HTTP request methods](</developing-connectors/sdk/sdk-reference/http.html>). These HTTP request methods are what give life to the actions that you are building.
+Before we start, it is also important to get familiar with the different types of [HTTP request methods](</developing-connectors/sdk/sdk-reference/http>). These HTTP request methods are what give life to the actions that you are building.
+
+**Last updated:**

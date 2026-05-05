@@ -1,11 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/json-format.html
-> **Fetched**: 2026-05-04T03:11:23.387928
+> **Fetched**: 2026-05-05T03:09:44.410958
 
 ---
 
-# [#](<#how-to-guides-json-data-format>) How-to guides - JSON data format  
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[Handling data formats](</en/developing-connectors/sdk/guides/data-formats>)
+
+# How-to guides - JSON data format [​](<#how-to-guides-json-data-format>)
 
 The Workato SDK's default expected data format is JSON. Action and trigger inputs will be passed as JSON payloads if no data format is specified. A JSON parser error will be shown if the SDK expected JSON and got another data format.
 
@@ -13,9 +19,11 @@ When you declare any HTTP request, Workato assumes the outgoing request and inco
 
 Below we have an example of an action titled `post_message`. This simple action collects input from the user based on fields defined in the `input_fields` key in the `post_message` action and when the action is executed in a recipe, the execute key is run that creates a `POST` HTTP call to `https://api.ciscospark.com/v1/messages` with `input` as its body.
 
-## [#](<#sample-code-snippet>) Sample code snippet
+## Sample code snippet [​](<#sample-code-snippet>)
+
+ruby
 ```ruby
- 
+
     {
       title: 'My cisco connector',
 
@@ -85,62 +93,65 @@ Below we have an example of an action titled `post_message`. This simple action 
       },
     }
 
-
 ```
 
 Here we have the resultant request that is sent when the `execute` key above is executed. We default your `Content-Type` header to `application/json` and also format your input as key-value pairs in a JSON formatted string. This minimizes the amount of pre and post request processing that you need to do.
 
-## [#](<#request>) Request
+## Request [​](<#request>)
 
-Now lets go through what happens when we run the `post_message` action that we just defined. Below we go through the POST HTTP request we send out to <https://api.ciscospark.com/v1/messages>[ (opens new window)](<https://api.ciscospark.com/v1/messages>)
+Now lets go through what happens when we run the `post_message` action that we just defined. Below we go through the POST HTTP request we send out to <https://api.ciscospark.com/v1/messages>
 
 HEADERS AND BODY SECTIONS
 
 `POST` HTTP requests are usually divided into two sections: `Headers` and `Body`. The request headers define the HTTP method and include metadata related to the request. The request body contains the actual content or payload.
 
-### [#](<#request-headers>) Request headers
+### Request headers [​](<#request-headers>)
 
 Since no data format was declared in our action, Workato defaults to JSON and assigns `Content-Type` to `application/json`. This tells the API we sent the request to that our request body is in a JSON data format.
+
+http
 ```ruby
- 
+
     POST https://api.ciscospark.com/v1/messages
     Accept  application/json
     Content-Type  application/json
     Authorization Bearer ---
 
-
 ```
 
-### [#](<#request-body>) Request body:
+### Request body: [​](<#request-body>)
 
 This request body is generated based on the user's input and transformed into a JSON format by Workato. This request body corresponds to a user's input for the `roomId` field being `1234` and `text` field being `testing`.
+
+json
 ```ruby
- 
+
     {
       "roomId":"1234",
       "text":"testing"
     }
 
-
 ```
 
-## [#](<#response>) Response
+## Response [​](<#response>)
 
 Whenever you send a HTTP request, you expect a response back which contains a few components
 
-### [#](<#response-status-code>) Response status code
+### Response status code [​](<#response-status-code>)
 
 The response status code is an important way to know whether your request to the API was good. `HTTP/1.1 200 OK`
 
-### [#](<#response-headers>) Response headers
+### Response headers [​](<#response-headers>)
 
 This is similar to request headers and contains metadata about the response body.
 
-### [#](<#response-body>) Response body:
+### Response body: [​](<#response-body>)
 
 The response body is where the API sends the most of information in response to your request.
+
+json
 ```ruby
- 
+
     {
       "id":"1",
       "roomId":"1234",
@@ -151,5 +162,6 @@ The response body is where the API sends the most of information in response to 
       "created":"2017-03-26T13:28:22.131Z"
     }
 
-
 ```
+
+**Last updated:**

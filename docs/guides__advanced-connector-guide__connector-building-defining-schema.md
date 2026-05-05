@@ -1,11 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema.html
-> **Fetched**: 2026-05-04T03:10:42.886479
+> **Fetched**: 2026-05-05T03:09:02.667511
 
 ---
 
-# [#](<#connector-building-defining-schema-for-your-objects>) Connector building - Defining schema for your objects
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[Advanced connector guide](</en/developing-connectors/sdk/guides/advanced-connector-guide/introduction>)
+
+# Connector building - Defining schema for your objects [​](<#connector-building-defining-schema-for-your-objects>)
 
 In this next section, we go through our current thoughts on how to organize your connector. With this methodology and proper planning, you’ll find it easy to add support for new objects in your connector whilst keeping your code DRY through the use of our object definitions and methods fields. These are all guidelines from learnings that integration developers at Workato have learned over time and may alter slightly based on the application and API that we connect to.
 
@@ -17,7 +23,7 @@ The following examples assume you're connecting to an API that accepts JSON. How
 
 Before going into specifics, here is a high-level overview of connector code could be organized.
 
-![Mindmap of connector code](/assets/img/structure.6ddce660.png)
+![Mindmap of connector code](/assets/structure.D1G9f5IH.png)
 
 Our main objective is to allow users of the connector to allow them to first select from a series of actions or triggers like:
 
@@ -34,13 +40,13 @@ For the execute block, we advise using a single method dedicated for each verb-o
 
 Ultimately, this helps to separate the responsibilities of each verb action and the objects it can support, allowing you to add support for new objects quickly or verb actions for existing objects.
 
-## [#](<#defining-the-schema-of-objects>) Defining the schema of objects
+## Defining the schema of objects [​](<#defining-the-schema-of-objects>)
 
 Before writing the code for any actions or triggers, a good practice is to explore the API documentation. Often we find that the payloads expected in requests and responses dealing with a specific object have very similar structures.
 
 This creates great synergy for code reuse as the same schema definition could potentially be used across various actions. For example, in the case of XYZ accounting, the same invoice schema definition could be used for “Create”, “Read”, “Update”, “Delete” and “Search” actions. Below, we will go through how various patterns in defining schema and where to place it in your connector code so that it can be easily referenced.
 
-The schema for input and output fields can be determined both dynamically and statically in Workato. Find out more about [object definitions.](</developing-connectors/sdk/sdk-reference/object_definitions.html>) This largely depends on whether the API you are building a connector to has metadata endpoints available. Below, we first go through examples of how to define schema manually through examples before showing you an example of a dynamically defined input schema.
+The schema for input and output fields can be determined both dynamically and statically in Workato. Find out more about [object definitions.](</developing-connectors/sdk/sdk-reference/object_definitions>) This largely depends on whether the API you are building a connector to has metadata endpoints available. Below, we first go through examples of how to define schema manually through examples before showing you an example of a dynamically defined input schema.
 
 SCHEMA DEFINITION
 
@@ -48,11 +54,13 @@ A schema definition configures the properties of an object. The properties are r
 
 Consider using a collapsible section for these code blocks. The sheer length makes it difficult to navigate the document.
 
-### [#](<#example-1-statically-defined-schema>) Example 1: Statically defined schema
+### Example 1: Statically defined schema [​](<#example-1-statically-defined-schema>)
 
 As a developer building the connector to XYZ labs, the representation of an “Invoice” object in our application might look something like this:
+
+json
 ```ruby
- 
+
       {
         "TxnDate": "2019-09-19",
         "ID": "1",
@@ -102,12 +110,11 @@ As a developer building the connector to XYZ labs, the representation of an “I
         }
       }
 
-
 ```
 
 While a create “Invoice” action may require a POST request similar to this:
 ```ruby
- 
+
       POST /invoice/create
       Content type:application/json
 
@@ -129,12 +136,11 @@ While a create “Invoice” action may require a POST request similar to this:
         }
       }
 
-
 ```
 
 and an update “Invoice” action may require a POST similar to this:
 ```ruby
- 
+
       POST /invoice/update
       Content type:application/json
 
@@ -157,12 +163,13 @@ and an update “Invoice” action may require a POST similar to this:
         }
       }
 
-
 ```
 
 As a general rule of thumb, when defining schema of an object in Workato, we want to be able to reuse as much of it as possible across different actions (such as create invoice and update invoice actions). As such, the schema we define should be a superset of all the possible parameters for this “Invoice” object. We should arrive at something like the following:
+
+ruby
 ```ruby
- 
+
       object_definitions: {
         invoice: lambda do |connection, config_fields|
           [
@@ -229,20 +236,21 @@ As a general rule of thumb, when defining schema of an object in Workato, we wan
         end
       }
 
-
 ```
 
 This schema is contained inside an `object_definition` called `invoice`.
 
 For example, since creating an invoice shouldn't allow users to define the ID in cases where invoice IDs are auto-generated by XYZ accounting, this can be easily stripped from the input schema later on.
 
-### [#](<#example-2-dynamically-defined-schema>) Example 2: Dynamically defined schema
+### Example 2: Dynamically defined schema [​](<#example-2-dynamically-defined-schema>)
 
-In most cases, we highly recommend using metadata endpoints whenever available to generate input and output fields instead of manually defining them. This reduces the number of enhancements you would need to make if the base object had new fields added and also allows you to add support for custom fields if the application supports it. For this example, we will be using [HubSpot (opens new window)](<https://www.hubspot.com>) which has metadata endpoints that describe the properties of “Contact” objects over [here. (opens new window)](<https://developers.hubspot.com/docs/methods/contacts/v2/get_contacts_properties>)
+In most cases, we highly recommend using metadata endpoints whenever available to generate input and output fields instead of manually defining them. This reduces the number of enhancements you would need to make if the base object had new fields added and also allows you to add support for custom fields if the application supports it. For this example, we will be using [HubSpot](<https://www.hubspot.com>) which has metadata endpoints that describe the properties of “Contact” objects over [here.](<https://developers.hubspot.com/docs/methods/contacts/v2/get_contacts_properties>)
 
 In cases like these, we want to make a request to this endpoint and use the response to build the input and output schema in a format Workato understands. Below we have a sample response from HubSpot’s metadata endpoint which gives us an array of JSON objects, each representing a “Contact” property.
+
+js
 ```ruby
- 
+
     [
       {
         "name": "example_property_name",
@@ -270,12 +278,13 @@ In cases like these, we want to make a request to this endpoint and use the resp
       // More properties below
     ]
 
-
 ```
 
 Using this, we can define a method called `contact_schema` which takes in the same `action_type` argument as our earlier example on static definitions.
+
+ruby
 ```ruby
- 
+
       object_definitions: {
         contact: lambda do |connection, config_fields|
           get('/properties/v1/contacts/properties').map do |property|
@@ -355,7 +364,6 @@ Using this, we can define a method called `contact_schema` which takes in the sa
         end
       }
 
-
 ```
 
 In this method, we take the response from HubSpot and for each property, we map its values to a defined parameter in Workato’s schema. We also created 2 service methods called `type_mapping` and `control_type_mapping` that are responsible for defining the mappings of HubSpot data types (defined as `type` and `fieldType` in HubSpot) to those in `type` and `control_type` in Workato respectively.
@@ -366,6 +374,8 @@ METADATA ENDPOINTS
 
 Workato strongly recommends using metadata endpoints when building a connector to your own API. This is especially important for applications with custom fields, as metadata endpoints allow you to generate input fields that are specific to a user’s instance.
 
-### [#](<#building-actions>) Building actions
+### Building actions [​](<#building-actions>)
 
 Now that you've learned how to build schema for the base objects you've chosen, its time to start building your first actions using these methods you've just defined.
+
+**Last updated:**

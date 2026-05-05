@@ -1,11 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2026-05-04T03:10:59.291751
+> **Fetched**: 2026-05-05T03:09:19.582862
 
 ---
 
-# [#](<#sdk-development-best-practices>) SDK Development Best Practices
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+Tips
+
+# SDK Development Best Practices [​](<#sdk-development-best-practices>)
 
 Refer to the following list of best practices which makes development of your custom connector easier to build, test, and maintain:
 
@@ -25,7 +31,7 @@ SUMMARY
 
 * * *
 
-## [#](<#general>) General
+## General [​](<#general>)
 
 These best practices relate directly to the development of a custom connector on Workato's SDK platform.
 
@@ -47,7 +53,7 @@ These best practices relate directly to the development of a custom connector on
     * Include comments before Actions and Triggers, indicate what it does and any special instructions and limitations
   * Include empty lines between each key (methods, actions, triggers, pick lists etc.). This makes your code more readable for those looking to improve upon it
 
-  * Use the `dig` method when you need to navigate data to two or more levels. [Learn more (opens new window)](<https://ruby-doc.org/core-2.3.0/Hash.html#method-i-dig>)
+  * Use the `dig` method when you need to navigate data to two or more levels. [Learn more](<https://ruby-doc.org/core-2.3.0/Hash.html#method-i-dig>)
 
   * Use `#{}` instead of string concatenation (`"string" + "string"`) whenever possible
 
@@ -66,7 +72,7 @@ These best practices relate directly to the development of a custom connector on
 
 * * *
 
-## [#](<#security>) Security
+## Security [​](<#security>)
 
   * Perform validations in the `execute` lambda that are necessary to safeguard your end user's target application. Expect that users may map data from applications such as Slack, Teams, or external forms and there may be attempts to perform injection or path traversal attacks. 
     * If you control the application, ensure that the applications you work with handle these inputs by sanitizing inputs received from API requests. API providers should understand more deeply the situations where specific inputs are sensitive to malicious user input.
@@ -75,13 +81,13 @@ These best practices relate directly to the development of a custom connector on
 
 * * *
 
-## [#](<#root-key-specific>) Root Key-specific
+## Root Key-specific [​](<#root-key-specific>)
 
   * [Connection](<#root-key-connection>)
   * [Test](<#root-key-test>)
   * [Object definitions](<#root-key-object-definitions>)
 
-### [#](<#root-key-connection>) Connection
+### Connection [​](<#root-key-connection>)
 
   * Use control_type: password for sensitive data
 
@@ -91,6 +97,8 @@ These best practices relate directly to the development of a custom connector on
 
     * This makes your input fields more usable to end users and minimizes the amount of human error possible
     * Example:
+
+ruby
 ```ruby
         fields: lambda do |_connection, _config_fields|
           {
@@ -101,7 +109,6 @@ These best practices relate directly to the development of a custom connector on
               hint: 'Provide salesforce sub-domain for example, <code>test_instance</code>'
           }
         end
-
 
 ```
 
@@ -129,8 +136,10 @@ These best practices relate directly to the development of a custom connector on
   * Use base_uri(when applicable) to set the base url for API calls, which avoids keeping the full URL in triggers, methods, and picklists
 
     * Example:
+
+ruby
 ```ruby
-     base_uri: lambda do |connection|
+    base_uri: lambda do |connection|
       if connection['custom_domain']
         "https://#{connection['custom_domain']}"
       else
@@ -138,12 +147,11 @@ These best practices relate directly to the development of a custom connector on
       end
     end
 
-
 ```
 
   * Use the static base_uri or acquire the base_url from the endpoint (if there is an API which returns base_url account specific)
 
-### [#](<#root-key-test>) Test
+### Test [​](<#root-key-test>)
 
   * Use endpoint with least privileges and minimum data in the response for testing the connection.
 
@@ -153,7 +161,7 @@ These best practices relate directly to the development of a custom connector on
     * This reduces the amount of time to successfully create a connection
     * Validate connection status before a recipe is started
 
-### [#](<#root-key-object-definitions>) Object Definitions
+### Object Definitions [​](<#root-key-object-definitions>)
 
   * Dynamic object definitions should be preferred over static object definitions
 
@@ -180,12 +188,12 @@ These best practices relate directly to the development of a custom connector on
 
 * * *
 
-## [#](<#actions>) Actions
+## Actions [​](<#actions>)
 
   * [General](<#action-general>)
   * [Memory management](<#action-memory-management>)
 
-### [#](<#action-general>) General
+### General [​](<#action-general>)
 
   * Actions should be clearly named
 
@@ -216,7 +224,7 @@ These best practices relate directly to the development of a custom connector on
     * These actions have lasting impacts and potentially lead to data loss
     * It is advised for these actions to be deliberate and done directly by the an admin on the application instead of through a recipe
 
-### [#](<#action-memory-management>) Memory management
+### Memory management [​](<#action-memory-management>)
 
   * **Optimize recipe actions**
     * Remove redundant or unnecessarily heavy attributes from the action inputs, keeping only fields that are actually required.
@@ -227,7 +235,7 @@ These best practices relate directly to the development of a custom connector on
 
 * * *
 
-## [#](<#triggers>) Triggers
+## Triggers [​](<#triggers>)
 
   * [General](<#trigger-general>)
   * [Consecutive polling](<#consecutive-polling>)
@@ -235,7 +243,7 @@ These best practices relate directly to the development of a custom connector on
   * [Sample output](<#trigger-sample-output>)
   * [Error handling](<#trigger-error-handling>)
 
-### [#](<#trigger-general>) General
+### General [​](<#trigger-general>)
 
   * Name of the trigger should be specific to what it does
 
@@ -261,29 +269,29 @@ These best practices relate directly to the development of a custom connector on
 
     * Static webhooks are the alternative but require you to manually register Workato's given static URL
 
-### [#](<#consecutive-polling>) Consecutive polling
+### Consecutive polling [​](<#consecutive-polling>)
 
-When polling, triggers can poll consecutively to retrieve valid results. The `can_poll_more` boolean attribute in the SDK’s trigger poll lambda response controls this behavior. When set to `true`, the trigger initiates an immediate poll. Workato enforces a limit on the maximum number of consecutive polls in a single poll cycle when no jobs are produced. Refer to the [Consecutive polls in a single poll cycle without jobs](</developing-connectors/sdk/guides/trigger-limit.html#consecutive-polls-in-a-single-poll-cycle-without-jobs>) section for more information.
+When polling, triggers can poll consecutively to retrieve valid results. The `can_poll_more` boolean attribute in the SDK’s trigger poll lambda response controls this behavior. When set to `true`, the trigger initiates an immediate poll. Workato enforces a limit on the maximum number of consecutive polls in a single poll cycle when no jobs are produced. Refer to the [Consecutive polls in a single poll cycle without jobs](</developing-connectors/sdk/guides/trigger-limit#consecutive-polls-in-a-single-poll-cycle-without-jobs>) section for more information.
 
 Adhere to the following best practices to configure `can_poll_more` effectively and ensure compliance with polling limits:
 
-#### [#](<#set-can-poll-more-to-true-only-when-additional-pages-remain-for-polling>) Set `can_poll_more` to `true` only when additional pages remain for polling
+#### Set `can_poll_more` to `true` only when additional pages remain for polling [​](<#set-can-poll-more-to-true-only-when-additional-pages-remain-for-polling>)
 
 Set the `can_poll_more` flag to `true` only when additional pages of data are available to retrieve. This prevents unnecessary API calls and avoids indefinite polling.
 
 For example, if an API returns a paginated response and the number of records retrieved matches the page size, this may indicate more records to fetch. In such cases, set `can_poll_more` to `true`. Otherwise, set it to `false` and wait for the next polling interval.
 
-#### [#](<#optimize-event-retrieval-with-appropriate-filters>) Optimize event retrieval with appropriate filters
+#### Optimize event retrieval with appropriate filters [​](<#optimize-event-retrieval-with-appropriate-filters>)
 
 Configure triggers to retrieve only the necessary events during each poll.
 
 For example, use filters to pull events created or updated since the last poll. Apply filters such as `last_modified` or `created_at` timestamps to avoid retrieving redundant data.
 
-#### [#](<#leverage-webhooks-for-real-time-monitoring>) Leverage webhooks for real-time monitoring
+#### Leverage webhooks for real-time monitoring [​](<#leverage-webhooks-for-real-time-monitoring>)
 
 For real-time monitoring, webhooks are more efficient than polling triggers. Webhooks push data to your application as events occur, reducing the need for continuous polling and minimizing load on the source system and your application.
 
-### [#](<#trigger-memory-management>) Memory management
+### Memory management [​](<#trigger-memory-management>)
 
   * **Separate polling from heavy processing**
 
@@ -295,7 +303,7 @@ For real-time monitoring, webhooks are more efficient than polling triggers. Web
     * Minimize unnecessary data copying or transformations within the poll method.
     * Consider polling more frequently with selective field retrieval rather than processing large datasets in a single operation.
 
-### [#](<#trigger-sample-output>) Sample output
+### Sample output [​](<#trigger-sample-output>)
 
   * In Workato recipes, every action or trigger should have sample output data populated with output datapills under app data section
 
@@ -310,7 +318,7 @@ For real-time monitoring, webhooks are more efficient than polling triggers. Web
     * This should show up as grey text next to each datapill
     * When triggers do not have any input fields, the datatree does not show up until a second action is added
 
-### [#](<#trigger-error-handling>) Error handling
+### Error handling [​](<#trigger-error-handling>)
 
   * Signal exceptions using the raise method
 
@@ -322,12 +330,12 @@ For real-time monitoring, webhooks are more efficient than polling triggers. Web
 
 * * *
 
-## [#](<#usability-and-testing>) Usability And Testing
+## Usability And Testing [​](<#usability-and-testing>)
 
   * [General](<#usability-general>)
   * [Usability rules](<#usability-rules>)
 
-### [#](<#usability-general>) General
+### General [​](<#usability-general>)
 
   * Check the Recipe UI for actions and triggers
 
@@ -337,7 +345,7 @@ For real-time monitoring, webhooks are more efficient than polling triggers. Web
 
     * This is especially useful for pushing new versions of your connector to your production workspace by first testing it in recipes using your sandbox environment
 
-### [#](<#usability-rules>) Usability Rules
+### Usability Rules [​](<#usability-rules>)
 
 Now that you’ve learned some concepts behind creating object-based actions and triggers, you should test your connector. Test its functionality not only in the Connector SDK **Test code** tab, but also when used in a recipe. When you reach this stage, you may also start to take note of certain aspects of your connector which are not as usable as you would hope. Good connectors are not only well organized in terms of code but place user experience front and center in the entire recipe building experience. Here are some rules that distinguish good connectors from those that aren't user-friendly:
 
@@ -353,7 +361,7 @@ Now that you’ve learned some concepts behind creating object-based actions and
 
 [Descriptive error messages](<#descriptive-error-messages>)
 
-#### [#](<#descriptive-help-text>) Descriptive Help Text
+#### Descriptive Help Text [​](<#descriptive-help-text>)
 
 Help texts in actions are critical in helping your users plug any knowledge gaps they may have about the actions you've built. Here are some important details that you should include in the help texts of your actions:
 
@@ -363,15 +371,17 @@ Help texts in actions are critical in helping your users plug any knowledge gaps
   * [Field-level hints](<#field-level-hints>)
   * [Field-level help](<#field-level-help>)
 
-##### [#](<#supported-api-versions>) Supported API versions
+##### Supported API versions [​](<#supported-api-versions>)
 
 API versions of the application you are connecting to help manage expectations for your users. They would have a better understanding of what to expect in terms of functionality for your connector.
 
-##### [#](<#object-specific-help>) Object-specific help
+##### Object-specific help [​](<#object-specific-help>)
 
 Different objects may require different action level help hints. Help texts can be easily changed based on the object users select.
+
+ruby
 ```ruby
- 
+
     help: lambda do |input, picklist_label|
       if input['object'] == 'invoice'
         {
@@ -391,24 +401,25 @@ Different objects may require different action level help hints. Help texts can 
       end
     end,
 
-
 ```
 
-##### [#](<#links-to-documentation>) Links to documentation
+##### Links to documentation [​](<#links-to-documentation>)
 
 Help texts can also include links to appropriate documentation if users need more information about how to set up this action.
 
-![Help text hints](/assets/img/help-text-link.c2ea46ac.png) _Linking to documentation can help your users when not all the information can be contained in a small paragraph_
+![Help text hints](/assets/help-text-link.CTdtaqA_.png)_Linking to documentation can help your users when not all the information can be contained in a small paragraph_
 
-##### [#](<#field-level-hints>) Field-level hints
+##### Field-level hints [​](<#field-level-hints>)
 
 Hints are an essential way to guide your users on how to use a specific input field. Let them know about input expected such as whether you require the timestamp to be in a specific date format (iso8601 or DD/MM/YYYY) etc.
 
-##### [#](<#field-level-help>) Field-level help
+##### Field-level help [​](<#field-level-help>)
 
 In cases where it is critical for your users to read this to configure the action properly, we suggest using field level help. This should be used sparingly.
+
+ruby
 ```ruby
- 
+
     [
       {
         control_type: "text",
@@ -424,12 +435,11 @@ In cases where it is critical for your users to read this to configure the actio
       }
     ]
 
-
 ```
 
-![Help text hints](/assets/img/field-level-help.badef6ba.png) _Bring attention to a specific field using field level help_
+![Help text hints](/assets/field-level-help.D2d_seF5.png)_Bring attention to a specific field using field level help_
 
-#### [#](<#user-friendly-input-fields>) User-Friendly Input Fields
+#### User-Friendly Input Fields [​](<#user-friendly-input-fields>)
 
 Here are some simple rules that would help fine-tune your connector to make it as user-friendly as possible. When creating connectors with the eventual aim of getting them listed on Workato as globally scope connectors, these rules will form an important part of the UIUX review that we put each connector through.
 
@@ -455,14 +465,16 @@ Here are some simple rules that would help fine-tune your connector to make it a
 
 For each input field, we suggest running through this series of questions quickly. Once you get the hang of it, it becomes a simple process of highlighting input fields which need adjustments before going back into the schema definitions to make changes.
 
-#### [#](<#descriptive-error-messages>) Descriptive Error Messages
+#### Descriptive Error Messages [​](<#descriptive-error-messages>)
 
-Descriptive error messages are a crucial part of the recipe building experience for end-users. Without the proper error messages, users have a tough time figuring out why their recipes are failing. If you haven’t checked out the possible ways to surface errors on Workato, do check out our [error handling guide.](</developing-connectors/sdk/guides/error-handling.html>)
+Descriptive error messages are a crucial part of the recipe building experience for end-users. Without the proper error messages, users have a tough time figuring out why their recipes are failing. If you haven’t checked out the possible ways to surface errors on Workato, do check out our [error handling guide.](</developing-connectors/sdk/guides/error-handling>)
 
 Here are some general rules to include proper error handling in your connector.
 
-  1. Does your connector use picklists or dynamic schema of any sort? Chaining an `after_error_response` function allows your users to receive exact information of what may have gone wrong. [Example here.](</developing-connectors/sdk/guides/error-handling.html#handling-object-definition-errors>)
+  1. Does your connector use picklists or dynamic schema of any sort? Chaining an `after_error_response` function allows your users to receive exact information of what may have gone wrong. [Example here.](</developing-connectors/sdk/guides/error-handling#handling-object-definition-errors>)
 
-  2. Does your connector have certain fields that are required together, such as a start date and end date? Whilst these fields may not be required all the time, some fields are often required together. In cases like these, validations may help surface these errors better and also reduce the number of API calls made unnecessarily. [Example here.](</developing-connectors/sdk/guides/error-handling.html#validating-inputs>)
+  2. Does your connector have certain fields that are required together, such as a start date and end date? Whilst these fields may not be required all the time, some fields are often required together. In cases like these, validations may help surface these errors better and also reduce the number of API calls made unnecessarily. [Example here.](</developing-connectors/sdk/guides/error-handling#validating-inputs>)
 
-  3. Does the API you are connecting to respond with appropriate HTTP status codes? In certain cases, APIs may send back responses that should actually be errors but have their HTTP status as `200`. In cases like these, using an `after_error_response` function can help highlight issues to your users instead. [Example here.](</developing-connectors/sdk/guides/error-handling.html#handling-response-errors>)
+  3. Does the API you are connecting to respond with appropriate HTTP status codes? In certain cases, APIs may send back responses that should actually be errors but have their HTTP status as `200`. In cases like these, using an ` after_error_response` function can help highlight issues to your users instead. [Example here.](</developing-connectors/sdk/guides/error-handling#handling-response-errors>)
+
+**Last updated:**

@@ -1,29 +1,37 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/xml-format.html
-> **Fetched**: 2026-05-04T03:11:25.708723
+> **Fetched**: 2026-05-05T03:09:46.850135
 
 ---
 
-# [#](<#how-to-guides-xml-data-format>) How-to guides - XML data format
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[Handling data formats](</en/developing-connectors/sdk/guides/data-formats>)
+
+# How-to guides - XML data format [​](<#how-to-guides-xml-data-format>)
 
 XML data format can be specified using the following SDK methods:
 
-Method | Description  
+Method| Description  
 ---|---  
-`request_format_xml` | Convert request body to XML format  
-`response_format_xml` | Expect response body in XML format  
-`format_xml` | Convert request and expect response body in XML format  
+`request_format_xml`| Convert request body to XML format  
+`response_format_xml`| Expect response body in XML format  
+`format_xml`| Convert request and expect response body in XML format  
 
-## [#](<#forming-xml-payload-in-request>) Forming XML payload in request
+## Forming XML payload in request [​](<#forming-xml-payload-in-request>)
 
 Since custom connector actions receive data in the form of ruby hashes, you will have to convert these hashes into an XML by chaining one of the formatting methods to the end of the request. This example explores making requests to Intacct web services with XML data format.
 
-According to the [Intacct documentation (opens new window)](<https://developer.intacct.com/wiki/web-services-api-30-calls>), all requests should be made to the same endpoint as a POST request: `https://api.intacct.com/ia/xml/xmlgw.phtml` where requests are expected to be in XML data formats.
+According to the [Intacct documentation](<https://developer.intacct.com/wiki/web-services-api-30-calls>), all requests should be made to the same endpoint as a POST request: `https://api.intacct.com/ia/xml/xmlgw.phtml` where requests are expected to be in XML data formats.
 
-### [#](<#sample-code-snippet>) Sample code snippet
+### Sample code snippet [​](<#sample-code-snippet>)
+
+xml
 ```ruby
- 
+
     <request>
       <control>
         <senderid>SENDER_ID</senderid>
@@ -50,12 +58,13 @@ According to the [Intacct documentation (opens new window)](<https://developer.i
       </operation>
     </request>
 
-
 ```
 
 Here is a sample action to retrieve GL Account information, **Get GL account**.
+
+ruby
 ```ruby
- 
+
     get_GL_account: {
       input_fields: lambda do
         [
@@ -130,20 +139,22 @@ Here is a sample action to retrieve GL Account information, **Get GL account**.
       end
     }
 
-
 ```
 
 That is a handful! Let's break it down. Firstly, we define a POST to request to the appropriate endpoint:
-```ruby
- 
-    post("https://api.intacct.com/ia/xml/xmlgw.phtml")
 
+ruby
+```ruby
+
+    post("https://api.intacct.com/ia/xml/xmlgw.phtml")
 
 ```
 
 Next, we add a payload to the request in the form of a hash first:
+
+ruby
 ```ruby
- 
+
     .payload("control": [
              {
                "senderid": [{ "content!": connection["sender_id"] }],
@@ -184,14 +195,15 @@ Next, we add a payload to the request in the form of a hash first:
              }
            ])
 
-
 ```
 
 Elements are represented by arrays of hashes, since XML elements can repeat without any extra notation. Element data is defined using the `content!` key and attributes using `@` prefix (example: `@object` and `@maxitems`).
 
 The resultant XML body looks like this:
+
+xml
 ```ruby
- 
+
     <control>
       <senderid>SENDER_ID</senderid>
       <password>PASSWORD</password>
@@ -214,22 +226,24 @@ The resultant XML body looks like this:
       </content>
     </operation>
 
-
 ```
 
 Defining value for an XML element is done using the `content!` key. For example, to assign password to the `<senderid>` element, the hash looks like this:
+
+ruby
 ```ruby
- 
+
     {
       "senderid": [{ "content!": connection["sender_id"] }]
     }
 
-
 ```
 
 Next, how do we form a complex XML element? First, let's form an XML element that has a single occurrence (object type). For example, the `<control>` element in the request body is a complex element type with a number of elements nested within. The resultant partial XML should look like this:
+
+xml
 ```ruby
- 
+
     <control>
       <senderid>SENDER_ID</senderid>
       <password>PASSWORD</password>
@@ -238,12 +252,13 @@ Next, how do we form a complex XML element? First, let's form an XML element tha
       <dtdversion>3.0</dtdversion>
     </control>
 
-
 ```
 
 To form this, the equivalent hash should not have `content!` defined immediately in the `control` hash. Instead, define an array of a single hash that contains nested keys, one for each element that belongs in the `<control>` element.
+
+ruby
 ```ruby
- 
+
     "control": [
       {
         "senderid": [{ "content!": connection["sender_id"] }],
@@ -254,26 +269,28 @@ To form this, the equivalent hash should not have `content!` defined immediately
       }
     ]
 
-
 ```
 
 Notice that all elements immediately under the `<control>` element are primitive types. Each of these elements contain only a value and optionally, attributes.
 
 Now, we know how to define values for primitive XML elements. What about XML attributes? Let's look at the `<content>` element in the XML body to see how it's done.
+
+xml
 ```ruby
- 
+
     <content>
       <function controlid="testControlId">
         <get_list object="glaccount" maxitems="1"/>
       </function>
     </content>
 
-
 ```
 
 This XML element has attributes defined in 2 elements. First, in a complex element `<function>` as well as a primitive element `<get_list>`. To form this XML, the equivalent hash structure looks like this:
+
+ruby
 ```ruby
- 
+
     "content": [
       {
         "function": [
@@ -290,14 +307,15 @@ This XML element has attributes defined in 2 elements. First, in a complex eleme
       }
     ]
 
-
 ```
 
 Attributes and nested elements in a complex XML element are defined with the same hierarchy, but with the `@` prefix to indicate an attribute. (`"get_list"` key for `<get_list>` element and `"@controlid"` key for `controlid` attribute)
 
 Similarly, element value and attributes in a primitive XML element are defined with the same hierarchy. (`"content!"` key for value of `<get_list>` element and `"@object"` key for `object` attribute) In this example, the `<get_list>` element is not assigned a value. If we were to assign one, the equivalent hash will look like this:
+
+ruby
 ```ruby
- 
+
     "content": [
       {
         "function": [
@@ -315,42 +333,46 @@ Similarly, element value and attributes in a primitive XML element are defined w
       }
     ]
 
-
 ```
 
 Which will be converted into this XML:
+
+xml
 ```ruby
- 
+
     <content>
       <function controlid="testControlId">
         <get_list object="glaccount" maxitems="1">KEY_VALUE<get_list>
       </function>
     </content>
 
-
 ```
 
 Next, we add the necessary headers with the headers shorthand method:
-```ruby
- 
-    .headers("Content-type": "x-intacct-xml-request")
 
+ruby
+```ruby
+
+    .headers("Content-type": "x-intacct-xml-request")
 
 ```
 
 Finally, we use the `format_xml` method (since we require both request and response in XML) and pass it the root element name as an argument, `<request>`)
-```ruby
- 
-    .format_xml("request")
 
+ruby
+```ruby
+
+    .format_xml("request")
 
 ```
 
-## [#](<#handling-xml-from-response>) Handling XML from response
+## Handling XML from response [​](<#handling-xml-from-response>)
 
 Now, the response from the same request will be in this form:
+
+xml
 ```ruby
- 
+
     <response>
       <control>
         <status>success</status>
@@ -399,7 +421,6 @@ Now, the response from the same request will be in this form:
       </operation>
     </response>
 
-
 ```
 
 Because `format_xml` was called in the request, Workato SDK returns an equivalent hash. Similar to request:
@@ -408,8 +429,9 @@ Because `format_xml` was called in the request, Workato SDK returns an equivalen
   * elements attributes has `@` prefixed with the same hierarchy as nested elements and element values
   * element values are passed as values of the `"content!"` key
 
+ruby
 ```ruby
- 
+
     {
       "response"=>[
         {
@@ -481,24 +503,26 @@ Because `format_xml` was called in the request, Workato SDK returns an equivalen
       ]
     }
 
-
 ```
 
 Hence, we will need to extract the desired data using the `dig` method.
+
+ruby
 ```ruby
- 
+
     .dig("response", 0,
          "operation", 0,
          "result", 0,
          "data", 0,
          "glaccount", 0)
 
-
 ```
 
 This returns us the hash:
+
+ruby
 ```ruby
- 
+
     {
       "recordno"=>[{ "content!"=>"1" }],
       "glaccountno"=>[{ "content!"=>"1000" }],
@@ -522,12 +546,13 @@ This returns us the hash:
       "requireitem"=>[{ "content!"=>"false" }]
     }
 
-
 ```
 
 Lastly, we convert the hash here back to a recipe-friendly output schema:
+
+ruby
 ```ruby
- 
+
     response.inject({}) do |hash, (key, value)|
       hash.merge(
         {
@@ -535,12 +560,13 @@ Lastly, we convert the hash here back to a recipe-friendly output schema:
         })
     end
 
-
 ```
 
 The output of this action is then:
+
+json
 ```ruby
- 
+
     {
       "recordno": "1",
       "glaccountno": "1000",
@@ -564,14 +590,13 @@ The output of this action is then:
       "requireitem": "false"
     }
 
-
 ```
 
-## [#](<#example-action-in-action>) Example action in action
+## Example action in action [​](<#example-action-in-action>)
 
-### [#](<#request>) Request
+### Request [​](<#request>)
 ```ruby
- 
+
     POST https://api.intacct.com/ia/xml/xmlgw.phtml
     Accept  application/xml
     Accept-Encoding gzip, deflate
@@ -579,12 +604,13 @@ The output of this action is then:
     Authorization Bearer
     Content-type  x-intacct-xml-request
 
-
 ```
 
 Request body:
+
+xml
 ```ruby
- 
+
     <request>
       <control>
         <senderid>SENDER_ID</senderid>
@@ -609,16 +635,17 @@ Request body:
       </operation>
     </request>
 
-
 ```
 
-### [#](<#response>) Response
+### Response [​](<#response>)
 
 Status: `200 OK`
 
 Response body:
+
+xml
 ```ruby
- 
+
     <?xml version="1.0" encoding="UTF-8"?>
     <response>
       <control>
@@ -668,12 +695,13 @@ Response body:
       </operation>
     </response>
 
-
 ```
 
 Which is extracted and converted into:
+
+json
 ```ruby
- 
+
     {
       "recordno": "1",
       "glaccountno": "1000",
@@ -697,5 +725,6 @@ Which is extracted and converted into:
       "requireitem": "false"
     }
 
-
 ```
+
+**Last updated:**

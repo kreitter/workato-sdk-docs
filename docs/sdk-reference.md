@@ -1,11 +1,13 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference.html
-> **Fetched**: 2026-05-04T03:11:38.659998
+> **Fetched**: 2026-05-05T03:10:00.148330
 
 ---
 
-# [#](<#sdk-reference>) SDK Reference
+[Connector SDK](</en/developing-connectors/sdk>)
+
+# SDK Reference [​](<#sdk-reference>)
 
 This is the full list of all possible attributes that you can include in your Workato connector. This section is organized by the root keys of a connector:
 
@@ -26,11 +28,13 @@ In addition to this, the SDK reference also contains the following information r
   * Using HTTP Methods to send requests
   * Available ruby methods that can be used in your connector code
 
-## [#](<#sample-connector-skeleton>) Sample Connector Skeleton
+## Sample Connector Skeleton [​](<#sample-connector-skeleton>)
 
 Each connector in Workato is a big hash that contains the root keys detailed above. Below, we have an example of a summarized connector. Not all keys are required.
+
+ruby
 ```ruby
- 
+
     {
       title: 'My sample connector',
 
@@ -63,5 +67,6 @@ Each connector in Workato is a big hash that contains the root keys detailed abo
       streams: Hash
     }
 
-
 ```
+
+**Last updated:**

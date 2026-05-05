@@ -1,11 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/picklists.html
-> **Fetched**: 2026-05-04T03:11:47.585559
+> **Fetched**: 2026-05-05T03:10:09.380156
 
 ---
 
-# [#](<#sdk-reference-pick-lists>) SDK Reference - `pick_lists`
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[SDK reference](</en/developing-connectors/sdk/sdk-reference>)
+
+Connector key reference
+
+# SDK Reference - `pick_lists` [​](<#sdk-reference-pick-lists>)
 
 Picklists are used in conjunction with some input fields to enumerate the possible options in a drop-down. Picklist options can be stored in the `pick_lists` key or defined directly in the input field hash. Input fields that use `pick_list` attribute have to be of the following `control_type`:
 
@@ -20,9 +26,11 @@ Quick Overview
 
 Pick lists are a great way to make your connector easier to use when the API only accepts a certain set of values. Rather than having the user type it in manually, you should use picklists so they can easily select the value from a drop-down. The `pick_list` key is where you can store these options and refer to them when building your input fields.
 
-## [#](<#structure>) Structure
+## Structure [​](<#structure>)
+
+ruby
 ```ruby
- 
+
         pick_lists: {
 
           [Unique_pick_list_name]: lambda do |connection, pick_list_parameters|
@@ -34,31 +42,31 @@ Pick lists are a great way to make your connector easier to use when the API onl
           end
         },
 
-
 ```
 
 * * *
 
-Attribute | Description  
+Attribute| Description  
 ---|---  
-Key | `[Unique_pick_list_name]`  
-Type | lambda function  
-Required | True  
-Description | This lambda function is invoked whenever its parent object_definition's key is called in an action or trigger. It is able to make HTTP requests to dynamically build schema from metadata endpoints. The output of this lambda function should be an array of hashes that represents the input or output fields.  
-Possible Arguments | `connection` \- Hash representing user given inputs defined in `connection`   
+Key| `[Unique_pick_list_name]`  
+Type| lambda function  
+Required| True  
+Description| This lambda function is invoked whenever its parent object_definition's key is called in an action or trigger. It is able to make HTTP requests to dynamically build schema from metadata endpoints. The output of this lambda function should be an array of hashes that represents the input or output fields.  
+Possible Arguments| `connection` \- Hash representing user given inputs defined in `connection`   
 `pick_list_parameters` \- Used when defining dependent picklists.  
-Expected Output | Array of Array  
+Expected Output| Array of Array  
 
 Pick_lists outputs should be a 2D array in the following format:
+
+ruby
 ```ruby
- 
+
     [
       [ "Picklist Label", "Value" ],
       [ "Picklist Label", "Value" ],
       [ "Picklist Label", "Value" ],
       [ "Picklist Label", "Value" ]
     ]
-
 
 ```
 
@@ -69,8 +77,10 @@ Example - options in connection fields
 When defining enumerable values for connection fields, take note that you may not reference `pick_lists` defined in your connector.
 
 Instead, you may define these fields statically and using the schema attribute - `options`
+
+ruby
 ```ruby
- 
+
     connection: {
       fields: [
         {
@@ -85,16 +95,17 @@ Instead, you may define these fields statically and using the schema attribute -
       ]
     }
 
-
 ```
 
 Example - pick_lists: - Static
 
 Pick_lists can be static. When referenced, this definition would return the array stored in it. When an input field references this picklist, this array is returned and rendered on the front end as a drop-down.
 
-![](/assets/img/static_picklist.5f9188f3.png)
+![](/assets/static_picklist.BQltkGLt.png)
+
+ruby
 ```ruby
- 
+
         input_fields: lambda do |object_definitions|
           [
             {
@@ -105,8 +116,9 @@ Pick_lists can be static. When referenced, this definition would return the arra
           ]
         end,
 
-
 ```
+
+ruby
 ```ruby
 
         pick_lists: {
@@ -120,16 +132,17 @@ Pick_lists can be static. When referenced, this definition would return the arra
           end
         },
 
-
 ```
 
 Example - pick_lists: - dependent & static
 
 Dependent pick lists allow you to change the contents of a pick list based on the value of another field. For example, rather than displaying all the cities in a single pick list, we can selectively display only cities from a country, selected in another field.
 
-![](/assets/img/dependent_picklist.58a1fa9b.gif)
+![](/assets/dependent_picklist.B5YqBvz1.gif)
+
+ruby
 ```ruby
- 
+
         input_fields: lambda do |_object_definitions|
           [
             {
@@ -148,8 +161,9 @@ Dependent pick lists allow you to change the contents of a pick list based on th
           ]
         end
 
-
 ```
+
+ruby
 ```ruby
 
         pick_lists: {
@@ -174,7 +188,6 @@ Dependent pick lists allow you to change the contents of a pick list based on th
           end
         }
 
-
 ```
 
 Example - pick_lists: - dependent & dynamic
@@ -183,9 +196,11 @@ In this example, accounts is an independent dynamic pick list while properties i
 
 In this example, we used the `.pluck` function to do the transformation.
 
-![](/assets/img/dynamic_dependent_picklist.cc817402.gif)
+![](/assets/dynamic_dependent_picklist.YwGZR4De.gif)
+
+ruby
 ```ruby
- 
+
         input_fields: lambda do |_object_definitions|
           [
             {
@@ -206,8 +221,9 @@ In this example, we used the `.pluck` function to do the transformation.
           ]
         end
 
-
 ```
+
+ruby
 ```ruby
 
         pick_lists: {
@@ -229,7 +245,6 @@ In this example, we used the `.pluck` function to do the transformation.
           end,
         }
 
-
 ```
 
 Example - pick_lists: - tree
@@ -237,8 +252,10 @@ Example - pick_lists: - tree
 Workato also allows for `tree` type picklists. Tree picklists are often used to model hierarchical structures in applications such as file/folder structures. When using tree picklists, traditional `pick_list_parameters` are ignored and replaced by a double splat variable.
 
 To best explain this, we will use the concept of a file and folder structure, where folders might contain additional folders or files. All folders and files are considered nodes, while the main distinction is that folders might have child nodes whereas files may not. When you define a tree picklist, each time the user clicks on a folder node, the picklist is re-evaluated to build out the child nodes within it. The value of the folder node that the user clicked on can be found by `args&.[](:__parent_id)`. If this value is nil, this indicates that we are at the root node.
+
+ruby
 ```ruby
- 
+
         input_fields: lambda do |_object_definitions|
           [
             {
@@ -251,8 +268,9 @@ To best explain this, we will use the concept of a file and folder structure, wh
           ]
         end
 
-
 ```
+
+ruby
 ```ruby
 
         pick_lists: {
@@ -275,14 +293,15 @@ To best explain this, we will use the concept of a file and folder structure, wh
           end,
         }
 
-
 ```
 
-![](/assets/img/tree-file-only.a2e08ad6.gif)
+![](/assets/tree-file-only.C3eAlaXt.gif)
 
 In the above case, we have wanted to only allow users to select files to be downloaded. However, in a variety of cases, you might want to allow users to also select folders (the nodes) as you want them to provide a path to a folder instead of a file. This can be configured like below:
+
+ruby
 ```ruby
- 
+
         input_fields: lambda do |_object_definitions|
           [
             {
@@ -298,12 +317,13 @@ In the above case, we have wanted to only allow users to select files to be down
           ]
         end
 
-
 ```
 
 Another variation is when you need to allow end users to select multiple folders. This can be configured like below:
+
+ruby
 ```ruby
- 
+
         input_fields: lambda do |_object_definitions|
           [
             {
@@ -321,5 +341,6 @@ Another variation is when you need to allow end users to select multiple folders
           ]
         end
 
-
 ```
+
+**Last updated:**

@@ -1,11 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/jwt.html
-> **Fetched**: 2026-05-04T03:10:51.537893
+> **Fetched**: 2026-05-05T03:09:11.582290
 
 ---
 
-# [#](<#how-to-guides-json-web-token-authentication>) How-to guides - JSON web token authentication
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[How-to guides](</en/developing-connectors/sdk/guides>)
+
+[API authorization](</en/developing-connectors/sdk/guides/authentication>)
+
+# How-to guides - JSON web token authentication [​](<#how-to-guides-json-web-token-authentication>)
 
 JSON Web Token(JWT) is an Internet standard for creating data with optional signature and/or optional encryption whose payload holds JSON that asserts some number of claims.
 
@@ -13,11 +19,13 @@ In authentication, JWTS are signed either using a private or public key. For exa
 
 JWTs are designed to be compact, URL-safe, and usable especially in a web-browser single-sign-on (SSO) context.
 
-Refer to the [JWT Introduction (opens new window)](<https://jwt.io/introduction/>) for more information on JSON web tokens.
+Refer to the [JWT Introduction](<https://jwt.io/introduction/>) for more information on JSON web tokens.
 
-## [#](<#sample-connector-google-calendar-connector>) Sample connector - Google calendar connector
+## Sample connector - Google calendar connector [​](<#sample-connector-google-calendar-connector>)
+
+ruby
 ```ruby
- 
+
     {
       title: 'My Google calendar connector',
 
@@ -90,25 +98,26 @@ Refer to the [JWT Introduction (opens new window)](<https://jwt.io/introduction/
       # More connector code here
     }
 
-
 ```
 
-  * Refer to the [full Google Calendar connector code (opens new window)](<https://app.workato.com/custom_adapters/27268/code?token=08f9f02a>) for a complete example.
-  * Check out the [Google calendar API (opens new window)](<https://developers.google.com/calendar/v3/reference>)
+  * Refer to the [full Google Calendar connector code](<https://app.workato.com/custom_adapters/27268/code?token=08f9f02a>) for a complete example.
+  * Check out the [Google calendar API](<https://developers.google.com/calendar/v3/reference>)
 
-## [#](<#step-1-defining-connection-fields>) Step 1 - Defining Connection fields
+## Step 1 - Defining Connection fields [​](<#step-1-defining-connection-fields>)
 
 This component tells Workato what fields to show to a user trying to establish a connection. In the case of Client Credentials Authentication, you would need the Client ID and Client Secret that the user has generated in Percolate.
 
-Information needed | Description  
+Information needed| Description  
 ---|---  
-Issuer | The "iss" (issuer) claim identifies the principal that issued the JWT.  
-Subject | The "sub" (subject) claim identifies the principal that is the subject of the JWT. The claims in a JWT are normally statements about the subject. In this case, it is the email address of the user that you are impersonating.  
-Private/public key | This is the "password" that is obtained from the downloaded JSON.  
+Issuer| The "iss" (issuer) claim identifies the principal that issued the JWT.  
+Subject| The "sub" (subject) claim identifies the principal that is the subject of the JWT. The claims in a JWT are normally statements about the subject. In this case, it is the email address of the user that you are impersonating.  
+Private/public key| This is the "password" that is obtained from the downloaded JSON.  
 
 This is done in the `fields` key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
+
+ruby
 ```ruby
- 
+
         fields: [
           {
             name: 'iss',
@@ -133,32 +142,34 @@ This is done in the `fields` key, which accepts an array of hashes. Each hash in
           }
         ],
 
-
 ```
 
-![Configured Google calendar connection fields](/assets/img/googlecal_conn.240acb90.png)
+![Configured Google calendar connection fields](/assets/googlecal_conn.BR5-MYQV.png)
 
 TIP
 
 When defining fields, you need to at least provide the `name` key. Additional attributes like `optional`, `hint` and `control_type` allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the `control_type` as `password`.
 
-Refer to [Connection fields](</developing-connectors/sdk/sdk-reference/connection.html#fields>) for more information on defining input fields in Workato.
+Refer to [Connection fields](</developing-connectors/sdk/sdk-reference/connection#fields>) for more information on defining input fields in Workato.
 
-## [#](<#step-2-defining-the-authorization-type>) Step 2 - Defining the authorization type
+## Step 2 - Defining the authorization type [​](<#step-2-defining-the-authorization-type>)
 
 This component tells Workato what to do with the values received from the input fields to establish a connection. This is handled through your `authorization` key. In this key, you begin by first defining the `type` of authorization. For JWT authentication, you should use `custom_auth`.
-```ruby
- 
-        type: 'custom_auth'
 
+ruby
+```ruby
+
+        type: 'custom_auth'
 
 ```
 
-## [#](<#step-3-acquiring-the-access-token>) Step 3 - Acquiring the access token
+## Step 3 - Acquiring the access token [​](<#step-3-acquiring-the-access-token>)
 
 In the `acquire` key, we first generate a JWT token by creating a JWT body claim and signing it with the private key that the user provided. We do this by passing in the `jwt_body_claim` and `private_key` to Workato, note that this must be sent with `jwt_encode` under the `RS256` signing algorithm. Next, we then pass in the generated token to Google API's token URL as payload. Here, we assign the `grant_type` and `assertion` as `urn:ietf:params:oauth:grant-type:jwt-bearer` and the generated JWT token respectively. Note that the payload of the request must be sent with `request_format_www_form_urlencoded`.
+
+ruby
 ```ruby
- 
+
         acquire: lambda do |connection|
           jwt_body_claim = {
             "iat": now.to_i,
@@ -177,12 +188,13 @@ In the `acquire` key, we first generate a JWT token by creating a JWT body claim
             .request_format_www_form_urlencoded
         end,
 
-
 ```
 
 Upon receiving a the request, the API returns a JSON response.
+
+json
 ```ruby
- 
+
     {
       "access_token": "my-authentication-token",
       "token_type": "bearer",
@@ -190,71 +202,77 @@ Upon receiving a the request, the API returns a JSON response.
       "error": "optional-error-message"
     }
 
-
 ```
 
-## [#](<#step-4-applying-the-access-token-to-subsequent-http-requests>) Step 4 - Applying the access token to subsequent HTTP requests
+## Step 4 - Applying the access token to subsequent HTTP requests [​](<#step-4-applying-the-access-token-to-subsequent-http-requests>)
 
 Next, you need to tell Workato how to make use of the access token it has retrieved from Google calendar. This is done in the `apply` block where you can reference the access token now stored in the `connection` argument. Any instructions you introduce in the `apply` block are subsequently applied to all HTTP requests this connector sends after connection is established.
+
+ruby
 ```ruby
- 
+
         apply: lambda do |connection|
           headers("Authorization": "Bearer #{connection['access_token']}")
         end
-
 
 ```
 
 In this example, we have defined the access token (`connection['access_token']`) to be added to the headers of any request. For every HTTP request sent, the headers will contain `Authorization: Bearer XXX` where `XXX` is the access token stored in the `connection` hash.
 
-## [#](<#step-5-defining-token-refresh-behavior>) Step 5 - Defining token refresh behavior
+## Step 5 - Defining token refresh behavior [​](<#step-5-defining-token-refresh-behavior>)
 
 As JWT tokens are only valid for short amounts of time, we need to tell this connector to refresh the JWT token when it expires. This can be easily done with the `refresh_on` key, that contains a list of HTTP response codes or regex functions. This list is matched to any responses to a HTTP request and triggers the `acquire` key is a match is found.
-```ruby
- 
-        refresh_on: [401, 403],
 
+ruby
+```ruby
+
+        refresh_on: [401, 403],
 
 ```
 
-## [#](<#step-6-setting-the-api-s-base-uri>) Step 6 - Setting the API's base URI
+## Step 6 - Setting the API's base URI [​](<#step-6-setting-the-api-s-base-uri>)
 
-This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Refer to [base URI configuration](</developing-connectors/sdk/sdk-reference/connection.html#base-uri>) for more information on configuring your `base_uri`.
+This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Refer to [base URI configuration](</developing-connectors/sdk/sdk-reference/connection#base-uri>) for more information on configuring your `base_uri`.
+
+ruby
 ```ruby
- 
+
         base_uri: lambda do
           'https://www.googleapis.com/calendar/v3'
         end
-
 
 ```
 
 TIP
 
 This lambda function also has access to the `connection` argument. This is especially useful if the base URI of the API might change based on the user's instance. The `connection` argument can be accessed in the following format:
+
+ruby
 ```ruby
- 
+
         base_uri: lambda do |connection|
           "https://#{connection['domain'].com/api}"
         end
 
-
 ```
 
-## [#](<#step-7-testing-the-connection>) Step 7 - Testing the connection
+## Step 7 - Testing the connection [​](<#step-7-testing-the-connection>)
 
 Now that we have defined the fields we need to collect from an end user and what to do with the inputs from those fields, we now need a way to test this connection. This is handled in the `test` key.
+
+ruby
 ```ruby
- 
+
         test: lambda do |connection|
           get("/colors")
         end
 
-
 ```
 
-In this key, you need to provide an endpoint that allows us to send a sample request using the new credentials we just received. If we receive a 200 OK HTTP response, we show the connection as Successful. In the example above, we are sending a `GET` request to the [`/colors` endpoint (opens new window)](<https://developers.google.com/calendar/v3/reference/colors/get>) and expecting a 200 response if the JWT is valid.
+In this key, you need to provide an endpoint that allows us to send a sample request using the new credentials we just received. If we receive a 200 OK HTTP response, we show the connection as Successful. In the example above, we are sending a `GET` request to the [`/colors` endpoint](<https://developers.google.com/calendar/v3/reference/colors/get>) and expecting a 200 response if the JWT is valid.
 
-## [#](<#connections-sdk-reference>) Connections SDK reference
+## Connections SDK reference [​](<#connections-sdk-reference>)
 
-To be more familiar with the available keys within the `connection` key and their parameters, check out our [SDK reference](</developing-connectors/sdk/sdk-reference/connection.html>).
+To be more familiar with the available keys within the `connection` key and their parameters, check out our [SDK reference](</developing-connectors/sdk/sdk-reference/connection>).
+
+**Last updated:**

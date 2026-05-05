@@ -1,25 +1,33 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/pick_lists.html
-> **Fetched**: 2026-05-04T03:10:21.732338
+> **Fetched**: 2026-05-05T03:08:40.997617
 
 ---
 
-# [#](<#how-to-guides-running-picklists-on-cli>) How-to guides - Running Picklists on CLI
+[Connector SDK](</en/developing-connectors/sdk>)
+
+[CLI](</en/developing-connectors/sdk/cli>)
+
+Guides
+
+# How-to guides - Running Picklists on CLI [​](<#how-to-guides-running-picklists-on-cli>)
 
 In this segment, we will be going through how you can run methods Picklists the Workato Gem.
 
-## [#](<#prerequisites>) Prerequisites
+## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started.html>) to know more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
   * You have a working connector with at least 1 method. You use the sample connector provided below.
   * You have a working set of credentials. If you are using a sample connector code, ensure that you have the appropriate credentials for the connector.
 
-## [#](<#sample-connector-chargebee>) Sample connector - Chargebee
+## Sample connector - Chargebee [​](<#sample-connector-chargebee>)
 
 The code in `connector.rb`.
+
+ruby
 ```ruby
- 
+
     {
       title: 'Chargebee-demo',
 
@@ -97,15 +105,15 @@ The code in `connector.rb`.
       },
     }
 
-
 ```
 
 Credentials in `settings.yaml.enc` .
+
+yaml
 ```ruby
- 
+
     api_key: valid_api_key
     domain: valid_domain
-
 
 ```
 
@@ -115,13 +123,15 @@ If you're using an encrypted settings.yaml file, you will need to use `workato e
 
 With the SDK Gem, you'll be able to invoke a picklist individually.
 
-## [#](<#example-1-running-the-static-pick-list>) Example 1. Running the `static` pick_list
+## Example 1. Running the `static` pick_list [​](<#example-1-running-the-static-pick-list>)
 
 The first pick_list we will cover in the example above is the `static` pick_list. Like it's name suggests, it stores a static list of values and when invoked, will just return this value.
 
 Here is an example the pick_list being run:
+
+shell
 ```bash
- 
+
     $ workato exec pick_lists.static
     [
       [
@@ -138,16 +148,17 @@ Here is an example the pick_list being run:
       ]
     ]
 
-
 ```
 
-## [#](<#example-2-running-the-dynamic-pick-list>) Example 2. Running the `dynamic` pick_list
+## Example 2. Running the `dynamic` pick_list [​](<#example-2-running-the-dynamic-pick-list>)
 
 The next pick_list is one that sends a request out and massages the response into a pick_list format. Here, the connection settings required to authorize the request is assumed to be the default `settings.yaml.enc` file. If this is not what you want, you can use `--settings` to override this.
 
 Here is an example the pick_list being run:
+
+shell
 ```bash
- 
+
     $ workato exec pick_lists.dynamic
     [
       [
@@ -160,26 +171,28 @@ Here is an example the pick_list being run:
       ]
     ]
 
-
 ```
 
-## [#](<#example-3-running-the-dependent-pick-list>) Example 3. Running the `dependent` pick_list
+## Example 3. Running the `dependent` pick_list [​](<#example-3-running-the-dependent-pick-list>)
 
 The next pick_list is one that sends a request out and massages the response into a pick_list format. Here, the connection settings required to authorize the request is assumed to be the default `settings.yaml.enc` file. If this is not what you want, you can use `--settings` to override this.
 
 The `fixtures/pick_lists/dependent/input.json` file in this example contains the following:
+
+JSON
 ```ruby
- 
+
     {
         "limit": "1"
     }
 
-
 ```
 
 Here is an example the pick_list being run:
+
+shell
 ```bash
- 
+
     $ workato exec pick_lists.dependent --args='fixtures/pick_lists/dependent/input.json' 
     [
       [
@@ -188,26 +201,28 @@ Here is an example the pick_list being run:
       ]
     ]
 
-
 ```
 
-## [#](<#example-4-running-the-dependent-with-names-pick-lists>) Example 4. Running the `dependent_with_names` pick_lists
+## Example 4. Running the `dependent_with_names` pick_lists [​](<#example-4-running-the-dependent-with-names-pick-lists>)
 
 In other cases, you might have a picklist that accepts named arguments. In this case, this picklist has the named argument `limit:`.
 
 When you pass the arguments via CLI, the contents of the file `fixtures/pick_lists/dependent_with_names/input.json` should look like this:
+
+JSON
 ```ruby
- 
+
     {
         "limit": "1"
     }
 
-
 ```
 
 Here is an example the pick_list being run:
+
+shell
 ```bash
- 
+
     $ workato exec pick_lists.dependent_with_names --args='fixtures/pick_lists/dependent_with_names/input.json' 
     [
       [
@@ -216,5 +231,6 @@ Here is an example the pick_list being run:
       ]
     ]
 
-
 ```
+
+**Last updated:**
