@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-05-06T03:11:11.840766
+> **Fetched**: 2026-05-07T03:11:34.924819
 
 ---
 
