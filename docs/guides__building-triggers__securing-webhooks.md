@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/securing-webhooks.html
-> **Fetched**: 2026-05-13T03:11:38.333004
+> **Fetched**: 2026-05-14T03:10:45.958060
 
 ---
 

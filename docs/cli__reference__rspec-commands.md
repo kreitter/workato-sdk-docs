@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/rspec-commands.html
-> **Fetched**: 2026-05-13T03:10:57.348746
+> **Fetched**: 2026-05-14T03:10:05.486893
 
 ---
 
