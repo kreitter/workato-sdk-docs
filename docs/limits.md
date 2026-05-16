@@ -1,13 +1,19 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/limits.html
-> **Fetched**: 2026-05-15T03:12:05.888797
+> **Fetched**: 2026-05-16T03:09:59.027345
 
 ---
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
 # Connector SDK limits [​](<#connector-sdk-limits>)
+
+The Connector SDK is subject to the following limits.
+
+DEFAULT LIMITS
+
+The limits on this page are defaults based on Workato best practices and are configured to enable optimal platform performance. Customers on Enterprise plans or above can contact their Customer Success Representative to request an extension of these limits for their specific use cases.
 
 Description| Limit  
 ---|---  
