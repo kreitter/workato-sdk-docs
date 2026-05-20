@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/update-objects.html
-> **Fetched**: 2026-05-19T03:11:51.433462
+> **Fetched**: 2026-05-20T03:11:55.911444
 
 ---
 
