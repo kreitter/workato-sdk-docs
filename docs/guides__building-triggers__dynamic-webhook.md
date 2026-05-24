@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/dynamic-webhook.html
-> **Fetched**: 2026-05-23T03:09:41.433603
+> **Fetched**: 2026-05-24T03:11:49.152151
 
 ---
 
