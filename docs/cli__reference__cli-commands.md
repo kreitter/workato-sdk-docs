@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-commands.html
-> **Fetched**: 2026-05-25T03:13:03.773288
+> **Fetched**: 2026-05-26T03:11:29.308775
 
 ---
 
@@ -39,7 +39,7 @@ Description of commands available in the Workato gem.
 
 Creates or edits an encrypted file.
 
-### Usage [​](<#usage-1>)
+### Usage [​](<#workato-edit-usage>)
 ```bash
 
     $ workato edit <PATH>
@@ -86,7 +86,7 @@ Encrypted file is created or updated. `master.key` is created if the file didn't
 
 Executes a specific lambda function in your connector for testing.
 
-### Usage [​](<#usage-2>)
+### Usage [​](<#workato-exec-usage>)
 ```bash
 
     $ workato exec <PATH> <OPTIONS>
@@ -94,13 +94,13 @@ Executes a specific lambda function in your connector for testing.
 
 ```
 
-### Input [​](<#input-1>)
+### Input [​](<#workato-exec-input>)
 
 Input| Description  
 ---|---  
 **PATH**|  The path to the lambda to execute, in dot notation. For example: `actions.search_customers.execute` would correspond to the action `search_customers` and the execute lambda. You may also simulate the entire action with the path `actions.search_customers`.   
 
-### Options [​](<#options-1>)
+### Options [​](<#workato-exec-options>)
 
 Option| Description  
 ---|---  
@@ -126,7 +126,7 @@ Option| Description
 **\--verbose**|  Include this option to make the execution verbose. This means that all HTTP requests and request payloads will be shown. Response bodies won't be shown but can be inspected with `byebug`.   
 **\--debug**|  Include this option to show errors from the entire stacktrace, rather than just the last encountered error.   
 
-### Result [​](<#result-1>)
+### Result [​](<#workato-exec-result>)
 
 The output of the lambda function. 
 
@@ -180,7 +180,7 @@ Invoke a specific polling trigger and pass it inputs. Output will be a single pa
 
 Generates Workato schema based on a given JSON or CSV or tests based on a given connector 
 
-### Usage [​](<#usage-3>)
+### Usage [​](<#workato-generate-usage>)
 ```bash
 
     $ workato generate <SUBCOMMAND>
@@ -188,7 +188,7 @@ Generates Workato schema based on a given JSON or CSV or tests based on a given 
 
 ```
 
-### Input [​](<#input-2>)
+### Input [​](<#workato-generate-input>)
 
 Input| Description  
 ---|---  
@@ -200,7 +200,7 @@ Input| Description
 
 Takes a given JSON or CSV file and converts it into Workato Schema for use in your connector 
 
-### Usage [​](<#usage-4>)
+### Usage [​](<#workato-generate-schema-usage>)
 ```bash
 
     $ workato generate schema --api-token <API-TOKEN> <OPTIONS>
@@ -208,7 +208,7 @@ Takes a given JSON or CSV file and converts it into Workato Schema for use in yo
 
 ```
 
-### Options [​](<#options-2>)
+### Options [​](<#workato-generate-schema-options>)
 
 Option| Description  
 ---|---  
@@ -223,7 +223,7 @@ Required API Client permissions:
   * POST /api/sdk/generate_schema/csv
   * POST /api/sdk/generate_schema/json
 
-### Examples [​](<#examples-1>)
+### Examples [​](<#workato-generate-schema-examples>)
 
 Convert sample JSON payload to Workato schema
 ```bash
@@ -245,7 +245,7 @@ Convert sample pipe delimited CSV file to Workato schema with
 
 Takes a given connector and generates RSpec tests for specified features. 
 
-### Usage [​](<#usage-5>)
+### Usage [​](<#workato-generate-test-usage>)
 ```bash
 
     $ workato generate test <OPTIONS>
@@ -253,7 +253,7 @@ Takes a given connector and generates RSpec tests for specified features.
 
 ```
 
-### Options [​](<#options-3>)
+### Options [​](<#workato-generate-test-options>)
 
 Option| Description  
 ---|---  
@@ -264,7 +264,7 @@ Option| Description
 **-o or --object-definition**|  The name of the specific object_definition to generate tests for. Generates tests for all features if not specified.   
 **-m or --method**|  The name of the specific method to generate tests for. Generates tests for all features if not specified.   
 
-### Examples [​](<#examples-2>)
+### Examples [​](<#workato-generate-test-examples>)
 
 Generate skeletal tests for all connector features
 ```bash
@@ -286,7 +286,7 @@ Generate skeletal tests for specific action
 
 Displays help for a specified SDK gem command.
 
-### Usage [​](<#usage-6>)
+### Usage [​](<#workato-help-usage>)
 ```bash
 
     $ workato help <COMMAND>
@@ -294,17 +294,17 @@ Displays help for a specified SDK gem command.
 
 ```
 
-### Input [​](<#input-3>)
+### Input [​](<#workato-help-input>)
 
 Input| Description  
 ---|---  
 **COMMAND**|  The command which you want to help displayed for. For example: `edit`  
 
-### Output [​](<#output-1>)
+### Output [​](<#workato-help-output>)
 
 Elaborated help for the specified SDK gem command.
 
-### Example [​](<#example-1>)
+### Example [​](<#workato-help-example>)
 ```bash
 
     $ workato help edit
@@ -343,7 +343,7 @@ When you create a new connector project, you will be asked if you want to select
 
 When you select `secure`, VCR recordings made for your unit tests are encrypted. **This is recommended.** You'll need to set your environment variable for `VCR_RECORD_MODE` as well. 
 
-### Usage [​](<#usage-7>)
+### Usage [​](<#workato-new-usage>)
 ```bash
 
     $ workato new <PATH>
@@ -351,17 +351,17 @@ When you select `secure`, VCR recordings made for your unit tests are encrypted.
 
 ```
 
-### Input [​](<#input-4>)
+### Input [​](<#workato-new-input>)
 
 Input| Description  
 ---|---  
 **PATH**|  The path where the connector project should be created.   
 
-### Result [​](<#result-2>)
+### Result [​](<#workato-new-result>)
 
 Generates a new connector project. 
 
-### Example [​](<#example-2>)
+### Example [​](<#workato-new-example>)
 ```bash
 
     $ workato new ~/Desktop/my-new-connector
@@ -379,7 +379,7 @@ The command `workato oauth2` requires SDK Gem version 0.1.2 and above.
 
 Use this to implement the OAuth2 Authorization code grant flow for applicable connectors. Applicable connectors are ones where the connection hash has `type: 'oauth2`. For more information, check out this handy [Okta article](<https://developer.okta.com/blog/2018/04/10/oauth-authorization-code-grant-type>). 
 
-### Usage [​](<#usage-8>)
+### Usage [​](<#workato-oauth2-usage>)
 ```bash
 
     $ workato oauth2 <OPTIONS>
@@ -387,7 +387,7 @@ Use this to implement the OAuth2 Authorization code grant flow for applicable co
 
 ```
 
-### Options [​](<#options-4>)
+### Options [​](<#workato-oauth2-options>)
 
 Option| Description  
 ---|---  
@@ -404,11 +404,11 @@ If a `master.key` file doesn't exist and no option is provided, a new `master.ke
 **\--https, --no-https**|  Allows you to start the webserver with a self-signed certificate. Required in cases where the OAuth App requires a redirect uri with a "https://" prefix.   
 **\--verbose**|  Include this option to make the execution verbose. This means that all HTTP requests and request payloads will be shown. Response bodies won't be shown but can be inspected with `byebug`.   
 
-### Result [​](<#result-3>)
+### Result [​](<#workato-oauth2-result>)
 
 Emulates the OAuth2 Authorization Code Grant Flow on Workato. Applicable connectors are ones where the connection hash has `type: 'oauth2`. For more information, check out this handy [Okta article](<https://developer.okta.com/blog/2018/04/10/oauth-authorization-code-grant-type>). 
 
-### Example [​](<#example-3>)
+### Example [​](<#workato-oauth2-example>)
 ```bash
 
     $ workato oauth2
@@ -430,7 +430,7 @@ This feature requires configuration steps that are specific to your Virtual Priv
 
 Creates a new connector project in your chosen Workato folder.
 
-### Usage [​](<#usage-9>)
+### Usage [​](<#workato-push-usage>)
 ```bash
 
     $ workato push --api-token <API-TOKEN> <OPTIONS>
@@ -438,7 +438,7 @@ Creates a new connector project in your chosen Workato folder.
 
 ```
 
-### Options [​](<#options-5>)
+### Options [​](<#workato-push-options>)
 
 Option| Description  
 ---|---  
@@ -461,7 +461,7 @@ Folder IDs are located in the URL when you're viewing the folder. For example: i
 **-c or --connector**|  The path to the connector source code. Defaults to `connector.rb` if not provided.   
 **\--environment**|  Use this data center-specific URL to push connector code. Defaults to the WORKATO_BASE_URL environment variable if not set. For example: \- `https://app.workato.com` \- `https://app.eu.workato.com` \- `https://app.jp.workato.com` \- `https://app.sg.workato.com` \- `https://app.au.workato.com` \- `https://app.il.workato.com` \- `https://app.workatoapp.cn` \- `https://app.kr.workato.com` \- `https://app.trial.workato.com`   
 
-### Example [​](<#example-4>)
+### Example [​](<#workato-push-example>)
 ```ruby
 
     workato push --api-token

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html
-> **Fetched**: 2026-05-25T03:14:18.708394
+> **Fetched**: 2026-05-26T03:12:44.013331
 
 ---
 
@@ -294,7 +294,7 @@ ruby
 
 The other common type of nested field is an array of objects. This type of field contains a list of repeated objects of the same fields. The defining such fields is similar to defining objects. Take the following sample `user` object from Asana as an example.
 
-#### Sample code snippet [​](<#sample-code-snippet-1>)
+#### Sample code snippet [​](<#nested-arrays-sample-code-snippet>)
 
 json
 ```ruby
@@ -365,7 +365,7 @@ TIP
 
 Toggle fields are often used in conjunction with pick lists. Since pick lists produce drop-downs, users are unable to map datapills which they normally would in recipes. Toggle fields fix that by allowing them to toggle to plain text fields which can accept datapills.
 
-#### Sample code snippet [​](<#sample-code-snippet-2>)
+#### Sample code snippet [​](<#using-toggle-fields-sample-code-snippet>)
 
 ruby
 ```ruby
@@ -405,7 +405,7 @@ If both field types are preferred for your planned use case, you can use the `to
 
 In some cases, the input fields you plan to show in an action depend on the answer to an input field in the same action. The `extends_schema` feature enables you to add dynamic behavior to your actions without using configuration fields.
 
-#### Sample code snippet [​](<#sample-code-snippet-3>)
+#### Sample code snippet [​](<#using-fields-with-extends-schema-sample-code-snippet>)
 
 ruby
 ```ruby
@@ -444,7 +444,7 @@ The `schema_neutral` parameter enables you to update titles or descriptions with
 
 Arrays in Workato input and output schema currently only work with objects. In cases where you need to collect an array of primitive data types such as strings or integers, consider the code below. In this example, we plan to send an array of strings to a target API in the format `["column1","column2","column3"]`. This can be done by declaring an array of objects with the declaration for the `column names` input field wrapped inside the object layer.
 
-#### Sample code snippet [​](<#sample-code-snippet-4>)
+#### Sample code snippet [​](<#arrays-of-primitive-scalar-data-types-sample-code-snippet>)
 
 ruby
 ```ruby
@@ -470,7 +470,7 @@ ruby
 
 Sometimes, you need to hide or display fields based on a user's input. This could be in the `input_fields` key or the `config_fields` key. For example, if you want to showcase an additional `config_field` based on a user's input to another `config_field`. Another use case would be to showcase a new input field based on a user's input for another input field. For example, if we have an action that creates a user - if one input field is `assign_new_password`, we would use `ngIf` to conditionally show `new_password` if the user gave `true` to that input.
 
-#### Sample code snippet [​](<#sample-code-snippet-5>)
+#### Sample code snippet [​](<#using-ngif-to-conditionally-hide-or-display-fields-sample-code-snippet>)
 
 ruby
 ```ruby

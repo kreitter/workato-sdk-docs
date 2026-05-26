@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/error-handling.html
-> **Fetched**: 2026-05-25T03:13:56.514955
+> **Fetched**: 2026-05-26T03:12:21.950989
 
 ---
 
@@ -51,7 +51,7 @@ The alternative is to handle these errors in the [after_response](</developing-c
 
 For example, we can use the `after_response` method to check the contents of the response body before deciding to return the body as a successful request output or to raise an error with a custom message.
 
-#### Sample code snippet [​](<#sample-code-snippet-1>)
+#### Sample code snippet [​](<#after-response-sample-code-snippet>)
 
 ruby
 ```ruby
@@ -77,7 +77,7 @@ This method accepts 2 arguments. First, a number which represents the exact erro
 
 Next, it also accepts a conditional path that will be executed when a HTTP response code matching the first argument is received.
 
-#### Sample code snippet [​](<#sample-code-snippet-2>)
+#### Sample code snippet [​](<#after-error-response-sample-code-snippet>)
 
 Let's take a look at an `after_error_response` example, using **Airtable** API.
 
@@ -160,7 +160,7 @@ ruby
 
 The `after_error_response` helper method can also be chained to HTTP verb methods in other parts of your custom connector. For example, you may want to handling and provide custom error messages from dynamic [pick_lists](</developing-connectors/sdk/sdk-reference/picklists>). In this example, we are looking at handling errors from [Docparser](<https://dev.docparser.com/>).
 
-#### Sample code snippet [​](<#sample-code-snippet-3>)
+#### Sample code snippet [​](<#handling-picklist-errors-sample-code-snippet>)
 
 ruby
 ```ruby
@@ -185,7 +185,7 @@ HTTP error will be displayed in the recipe editor when the custom adapter tries 
 
 This can also be used in [dynamic fields](</developing-connectors/sdk/sdk-reference/object_definitions>) code block in object_definitions.
 
-#### Sample code snippet [​](<#sample-code-snippet-4>)
+#### Sample code snippet [​](<#handling-object-definition-errors-sample-code-snippet>)
 
 ruby
 ```ruby

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/trigger-limit.html
-> **Fetched**: 2026-05-25T03:13:58.644860
+> **Fetched**: 2026-05-26T03:12:24.073236
 
 ---
 
@@ -113,7 +113,7 @@ Workato sends the following notifications about stopped recipes to specific reci
   * **Workspace admins:** notifications are sent directly to the admin of the workspace where the recipe runs.
   * **Embedded partners:** notifications are sent to the Embedded partner’s workspace email. Embedded customers do not receive these notifications.
 
-#### Notification details [​](<#notification-details-1>)
+#### Notification details [​](<#stopped-recipe-notification-notification-details>)
 
 Workato provides notifications at two key points to keep you informed about stopped recipes due to the limit.
 

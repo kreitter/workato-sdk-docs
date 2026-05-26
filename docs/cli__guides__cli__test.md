@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/test.html
-> **Fetched**: 2026-05-25T03:12:51.760772
+> **Fetched**: 2026-05-26T03:11:17.336012
 
 ---
 
@@ -239,7 +239,7 @@ yaml
 
 ```
 
-### Running the test lambda [​](<#running-the-test-lambda-1>)
+### Running the test lambda [​](<#invoking-the-test-lambda-for-advanced-auth-running-the-test-lambda>)
 
 When you run the command
 
@@ -466,7 +466,7 @@ yaml
 
 ```
 
-### Running the test lambda [​](<#running-the-test-lambda-2>)
+### Running the test lambda [​](<#invoking-the-test-lambda-for-oauth2-auth-code-grant-scenarios-running-the-test-lambda>)
 
 Now after you've successfully gone through the flow, you may be use the same `workato exec test` command to verify you're applying your token properly in your requests!
 

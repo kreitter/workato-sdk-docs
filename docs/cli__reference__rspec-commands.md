@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/rspec-commands.html
-> **Fetched**: 2026-05-25T03:13:06.052323
+> **Fetched**: 2026-05-26T03:11:31.629838
 
 ---
 
@@ -111,7 +111,7 @@ TIP
 
 When you use this, we first look for a `settings.yaml.enc` file as well as `master.key` file in the root directory where you are calling. If no `settings.yaml.enc` file can be found, we then default to your `setting.yaml` file.
 
-### `from_file` [​](<#from-file-1>)
+### `from_file` [​](<#creating-a-settings-instance-from-file>)
 
 Instantiates a settings instance which can be used in your RSpec tests. This is the basic building block for any RSpec tests as well!
 
@@ -394,7 +394,7 @@ Input| `input` \- The JSON representation of the input json provided directly to
 Output| The output of your trigger including any schema conversions  
 Usage| `connector.triggers.[trigger_name](input)` or `connector.triggers.[trigger_name].invoke(input)`  
 
-#### Example RSpec test - testing your entire action [​](<#example-rspec-test-testing-your-entire-action-1>)
+#### Example RSpec test - testing your entire action [​](<#testing-your-entire-trigger-example-rspec-test-testing-your-entire-action>)
 
 ruby
 ```ruby

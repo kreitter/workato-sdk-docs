@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multi-threaded-actions.html
-> **Fetched**: 2026-05-25T03:13:33.409696
+> **Fetched**: 2026-05-26T03:11:58.897325
 
 ---
 
@@ -203,7 +203,7 @@ The execute lambda is responsible for
   2. The actual sending of the request
   3. Any post-processing of the data.
 
-### 1\. Preparing the series of requests to send in parallel to the API [​](<#_1-preparing-the-series-of-requests-to-send-in-parallel-to-the-api>)
+### 1\. Preparing the series of requests to send in parallel to the API [​](<#1-preparing-the-series-of-requests-to-send-in-parallel-to-the-api>)
 
 In the first part of the execute lambda, we first create an array of requests with a single request for each contact. Take note that the requests are not actually sent out at this point but only when the array of requests is passed to the `parallel` method.
 
@@ -219,7 +219,7 @@ ruby
 
 ```
 
-### 2\. Sending of the request [​](<#_2-sending-of-the-request>)
+### 2\. Sending of the request [​](<#2-sending-of-the-request>)
 
 In the next step we call the parallel method which takes in the array of requests as well as parameters for the execution like the total number of threads and any throttling of requests required. Take note that `rpm` is optional and excluding it will result in no throttling of requests.
 
@@ -234,7 +234,7 @@ ruby
 
 ```
 
-### 3\. Post-processing of the data [​](<#_3-post-processing-of-the-data>)
+### 3\. Post-processing of the data [​](<#3-post-processing-of-the-data>)
 
 The output of the parallel method is an array which describes the successful and failed requests in the batch. This is done in the second and third index of the array which correspond to successful responses and failed responses for requests respectively. Take note that `null` values in either array indicate a value in the same position in its counterpart.
 
