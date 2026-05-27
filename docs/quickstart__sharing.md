@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/sharing.html
-> **Fetched**: 2026-05-26T03:12:30.497477
+> **Fetched**: 2026-05-27T03:13:37.006576
 
 ---
 
@@ -28,7 +28,7 @@ FEATURE AVAILABILITY
 
 Closed code source connector sharing is subject to the following limitations:
 
-  * Collaborating workspaces must use the same data center as the custom connector's developer. Refer to [Share data between regions](</datacenter/datacenter-overview#share-data-between-regions>) for more information on cross-region collaboration.
+  * Collaborating workspaces must use the same data center as the custom connector's developer. Refer to [Share data between regions](</en/datacenter/datacenter-overview#share-data-between-regions>) for more information on cross-region collaboration.
   * Partners must be given access to this feature. Contact your Customer Success Representative to learn more.
 
 ### Switch between open-source and closed-source [​](<#switch-between-open-source-and-closed-source>)
@@ -183,7 +183,7 @@ Optional. Click the **Prevent direct installation** toggle if you plan to redire
 The following occurs when this option is enabled:
 
   * End users can't install the connector directly from the community listing.
-  * Users can install the connector only through your private sharing link. Go to the **Sharing privately using a link** section of your connector's **Share** tab to obtain the link. Refer to [Share a connector with a link](</developing-connectors/sdk/quickstart/sharing#closed-source-code>) to learn how to grant access to users.
+  * Users can install the connector only through your private sharing link. Go to the **Sharing privately using a link** section of your connector's **Share** tab to obtain the link. Refer to [Share a connector with a link](</en/developing-connectors/sdk/quickstart/sharing#closed-source-code>) to learn how to grant access to users.
   * You must provide a **Landing Page URL** and a clear path.
 
 Any workspace can install the connector directly from the community listing if you don't enable this toggle. Closed-source connectors hide the source code but don't restrict installation.
@@ -210,17 +210,17 @@ Workato notifies you through your community profile's email when your connector 
 
 REQUIRED PERMISSIONS
 
-Sharing connectors to the community library requires [full access to the Connector SDK](</user-accounts-and-teams/role-based-access/new-model/privileges-reference#connector-sdk>). If you don't have the required permissions, contact your workspace admin to help you share the connector.
+Sharing connectors to the community library requires [full access to the Connector SDK](</en/user-accounts-and-teams/role-based-access/new-model/privileges-reference#connector-sdk>). If you don't have the required permissions, contact your workspace admin to help you share the connector.
 
 ## Export packages with custom connectors [​](<#exporting-packages-with-custom-connectors>)
 
-You can use the [Recipe lifecycle management](</recipe-development-lifecycle>) tool to export and import entire folders of recipes from a sandbox environment to a production environment in Workato. Recipes that you plan to export from one account and import into another often contain custom connectors that you have built or cloned. Workato helps to export custom connectors in the manifests when you export these recipes.
+You can use the [Recipe lifecycle management](</en/recipe-development-lifecycle>) tool to export and import entire folders of recipes from a sandbox environment to a production environment in Workato. Recipes that you plan to export from one account and import into another often contain custom connectors that you have built or cloned. Workato helps to export custom connectors in the manifests when you export these recipes.
 
-The **latest released version** and the attached version note of your custom connector used in recipes are included in the manifest export. Refer to [Exporting recipes](</recipe-development-lifecycle/export>) for more information.
+The **latest released version** and the attached version note of your custom connector used in recipes are included in the manifest export. Refer to [Exporting recipes](</en/recipe-development-lifecycle/export>) for more information.
 
 ## Import a manifest with custom connectors [​](<#importing-a-manifest-with-custom-connectors>)
 
-Workato first checks for an existing copy of the custom connector when you import a manifest. If no existing copy is found, a new custom connector is created with the latest released version as version 1. If an existing copy is found, a new latest version is created instead. In both cases, importing a manifest immediately releases the latest version of the custom connector for you because the recipes you are importing use that latest version. Refer to [Importing recipes](</recipe-development-lifecycle/import>) for more information.
+Workato first checks for an existing copy of the custom connector when you import a manifest. If no existing copy is found, a new custom connector is created with the latest released version as version 1. If an existing copy is found, a new latest version is created instead. In both cases, importing a manifest immediately releases the latest version of the custom connector for you because the recipes you are importing use that latest version. Refer to [Importing recipes](</en/recipe-development-lifecycle/import>) for more information.
 
 EXPLORE RECIPE DEPENDENCIES
 

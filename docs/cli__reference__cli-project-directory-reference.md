@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-project-directory-reference.html
-> **Fetched**: 2026-05-26T03:11:30.453290
+> **Fetched**: 2026-05-27T03:12:38.018152
 
 ---
 
@@ -113,7 +113,7 @@ ruby
 
 ```
 
-You can also use [`workato generate test`](</developing-connectors/sdk/cli/reference/cli-commands#workato-generate>) to generate RSpec test stubs for you. This handles most of the heavy lifting, such as such as instantiating your connector or settings.
+You can also use [`workato generate test`](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-generate>) to generate RSpec test stubs for you. This handles most of the heavy lifting, such as such as instantiating your connector or settings.
 
 It's ultimately up to you how you want to write your unit tests. If you'd like some help getting started, [check out this tutorial](<https://semaphoreci.com/community/tutorials/getting-started-with-rspec>).
 

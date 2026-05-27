@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection.html
-> **Fetched**: 2026-05-26T03:12:34.874601
+> **Fetched**: 2026-05-27T03:13:41.316188
 
 ---
 
@@ -59,7 +59,7 @@ Required
     False
 Description
     Accepts an array of hashes. Each hash in this array corresponds to a separate input field.  
-To learn how to define input fields in Workato, see [SDK Reference - Schema](</developing-connectors/sdk/sdk-reference/schema.html>).
+To learn how to define input fields in Workato, see [SDK Reference - Schema](</en/developing-connectors/sdk/sdk-reference/schema.html>).
 
 ### Picklists in connection fields [​](<#picklists-in-connection-fields>)
 
@@ -125,7 +125,7 @@ Type
 Required
     False
 Description
-    Allows you to optionally display more input fields based on your connection. The output is expected to be a valid Workato schema. Find out more about [SDK Reference - Schema](</developing-connectors/sdk/sdk-reference/schema.html>).
+    Allows you to optionally display more input fields based on your connection. The output is expected to be a valid Workato schema. Find out more about [SDK Reference - Schema](</en/developing-connectors/sdk/sdk-reference/schema.html>).
 
 ### How to use extended_fields [​](<#how-to-use-extended-fields>)
 
@@ -267,7 +267,7 @@ Required
 Description
     Accepts an object with child keys corresponding to different types of authentication
 
-Find out more about the `authorization` hash in [SDK Reference - authorization](</developing-connectors/sdk/sdk-reference/connection/authorization>).
+Find out more about the `authorization` hash in [SDK Reference - authorization](</en/developing-connectors/sdk/sdk-reference/connection/authorization>).
 
 * * *
 

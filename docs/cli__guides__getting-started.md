@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/getting-started.html
-> **Fetched**: 2026-05-26T03:11:20.641576
+> **Fetched**: 2026-05-27T03:12:28.403543
 
 ---
 
@@ -99,7 +99,7 @@ shell
 
 ```
 
-Additionally, you can use the [`workato`](</developing-connectors/sdk/cli/reference/cli-commands#workato>) command to view the commands that are available during development. Find out more about individual keys by running `workato help edit`.
+Additionally, you can use the [`workato`](</en/developing-connectors/sdk/cli/reference/cli-commands#workato>) command to view the commands that are available during development. Find out more about individual keys by running `workato help edit`.
 
 * * *
 
@@ -109,7 +109,7 @@ Now that you're all set up, let's dive into the exciting stuff: Making connector
 
 1
 
-Create a new connector project using the [`workato new`](</developing-connectors/sdk/cli/reference/cli-commands#workato-new>) command, replacing `<PATH>` with the path you'd like to use for the project:
+Create a new connector project using the [`workato new`](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-new>) command, replacing `<PATH>` with the path you'd like to use for the project:
 
 shell
 ```bash
@@ -143,7 +143,7 @@ Enter your choice using `1` or `2`:
   * `1 - secure` \- **Recommended.** All HTTP requests are encrypted and recorded via VCR to ensure stability. We'll also provide you with an easy way to encrypt the recordings so credentials are not stored in plain text.
   * `2 - simple` \- All HTTP requests are stored in plain text.
 
-Refer to the [project directory reference](</developing-connectors/sdk/cli/reference/cli-project-directory-reference>) for more info about the files the `workato new` command creates.
+Refer to the [project directory reference](</en/developing-connectors/sdk/cli/reference/cli-project-directory-reference>) for more info about the files the `workato new` command creates.
 
 * * *
 
@@ -160,7 +160,7 @@ Credentials are stored in your project's `settings.yaml.enc` or `settings.yaml` 
 
 1
 
-Run the [`workato edit`](</developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) command and replace `<EDITOR>` with your preferred editor **if you opted to encrypt your files** :
+Run the [`workato edit`](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) command and replace `<EDITOR>` with your preferred editor **if you opted to encrypt your files** :
 
 Example - Mac users
 
@@ -199,7 +199,7 @@ yaml
 
 ```
 
-Refer to the [settings file reference](</developing-connectors/sdk/cli/reference/cli-project-directory-reference#settings-yaml-enc-settings-yaml>) for more info, including how to provide multiple sets of credentials.
+Refer to the [settings file reference](</en/developing-connectors/sdk/cli/reference/cli-project-directory-reference#settings-yaml-enc-settings-yaml>) for more info, including how to provide multiple sets of credentials.
 
 3
 
@@ -207,7 +207,7 @@ Add `master.key` to your project's `.gitignore` or other similar file(s) **if co
 
 ### Step 3.2: Test the connector [​](<#step-3-2-test-the-connector>)
 
-Test your connector's connection, triggers, or actions with [`workato exec`](</developing-connectors/sdk/cli/reference/cli-commands#workato-exec>). This executes a connector's lambda block at the `PATH` you provide.
+Test your connector's connection, triggers, or actions with [`workato exec`](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-exec>). This executes a connector's lambda block at the `PATH` you provide.
 
 For example:
 
@@ -225,7 +225,7 @@ shell
 
 ```
 
-Check out the [Running test lambda on CLI guide](</developing-connectors/sdk/cli/guides/cli/test>) and for a detailed look testing on the CLI.
+Check out the [Running test lambda on CLI guide](</en/developing-connectors/sdk/cli/guides/cli/test>) and for a detailed look testing on the CLI.
 
 * * *
 
@@ -235,7 +235,7 @@ You can push your connector code from your local environment to your Workato wor
 
 1
 
-Run the [`workato push`](</developing-connectors/sdk/cli/reference/cli-commands#workato-push>) command:
+Run the [`workato push`](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-push>) command:
 
 shell
 ```bash
@@ -250,7 +250,7 @@ Test in your Workato workspace. You can make changes locally and push to your Wo
 
 API CLIENT PERMISSIONS
 
-This command requires you to assign a [Client role](</workato-api/api-clients#create-a-client-role>) to the API client with the **Get details** permission enabled.
+This command requires you to assign a [Client role](</en/workato-api/api-clients#create-a-client-role>) to the API client with the **Get details** permission enabled.
 
 ENABLE THE GET DETAILS PERMISSION
 
@@ -272,7 +272,7 @@ Go to **Admin > Workspace details > Get details**.
 
 ## Step 5: Run RSpec tests for your connector [​](<#step-5-run-rspec-tests-for-your-connector>)
 
-You can use unit testing to ensure that each iteration of your connector is performing as expected. Learn more about [writing test your connectors](</developing-connectors/sdk/cli/guides/rspec/connector_spec>). Complete the following steps to run RSpec tests:
+You can use unit testing to ensure that each iteration of your connector is performing as expected. Learn more about [writing test your connectors](</en/developing-connectors/sdk/cli/guides/rspec/connector_spec>). Complete the following steps to run RSpec tests:
 
 1
 
@@ -309,14 +309,14 @@ The Workato SDK Gem works with RSpec and VCR to provide you a way to write unit 
 
 When you generate a project using Workato, these settings are automatically generated for you in the `spec_helper.rb` with some default VCR configurations. These VCR recordings also depend on your chosen security settings when you first set up the project. If you selected `secure`, your VCR recordings would be encrypted using your `master.key`.
 
-Learn more about [using VCR](</developing-connectors/sdk/cli/guides/rspec/vcr>).
+Learn more about [using VCR](</en/developing-connectors/sdk/cli/guides/rspec/vcr>).
 
 * * *
 
 ## What's next? [​](<#what-s-next>)
 
-  * Learn about developing connector [actions](</developing-connectors/sdk/cli/guides/cli/actions>), [triggers](</developing-connectors/sdk/cli/guides/cli/triggers>), and [methods](</developing-connectors/sdk/cli/guides/cli/methods>)
-  * Set up [CI/CD for your project on GitHub](</developing-connectors/sdk/cli/guides/rspec/enable-ci-cd-on-github>)
-  * Learn more about [running lambda tests](</developing-connectors/sdk/cli/guides/cli/test>)
+  * Learn about developing connector [actions](</en/developing-connectors/sdk/cli/guides/cli/actions>), [triggers](</en/developing-connectors/sdk/cli/guides/cli/triggers>), and [methods](</en/developing-connectors/sdk/cli/guides/cli/methods>)
+  * Set up [CI/CD for your project on GitHub](</en/developing-connectors/sdk/cli/guides/rspec/enable-ci-cd-on-github>)
+  * Learn more about [running lambda tests](</en/developing-connectors/sdk/cli/guides/cli/test>)
 
 **Last updated:**

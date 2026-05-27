@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers.html
-> **Fetched**: 2026-05-26T03:12:07.658643
+> **Fetched**: 2026-05-27T03:13:14.556929
 
 ---
 
@@ -20,10 +20,10 @@ Triggers are a crucial part of any connector. They allow users of your connector
 
 TIP
 
-Before we start, it is also important to get familiar with the different types of [HTTP request methods](</developing-connectors/sdk/sdk-reference/http>) which power all triggers.
+Before we start, it is also important to get familiar with the different types of [HTTP request methods](</en/developing-connectors/sdk/sdk-reference/http>) which power all triggers.
 
 ### General structure of triggers [​](<#general-structure-of-triggers>)
 
-You can find a full reference of the `triggers` key in our [SDK reference.](</developing-connectors/sdk/sdk-reference/triggers>)
+You can find a full reference of the `triggers` key in our [SDK reference.](</en/developing-connectors/sdk/sdk-reference/triggers>)
 
 **Last updated:**

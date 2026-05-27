@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.html
-> **Fetched**: 2026-05-26T03:11:33.800337
+> **Fetched**: 2026-05-27T03:12:41.296716
 
 ---
 
@@ -17,7 +17,7 @@ Now that we’ve defined objects schema in methods, we can now start building ou
 
 ## Defining config fields [​](<#defining-config-fields>)
 
-When dealing with object-based actions, we first need to define something called configuration fields. [Configuration fields](</developing-connectors/sdk/sdk-reference/actions#config-fields>) are special input fields that you can define whose answers can dynamically generate other input fields.
+When dealing with object-based actions, we first need to define something called configuration fields. [Configuration fields](</en/developing-connectors/sdk/sdk-reference/actions#config-fields>) are special input fields that you can define whose answers can dynamically generate other input fields.
 
 ruby
 ```ruby
@@ -37,7 +37,7 @@ ruby
 
 ![Config fields](/assets/config_fields.BiCb-coL.gif)_Selecting invoice causes invoice related input fields to appear_
 
-Here we also introduce a [picklist](</developing-connectors/sdk/sdk-reference/picklists>) which we can easily add additional objects as we introduce support for them.
+Here we also introduce a [picklist](</en/developing-connectors/sdk/sdk-reference/picklists>) which we can easily add additional objects as we introduce support for them.
 
 DYNAMIC INPUT FIELDS
 
@@ -165,9 +165,9 @@ Error handling surfaces relevant error messages, saving users significant time d
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
-You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
+You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
 
 ### Execute block [​](<#execute-block>)
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions.html
-> **Fetched**: 2026-05-26T03:11:54.523650
+> **Fetched**: 2026-05-27T03:13:01.681834
 
 ---
 
@@ -24,16 +24,16 @@ Once you have figured out how to connect to your applications, you can build act
 
 TIP
 
-Before we start, it is also important to get familiar with the different types of [HTTP request methods](</developing-connectors/sdk/sdk-reference/http>) which power all actions.
+Before we start, it is also important to get familiar with the different types of [HTTP request methods](</en/developing-connectors/sdk/sdk-reference/http>) which power all actions.
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
-You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_methods#checkpoint>) method with file streaming actions to transfer files that exceed the timeout limit. The `checkpoint!` method checks the duration of an action's execution. If it exceeds 120 seconds, Workato refreshes the timeout with a slight delay to ensure fair processing.
+You can use the [checkpoint!](</en/developing-connectors/sdk/sdk-reference/ruby_methods#checkpoint>) method with file streaming actions to transfer files that exceed the timeout limit. The `checkpoint!` method checks the duration of an action's execution. If it exceeds 120 seconds, Workato refreshes the timeout with a slight delay to ensure fair processing.
 
 ### General structure of actions [​](<#general-structure-of-actions>)
 
-Refer to the `actions` key section in the [SDK reference](</developing-connectors/sdk/sdk-reference/actions>) for full details.
+Refer to the `actions` key section in the [SDK reference](</en/developing-connectors/sdk/sdk-reference/actions>) for full details.
 
 **Last updated:**

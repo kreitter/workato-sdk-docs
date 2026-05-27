@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/upload-streaming-actions.html
-> **Fetched**: 2026-05-26T03:11:19.549016
+> **Fetched**: 2026-05-27T03:12:27.331980
 
 ---
 
@@ -17,12 +17,12 @@ In this segment, we will be going through how you can run and easily debug actio
 
 ## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
-  * You have an understanding of the mechanics of file streaming on the SDK. Read our [guides](</developing-connectors/sdk/guides/building-actions/streaming>) to learn more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</en/developing-connectors/sdk/cli/guides/getting-started>) to know more.
+  * You have an understanding of the mechanics of file streaming on the SDK. Read our [guides](</en/developing-connectors/sdk/guides/building-actions/streaming>) to learn more.
 
 ## Upload file - Sample connector - Upload file to url [​](<#upload-file-sample-connector-upload-file-to-url>)
 
-We will be using the [generic upload file to url connector](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range>) as an example.
+We will be using the [generic upload file to url connector](</en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range>) as an example.
 
 ### Running the `execute` lambda for the Upload file action [​](<#running-the-execute-lambda-for-the-upload-file-action>)
 

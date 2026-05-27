@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce.html
-> **Fetched**: 2026-05-26T03:11:47.957579
+> **Fetched**: 2026-05-27T03:12:55.230227
 
 ---
 
@@ -99,7 +99,7 @@ TIP
 
 When defining fields, you need to at least provide the `name` key. Additional attributes like `optional`, `hint` and `control_type` allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the `control_type` as `password`.
 
-Learn more about how to [define input fields](</developing-connectors/sdk/sdk-reference/connection#fields>) in Workato.
+Learn more about how to [define input fields](</en/developing-connectors/sdk/sdk-reference/connection#fields>) in Workato.
 
 ## Step 2 - Defining the authorization type [​](<#step-2-defining-the-authorization-type>)
 
@@ -214,7 +214,7 @@ ruby
 
 ```
 
-To learn more about the available parameters and keys in the connection object, see [SDK Reference - connection](</developing-connectors/sdk/sdk-reference/connection>).
+To learn more about the available parameters and keys in the connection object, see [SDK Reference - connection](</en/developing-connectors/sdk/sdk-reference/connection>).
 
 ## Step 6 - Defining token refresh behavior [​](<#step-6-defining-token-refresh-behavior>)
 
@@ -254,11 +254,11 @@ To refresh your access token, you have to use two keys in the `authorization` ke
 
 In the `refresh` key, you have access to an argument that represents the `refresh_token` received from the initial token request. The expected output of this lambda function is an array where the first index is a hash denoting the new `access_token` as well as the new `refresh_token` if applicable. These will be used to update the initial values for a long lasting connection.
 
-To learn more about the refresh lambda, see [SDK Reference - authorization](</developing-connectors/sdk/sdk-reference/connection/authorization#refresh>).
+To learn more about the refresh lambda, see [SDK Reference - authorization](</en/developing-connectors/sdk/sdk-reference/connection/authorization#refresh>).
 
 ## Step 7 - Setting the API's base URI [​](<#step-7-setting-the-api-s-base-uri>)
 
-This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to [configure your base URI](</developing-connectors/sdk/sdk-reference/connection#base-uri>).
+This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Learn how to [configure your base URI](</en/developing-connectors/sdk/sdk-reference/connection#base-uri>).
 
 ruby
 ```ruby
@@ -365,6 +365,6 @@ Take note that you receive an additional argument, `verifier` in the `acquire` l
 
 ## Connections SDK reference [​](<#connections-sdk-reference>)
 
-To be more familiar with the available keys within the `connection` key and their parameters, check out our [SDK reference](</developing-connectors/sdk/sdk-reference/connection>).
+To be more familiar with the available keys within the `connection` key and their parameters, check out our [SDK reference](</en/developing-connectors/sdk/sdk-reference/connection>).
 
 **Last updated:**

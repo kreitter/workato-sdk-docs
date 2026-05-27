@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart.html
-> **Fetched**: 2026-05-26T03:12:27.290705
+> **Fetched**: 2026-05-27T03:13:33.857818
 
 ---
 
@@ -38,7 +38,7 @@ Workato then supplies a sample connector for [Calendly](<https://calendly.com/>)
 
 #### Creating a connector by importing an OpenAPI specification [​](<#creating-a-connector-by-importing-an-openapi-specification>)
 
-This option allows you to generate a ready-to-use connector from an existing OpenAPI specification. [Learn more](</developing-connectors/sdk/guides/import-via-oas>)
+This option allows you to generate a ready-to-use connector from an existing OpenAPI specification. [Learn more](</en/developing-connectors/sdk/guides/import-via-oas>)
 
 ### Changing your connector title, description, and logo [​](<#changing-your-connector-title-description-and-logo>)
 
@@ -56,7 +56,7 @@ Change your connector description by navigating to the `Settings` tab in the cus
 
 ## Using the Workato Code editor [​](<#using-the-workato-code-editor>)
 
-The Workato SDK platform uses the [Code Mirror](<https://codemirror.net/>) for editing your connector code. When writing your connector code, you can see all syntax or code errors in real time. Workato has a set of [allowed ruby methods](</developing-connectors/sdk/sdk-reference/ruby_methods>) that we allow for use in the code editor. This means that any ruby method not on our allowed list results in highlighted errors if called by the code inside your connector.
+The Workato SDK platform uses the [Code Mirror](<https://codemirror.net/>) for editing your connector code. When writing your connector code, you can see all syntax or code errors in real time. Workato has a set of [allowed ruby methods](</en/developing-connectors/sdk/sdk-reference/ruby_methods>) that we allow for use in the code editor. This means that any ruby method not on our allowed list results in highlighted errors if called by the code inside your connector.
 
 Note that the code editor has a set of basic hotkeys that make your experience easier.
 

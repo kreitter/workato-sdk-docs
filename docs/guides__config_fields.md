@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/config_fields.html
-> **Fetched**: 2026-05-26T03:12:14.264313
+> **Fetched**: 2026-05-27T03:13:21.029339
 
 ---
 
@@ -172,7 +172,7 @@ ruby
 
 The first step to making a good action is to properly communicate what the actions does, how it does it and to provide additional help to users. To do so, Workato allows you to define the title, description, and provide hints for an action. Quite simply, the title is the title of an action and the subtitle provides further details of the action. The description of the action then contains specifications and explanation on what the action accomplishes and in the context of the application it connects to. Finally, the help segment provides users any additional information required to make the action work.
 
-To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/actions#title>)
+To know more about this step, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/actions#title>)
 
 ## Step 2 - Define config_fields [​](<#step-2-define-config-fields>)
 
@@ -245,7 +245,7 @@ ruby
 
 ```
 
-The `object_definition['customer']` key sends a secondary request to Chargebee and transforms the response into [Workato Schema](</developing-connectors/sdk/sdk-reference/schema>).
+The `object_definition['customer']` key sends a secondary request to Chargebee and transforms the response into [Workato Schema](</en/developing-connectors/sdk/sdk-reference/schema>).
 
 ![config-select](/assets/input-fields-dynamics.DpHoq0lL.gif)_Selecting customers creates additional fields_
 
@@ -323,6 +323,6 @@ Object definitions
 
 Note that `object_definitions` is passed in as an argument. Workato allows connector builders to supply the definitions of an object separately in the "object_definitions" key. This key is used when the definitions of an object are large and/or can be dynamically obtained.
 
-To know more about this, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/object_definitions>)
+To know more about this, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/object_definitions>)
 
 **Last updated:**

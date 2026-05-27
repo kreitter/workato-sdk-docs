@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-05-26T03:12:42.846484
+> **Fetched**: 2026-05-27T03:13:49.152110
 
 ---
 
@@ -17,7 +17,7 @@ WHITELIST REMOVAL
 
 Workato has removed whitelisting for its SDK framework, starting March 2025. This means that developers can now access the full functionality of Ruby 2.7, including built-in libraries, and any available Ruby gems in the SDK container. This change significantly expands the range of capabilities SDK developers can leverage within the platform.
 
-[Learn more](</developing-connectors/sdk/sdk-reference/whitelist-removal>) about the capabilities available with the removal of ruby whitelisting.
+[Learn more](</en/developing-connectors/sdk/sdk-reference/whitelist-removal>) about the capabilities available with the removal of ruby whitelisting.
 
 This enhancement doesn't apply to the Ruby code connector.
 
@@ -169,13 +169,13 @@ ruby
 
 ## after_error_response [​](<#after-error-response>)
 
-Can be chained with an HTTP request to rescue a failed request. See [Error handling](</developing-connectors/sdk/guides/error-handling>).
+Can be chained with an HTTP request to rescue a failed request. See [Error handling](</en/developing-connectors/sdk/guides/error-handling>).
 
 * * *
 
 ## after_response [​](<#after-response>)
 
-Can be chained with an HTTP request to utilize the response's headers, and so on. See [Error handling](</developing-connectors/sdk/guides/error-handling>).
+Can be chained with an HTTP request to utilize the response's headers, and so on. See [Error handling](</en/developing-connectors/sdk/guides/error-handling>).
 
 * * *
 
@@ -265,7 +265,7 @@ ruby
 
 ```
 
-See [AWS authentication](</developing-connectors/sdk/guides/authentication/aws_auth>).
+See [AWS authentication](</en/developing-connectors/sdk/guides/authentication/aws_auth>).
 
 * * *
 
@@ -1065,7 +1065,7 @@ ruby
 
 ```
 
-See [format_map](</formulas/array-list-formulas#formatmap>) method definition.
+See [format_map](</en/formulas/array-list-formulas#formatmap>) method definition.
 
 * * *
 
@@ -1434,7 +1434,7 @@ ruby
 
 ```
 
-See [lookup](</formulas/other-formulas#lookup>) method definition.
+See [lookup](</en/formulas/other-formulas#lookup>) method definition.
 
 * * *
 
@@ -1711,7 +1711,7 @@ ruby
 
 ```
 
-See [Multi-threaded actions](</developing-connectors/sdk/guides/building-actions/multi-threaded-actions>) for more information.
+See [Multi-threaded actions](</en/developing-connectors/sdk/guides/building-actions/multi-threaded-actions>) for more information.
 
 * * *
 
@@ -1929,7 +1929,7 @@ ruby
 
 ```
 
-See [Multistep actions](</developing-connectors/sdk/guides/building-actions/multistep-actions>) for more information.
+See [Multistep actions](</en/developing-connectors/sdk/guides/building-actions/multistep-actions>) for more information.
 
 * * *
 
@@ -2252,7 +2252,7 @@ ruby
 
 ```
 
-See [smart_join](</formulas/array-list-formulas#smart-join>) method definition.
+See [smart_join](</en/formulas/array-list-formulas#smart-join>) method definition.
 
 * * *
 
@@ -2299,7 +2299,7 @@ ruby
 
 ```
 
-See [file streaming](</developing-connectors/sdk/guides/building-actions/streaming>) for more information.
+See [file streaming](</en/developing-connectors/sdk/guides/building-actions/streaming>) for more information.
 
 * * *
 
@@ -2325,7 +2325,7 @@ ruby
 
 ```
 
-See [file streaming](</developing-connectors/sdk/guides/building-actions/streaming>) for more information.
+See [file streaming](</en/developing-connectors/sdk/guides/building-actions/streaming>) for more information.
 
 * * *
 
@@ -2379,7 +2379,7 @@ ruby
 
 ## suspend [​](<#suspend>)
 
-This method is used in [Wait for resume actions](</developing-connectors/sdk/guides/building-actions/wait-for-resume-actions>). These actions work with external systems that can send an API request when a long running process is complete. Calling this method suspends the job until Workato receives a corresponding request to its developer API, or until the specified suspension time expires.
+This method is used in [Wait for resume actions](</en/developing-connectors/sdk/guides/building-actions/wait-for-resume-actions>). These actions work with external systems that can send an API request when a long running process is complete. Calling this method suspends the job until Workato receives a corresponding request to its developer API, or until the specified suspension time expires.
 
 ruby
 ```ruby

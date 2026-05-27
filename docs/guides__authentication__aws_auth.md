@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/aws_auth.html
-> **Fetched**: 2026-05-26T03:11:42.509321
+> **Fetched**: 2026-05-27T03:12:49.872244
 
 ---
 
@@ -26,7 +26,7 @@ AWS and Workato both recommend using AWS IAM role authentication. We recommend t
 
 ## Create IAM role and ARN retrieval [​](<#create-iam-role-and-arn-retrieval>)
 
-Refer to the [IAM role-based authentication for AWS](</security/data-protection/secrets-management/iam-role-based-authentication-for-aws>) page for instructions on how to create an IAM role for Workato and retrieve your Amazon resource name (ARN).
+Refer to the [IAM role-based authentication for AWS](</en/security/data-protection/secrets-management/iam-role-based-authentication-for-aws>) page for instructions on how to create an IAM role for Workato and retrieve your Amazon resource name (ARN).
 
 ## Sample connector - Generic connector [​](<#sample-connector-generic-connector>)
 
@@ -156,7 +156,7 @@ Most AWS services have the same authentication, which allows you to use the same
 
 If you do choose to add more fields, you need to at least provide the `name` key. Additional attributes like `optional`, `hint` and `control_type` allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the `control_type` as `password`.
 
-Learn how to define [input fields in Workato](</developing-connectors/sdk/sdk-reference/connection#fields>).
+Learn how to define [input fields in Workato](</en/developing-connectors/sdk/sdk-reference/connection#fields>).
 
 ## Step 2 - Generating the AWS signature [​](<#step-2-generating-the-aws-signature>)
 
@@ -266,6 +266,6 @@ By testing the "sample_action" action, you'll have better insight for debugging 
 
 ## Connections SDK reference [​](<#connections-sdk-reference>)
 
-Learn about the available keys within the `connection` key in the [SDK reference](</developing-connectors/sdk/sdk-reference/connection>).
+Learn about the available keys within the `connection` key in the [SDK reference](</en/developing-connectors/sdk/sdk-reference/connection>).
 
 **Last updated:**

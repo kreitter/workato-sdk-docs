@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming.html
-> **Fetched**: 2026-05-26T03:12:01.076304
+> **Fetched**: 2026-05-27T03:13:08.127407
 
 ---
 
@@ -15,13 +15,13 @@ Utilizing Workato's file streaming library, you'll be able to build connectors t
 
 ![File streaming](/assets/streaming-illustration.CyLcPq6_.jpg)
 
-Many of Workato's standard platform connectors to common file storage locations have streaming enabled such as S3, Google Cloud Storage and Azure Blob. [Find the full list here.](</features/file-streaming#file-streaming>)
+Many of Workato's standard platform connectors to common file storage locations have streaming enabled such as S3, Google Cloud Storage and Azure Blob. [Find the full list here.](</en/features/file-streaming#file-streaming>)
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
-You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
+You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
 
 ## Prerequisites [​](<#prerequisites>)
 
@@ -33,9 +33,9 @@ You can use the `checkpoint!` method with file streaming actions to transfer fil
 
 The guides below details out the various ways to build file streaming actions depending on the API's capabilities:
 
-  1. [Download file via file streaming (Range headers)](</developing-connectors/sdk/guides/building-actions/streaming/download-stream>)
-  2. [Upload file via file streaming (Content-Range headers)](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range>)
-  3. [Upload file via file streaming (Chunk ID)](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id>)
+  1. [Download file via file streaming (Range headers)](</en/developing-connectors/sdk/guides/building-actions/streaming/download-stream>)
+  2. [Upload file via file streaming (Content-Range headers)](</en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range>)
+  3. [Upload file via file streaming (Chunk ID)](</en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id>)
 
 ## What happens if your API does not meet the prerequisites? [​](<#what-happens-if-your-api-does-not-meet-the-prerequisites>)
 

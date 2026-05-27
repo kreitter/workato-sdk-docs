@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/rspec-commands.html
-> **Fetched**: 2026-05-26T03:11:31.629838
+> **Fetched**: 2026-05-27T03:12:39.168765
 
 ---
 
@@ -424,7 +424,7 @@ ruby
 
 ### Testing your poll lambda [​](<#testing-your-poll-lambda>)
 
-Use `poll(**args)` to invoke the poll lambda in a specific trigger in your connector instance. This will retrieve paginated records for all events in the given time period, specified by the `since` input. See an example of a [paginated poll lambda](</developing-connectors/sdk/cli/guides/cli/triggers#running-your-poll-lambda-with-pagination>).
+Use `poll(**args)` to invoke the poll lambda in a specific trigger in your connector instance. This will retrieve paginated records for all events in the given time period, specified by the `since` input. See an example of a [paginated poll lambda](</en/developing-connectors/sdk/cli/guides/cli/triggers#running-your-poll-lambda-with-pagination>).
 
 Attribute| Description  
 ---|---  

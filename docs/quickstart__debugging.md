@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/debugging.html
-> **Fetched**: 2026-05-26T03:12:29.413631
+> **Fetched**: 2026-05-27T03:13:35.947962
 
 ---
 
@@ -33,7 +33,7 @@ CREATE A CONNECTION TO TEST ACTIONS AND TRIGGERS
 
 You can't test actions or triggers until a successful connection is made. HTTP requests sent during triggers and actions can't actively authenticate with the API endpoint without a successful connection.
 
-Learn more about configuring a connection in our SDK and the [connection types we support](</developing-connectors/sdk/guides/authentication>).
+Learn more about configuring a connection in our SDK and the [connection types we support](</en/developing-connectors/sdk/guides/authentication>).
 
 ## Test actions and triggers [​](<#testing-actions-and-triggers>)
 

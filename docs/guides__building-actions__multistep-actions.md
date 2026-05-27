@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multistep-actions.html
-> **Fetched**: 2026-05-26T03:12:00.015865
+> **Fetched**: 2026-05-27T03:13:07.085122
 
 ---
 
@@ -21,13 +21,13 @@ Rather than having the user configure this logic in the recipe, you can now embe
 
 DEBUGGING LIMITATION IN TEST CODE TAB
 
-You can't debug multistep actions in Workato's SDK **Test code** tab. This may trigger an `uncaught throw :return_from_action` error. Instead, use the [SDK Gem](</developing-connectors/sdk/cli>) to debug multistep actions.
+You can't debug multistep actions in Workato's SDK **Test code** tab. This may trigger an `uncaught throw :return_from_action` error. Instead, use the [SDK Gem](</en/developing-connectors/sdk/cli>) to debug multistep actions.
 
 Always release the latest version of your custom connector before testing it in the recipe editor. This applies any changes made during debugging.
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
 ## Sample connector - Google BigQuery [​](<#sample-connector-google-bigquery>)
 
@@ -163,7 +163,7 @@ ruby
 
 The first step to making a good action is to properly communicate what the actions does, how it does it and to provide additional help to users. To do so, Workato allows you to define the title, description, and provide hints for an action. Quite simply, the title is the title of an action and the subtitle provides further details of the action. The description of the action then contains specifications and explanation on what the action accomplishes and in the context of the application it connects to. Finally, the help segment provides users any additional information required to make the action work.
 
-To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/actions#title>)
+To know more about this step, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/actions#title>)
 
 ## Step 2 - Define input fields [​](<#step-2-define-input-fields>)
 

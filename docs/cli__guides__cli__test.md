@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/test.html
-> **Fetched**: 2026-05-26T03:11:17.336012
+> **Fetched**: 2026-05-27T03:12:25.156576
 
 ---
 
@@ -17,7 +17,7 @@ In this segment, we will run through how to run CLI commands for the test lambda
 
 ## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</en/developing-connectors/sdk/cli/guides/getting-started>) to know more.
   * You have a connector with at least the authentication (connection key) and test lambda defined. You use the samples provided below.
   * You have a working set of credentials. If you are using a sample connector code, ensure that you have the appropriate credentials for the connector.
 

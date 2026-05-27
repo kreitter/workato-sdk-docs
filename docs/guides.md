@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides.html
-> **Fetched**: 2026-05-26T03:11:32.688894
+> **Fetched**: 2026-05-27T03:12:40.208862
 
 ---
 
@@ -17,11 +17,11 @@ In Workato, we allow you to build custom connectors on our SDK using ruby (a cod
 
 Through out the whole process, you'll be able to build, test, and push out your custom connector directly from Workato's platform. This means working directly from the browser you have open right now and never having to install anything onto your computer. Pretty neat right?
 
-Connector source code which you write on the SDK platform will be hosted in Workato's servers and is executed whenever a recipe using that connector is triggered. To find out more about the features of the Connector SDK console, check out our [Platform Quick Start](</developing-connectors/sdk/quickstart/quickstart>).
+Connector source code which you write on the SDK platform will be hosted in Workato's servers and is executed whenever a recipe using that connector is triggered. To find out more about the features of the Connector SDK console, check out our [Platform Quick Start](</en/developing-connectors/sdk/quickstart/quickstart>).
 
 ## Connector definition overview [​](<#connector-definition-overview>)
 
-A custom connector on Workato always starts off with curly braces that encapsulates all code (Curly braces look like this `{}`). Inside the curly braces, each connector has numerous root keys that are responsible for different aspects of the connector. For example, the code `connection: { ... }` is referred to as the `connection` key. To find out more information about Connector definitions, check out our [SDK reference](</developing-connectors/sdk/sdk-reference>)
+A custom connector on Workato always starts off with curly braces that encapsulates all code (Curly braces look like this `{}`). Inside the curly braces, each connector has numerous root keys that are responsible for different aspects of the connector. For example, the code `connection: { ... }` is referred to as the `connection` key. To find out more information about Connector definitions, check out our [SDK reference](</en/developing-connectors/sdk/sdk-reference>)
 
 Take note that these key names are strictly defined and must be spelled exactly. Our framework uses these keys to know where to refer when looking to perform authorizations or execute any triggers or actions. Inside each object, there will be further nested keys that allow you to declare input fields for connections, actions, and triggers which we will cover later on.
 

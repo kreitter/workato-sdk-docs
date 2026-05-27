@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/introduction.html
-> **Fetched**: 2026-05-26T03:11:39.276166
+> **Fetched**: 2026-05-27T03:12:46.685156
 
 ---
 
@@ -11,7 +11,7 @@
 
 # Workato advanced connector building guide [​](<#workato-advanced-connector-building-guide>)
 
-Here is a final guide that focuses on the usability and the code quality of a connector. We will be going through exercises that can help you plan out robust connectors as well as guidelines on writing connector code. At this point, we assume that you have read through the basics of connector building found in the [Connector SDK](</developing-connectors/sdk>) documentation.
+Here is a final guide that focuses on the usability and the code quality of a connector. We will be going through exercises that can help you plan out robust connectors as well as guidelines on writing connector code. At this point, we assume that you have read through the basics of connector building found in the [Connector SDK](</en/developing-connectors/sdk>) documentation.
 
 In this guide, we introduce the concept of object-based connectors, something that you should have seen before if you have used NetSuite, Salesforce, or numerous other connectors on Workato. Object-based connectors are ones that reduce the amount of clutter by allowing users to first select a verb such as “Create” or “Update” before selecting the object they want to create or update.
 
@@ -35,6 +35,6 @@ In the next chapter, we will go through thought exercises that can better help y
 
 ## Share a completed connector [​](<#share-a-completed-connector>)
 
-You can [upload your connector to the community library](</community-library/upload-connectors>) to share it with other users. Sharing your connector can provide increased API adoption, more leads for your services, and greater exposure to integration use cases.
+You can [upload your connector to the community library](</en/community-library/upload-connectors>) to share it with other users. Sharing your connector can provide increased API adoption, more leads for your services, and greater exposure to integration use cases.
 
 **Last updated:**

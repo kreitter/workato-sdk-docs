@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema.html
-> **Fetched**: 2026-05-26T03:11:37.149214
+> **Fetched**: 2026-05-27T03:12:44.589832
 
 ---
 
@@ -46,7 +46,7 @@ Before writing the code for any actions or triggers, a good practice is to explo
 
 This creates great synergy for code reuse as the same schema definition could potentially be used across various actions. For example, in the case of XYZ accounting, the same invoice schema definition could be used for “Create”, “Read”, “Update”, “Delete” and “Search” actions. Below, we will go through how various patterns in defining schema and where to place it in your connector code so that it can be easily referenced.
 
-The schema for input and output fields can be determined both dynamically and statically in Workato. Find out more about [object definitions.](</developing-connectors/sdk/sdk-reference/object_definitions>) This largely depends on whether the API you are building a connector to has metadata endpoints available. Below, we first go through examples of how to define schema manually through examples before showing you an example of a dynamically defined input schema.
+The schema for input and output fields can be determined both dynamically and statically in Workato. Find out more about [object definitions.](</en/developing-connectors/sdk/sdk-reference/object_definitions>) This largely depends on whether the API you are building a connector to has metadata endpoints available. Below, we first go through examples of how to define schema manually through examples before showing you an example of a dynamically defined input schema.
 
 SCHEMA DEFINITION
 

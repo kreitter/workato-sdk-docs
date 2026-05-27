@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/enable-ci-cd-on-github.html
-> **Fetched**: 2026-05-26T03:11:22.806820
+> **Fetched**: 2026-05-27T03:12:30.531160
 
 ---
 
@@ -58,7 +58,7 @@ yaml
 
 ```
 
-In this example, our project is using encrypted settings ([`settings.yaml.enc`](</developing-connectors/sdk/cli/reference/cli-project-directory-reference#settings-yaml-enc-settings-yaml>)). When using encryption, make sure to:
+In this example, our project is using encrypted settings ([`settings.yaml.enc`](</en/developing-connectors/sdk/cli/reference/cli-project-directory-reference#settings-yaml-enc-settings-yaml>)). When using encryption, make sure to:
 
   * Add your project's `master.key` file to `.gitignore`, and
   * Set environment variables in your repository using [encrypted secrets](<https://docs.github.com/en/actions/reference/encrypted-secrets>). In this example, our variable is named `WORKATO_CONNECTOR_MASTER_KEY`.
@@ -110,6 +110,6 @@ yaml
 
 ## What's next? [​](<#what-s-next>)
 
-  * Learn more about the [files in your connector project](</developing-connectors/sdk/cli/reference/cli-project-directory-reference>)
+  * Learn more about the [files in your connector project](</en/developing-connectors/sdk/cli/reference/cli-project-directory-reference>)
 
 **Last updated:**

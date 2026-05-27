@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/streams.html
-> **Fetched**: 2026-05-26T03:12:45.091336
+> **Fetched**: 2026-05-27T03:13:51.353636
 
 ---
 
@@ -13,7 +13,7 @@ Connector key reference
 
 # SDK Reference - `streams` [​](<#sdk-reference-streams>)
 
-This section enumerates all the possible keys to define a streaming callback that enables you to create file stream producing actions. [Learn more about file streaming.](</developing-connectors/sdk/guides/building-actions/streaming>)
+This section enumerates all the possible keys to define a streaming callback that enables you to create file stream producing actions. [Learn more about file streaming.](</en/developing-connectors/sdk/guides/building-actions/streaming>)
 
 Quick overview
 

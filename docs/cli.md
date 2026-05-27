@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli.html
-> **Fetched**: 2026-05-26T03:11:10.719041
+> **Fetched**: 2026-05-27T03:12:18.648027
 
 ---
 
@@ -25,7 +25,7 @@ The gem is:
 
 To use the SDK gem, you should be familiar with:
 
-  1. The [Connector SDK](</developing-connectors/sdk>) at an intermediate level
+  1. The [Connector SDK](</en/developing-connectors/sdk>) at an intermediate level
   2. Command line tools and how to use them
   3. RSpec for unit testing. Check out the [RSpec docs](<https://rspec.info/documentation/>) to learn more.
   4. VCR. Check out this [general guide](<https://dev.to/gathuku/testing-external-apis-with-vcr-in-rails-488m>) to learn more about VCR, or this [getting started guide](<https://relishapp.com/vcr/vcr/v/1-10-3/docs/getting-started>) to dive right in.
@@ -63,7 +63,7 @@ Let's look at this step by step:
 
 1
 
-**Local development.** Run your connector locally. The SDK gem's handy [CLI commands](</developing-connectors/sdk/cli/reference/cli-commands>) can help you build, test, and debug your connector as you work.
+**Local development.** Run your connector locally. The SDK gem's handy [CLI commands](</en/developing-connectors/sdk/cli/reference/cli-commands>) can help you build, test, and debug your connector as you work.
 
 2
 
@@ -87,6 +87,6 @@ Let's look at this step by step:
 
 ## Get started [​](<#get-started>)
 
-Ready to start developing? Check out the [Getting Started](</developing-connectors/sdk/cli/guides/getting-started>) guide to get up and running!
+Ready to start developing? Check out the [Getting Started](</en/developing-connectors/sdk/cli/guides/getting-started>) guide to get up and running!
 
 **Last updated:**

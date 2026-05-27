@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/triggers.html
-> **Fetched**: 2026-05-26T03:12:47.348579
+> **Fetched**: 2026-05-27T03:13:53.583373
 
 ---
 
@@ -210,7 +210,7 @@ Description| The help text that is meant to guide your users as to how to config
 Possible Arguments| `input` \- Hash representing user given inputs defined in `input_fields`   
 `picklist_label` \- Only applicable for picklists where a user's answer consist of both a picklist label and value. This Hash represents the label for a user's given inputs for picklist fields. See below for use cases.  
 `connection` \- Hash representing user given inputs defined in `connection`.   
-`webhook_base_url` \- Used when you are using [static webhook triggers](</developing-connectors/sdk/guides/building-triggers/static-webhook>). String representing the static webhook url of your connector.  
+`webhook_base_url` \- Used when you are using [static webhook triggers](</en/developing-connectors/sdk/guides/building-triggers/static-webhook>). String representing the static webhook url of your connector.  
 Expected Output| `Hash` or `String` See below for examples.  
 UI reference| ![](/assets/help.B71k4sez.png)  
 Example - help:
@@ -360,7 +360,7 @@ Attribute| Description
 Key| `config_fields`  
 Type| Array  
 Required| Optional.  
-Description| This key accepts an array of hashes which show up as input fields shown to a user. Config fields are shown to a user before input fields are rendered and can be used to alter what set of input fields are shown to an end user. This is often used in generic object actions where config fields prompt a user to select the object and input fields are rendered based on that selection. Inputs given to `config_fields` can be referenced by the connector in the `input_fields` lambda function via an argument. It is also present as an argument in all `object_defintions`. Refer to [Workato Schema](</developing-connectors/sdk/sdk-reference/schema>) for more information on defining config fields.  
+Description| This key accepts an array of hashes which show up as input fields shown to a user. Config fields are shown to a user before input fields are rendered and can be used to alter what set of input fields are shown to an end user. This is often used in generic object actions where config fields prompt a user to select the object and input fields are rendered based on that selection. Inputs given to `config_fields` can be referenced by the connector in the `input_fields` lambda function via an argument. It is also present as an argument in all `object_defintions`. Refer to [Workato Schema](</en/developing-connectors/sdk/sdk-reference/schema>) for more information on defining config fields.  
 Expected Output| Array of hashes. Each hash in this array corresponds to a separate config field.  
 UI reference| ![](/assets/config_fields.B_kP18KL.gif)  
 
@@ -377,7 +377,7 @@ Attribute| Description
 Key| `input_fields`  
 Type| lambda function  
 Required| True  
-Description| This lambda function allows you to define what input fields should be shown to a user configuring this trigger in the recipe editor. Output of this lambda function should be an array of hashes, where each hash in this array corresponds to a separate input field. Refer to [Workato Schema](</developing-connectors/sdk/sdk-reference/schema>) for more information on defining input fields.  
+Description| This lambda function allows you to define what input fields should be shown to a user configuring this trigger in the recipe editor. Output of this lambda function should be an array of hashes, where each hash in this array corresponds to a separate input field. Refer to [Workato Schema](</en/developing-connectors/sdk/sdk-reference/schema>) for more information on defining input fields.  
 Possible Arguments| `object_definitions` \- Allows you to reference an object definitions. Object definitions are stores of these arrays hashes which may be used to represent both input fields or output fields (datapills). These can be referenced by any action or trigger.   
 `connection` \- Hash representing user given inputs defined in `connection`.   
 `config_fields` \- Hash representing user given inputs defined in `config_fields`, if applicable.  
@@ -395,7 +395,7 @@ Type| lambda function
 Required| True if trigger is a static webhook trigger. False otherwise. Should not be used when `webhook_subscribe`, `webhook_unsubscribe` is defined.  
 Description| **Used in conjunction with`webhook_keys` which should be present as a root level key in the connector - same level as `actions` and `triggers`**   
 
-Allows you to use any user input from the connection or trigger to build a unique signature for this trigger. This can also be a static string value. When the signature in this lambda function match the signature in the `webhook_keys` lambda function, webhooks are sent to this trigger. See our [Static webhook guide for more details.](</developing-connectors/sdk/guides/building-triggers/static-webhook>)  
+Allows you to use any user input from the connection or trigger to build a unique signature for this trigger. This can also be a static string value. When the signature in this lambda function match the signature in the `webhook_keys` lambda function, webhooks are sent to this trigger. See our [Static webhook guide for more details.](</en/developing-connectors/sdk/guides/building-triggers/static-webhook>)  
 Possible Arguments| `connection` \- Hash representing user given inputs defined in `connection`.   
 `input` \- Hash representing user given inputs defined in `input_fields`  
 Expected Output| Array of hashes. Each hash in this array corresponds to a separate input field.  
@@ -678,7 +678,7 @@ Attribute| Description
 Key| `webhook_subscribe`  
 Type| lambda function  
 Required| True if trigger is a dynamic webhook trigger. False otherwise. Should not be used when `webhook_key` is defined.  
-Description| This lambda function is used by dynamic webhook triggers to programmatically subscribe to webhooks. This function is invoked when a user starts the recipe using the trigger with this defined. See our [Dynamic webhook guide for more details.](</developing-connectors/sdk/guides/building-triggers/dynamic-webhook>)  
+Description| This lambda function is used by dynamic webhook triggers to programmatically subscribe to webhooks. This function is invoked when a user starts the recipe using the trigger with this defined. See our [Dynamic webhook guide for more details.](</en/developing-connectors/sdk/guides/building-triggers/dynamic-webhook>)  
 Possible Arguments| `webhook_url` \- String representing the **recipe-specific webhook URL**. This should be passed on to the API when creating the webhook subscription.   
 `connection` \- Hash representing user given inputs defined in `connection`.   
 `input` \- Hash representing user given inputs defined in `input_fields`   
@@ -739,7 +739,7 @@ Attribute| Description
 Key| `webhook_unsubscribe`  
 Type| lambda function  
 Required| True if trigger is a dynamic webhook trigger. False otherwise. Should not be used when `webhook_key` is defined.  
-Description| This lambda function is used by dynamic webhook triggers to programmatically teardown webhooks subscriptions. This function is invoked when a user stops the recipe using the trigger with this defined. See our [Dynamic webhook guide for more details.](</developing-connectors/sdk/guides/building-triggers/dynamic-webhook>)  
+Description| This lambda function is used by dynamic webhook triggers to programmatically teardown webhooks subscriptions. This function is invoked when a user stops the recipe using the trigger with this defined. See our [Dynamic webhook guide for more details.](</en/developing-connectors/sdk/guides/building-triggers/dynamic-webhook>)  
 Possible Arguments| `webhook_subscribe_output` \- Hash representing the output of the `webhook_subscribe` lambda function.   
 `connection` \- Hash representing user given inputs defined in `connection`.  
 Expected Output| No output necessary.  
@@ -781,7 +781,7 @@ Attribute| Description
 ---|---  
 Key| `poll`  
 Type| lambda function  
-Required| True if trigger is a [polling trigger](</developing-connectors/sdk/guides/building-triggers/poll>) or [Hybrid triggers](</developing-connectors/sdk/guides/building-triggers/hybrid-triggers>)  
+Required| True if trigger is a [polling trigger](</en/developing-connectors/sdk/guides/building-triggers/poll>) or [Hybrid triggers](</en/developing-connectors/sdk/guides/building-triggers/hybrid-triggers>)  
 Description| This lambda function handles the how this trigger retrieves new records from an API to create jobs. This function is invoked every poll interval (5 mins by default but configurable on a recipe level).  
 Possible Arguments| `connection` \- Hash representing user given inputs defined in `connection`.   
 `input` \- Hash representing user given inputs defined in `input_fields`   
@@ -948,7 +948,7 @@ Attribute| Description
 Key| `output_fields`  
 Type| lambda function  
 Required| True  
-Description| This lambda function allows you to define what output fields (datapills) should be shown to a user configuring this trigger in the recipe editor. The output of this lambda function should be an array of hashes, where each hash in this array corresponds to a separate output field (datapill). Refer to [Workato Schema](</developing-connectors/sdk/sdk-reference/schema>) for more information on defining output fields.  
+Description| This lambda function allows you to define what output fields (datapills) should be shown to a user configuring this trigger in the recipe editor. The output of this lambda function should be an array of hashes, where each hash in this array corresponds to a separate output field (datapill). Refer to [Workato Schema](</en/developing-connectors/sdk/sdk-reference/schema>) for more information on defining output fields.  
 Possible Arguments| `object_definitions` \- Allows you to reference an object definitions. Object definitions are stores of these arrays which can represent either input and output fields. These can be referenced by any action or trigger.   
 `connection` \- Hash representing user given inputs defined in `connection`.   
 `config_fields` \- Hash representing user given inputs defined in `config_fields`, if applicable.  

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/limits.html
-> **Fetched**: 2026-05-26T03:12:26.235543
+> **Fetched**: 2026-05-27T03:13:32.813538
 
 ---
 
@@ -32,7 +32,7 @@ Compatible code formats| UTF-8 and JSON compatible
 
 FURTHER READING
 
-  * Refer to the [SDK trigger polling limits](</developing-connectors/sdk/guides/trigger-limit>) documentation for more information on SDK polling trigger limits.
-  * Refer to the [Platform limits](</limits>) documentation for more information about Workato limits.
+  * Refer to the [SDK trigger polling limits](</en/developing-connectors/sdk/guides/trigger-limit>) documentation for more information on SDK polling trigger limits.
+  * Refer to the [Platform limits](</en/limits>) documentation for more information about Workato limits.
 
 **Last updated:**

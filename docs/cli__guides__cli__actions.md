@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/actions.html
-> **Fetched**: 2026-05-26T03:11:11.837703
+> **Fetched**: 2026-05-27T03:12:19.747544
 
 ---
 
@@ -17,7 +17,7 @@ In this segment, we will be going through how you can run actions using the Work
 
 ## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</en/developing-connectors/sdk/cli/guides/getting-started>) to know more.
   * You have a working connector with at least 1 action. You use the sample connector provided below.
   * You have a working set of credentials. If you are using a sample connector code, ensure that you have the appropriate credentials for the connector.
 
@@ -124,7 +124,7 @@ yaml
 
 TIP
 
-If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Refer to [workato edit](</developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) for more information on editing encrypted files.
+If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Refer to [workato edit](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) for more information on editing encrypted files.
 
 With the SDK Gem, you'll be able to invoke individual lambda functions in your action and gain greater control over how each part of your action works. For example, you may run your `execute` lambda function independently from your `input_fields` lambda.
 
@@ -134,7 +134,7 @@ In this guide, we will be covering input_fields lambdas. You can run output_fiel
 
 TIP
 
-Sometimes, you may find yourself with a sample payload request or response. You can also use the `workato generate schema` CLI command to convert this payload easily into Workato schema. Learn more about [Workato CLI generate schema](</developing-connectors/sdk/cli/reference/cli-commands#workato-generate-schema>).
+Sometimes, you may find yourself with a sample payload request or response. You can also use the `workato generate schema` CLI command to convert this payload easily into Workato schema. Learn more about [Workato CLI generate schema](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-generate-schema>).
 
 Your input_fields lambda is expected to return Workato schema which corresponds to the input fields we should show to the user. In the case we have above, it simply returns the Workato schema stored within.
 
@@ -306,7 +306,7 @@ TIP
 
 When users provide static values or text values in input fields, you should assume they will be passed to your execute as strings. Using attributes like `convert_input` and `convert_output` allow you to do transformation of data even before it is presented as the `input` argument to your `execute` lambda.
 
-Learn more about [converting input and converting output](</developing-connectors/sdk/sdk-reference/schema#using-convert-input-and-convert-output-for-easy-transformations>).
+Learn more about [converting input and converting output](</en/developing-connectors/sdk/sdk-reference/schema#using-convert-input-and-convert-output-for-easy-transformations>).
 
 To test this transformation out that occurs from schema, when we have to run the CLI command to run the entire action:
 

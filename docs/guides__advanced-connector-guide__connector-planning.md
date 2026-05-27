@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-planning.html
-> **Fetched**: 2026-05-26T03:11:38.220051
+> **Fetched**: 2026-05-27T03:12:45.640702
 
 ---
 
@@ -83,7 +83,7 @@ API TRIGGER LIMITATIONS
 
 Be aware of the functionalities and limitations of the API you plan to build a connector for.
 
-Some APIs support webhook functionality. When webhooks are not available, [polling triggers](</developing-connectors/sdk/guides/building-triggers/poll>) can be a good alternative. If you are developing a connector for your own application, consider whether it should support webhook triggers.
+Some APIs support webhook functionality. When webhooks are not available, [polling triggers](</en/developing-connectors/sdk/guides/building-triggers/poll>) can be a good alternative. If you are developing a connector for your own application, consider whether it should support webhook triggers.
 
 For polling triggers, we often start with the basics such as triggers when objects are created or when objects created or updated.
 
@@ -108,7 +108,7 @@ Using this skeleton, it’s easy to see that we’ve missed out on an “Execute
 
 CONNECTOR BUILDING IS AN ADVANCED FEATURE
 
-Workato recommends gaining experience with recipe building before creating a custom connector. Refer to the [Getting started](</getting-started>) guide to learn the basics, or explore the [Use cases](</getting-started/workato-use-cases>) page for step-by-step walkthroughs of example recipes.
+Workato recommends gaining experience with recipe building before creating a custom connector. Refer to the [Getting started](</en/getting-started>) guide to learn the basics, or explore the [Use cases](</en/getting-started/workato-use-cases>) page for step-by-step walkthroughs of example recipes.
 
 ## Taking stock of your connector [​](<#taking-stock-of-your-connector>)
 

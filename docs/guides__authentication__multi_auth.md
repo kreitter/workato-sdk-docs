@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/multi_auth.html
-> **Fetched**: 2026-05-26T03:11:46.847761
+> **Fetched**: 2026-05-27T03:12:54.142657
 
 ---
 
@@ -19,7 +19,7 @@ To achieve multiple authentication flows, Workato's Connector SDK enables you to
 
 AUTHENTICATION METHODS
 
-This guide assumes you have basic knowledge of the other forms of authentication supported in Workato. Ensure you understand other basic forms of authentication in Workato such as [OAuth2](</developing-connectors/sdk/guides/authentication/oauth/auth-code>) and [API keys](</developing-connectors/sdk/guides/authentication/api-key>) as we reference them in this guide.
+This guide assumes you have basic knowledge of the other forms of authentication supported in Workato. Ensure you understand other basic forms of authentication in Workato such as [OAuth2](</en/developing-connectors/sdk/guides/authentication/oauth/auth-code>) and [API keys](</en/developing-connectors/sdk/guides/authentication/api-key>) as we reference them in this guide.
 
 ## Sample Connector - Stripe [​](<#sample-connector-stripe>)
 
@@ -221,7 +221,7 @@ In our example, we define fields `client_id` and `client_secret` for OAuth2, and
 
 AUTHENTICATION TYPES
 
-Multi-authentication supports multiple authentication flows and types. Refer to the [SDK authentication](</developing-connectors/sdk/guides/authentication>) guide for a complete list of authentication types.
+Multi-authentication supports multiple authentication flows and types. Refer to the [SDK authentication](</en/developing-connectors/sdk/guides/authentication>) guide for a complete list of authentication types.
 
 CONVERT AN EXISTING CONNECTOR TO MULTI-AUTH
 
@@ -242,7 +242,7 @@ ruby
 
 Set the API's base URI
 
-The API's base URI instructs Workato on the base URL of the API. This key is optional; however, it enables you to provide relative-only paths in the rest of your connector definition through HTTP requests. Learn how to configure your [base URI](</developing-connectors/sdk/sdk-reference/connection#base-uri>).
+The API's base URI instructs Workato on the base URL of the API. This key is optional; however, it enables you to provide relative-only paths in the rest of your connector definition through HTTP requests. Learn how to configure your [base URI](</en/developing-connectors/sdk/sdk-reference/connection#base-uri>).
 
 ruby
 ```ruby
@@ -300,6 +300,6 @@ The `test` key provides an endpoint for sending sample requests using the new cr
 
 ## Connections SDK reference [​](<#connections-sdk-reference>)
 
-For further information about the available keys within the `connection` key and their parameters, see the [SDK reference](</developing-connectors/sdk/sdk-reference/connection>).
+For further information about the available keys within the `connection` key and their parameters, see the [SDK reference](</en/developing-connectors/sdk/sdk-reference/connection>).
 
 **Last updated:**

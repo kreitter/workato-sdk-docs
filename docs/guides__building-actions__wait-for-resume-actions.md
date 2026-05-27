@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/wait-for-resume-actions.html
-> **Fetched**: 2026-05-26T03:12:06.593190
+> **Fetched**: 2026-05-27T03:13:13.509098
 
 ---
 
@@ -22,7 +22,7 @@ This article describes how to configure Wait for resume actions. This feature al
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
 ## Example use cases [​](<#example-use-cases>)
 
@@ -126,45 +126,45 @@ ruby
 
 ```
 
-This guide does not elaborate on the details of the standard attributes of the action. Refer to our [SDK actions reference](</developing-connectors/sdk/sdk-reference/actions>) documentation to learn about the basic structure of actions.
+This guide does not elaborate on the details of the standard attributes of the action. Refer to our [SDK actions reference](</en/developing-connectors/sdk/sdk-reference/actions>) documentation to learn about the basic structure of actions.
 
 There are four lambdas in the action hash that are foundational for Wait for resume actions:
 
 #### `execute` [​](<#execute>)
 
-This lambda operates similarly to standard [Multistep actions](</developing-connectors/sdk/guides/building-actions/multistep-actions>). Its primary purpose is to preprocess data from user input and determine the final output of the action when it resumes. This is facilitated by the `continue` argument, which is `nil` the first time the action is invoked. The `continue` argument also contains the output of either the `before_resume` or `before_timeout_resume` lambdas when resumed.
+This lambda operates similarly to standard [Multistep actions](</en/developing-connectors/sdk/guides/building-actions/multistep-actions>). Its primary purpose is to preprocess data from user input and determine the final output of the action when it resumes. This is facilitated by the `continue` argument, which is `nil` the first time the action is invoked. The `continue` argument also contains the output of either the `before_resume` or `before_timeout_resume` lambdas when resumed.
 
 For the Wait for resume action to function properly, the execute lambda must invoke the `suspend` method, which initiates the suspension of the job.
 
-Refer to our [suspend method reference](</developing-connectors/sdk/sdk-reference/ruby_methods#suspend>) documentation for more information.
+Refer to our [suspend method reference](</en/developing-connectors/sdk/sdk-reference/ruby_methods#suspend>) documentation for more information.
 
 #### `before_suspend` [​](<#before-suspend>)
 
 This lambda is specific to Wait for resume actions and is invoked when the suspend method is called. It primarily registers the resume token with the external application, guiding it on how to resume this specific job.
 
-View our [key reference](</developing-connectors/sdk/sdk-reference/actions#before-suspend>) documentation for more information.
+View our [key reference](</en/developing-connectors/sdk/sdk-reference/actions#before-suspend>) documentation for more information.
 
 #### `before_resume` [​](<#before-resume>)
 
 This lambda is specific to Wait for resume actions and is invoked when Workato receives an API request to resume the job. Its primary purpose is to offer you a hook to manipulate data if necessary and manage the state of the `continue` argument before transferring execution to the `execute` lambda.
 
-View our [key reference](</developing-connectors/sdk/sdk-reference/actions#before-resume>) documentation for more information.
+View our [key reference](</en/developing-connectors/sdk/sdk-reference/actions#before-resume>) documentation for more information.
 
 #### `before_timeout_resume` [​](<#before-timeout-resume>)
 
 This lambda is specific to Wait for resume actions and is invoked when the `expires_at` time passes before Workato receives an API request to resume the job. Its primary purpose is to offer you a hook to manipulate data if necessary and manage the state of the `continue` argument before transferring execution to the `execute` lambda.
 
-View our [key reference](</developing-connectors/sdk/sdk-reference/actions#before-timeout-resume>) documentation for more information.
+View our [key reference](</en/developing-connectors/sdk/sdk-reference/actions#before-timeout-resume>) documentation for more information.
 
 ### API requests [​](<#api-requests>)
 
-To resume the job from the external system, the external system must be capable of dispatching an authenticated API request to Workato's [developer API](</workato-api>).
+To resume the job from the external system, the external system must be capable of dispatching an authenticated API request to Workato's [developer API](</en/workato-api>).
 
 #### Resume job [​](<#resume-job>)
 
 The Resume job endpoint resumes a suspended job based on the `resume_token` you provide. The endpoint returns `204` responses with no content.
 
-View our [Resume job](</workato-api/jobs#job-resume>) API documentation to learn how to use this endpoint.
+View our [Resume job](</en/workato-api/jobs#job-resume>) API documentation to learn how to use this endpoint.
 
 ## Limitations [​](<#limitations>)
 

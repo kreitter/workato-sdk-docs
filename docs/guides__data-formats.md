@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats.html
-> **Fetched**: 2026-05-26T03:12:15.337701
+> **Fetched**: 2026-05-27T03:13:22.076276
 
 ---
 
@@ -18,6 +18,6 @@ When looking to connect to an API, one of the first questions to ask is what dat
   * Multipart Form
   * URL Encoded Form
 
-Before we start, it is also important to get familiar with the different types of [HTTP request methods](</developing-connectors/sdk/sdk-reference/http>). These HTTP request methods are what give life to the actions that you are building.
+Before we start, it is also important to get familiar with the different types of [HTTP request methods](</en/developing-connectors/sdk/sdk-reference/http>). These HTTP request methods are what give life to the actions that you are building.
 
 **Last updated:**

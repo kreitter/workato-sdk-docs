@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html
-> **Fetched**: 2026-05-26T03:11:34.906357
+> **Fetched**: 2026-05-27T03:12:42.381550
 
 ---
 
@@ -17,7 +17,7 @@ Building triggers follow almost the same format as actions. To make them object 
 
 ## Defining config fields [​](<#defining-config-fields>)
 
-When dealing with object-based triggers, we first need to define something called a configuration fields. [Configuration fields](</developing-connectors/sdk/sdk-reference/triggers#config-fields>) are special input fields that you can define whose answers can dynamically generate other input fields. Since triggers don't often need any additional input fields, this configuration field is used to dynamically generate the expected output of this trigger.
+When dealing with object-based triggers, we first need to define something called a configuration fields. [Configuration fields](</en/developing-connectors/sdk/sdk-reference/triggers#config-fields>) are special input fields that you can define whose answers can dynamically generate other input fields. Since triggers don't often need any additional input fields, this configuration field is used to dynamically generate the expected output of this trigger.
 
 ruby
 ```ruby
@@ -37,7 +37,7 @@ ruby
 
 ![Config fields](/assets/config_fields-trigger.DeRtsn-k.gif)_Selecting invoice causes invoice related data-pills to appear_
 
-Here we also introduce a [picklist](</developing-connectors/sdk/sdk-reference/picklists>) which we can easily add additional objects as we introduce support for them.
+Here we also introduce a [picklist](</en/developing-connectors/sdk/sdk-reference/picklists>) which we can easily add additional objects as we introduce support for them.
 
 DYNAMIC INPUT FIELDS
 
@@ -235,7 +235,7 @@ In the poll block, we first prepare the payload with the appropriate parameters 
 
 The parameters are passed into an object-specific method to execute the poll and the response is expected to be the JSON response above. The closure values are reset based on response of the poll and the output of each poll block is a hash with 3 expected values - the records, the closure hash and "can_poll_more" - a boolean value which determines whether the trigger should poll again.
 
-Refer to [Polling triggers](</developing-connectors/sdk/sdk-reference/triggers>) for more information.
+Refer to [Polling triggers](</en/developing-connectors/sdk/sdk-reference/triggers>) for more information.
 
 ## Defining the dedup block [​](<#defining-the-dedup-block>)
 

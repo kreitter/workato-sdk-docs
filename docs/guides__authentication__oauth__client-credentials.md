@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/client-credentials.html
-> **Fetched**: 2026-05-26T03:11:50.171667
+> **Fetched**: 2026-05-27T03:12:57.422809
 
 ---
 
@@ -114,7 +114,7 @@ TIP
 
 When defining fields, you need to at least provide the `name` key. Additional attributes like `optional`, `hint` and `control_type` allow you to customize other aspects of these fields. For sensitive information like Client Secrets, remember to use the `control_type` as `password`.
 
-Refer to [Connection fields](</developing-connectors/sdk/sdk-reference/connection#fields>) for more information on defining input fields in Workato.
+Refer to [Connection fields](</en/developing-connectors/sdk/sdk-reference/connection#fields>) for more information on defining input fields in Workato.
 
 ## Step 2 - Defining the authorization type [​](<#step-2-defining-the-authorization-type>)
 
@@ -251,7 +251,7 @@ ruby
 
 ## Step 6 - Setting the API's base URI [​](<#step-6-setting-the-api-s-base-uri>)
 
-This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Refer to [base URI configuration](</developing-connectors/sdk/sdk-reference/connection#base-uri>) for more information on configuring your `base_uri`.
+This component tells Workato what the base URL of the API is. This key is optional but allows you to provide only relative paths in the rest of your connector when defining HTTP requests. Refer to [base URI configuration](</en/developing-connectors/sdk/sdk-reference/connection#base-uri>) for more information on configuring your `base_uri`.
 
 ruby
 ```ruby
@@ -292,6 +292,6 @@ In this block, you need to provide an endpoint that allows us to send a sample r
 
 ## Connections SDK reference [​](<#connections-sdk-reference>)
 
-To be more familiar with the available keys within the `connection` key and their parameters, check out our [SDK reference](</developing-connectors/sdk/sdk-reference/connection>).
+To be more familiar with the available keys within the `connection` key and their parameters, check out our [SDK reference](</en/developing-connectors/sdk/sdk-reference/connection>).
 
 **Last updated:**

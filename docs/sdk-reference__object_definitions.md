@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/object_definitions.html
-> **Fetched**: 2026-05-26T03:12:40.378406
+> **Fetched**: 2026-05-27T03:13:46.727946
 
 ---
 
@@ -48,7 +48,7 @@ Attribute| Description
 Key| `fields`  
 Type| lambda function  
 Required| True  
-Description| This lambda function is invoked whenever its parent object_definition's key is called in an action or trigger. It is able to make HTTP requests to dynamically build schema from metadata endpoints. The output of this lambda function should be an array of hashes that represents the input or output fields. This is called Workato Schema. Refer to [Workato Schema](</developing-connectors/sdk/sdk-reference/schema>) for more information  
+Description| This lambda function is invoked whenever its parent object_definition's key is called in an action or trigger. It is able to make HTTP requests to dynamically build schema from metadata endpoints. The output of this lambda function should be an array of hashes that represents the input or output fields. This is called Workato Schema. Refer to [Workato Schema](</en/developing-connectors/sdk/sdk-reference/schema>) for more information  
 Possible Arguments| `connection` \- Hash representing user given inputs defined in the connection.   
 `config_fields` \- Hash representing the user given inputs from config fields in the action or trigger that referenced this object definition.   
 `object_definitions` \- Allows you to reference other object_definitions.  
@@ -115,7 +115,7 @@ ruby
 
 ```
 
-Object_definitions can also be dynamic and make HTTP requests to metadata endpoints. When this object definition is referenced, the `fields` lambda function makes this request, receives the response and should massage the response into the same array that can be returned to the `input_fields` or `output_fields` lambda function that referenced it. Refer to [Workato Schema](</developing-connectors/sdk/sdk-reference/schema>) for more information on defining `input_fields` and `output_fields`.
+Object_definitions can also be dynamic and make HTTP requests to metadata endpoints. When this object definition is referenced, the `fields` lambda function makes this request, receives the response and should massage the response into the same array that can be returned to the `input_fields` or `output_fields` lambda function that referenced it. Refer to [Workato Schema](</en/developing-connectors/sdk/sdk-reference/schema>) for more information on defining `input_fields` and `output_fields`.
 
 ruby
 ```ruby

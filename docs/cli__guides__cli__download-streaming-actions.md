@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/download-streaming-actions.html
-> **Fetched**: 2026-05-26T03:11:12.918788
+> **Fetched**: 2026-05-27T03:12:20.812568
 
 ---
 
@@ -17,12 +17,12 @@ In this segment, we will be going through how you can run and easily debug actio
 
 ## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
-  * You have an understanding of the mechanics of file streaming on the SDK. Read our [guides](</developing-connectors/sdk/guides/building-actions/streaming>) to learn more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</en/developing-connectors/sdk/cli/guides/getting-started>) to know more.
+  * You have an understanding of the mechanics of file streaming on the SDK. Read our [guides](</en/developing-connectors/sdk/guides/building-actions/streaming>) to learn more.
 
 ## Download file - Sample connector - Egnyte [​](<#download-file-sample-connector-egnyte>)
 
-We will be using the [Egnyte connector](</developing-connectors/sdk/guides/building-actions/streaming/download-stream>) as an example.
+We will be using the [Egnyte connector](</en/developing-connectors/sdk/guides/building-actions/streaming/download-stream>) as an example.
 
 ### Running the `execute` lambda for the download file action [​](<#running-the-execute-lambda-for-the-download-file-action>)
 

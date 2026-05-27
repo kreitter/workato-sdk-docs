@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/http.html
-> **Fetched**: 2026-05-26T03:12:38.213020
+> **Fetched**: 2026-05-27T03:13:44.611832
 
 ---
 
@@ -56,7 +56,7 @@ ruby
 
 The Workato SDK framework processes this hash value and transforms it into the respective data format. For GET, DELETE OPTIONS requests, the hash data is converted to URL query parameters.
 
-For POST, PUT, and PATCH, the payload is formed into the request body into a format that you specify. Refer to [Data formats](</developing-connectors/sdk/guides/data-formats>) for more information on working with the various data formats.
+For POST, PUT, and PATCH, the payload is formed into the request body into a format that you specify. Refer to [Data formats](</en/developing-connectors/sdk/guides/data-formats>) for more information on working with the various data formats.
 
 The other method of passing request data is as a series of key/value pairs.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range.html
-> **Fetched**: 2026-05-26T03:12:04.393329
+> **Fetched**: 2026-05-27T03:13:11.370295
 
 ---
 
@@ -17,9 +17,9 @@ In this segment, we will be going through the creation of actions that uploads f
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
-You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
+You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
 
 ## Sample connector [​](<#sample-connector>)
 
@@ -72,7 +72,7 @@ ruby
 
 The first step to making a good action is to properly communicate what the actions does, how it does it and to provide additional help to users. To do so, Workato allows you to define the title, subtitles, description, and provide hints for an action. Quite simply, the title is the title of an action and the subtitle provides further details of the action. The description of the action then contains specifications and explanation on what the action accomplishes and in the context of the application it connects to. Finally, the help segment provides users any additional information required to make the action work.
 
-To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/actions#title>)
+To know more about this step, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/actions#title>)
 
 ## Step 2 - Define input fields [​](<#step-2-define-input-fields>)
 

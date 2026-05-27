@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html
-> **Fetched**: 2026-05-26T03:12:44.013331
+> **Fetched**: 2026-05-27T03:13:50.298277
 
 ---
 
@@ -92,11 +92,11 @@ of| Optional except when `type: "array"`. Used in conjunction with Arrays to def
 \- "object" - Denotes an array of objects. Must be accompanied by the `properties` attribute.  
 properties| Optional except when `type: "object"` or when `type: "array"` and `of: "object"`. Accepts an array of schema to denote the properties of the object.  
 control_type| Optional. This field relates only to input fields, and it dictates the input field type to expose in a recipe. Default is "string". When this schema is used as an output field, this attribute is ignored.   
-Refer to the list of [supported control types](</developing-connectors/sdk/sdk-reference/schema#control-types>).  
+Refer to the list of [supported control types](</en/developing-connectors/sdk/sdk-reference/schema#control-types>).  
 toggle_hint| Optional. This represents the label of the primary toggle. See [toggle fields](<#using-toggle-fields>) for more information.  
 toggle_field| Optional. Hash representing the secondary toggle for this input field. See [toggle fields](<#using-toggle-fields>) for more information.  
 default| Optional. Allows you to set a default value for that input field.  
-pick_list| Optional. If control_type is :select or :multiselect, this property is required. Allows you to reference a picklist defined in the `pick_lists` key or define one directly. If defining a picklist directly, provide the same 2D array described in [Picklists](</developing-connectors/sdk/sdk-reference/picklists>)  
+pick_list| Optional. If control_type is :select or :multiselect, this property is required. Allows you to reference a picklist defined in the `pick_lists` key or define one directly. If defining a picklist directly, provide the same 2D array described in [Picklists](</en/developing-connectors/sdk/sdk-reference/picklists>)  
 options| Synonymous with pick_list and used only for `connection` input fields.  
 delimiter:| Optional unless `control_type: "multiselect"`. This delimiter is used between each input the user provides.  
 sticky| Optional. Use this property to make this field always visible as an input field. By default, inputs that are optional are hidden inside the optional fields drop-down. Use `sticky: true` so they show up beside required fields.  
@@ -115,7 +115,7 @@ add_field_label| Optional. Only used with `control_type: "schema-designer"` or `
 empty_schema_message| Optional. Only used with `control_type: "schema-designer"` or `control_type: "key_value"`. This allows you to configure the message when the input field is empty. Setting empty_schema_message: `Custom empty schema message that allows you to add field and generate schema` results in the following: ![](/assets/empty_schema_message.BMdmektL.png)  
 sample_data_type| Optional. Only used with `control_type: "schema-designer"`. This allows you to configure the type of data the schema-designer input field accepts. Setting `sample_data_type: csv` results in the following: ![](/assets/sample_data_type.doQiRpct.png) Other possible inputs are json_input and xml. The schema-designer defaults to json_input.  
 ngIf| Optional. Allows you to define a boolean statement. If true, this field displays. The boolean statement can reference other inputs in the same schema. For example, `ngIf: 'input.object_name != "approval"'` where the root node is `input` and you can traverse to a specific field via dot notation. Refer to [Using ngIf to conditionally hide or display fields](<#using-ngif-to-conditionally-hide-or-display-fields>) for more details.  
-tree_options| Optional. Only used when `control_type: 'tree'`. This allows you to control the behavior of the `tree` picklist. This key expects a Hash which has three possible keys - `selectable_folder`,`multi_select` and `force_selection_hierarchy`. Refer to [Picklists](</developing-connectors/sdk/sdk-reference/picklists>) for more information.  
+tree_options| Optional. Only used when `control_type: 'tree'`. This allows you to control the behavior of the `tree` picklist. This key expects a Hash which has three possible keys - `selectable_folder`,`multi_select` and `force_selection_hierarchy`. Refer to [Picklists](</en/developing-connectors/sdk/sdk-reference/picklists>) for more information.  
 
 ## Control types [​](<#control-types>)
 

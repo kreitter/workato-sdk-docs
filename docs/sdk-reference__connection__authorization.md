@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection/authorization.html
-> **Fetched**: 2026-05-26T03:12:36.046962
+> **Fetched**: 2026-05-27T03:13:42.480750
 
 ---
 
@@ -620,9 +620,9 @@ Attribute| Description
 Key| `identity`  
 Type| Lambda function  
 Required| False.  
-Description| The lambda allows you to display additional information about the connection object. You can make an HTTP request to retrieve user identity details, or reference existing values from the connection object. Refer to the [acquire lambda documentation](</developing-connectors/sdk/sdk-reference/connection/authorization#acquire>) for details on appending values from the acquire lambda to the connection object. You can reference these values in the `identity` lambda.  
+Description| The lambda allows you to display additional information about the connection object. You can make an HTTP request to retrieve user identity details, or reference existing values from the connection object. Refer to the [acquire lambda documentation](</en/developing-connectors/sdk/sdk-reference/connection/authorization#acquire>) for details on appending values from the acquire lambda to the connection object. You can reference these values in the `identity` lambda.  
 Possible arguments| `connection` \- A hash representing inputs defined in the `Connection` object.  
-Expected output| A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#84f1f7e1f6c4e1fce5e9f4e8e1aae7ebe9>)", "Refresh token expires in 86400 seconds")  
+Expected output| A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#b9cccadccbf9dcc1d8d4c9d5dc97dad6d4>)", "Refresh token expires in 86400 seconds")  
 |   
 Example - identity
 
@@ -675,7 +675,7 @@ Possible Arguments| `verifier` \- Opaque string of 128 characters.
 `challenge` \- SHA256 of the `verifier`  
 Expected Output| Hash which contains 3 attributes, `verifier`, `challenge` and `challenge_method`.  
 
-[Learn more about creating Authorization Code Grant flows with PKCE](</developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce>).
+[Learn more about creating Authorization Code Grant flows with PKCE](</en/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce>).
 
 * * *
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/download-stream.html
-> **Fetched**: 2026-05-26T03:12:02.186762
+> **Fetched**: 2026-05-27T03:13:09.204851
 
 ---
 
@@ -17,9 +17,9 @@ In this segment, we will be going through the creation of actions that download 
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
-You can use the [checkpoint!](</developing-connectors/sdk/sdk-reference/ruby_methods#checkpoint>) method with file streaming actions to transfer files that exceed the timeout limit. The `checkpoint!` method checks the duration of an action's execution. If it exceeds 120 seconds, Workato refreshes the timeout with a slight delay to ensure fair processing.
+You can use the [checkpoint!](</en/developing-connectors/sdk/sdk-reference/ruby_methods#checkpoint>) method with file streaming actions to transfer files that exceed the timeout limit. The `checkpoint!` method checks the duration of an action's execution. If it exceeds 120 seconds, Workato refreshes the timeout with a slight delay to ensure fair processing.
 
 ## Sample connector - Egnyte [​](<#sample-connector-egnyte>)
 
@@ -109,7 +109,7 @@ ruby
 
 The first step to making a good action is to properly communicate what the actions does, how it does it and to provide additional help to users. To do so, Workato allows you to define the title, description, and provide hints for an action. Quite simply, the title is the title of an action and the subtitle provides further details of the action. The description of the action then contains specifications and explanation on what the action accomplishes and in the context of the application it connects to. Finally, the help segment provides users any additional information required to make the action work.
 
-To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/actions#title>)
+To know more about this step, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/actions#title>)
 
 ## Step 2 - Define input fields [​](<#step-2-define-input-fields>)
 
@@ -149,7 +149,7 @@ Object definitions
 
 Note that `object_definitions` is passed in as an argument. Workato allows connector builders to supply the definitions of an object separately in the `object_definitions` key. This key is used when the definitions of an object are large and/or can be dynamically obtained.
 
-To know more about this, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/object_definitions>)
+To know more about this, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/object_definitions>)
 
 ## Step 3 - Defining the execute lambda [​](<#step-3-defining-the-execute-lambda>)
 
@@ -193,13 +193,13 @@ ruby
 
 ```
 
-To know more about the output fields key, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/actions#output-fields>)
+To know more about the output fields key, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/actions#output-fields>)
 
 Object definitions
 
 Note that `object_definitions` is passed in as an argument. Workato allows connector builders to supply the definitions of an object separately in the `object_definitions` key. This key is used when the definitions of an object are large and/or can be dynamically obtained.
 
-To know more about this, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/object_definitions>)
+To know more about this, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/object_definitions>)
 
 ## Step 5 - Defining the streaming lambda function [​](<#step-5-defining-the-streaming-lambda-function>)
 

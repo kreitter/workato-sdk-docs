@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/hybrid-triggers.html
-> **Fetched**: 2026-05-26T03:12:09.846023
+> **Fetched**: 2026-05-27T03:13:16.706319
 
 ---
 
@@ -148,7 +148,7 @@ For dynamic webhook triggers, you are expected to define the `webhook_subscribe`
 
 ## Step 2 - Define the poll block [​](<#step-2-define-the-poll-block>)
 
-Instead of defining the `webhook_notification` lambda, building a hybrid trigger requires that you define the `poll` lambda instead. The `poll` lambda should function similar to any other polling trigger, whereby it needs an API endpoint to pull new records. [Refer to our polling trigger guides to understand more.](</developing-connectors/sdk/guides/building-triggers/poll>)
+Instead of defining the `webhook_notification` lambda, building a hybrid trigger requires that you define the `poll` lambda instead. The `poll` lambda should function similar to any other polling trigger, whereby it needs an API endpoint to pull new records. [Refer to our polling trigger guides to understand more.](</en/developing-connectors/sdk/guides/building-triggers/poll>)
 
 ruby
 ```ruby
@@ -205,6 +205,6 @@ ruby
 
 ## Rate limits [​](<#rate-limits>)
 
-This trigger is subject to our [webhook gateway's limits.](</troubleshooting/webhook-gateway-limits>)
+This trigger is subject to our [webhook gateway's limits.](</en/troubleshooting/webhook-gateway-limits>)
 
 **Last updated:**

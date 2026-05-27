@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/poll.html
-> **Fetched**: 2026-05-26T03:12:10.965277
+> **Fetched**: 2026-05-27T03:13:17.790030
 
 ---
 
@@ -124,7 +124,7 @@ ruby
 
 The first step to making a good trigger is to properly communicate what the trigger does and to provide additional help to users. To do so, Workato allows you to define the title, description, and provide hints for an action. Quite simply, the title is the title of an action and the subtitle provides further details of the action. The description of the action then contains specifications and explanation on what the action accomplishes and in the context of the application it connects to. Finally, the help segment provides users any additional information required to make the action work.
 
-To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#title>)
+To know more about this step, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#title>)
 
 ## Step 2 - Define input fields [​](<#step-2-define-input-fields>)
 
@@ -152,13 +152,13 @@ ruby
 
 ![New/updated ticket input fields](/assets/new_ticket_input.Cj3w4dQ5.png) _New/updated ticket input fields_
 
-Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</developing-connectors/sdk/sdk-reference/triggers#input-fields>) for more information.
+Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</en/developing-connectors/sdk/sdk-reference/triggers#input-fields>) for more information.
 
 Object definitions
 
 Note that `object_definitions` is passed in as an argument. Workato allows connector builders to supply the definitions of an object separately in the "object_definitions" key. This key is used when the definitions of an object are large and/or can be dynamically obtained.
 
-To know more about this, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/object_definitions>)
+To know more about this, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/object_definitions>)
 
 ## Step 3 - Defining the poll key [​](<#step-3-defining-the-poll-key>)
 
@@ -208,7 +208,7 @@ The expected output of the `poll` lambda function is a object that should have 3
   * `next_poll` \- This becomes the closure argument in the next poll of the trigger.
   * `can_poll_more` \- This tells the trigger to poll again immediately or poll during the next interval. This is used when there are 100 tickets returned from Freshdesk, indicating there might be more tickets that have been created/updated in the time since the previous poll.
 
-To know more about the poll key, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#poll>)
+To know more about the poll key, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#poll>)
 
 ## Step 4 - Defining output fields and dedup [​](<#step-4-defining-output-fields-and-dedup>)
 
@@ -267,13 +267,13 @@ ruby
 
 ```
 
-To know more about the output fields key, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#output-fields>)
+To know more about the output fields key, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#output-fields>)
 
 Object definitions
 
 Note that `object_definitions` is passed in as an argument. Workato allows connector builders to supply the definitions of an object separately in the "object_definitions" key. This key is used when the definitions of an object are large and/or can be dynamically obtained.
 
-To know more about this, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/object_definitions>)
+To know more about this, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/object_definitions>)
 
 ## Step 5 - Defining sample output [​](<#step-5-defining-sample-output>)
 
@@ -293,6 +293,6 @@ ruby
 
 ```
 
-To know more about the sample output key, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#sample-output>)
+To know more about the sample output key, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#sample-output>)
 
 **Last updated:**

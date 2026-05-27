@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2026-05-26T03:11:53.464067
+> **Fetched**: 2026-05-27T03:13:00.635307
 
 ---
 
@@ -271,7 +271,7 @@ ruby
 
 ### Consecutive polling [​](<#consecutive-polling>)
 
-When polling, triggers can poll consecutively to retrieve valid results. The `can_poll_more` boolean attribute in the SDK’s trigger poll lambda response controls this behavior. When set to `true`, the trigger initiates an immediate poll. Workato enforces a limit on the maximum number of consecutive polls in a single poll cycle when no jobs are produced. Refer to the [Consecutive polls in a single poll cycle without jobs](</developing-connectors/sdk/guides/trigger-limit#consecutive-polls-in-a-single-poll-cycle-without-jobs>) section for more information.
+When polling, triggers can poll consecutively to retrieve valid results. The `can_poll_more` boolean attribute in the SDK’s trigger poll lambda response controls this behavior. When set to `true`, the trigger initiates an immediate poll. Workato enforces a limit on the maximum number of consecutive polls in a single poll cycle when no jobs are produced. Refer to the [Consecutive polls in a single poll cycle without jobs](</en/developing-connectors/sdk/guides/trigger-limit#consecutive-polls-in-a-single-poll-cycle-without-jobs>) section for more information.
 
 Adhere to the following best practices to configure `can_poll_more` effectively and ensure compliance with polling limits:
 
@@ -467,14 +467,14 @@ For each input field, we suggest running through this series of questions quickl
 
 #### Descriptive Error Messages [​](<#descriptive-error-messages>)
 
-Descriptive error messages are a crucial part of the recipe building experience for end-users. Without the proper error messages, users have a tough time figuring out why their recipes are failing. If you haven’t checked out the possible ways to surface errors on Workato, do check out our [error handling guide.](</developing-connectors/sdk/guides/error-handling>)
+Descriptive error messages are a crucial part of the recipe building experience for end-users. Without the proper error messages, users have a tough time figuring out why their recipes are failing. If you haven’t checked out the possible ways to surface errors on Workato, do check out our [error handling guide.](</en/developing-connectors/sdk/guides/error-handling>)
 
 Here are some general rules to include proper error handling in your connector.
 
-  1. Does your connector use picklists or dynamic schema of any sort? Chaining an `after_error_response` function allows your users to receive exact information of what may have gone wrong. [Example here.](</developing-connectors/sdk/guides/error-handling#handling-object-definition-errors>)
+  1. Does your connector use picklists or dynamic schema of any sort? Chaining an `after_error_response` function allows your users to receive exact information of what may have gone wrong. [Example here.](</en/developing-connectors/sdk/guides/error-handling#handling-object-definition-errors>)
 
-  2. Does your connector have certain fields that are required together, such as a start date and end date? Whilst these fields may not be required all the time, some fields are often required together. In cases like these, validations may help surface these errors better and also reduce the number of API calls made unnecessarily. [Example here.](</developing-connectors/sdk/guides/error-handling#validating-inputs>)
+  2. Does your connector have certain fields that are required together, such as a start date and end date? Whilst these fields may not be required all the time, some fields are often required together. In cases like these, validations may help surface these errors better and also reduce the number of API calls made unnecessarily. [Example here.](</en/developing-connectors/sdk/guides/error-handling#validating-inputs>)
 
-  3. Does the API you are connecting to respond with appropriate HTTP status codes? In certain cases, APIs may send back responses that should actually be errors but have their HTTP status as `200`. In cases like these, using an ` after_error_response` function can help highlight issues to your users instead. [Example here.](</developing-connectors/sdk/guides/error-handling#handling-response-errors>)
+  3. Does the API you are connecting to respond with appropriate HTTP status codes? In certain cases, APIs may send back responses that should actually be errors but have their HTTP status as `200`. In cases like these, using an ` after_error_response` function can help highlight issues to your users instead. [Example here.](</en/developing-connectors/sdk/guides/error-handling#handling-response-errors>)
 
 **Last updated:**

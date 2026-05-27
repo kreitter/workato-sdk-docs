@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/on-prem.html
-> **Fetched**: 2026-05-26T03:11:52.363270
+> **Fetched**: 2026-05-27T03:12:59.551091
 
 ---
 
@@ -13,7 +13,7 @@
 
 # How-to guide - OPA authentication [​](<#how-to-guide-opa-authentication>)
 
-HTTP requests made in a custom adapter are sent from Workato [IP addresses](</security/ip-allowlists#traffic-from-workato>) by default. You can configure the adapter to instead route all requests through an [on-prem agent](</on-prem>).
+HTTP requests made in a custom adapter are sent from Workato [IP addresses](</en/security/ip-allowlists#traffic-from-workato>) by default. You can configure the adapter to instead route all requests through an [on-prem agent](</en/on-prem>).
 
 Complete the following steps to enable OPA authentication in a custom connector:
 
@@ -27,7 +27,7 @@ Go to **Tools > Connector SDK**.
 
 3
 
-Select the connector you plan to modify, or click **\+ New connector** to [create a new connector](</developing-connectors/sdk/guides/walkthrough#create-a-custom-connector>).
+Select the connector you plan to modify, or click **\+ New connector** to [create a new connector](</en/developing-connectors/sdk/guides/walkthrough#create-a-custom-connector>).
 
 4
 
@@ -35,7 +35,7 @@ Add `secure_tunnel` set to `true` as a top level property in your custom adapter
 
 USE OPA FOR TLS CERTIFICATES
 
-Configure TLS client certificates in the OPA connection profile instead of your SDK connector code. OPA terminates TLS to your target service, and the certificate must be configured in the HTTP profile. Refer to [On-prem agent – Connection profiles](</on-prem/agents/connection/profile#http-profile>) for instructions to configure TLS client certificates in OPA. The connection returns SSL errors if you configure the certificate in the SDK connector.
+Configure TLS client certificates in the OPA connection profile instead of your SDK connector code. OPA terminates TLS to your target service, and the certificate must be configured in the HTTP profile. Refer to [On-prem agent – Connection profiles](</en/on-prem/agents/connection/profile#http-profile>) for instructions to configure TLS client certificates in OPA. The connection returns SSL errors if you configure the certificate in the SDK connector.
 
 For example:
 
@@ -90,7 +90,7 @@ Summarize the changes you made to the connector in the **Confirm release** modal
 
 Click **Release** to release the new version of the connector in your workspace and allow it to be used in recipes.
 
-The **New connection** page for your connector displays the **Connection type** drop-down menu after you set `secure_tunnel` to `true`. You can use this menu to select the [on-prem group](</on-prem/groups#on-prem-group>) you plan to use for your connection.
+The **New connection** page for your connector displays the **Connection type** drop-down menu after you set `secure_tunnel` to `true`. You can use this menu to select the [on-prem group](</en/on-prem/groups#on-prem-group>) you plan to use for your connection.
 
 ![Connection without option to use OPA](/assets/OPA-example-without-secure-tunnel.DwqWcAfP.png)_**New connection** page without `secure_tunnel` enabled_
 
@@ -98,10 +98,10 @@ The **New connection** page for your connector displays the **Connection type** 
 
 ## Next steps [​](<#next-steps>)
 
-Refer to the [SDK reference](</developing-connectors/sdk/sdk-reference/connection>) guide for a list of available `connection` keys and parameters or refer to the following guides set up an on-prem agent:
+Refer to the [SDK reference](</en/developing-connectors/sdk/sdk-reference/connection>) guide for a list of available `connection` keys and parameters or refer to the following guides set up an on-prem agent:
 
-  * [Create an on-prem group](</on-prem/groups/create-group>)
-  * [Add an agent to a group](</on-prem/groups/add-agent>)
-  * [Run an agent](</on-prem/agents/run>)
+  * [Create an on-prem group](</en/on-prem/groups/create-group>)
+  * [Add an agent to a group](</en/on-prem/groups/add-agent>)
+  * [Run an agent](</en/on-prem/agents/run>)
 
 **Last updated:**

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/static-webhook.html
-> **Fetched**: 2026-05-26T03:12:13.155397
+> **Fetched**: 2026-05-27T03:13:19.938682
 
 ---
 
@@ -189,7 +189,7 @@ To retrieve your connector's static webhook URL, head to the **Test code** tab u
 
 The first step to making a good trigger is to properly communicate what the trigger does and to provide additional help to users. To do so, Workato allows you to define the title, description, and provide hints for an action. Quite simply, the title is the title of an action and the subtitle provides further details of the action. The description of the action then contains specifications and explanation on what the action accomplishes and in the context of the application it connects to.
 
-To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#title>)
+To know more about this step, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#title>)
 
 ## Step 3 - Define your help with your static webhook url [​](<#step-3-define-your-help-with-your-static-webhook-url>)
 
@@ -212,7 +212,7 @@ ruby
 
 In our case, we have used an input gained from the connection called `org_id` which represents the specific Greenhouse organization for the connection used in this recipe. This will be important to route this webhook to the correct recipes when there are multiple connections.
 
-To know more about the `help`, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#help>).
+To know more about the `help`, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#help>).
 
 ## Step 4 - Define input fields [​](<#step-4-define-input-fields>)
 
@@ -238,13 +238,13 @@ ruby
 
 ![New event input fields](/assets/new_event_input.CQRxjKuE.png)_New event input fields_
 
-Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</developing-connectors/sdk/sdk-reference/triggers#input-fields>) for more information.
+Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</en/developing-connectors/sdk/sdk-reference/triggers#input-fields>) for more information.
 
 Object definitions
 
 Note that `object_definitions` is passed in as an argument. Workato allows connector builders to supply the definitions of an object separately in the "object_definitions" key. This key is used when the definitions of an object are large and/or can be dynamically obtained.
 
-To know more about this, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/object_definitions>)
+To know more about this, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/object_definitions>)
 
 ## Step 5 - Defining the trigger webhook key [​](<#step-5-defining-the-trigger-webhook-key>)
 
@@ -281,7 +281,7 @@ Webhook Validations
   * Workato performs validations on JSON based webhooks - denoted by the webhook's `Content-Type` header, to ensure that the payload is valid JSON. Otherwise, Workato responds with 400 bad request.
   * Incoming webhook payloads are expected to be UTF-8 compatible and Workato responds with 400 bad request if UTF-8 incompatible characters are found.
 
-To know more about the `webhook_key` and `webhook_notification` key, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#webhook-key>)
+To know more about the `webhook_key` and `webhook_notification` key, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#webhook-key>)
 
 ## Step 7 - Defining output fields and dedup [​](<#step-7-defining-output-fields-and-dedup>)
 
@@ -350,13 +350,13 @@ ruby
 
 ```
 
-To know more about the output fields key, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#output-fields>)
+To know more about the output fields key, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#output-fields>)
 
 Object definitions
 
 Note that `object_definitions` is passed in as an argument. Workato allows connector builders to supply the definitions of an object separately in the "object_definitions" key. This key is used when the definitions of an object are large and/or can be dynamically obtained.
 
-To know more about this, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/object_definitions>)
+To know more about this, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/object_definitions>)
 
 ## Step 8 - Defining sample output [​](<#step-8-defining-sample-output>)
 
@@ -375,14 +375,14 @@ ruby
 
 ```
 
-To know more about the sample output key, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#sample-output>)
+To know more about the sample output key, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#sample-output>)
 
 ## Step 9 - Secure your webhook events [​](<#step-9-secure-your-webhook-events>)
 
-Now that you're receiving webhooks, you can now consider adding [additional checks to verify the authenticity of incoming webhook events.](</developing-connectors/sdk/guides/building-triggers/securing-webhooks>)
+Now that you're receiving webhooks, you can now consider adding [additional checks to verify the authenticity of incoming webhook events.](</en/developing-connectors/sdk/guides/building-triggers/securing-webhooks>)
 
 ## Rate limits [​](<#rate-limits>)
 
-This trigger is subject to our [webhook gateway's limits.](</troubleshooting/webhook-gateway-limits>)
+This trigger is subject to our [webhook gateway's limits.](</en/troubleshooting/webhook-gateway-limits>)
 
 **Last updated:**

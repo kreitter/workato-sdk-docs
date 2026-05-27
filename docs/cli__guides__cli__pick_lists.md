@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/pick_lists.html
-> **Fetched**: 2026-05-26T03:11:16.170708
+> **Fetched**: 2026-05-27T03:12:24.010183
 
 ---
 
@@ -17,7 +17,7 @@ In this segment, we will be going through how you can run methods Picklists the 
 
 ## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</en/developing-connectors/sdk/cli/guides/getting-started>) to know more.
   * You have a working connector with at least 1 method. You use the sample connector provided below.
   * You have a working set of credentials. If you are using a sample connector code, ensure that you have the appropriate credentials for the connector.
 
@@ -119,7 +119,7 @@ yaml
 
 TIP
 
-If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Refer to [workato edit](</developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) for more information on editing encrypted files.
+If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Refer to [workato edit](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) for more information on editing encrypted files.
 
 With the SDK Gem, you'll be able to invoke a picklist individually.
 

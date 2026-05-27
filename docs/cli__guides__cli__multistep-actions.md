@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/multistep-actions.html
-> **Fetched**: 2026-05-26T03:11:15.084664
+> **Fetched**: 2026-05-27T03:12:22.942766
 
 ---
 
@@ -17,13 +17,13 @@ In this segment, we will be going through how you can run and easily debug multi
 
 ## Prerequisites [​](<#prerequisites>)
 
-  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</developing-connectors/sdk/cli/guides/getting-started>) to know more.
+  * You have installed and can run the Workato SDK Gem. Read our [getting-started guide](</en/developing-connectors/sdk/cli/guides/getting-started>) to know more.
   * You have a working connector with at least 1 multistep action.
   * You have a working set of credentials. If you are using a sample connector code, ensure that you have the appropriate credentials for the connector.
 
 ## Sample connector - Google BigQuery [​](<#sample-connector-google-bigquery>)
 
-This example is based on the [BigQuery connector example](</developing-connectors/sdk/guides/building-actions/multistep-actions#sample-connector-google-bigquery>) from the multistep actions guide.
+This example is based on the [BigQuery connector example](</en/developing-connectors/sdk/guides/building-actions/multistep-actions#sample-connector-google-bigquery>) from the multistep actions guide.
 
 Credentials in `settings.yaml.enc` .
 
@@ -41,9 +41,9 @@ yaml
 
 TIP
 
-If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Refer to [workato edit](</developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) for more information on editing encrypted files.
+If you're using an encrypted settings.yaml file, you will need to use `workato edit <PATH>` to edit or create the file. Refer to [workato edit](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) for more information on editing encrypted files.
 
-With the SDK Gem, you'll be able to invoke individual lambda functions in your action and gain greater control over how each part of your action works. For example, you may run your `execute` lambda function independently from your `input_fields` lambda. Refer to the [actions guide](</developing-connectors/sdk/cli/guides/cli/actions>) for more information on running your `input_fields` and `output_fields` lambdas.
+With the SDK Gem, you'll be able to invoke individual lambda functions in your action and gain greater control over how each part of your action works. For example, you may run your `execute` lambda function independently from your `input_fields` lambda. Refer to the [actions guide](</en/developing-connectors/sdk/cli/guides/cli/actions>) for more information on running your `input_fields` and `output_fields` lambdas.
 
 ## Running your execute lambda for multistep actions [​](<#running-your-execute-lambda-for-multistep-actions>)
 

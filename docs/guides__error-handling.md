@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/error-handling.html
-> **Fetched**: 2026-05-26T03:12:21.950989
+> **Fetched**: 2026-05-27T03:13:28.591183
 
 ---
 
@@ -43,11 +43,11 @@ By default, the SDK framework will only raise errors when the HTTP response code
 
 ### `detect_on` [​](<#detect-on>)
 
-There are 2 ways you can catch these errors. The first method is to use [detect_on](</developing-connectors/sdk/sdk-reference/connection/authorization#detect-on>). This is a connector-wide method to catch errors; It applies to all actions and triggers. This method will raise errors with a standard message format that cannot be customized.
+There are 2 ways you can catch these errors. The first method is to use [detect_on](</en/developing-connectors/sdk/sdk-reference/connection/authorization#detect-on>). This is a connector-wide method to catch errors; It applies to all actions and triggers. This method will raise errors with a standard message format that cannot be customized.
 
 ### `after_response` [​](<#after-response>)
 
-The alternative is to handle these errors in the [after_response](</developing-connectors/sdk/sdk-reference/http#response-handling>) method. This method can be used together with `error()` to validate the contents of a HTTP response and raise custom errors. This method applies to individual actions/triggers. Hence the conditions used to detect an error can be customized to each request. Additionally, the error message can be changed to suit each actions/triggers.
+The alternative is to handle these errors in the [after_response](</en/developing-connectors/sdk/sdk-reference/http#response-handling>) method. This method can be used together with `error()` to validate the contents of a HTTP response and raise custom errors. This method applies to individual actions/triggers. Hence the conditions used to detect an error can be customized to each request. Additionally, the error message can be changed to suit each actions/triggers.
 
 For example, we can use the `after_response` method to check the contents of the response body before deciding to return the body as a successful request output or to raise an error with a custom message.
 
@@ -158,7 +158,7 @@ ruby
 
 ## Handling Picklist errors [​](<#handling-picklist-errors>)
 
-The `after_error_response` helper method can also be chained to HTTP verb methods in other parts of your custom connector. For example, you may want to handling and provide custom error messages from dynamic [pick_lists](</developing-connectors/sdk/sdk-reference/picklists>). In this example, we are looking at handling errors from [Docparser](<https://dev.docparser.com/>).
+The `after_error_response` helper method can also be chained to HTTP verb methods in other parts of your custom connector. For example, you may want to handling and provide custom error messages from dynamic [pick_lists](</en/developing-connectors/sdk/sdk-reference/picklists>). In this example, we are looking at handling errors from [Docparser](<https://dev.docparser.com/>).
 
 #### Sample code snippet [​](<#handling-picklist-errors-sample-code-snippet>)
 
@@ -183,7 +183,7 @@ HTTP error will be displayed in the recipe editor when the custom adapter tries 
 
 ## Handling object definition errors [​](<#handling-object-definition-errors>)
 
-This can also be used in [dynamic fields](</developing-connectors/sdk/sdk-reference/object_definitions>) code block in object_definitions.
+This can also be used in [dynamic fields](</en/developing-connectors/sdk/sdk-reference/object_definitions>) code block in object_definitions.
 
 #### Sample code snippet [​](<#handling-object-definition-errors-sample-code-snippet>)
 

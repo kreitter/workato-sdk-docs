@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/security-guidelines.html
-> **Fetched**: 2026-05-26T03:11:27.140629
+> **Fetched**: 2026-05-27T03:12:34.805172
 
 ---
 
@@ -29,7 +29,7 @@ To ensure credentials remain secure, use encrypted files for storage.
 
 The SDK gem includes a command that allows you to easily create and update encrypted files. This means you can encrypt your credentials, ensuring they can't be used or decrypted without your `master.key`.
 
-To start working with encrypted files, use the [`workato edit`](</developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) command to create the encrypted `master.key` file. If your project doesn't have this file, one will automatically be created the first time the command is run.
+To start working with encrypted files, use the [`workato edit`](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-edit>) command to create the encrypted `master.key` file. If your project doesn't have this file, one will automatically be created the first time the command is run.
 
 ## Tip 3: Always use encrypted VCR recordings [​](<#tip-3-always-use-encrypted-vcr-recordings>)
 
@@ -37,7 +37,7 @@ VCR recordings are crucial for stable tests but also present a security risk. By
 
 The SDK gem makes it easy to do this when you set up your connector project.
 
-After you run [`workato new`](</developing-connectors/sdk/cli/reference/cli-commands#workato-new>), select `secure` at the HTTP binding prompt:
+After you run [`workato new`](</en/developing-connectors/sdk/cli/reference/cli-commands#workato-new>), select `secure` at the HTTP binding prompt:
 
 shell
 ```ruby
@@ -53,7 +53,7 @@ shell
 
 ```
 
-This option also creates a `spec_helper.rb` file, which comes pre-loaded with your VCR configurations and encryption. To learn more about VCR, [check out the VCR guides](</developing-connectors/sdk/cli/guides/rspec/vcr>).
+This option also creates a `spec_helper.rb` file, which comes pre-loaded with your VCR configurations and encryption. To learn more about VCR, [check out the VCR guides](</en/developing-connectors/sdk/cli/guides/rspec/vcr>).
 
 ## Tip 4: Add master.key to .gitignore [​](<#tip-4-add-master-key-to-gitignore>)
 

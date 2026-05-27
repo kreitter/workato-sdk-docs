@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/dynamic-webhook.html
-> **Fetched**: 2026-05-26T03:12:08.751383
+> **Fetched**: 2026-05-27T03:13:15.628001
 
 ---
 
@@ -102,7 +102,7 @@ ruby
 
 The first step to making a good trigger is to properly communicate what the trigger does and to provide additional help to users. To do so, Workato allows you to define the title, description, and provide hints for an action. Quite simply, the title is the title of an action and the subtitle provides further details of the action. The description of the action then contains specifications and explanation on what the action accomplishes and in the context of the application it connects to. Finally, the help segment provides users any additional information required to make the action work.
 
-To know more about this step, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#title>)
+To know more about this step, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#title>)
 
 ## Step 2 - Define input fields [​](<#step-2-define-input-fields>)
 
@@ -122,13 +122,13 @@ ruby
 
 ```
 
-Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</developing-connectors/sdk/sdk-reference/triggers#input-fields>) for more information.
+Various other key value pairs exist for input/output fields other than the ones defined above. Refer to [Input fields](</en/developing-connectors/sdk/sdk-reference/triggers#input-fields>) for more information.
 
 Object definitions
 
 Note that `object_definitions` is passed in as an argument. Workato allows connector builders to supply the definitions of an object separately in the "object_definitions" key. This key is used when the definitions of an object are large and/or can be dynamically obtained.
 
-To know more about this, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/object_definitions>)
+To know more about this, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/object_definitions>)
 
 ## Step 3 - Defining the trigger webhook subscription logic, webhook handling and teardown logic [​](<#step-3-defining-the-trigger-webhook-subscription-logic-webhook-handling-and-teardown-logic>)
 
@@ -188,7 +188,7 @@ ruby
 
 ```
 
-To know more about the keys above, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#webhook-subscribe>)
+To know more about the keys above, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#webhook-subscribe>)
 
 ## Step 4 - Defining output fields and dedup [​](<#step-4-defining-output-fields-and-dedup>)
 
@@ -239,24 +239,24 @@ ruby
 
 ```
 
-To know more about the output fields block, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/triggers#output-fields>)
+To know more about the output fields block, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/triggers#output-fields>)
 
 Object definitions
 
 Note that `object_definitions` is passed in as an argument. Workato allows connector builders to supply the definitions of an object separately in the "object_definitions" key. This key is used when the definitions of an object are large and/or can be dynamically obtained.
 
-To know more about this, take a look at our [SDK reference](</developing-connectors/sdk/sdk-reference/object_definitions>)
+To know more about this, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/object_definitions>)
 
 ## Step 5 - [OPTIONAL] Configure how Workato responds to webhook events [​](<#step-5-optional-configure-how-workato-responds-to-webhook-events>)
 
-If the webhook sender requires custom responses, you may configure additional attributes to do so. [Learn more](</developing-connectors/sdk/sdk-reference/triggers#webhook-response-body>)
+If the webhook sender requires custom responses, you may configure additional attributes to do so. [Learn more](</en/developing-connectors/sdk/sdk-reference/triggers#webhook-response-body>)
 
 ## Step 6 - Secure your webhook events [​](<#step-6-secure-your-webhook-events>)
 
-Now that you're receiving webhooks, you can now consider adding [additional checks to verify the authenticity of incoming webhook events.](</developing-connectors/sdk/guides/building-triggers/securing-webhooks>)
+Now that you're receiving webhooks, you can now consider adding [additional checks to verify the authenticity of incoming webhook events.](</en/developing-connectors/sdk/guides/building-triggers/securing-webhooks>)
 
 ## Rate limits [​](<#rate-limits>)
 
-This trigger is subject to our [webhook gateway's limits.](</troubleshooting/webhook-gateway-limits>)
+This trigger is subject to our [webhook gateway's limits.](</en/troubleshooting/webhook-gateway-limits>)
 
 **Last updated:**

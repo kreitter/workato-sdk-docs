@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/debugging.html
-> **Fetched**: 2026-05-26T03:12:20.869472
+> **Fetched**: 2026-05-27T03:13:27.522943
 
 ---
 
@@ -18,7 +18,7 @@ Tool| Description
 SDK **Test code** tab| Available directly on the Workato platform. No setup is required. Test individual actions, triggers, and connections, and debug UI elements for Workato schema.  
 SDK CLI tool| Build and debug directly from your own local machine. Minimal setup needed. Test individual lambdas like `object_definitions`, `pick_lists`, and methods or entire actions, triggers, or connections. No UI-level debugging. Ability to write automated unit tests.  
 
-Depending on your situation, both tools may be necessary. For simpler builds, however, the **Test code** tab should suffice and is the focus of this guide. Refer to our [CLI reference](</developing-connectors/sdk/cli#sdk-cli>) to learn more about the SDK CLI.
+Depending on your situation, both tools may be necessary. For simpler builds, however, the **Test code** tab should suffice and is the focus of this guide. Refer to our [CLI reference](</en/developing-connectors/sdk/cli#sdk-cli>) to learn more about the SDK CLI.
 
 ## The Test code tab [​](<#the-test-code-tab>)
 
@@ -50,7 +50,7 @@ Any fields defined in the `fields` attribute of your connection hash appear when
 
 **Output** \- This tab contains the JSON representation of the connection output, which is utilized by various lambda functions within the connector, such as: `connection`, `execute`, `object_definitions`, and more. ![Output](/assets/test-code-connection-output.jopXjGE9.png)
 
-**Error** \- This tab is only shown when the connector encounters an error. Errors occur when you use a method to raise an error or when an API request has responded with a non 2XX response code. Find out more about [raising errors manually](</developing-connectors/sdk/guides/error-handling#validating-inputs>). ![Error](/assets/test-code-connection-error.CrUGbrQ1.png)
+**Error** \- This tab is only shown when the connector encounters an error. Errors occur when you use a method to raise an error or when an API request has responded with a non 2XX response code. Find out more about [raising errors manually](</en/developing-connectors/sdk/guides/error-handling#validating-inputs>). ![Error](/assets/test-code-connection-error.CrUGbrQ1.png)
 
 **Debug** \- This tab showcases any HTTP requests made during the authentication flow. HTTP requests are printed in the order they are executed. ![Debug](/assets/test-code-connection-debug.CxboSqhk.png)
 
@@ -74,7 +74,7 @@ ruby
 
 WARNING
 
-Debugging of webhook triggers is not supported on our **Test code** tab at this time. To debug webhook triggers, we suggest using the [SDK CLI](</developing-connectors/sdk/cli#sdk-cli>).
+Debugging of webhook triggers is not supported on our **Test code** tab at this time. To debug webhook triggers, we suggest using the [SDK CLI](</en/developing-connectors/sdk/cli#sdk-cli>).
 
 Debugging triggers and actions allow you to debug two main portions:
 
@@ -94,7 +94,7 @@ When you're done, click **Test** to execute the operation. For polling triggers,
 **Output** \- There are some slight differences between the output for triggers versus actions:
 
   * Actions: This will be the normal output which is naturally passed as the output of the job. It is further matched with the `name` value in each datapill you have defined so users can map datapills to further downstream actions.
-  * Triggers: An important distinction for triggers is that a single trigger poll may produce multiple jobs. If this sounds unfamiliar, please read our guides on [polling triggers](</developing-connectors/sdk/guides/building-triggers/poll#how-to-guides-polling-trigger>). As such, the output of a trigger test will highlight a few things, such as the `events` and `staged_events` which are synonymous with the array of records that are turned into individual jobs. Each index in the array corresponds to a single job. Aside from that, you will also be able to see the outcome of `can_poll_more` as well as the `closure` which is passed to the next iteration of the poll.
+  * Triggers: An important distinction for triggers is that a single trigger poll may produce multiple jobs. If this sounds unfamiliar, please read our guides on [polling triggers](</en/developing-connectors/sdk/guides/building-triggers/poll#how-to-guides-polling-trigger>). As such, the output of a trigger test will highlight a few things, such as the `events` and `staged_events` which are synonymous with the array of records that are turned into individual jobs. Each index in the array corresponds to a single job. Aside from that, you will also be able to see the outcome of `can_poll_more` as well as the `closure` which is passed to the next iteration of the poll.
 
 ![Output](/assets/debugger-operation-output.DI3KNqqO.png)
 

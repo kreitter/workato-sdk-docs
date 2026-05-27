@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/walkthrough.html
-> **Fetched**: 2026-05-26T03:12:25.178759
+> **Fetched**: 2026-05-27T03:13:31.766224
 
 ---
 
@@ -135,7 +135,7 @@ Click **Connect** to establish the connection. A successful connection displays 
 
 ## Create an action [​](<#create-an-action>)
 
-SWAPI allows you to retrieve information about Star Wars such as people, planets, and films. This example demonstrates how to build an action named `Get person by ID` that retrieves information about a Star Wars character. You can access and use the returned information in subsequent recipe steps with [datapills](</recipes/data-pills-and-mapping>).
+SWAPI allows you to retrieve information about Star Wars such as people, planets, and films. This example demonstrates how to build an action named `Get person by ID` that retrieves information about a Star Wars character. You can access and use the returned information in subsequent recipe steps with [datapills](</en/recipes/data-pills-and-mapping>).
 
 ![Action revealed to user](/assets/get-character-by-id-action.BCMcWd_G.png)_Create the Get person by ID action_
 
