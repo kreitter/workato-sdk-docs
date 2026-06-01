@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/header-auth.html
-> **Fetched**: 2026-05-31T03:12:43.022248
+> **Fetched**: 2026-06-01T03:14:22.528909
 
 ---
 
