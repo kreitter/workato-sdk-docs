@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/poll.html
-> **Fetched**: 2026-06-02T03:14:52.966975
+> **Fetched**: 2026-06-03T03:14:04.270494
 
 ---
 
