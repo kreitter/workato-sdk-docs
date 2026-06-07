@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/http.html
-> **Fetched**: 2026-06-06T03:11:18.462009
+> **Fetched**: 2026-06-07T03:13:30.838045
 
 ---
 
@@ -9,7 +9,11 @@
 
 [SDK reference](</en/developing-connectors/sdk/sdk-reference>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/http.md for this page in Markdown format
+
 # HTTP Methods [​](<#http-methods>)
+
+Copy page
 
 In this section we cover the various HTTP methods that Workato supports. You should already be familiar with most of them. We also cover how you can do post-response processing of your HTTP calls to manipulate data into formats that are easier to use later on in your connector code.
 

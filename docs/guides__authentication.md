@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication.html
-> **Fetched**: 2026-06-06T03:10:18.514746
+> **Fetched**: 2026-06-07T03:12:32.487020
 
 ---
 
@@ -9,7 +9,11 @@
 
 [How-to guides](</en/developing-connectors/sdk/guides>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/authentication.md for this page in Markdown format
+
 # Building connections [​](<#building-connections>)
+
+Copy page
 
 When connecting to an API, you must first authenticate your custom connector. To do this, you must "inform" the API that it can trust you and send potentially sensitive information to you.
 

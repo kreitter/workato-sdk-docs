@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/download-stream.html
-> **Fetched**: 2026-06-06T03:10:41.103578
+> **Fetched**: 2026-06-07T03:12:54.539739
 
 ---
 
@@ -11,7 +11,11 @@
 
 [File streaming operations](</en/developing-connectors/sdk/guides/building-actions/streaming>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-actions/streaming/download-stream.md for this page in Markdown format
+
 # How-to guides - Download file via file streaming (Range headers) [​](<#how-to-guides-download-file-via-file-streaming-range-headers>)
+
+Copy page
 
 In this segment, we will be going through the creation of actions that download files in a target application through file streaming.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html
-> **Fetched**: 2026-06-06T03:11:24.501492
+> **Fetched**: 2026-06-07T03:13:36.666144
 
 ---
 
@@ -9,7 +9,11 @@
 
 [SDK reference](</en/developing-connectors/sdk/sdk-reference>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/schema.md for this page in Markdown format
+
 # SDK Reference - Workato Schema [​](<#sdk-reference-workato-schema>)
+
+Copy page
 
 The following section defines how to define input and output fields in Workato - collectively called "Schema". You can apply this information anywhere in your connector code where input fields or output fields (datapills) are defined. This could be in places such as `connection`, `actions`, `triggers`, and `object_definitions`
 

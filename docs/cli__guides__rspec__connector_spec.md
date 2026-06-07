@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/connector_spec.html
-> **Fetched**: 2026-06-06T03:09:59.232931
+> **Fetched**: 2026-06-07T03:12:13.708701
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/rspec/connector_spec.md for this page in Markdown format
+
 # How-to guides - Writing tests for your connection [​](<#how-to-guides-writing-tests-for-your-connection>)
+
+Copy page
 
 In this segment, we will be going through how you can write tests for your connector's connection.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/get-objects.html
-> **Fetched**: 2026-06-06T03:10:36.538963
+> **Fetched**: 2026-06-07T03:12:50.110041
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building actions ](</en/developing-connectors/sdk/guides/building-actions>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-actions/get-objects.md for this page in Markdown format
+
 # How-to guides - Get (Retrieve) objects [​](<#how-to-guides-get-retrieve-objects>)
+
+Copy page
 
 In this segment, we will be going through the creation of actions that help retrieve information of an object in our target application. Typically, The `GET` HTTP request method is used to send requests to retrieve objects.
 

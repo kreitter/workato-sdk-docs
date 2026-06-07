@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/header-auth.html
-> **Fetched**: 2026-06-06T03:10:23.004047
+> **Fetched**: 2026-06-07T03:12:36.879876
 
 ---
 
@@ -11,7 +11,11 @@
 
 [API authorization](</en/developing-connectors/sdk/guides/authentication>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/authentication/header-auth.md for this page in Markdown format
+
 # How-to Guides - Header Authentication [​](<#how-to-guides-header-authentication>)
+
+Copy page
 
 For APIs requiring header authentication, this can be easily accomplished if the token is supplied by the user directly through user input fields.
 

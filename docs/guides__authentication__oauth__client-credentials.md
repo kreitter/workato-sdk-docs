@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/client-credentials.html
-> **Fetched**: 2026-06-06T03:10:28.751703
+> **Fetched**: 2026-06-07T03:12:42.494200
 
 ---
 
@@ -11,7 +11,11 @@
 
 [API authorization](</en/developing-connectors/sdk/guides/authentication>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/authentication/oauth/client-credentials.md for this page in Markdown format
+
 # How-to Guide - OAuth 2.0 Client Credentials Authentication [​](<#how-to-guide-oauth-2-0-client-credentials-authentication>)
+
+Copy page
 
 The OAuth 2.0 Client Credentials flow is traditionally a way for server to server authentication. This allows you to build a connector that can authenticate as the Workato server which communicates to your target API server.
 

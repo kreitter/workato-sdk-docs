@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multi-threaded-actions.html
-> **Fetched**: 2026-06-06T03:10:37.651958
+> **Fetched**: 2026-06-07T03:12:51.230927
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building actions ](</en/developing-connectors/sdk/guides/building-actions>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-actions/multi-threaded-actions.md for this page in Markdown format
+
 # How-to guides - Multi-threaded actions [​](<#how-to-guides-multi-threaded-actions>)
+
+Copy page
 
 In this segment, we will be going through the creation of actions that allow you to send requests in parallel across multiple threads. Data throughput can be a key concern for users and in some cases, APIs themselves may only support singleton ingestion endpoints or the batch sizes for requests are simply too low!
 

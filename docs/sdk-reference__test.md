@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/test.html
-> **Fetched**: 2026-06-06T03:11:26.657049
+> **Fetched**: 2026-06-07T03:13:38.848900
 
 ---
 
@@ -11,7 +11,11 @@
 
 Connector key reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/test.md for this page in Markdown format
+
 # SDK Reference - `test` [​](<#sdk-reference-test>)
+
+Copy page
 
 This section enumerates all the possible keys available when testing your connection.
 

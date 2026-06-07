@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/static-webhook.html
-> **Fetched**: 2026-06-06T03:10:52.412323
+> **Fetched**: 2026-06-07T03:13:05.495495
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building triggers](</en/developing-connectors/sdk/guides/building-triggers>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-triggers/static-webhook.md for this page in Markdown format
+
 # How-to guides - Static Webhook Trigger [​](<#how-to-guides-static-webhook-trigger>)
+
+Copy page
 
 A static webhook trigger is one that requires manual registration. This usually involves a user creating a webhook subscription in the application's UI with a provided webhook URL.
 

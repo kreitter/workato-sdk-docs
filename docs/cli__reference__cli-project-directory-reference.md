@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-project-directory-reference.html
-> **Fetched**: 2026-06-06T03:10:08.286568
+> **Fetched**: 2026-06-07T03:12:22.496922
 
 ---
 
@@ -11,7 +11,11 @@
 
 Reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/reference/cli-project-directory-reference.md for this page in Markdown format
+
 # SDK - Project Directory and File Reference [​](<#sdk-project-directory-and-file-reference>)
+
+Copy page
 
 A typical connector project built with the SDK gem usually looks something like this:
 ```ruby

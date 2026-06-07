@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/xml-format.html
-> **Fetched**: 2026-06-06T03:10:59.323546
+> **Fetched**: 2026-06-07T03:13:12.169701
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Handling data formats](</en/developing-connectors/sdk/guides/data-formats>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/data-formats/xml-format.md for this page in Markdown format
+
 # How-to guides - XML data format [​](<#how-to-guides-xml-data-format>)
+
+Copy page
 
 XML data format can be specified using the following SDK methods:
 

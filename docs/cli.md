@@ -1,13 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli.html
-> **Fetched**: 2026-06-06T03:09:47.786063
+> **Fetched**: 2026-06-07T03:12:02.695237
 
 ---
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli.md for this page in Markdown format
+
 # SDK - CLI [​](<#sdk-cli>)
+
+Copy page
 
 Welcome to the SDK CLI! This section focuses on how you can use Workato's Connector SDK Ruby gem (SDK gem) to bring your connector development local.
 

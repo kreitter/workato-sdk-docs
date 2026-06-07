@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/methods.html
-> **Fetched**: 2026-06-06T03:09:51.265002
+> **Fetched**: 2026-06-07T03:12:05.974407
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/cli/methods.md for this page in Markdown format
+
 # How-to guides - Running methods on CLI [​](<#how-to-guides-running-methods-on-cli>)
+
+Copy page
 
 In this segment, we will be going through how you can run methods using the Workato Gem.
 

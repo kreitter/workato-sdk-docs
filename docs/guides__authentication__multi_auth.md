@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/multi_auth.html
-> **Fetched**: 2026-06-06T03:10:25.328859
+> **Fetched**: 2026-06-07T03:12:39.135019
 
 ---
 
@@ -11,7 +11,11 @@
 
 [API authorization](</en/developing-connectors/sdk/guides/authentication>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/authentication/multi_auth.md for this page in Markdown format
+
 # How-to Guide - Building multiple authentication flows [​](<#how-to-guide-building-multiple-authentication-flows>)
+
+Copy page
 
 You may have to build multiple authentication (multi-auth) methods depending on the various use cases that you plan for your connector to support. For example, you can choose to support the OAuth2 Authorization Code Grant method that requires impersonation of a particular user during API authentication. You can also use API keys or client credentials for stable machine-to-machine authentication if you plan for your connector to support data orchestration use cases. However, it's important to note that Workato doesn't currently support runtime user connections for multi-auth connections.
 

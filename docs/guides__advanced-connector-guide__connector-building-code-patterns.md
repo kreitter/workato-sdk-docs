@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-code-patterns.html
-> **Fetched**: 2026-06-06T03:10:14.069598
+> **Fetched**: 2026-06-07T03:12:28.137502
 
 ---
 
@@ -11,7 +11,11 @@
 
 Tips
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-code-patterns.md for this page in Markdown format
+
 # Connector building - Useful coding patterns [​](<#connector-building-useful-coding-patterns>)
+
+Copy page
 
 There are some known limitations to Workato's platform that have fixes in the works. In the meantime, here are some ways that you can easily solve for any limitations that you might find when building a custom connector.
 

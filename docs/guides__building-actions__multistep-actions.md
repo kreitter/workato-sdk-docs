@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multistep-actions.html
-> **Fetched**: 2026-06-06T03:10:38.836095
+> **Fetched**: 2026-06-07T03:12:52.372870
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building actions ](</en/developing-connectors/sdk/guides/building-actions>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-actions/multistep-actions.md for this page in Markdown format
+
 # How-to guides - Multistep actions [​](<#how-to-guides-multistep-actions>)
+
+Copy page
 
 In this segment, we will be going through the creation of actions that work with asynchronous APIs. Typically, when working with asynchronous APIs to kickstart a long running job or process in a target application, often times you'll send a request and expect an ID that corresponds to that job or process. Your action would then want to constantly check back with the API to see if the job is completed before retrieving results or moving on to the next step in the recipe.
 

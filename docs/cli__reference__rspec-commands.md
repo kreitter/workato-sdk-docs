@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/rspec-commands.html
-> **Fetched**: 2026-06-06T03:10:09.475273
+> **Fetched**: 2026-06-07T03:12:23.663206
 
 ---
 
@@ -11,7 +11,11 @@
 
 Reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/reference/rspec-commands.md for this page in Markdown format
+
 # RSpec Reference [​](<#rspec-reference>)
+
+Copy page
 
 Design tests to validate that your connectors can support day-to-day business and user scenarios and ensure the system is sufficient and correct for business usage.
 

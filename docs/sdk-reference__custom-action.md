@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/custom-action.html
-> **Fetched**: 2026-06-06T03:11:17.267154
+> **Fetched**: 2026-06-07T03:13:29.715582
 
 ---
 
@@ -11,7 +11,11 @@
 
 Connector key reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/custom-action.md for this page in Markdown format
+
 # SDK Reference - `custom_action` [​](<#sdk-reference-custom-action>)
+
+Copy page
 
 This section enumerates all the possible keys to define a custom action.
 

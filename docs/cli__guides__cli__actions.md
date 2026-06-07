@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/actions.html
-> **Fetched**: 2026-06-06T03:09:48.969685
+> **Fetched**: 2026-06-07T03:12:03.811404
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/cli/actions.md for this page in Markdown format
+
 # How-to guides - Running actions on CLI [​](<#how-to-guides-running-actions-on-cli>)
+
+Copy page
 
 In this segment, we will be going through how you can run actions using the Workato Gem.
 

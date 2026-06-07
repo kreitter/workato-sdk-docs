@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/debugging.html
-> **Fetched**: 2026-06-06T03:11:09.165385
+> **Fetched**: 2026-06-07T03:13:21.930328
 
 ---
 
@@ -9,7 +9,11 @@
 
 [Platform quickstart](</en/developing-connectors/sdk/quickstart>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/quickstart/debugging.md for this page in Markdown format
+
 # Use the Test code tab [​](<#using-the-test-code-tab>)
+
+Copy page
 
 The SDK **Test code** tab is located within the **Source code** tab. The **Test code** tab enables you to test the connections, actions, and triggers in your connector before releasing it. The **Test code** tab also allows you to run tests on the latest version of your custom connector code.
 

@@ -1,13 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides.html
-> **Fetched**: 2026-06-06T03:10:10.577008
+> **Fetched**: 2026-06-07T03:12:24.745073
 
 ---
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides.md for this page in Markdown format
+
 # Connector how-to guides [​](<#connector-how-to-guides>)
+
+Copy page
 
 The guides in this section help you cover various parts of building a connector from authentication to building actions or triggers. Take a look at the examples to get a sensing of how you can build your connector! Here are some basics to get you started:
 

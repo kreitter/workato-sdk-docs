@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/custom-action.html
-> **Fetched**: 2026-06-06T03:10:35.458509
+> **Fetched**: 2026-06-07T03:12:49.032717
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building actions ](</en/developing-connectors/sdk/guides/building-actions>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-actions/custom-action.md for this page in Markdown format
+
 # How-to guides - Enabling custom actions [​](<#how-to-guides-enabling-custom-actions>)
+
+Copy page
 
 In this segment, we will be going through the enabling of custom actions effectively. Custom actions are a great way to implement a "Catch All" for users of your connector. Take note that all requests sent from your custom action will inherit your authorization details like tokens as well as authorization logic for token refresh.
 

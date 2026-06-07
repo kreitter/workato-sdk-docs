@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/json-format.html
-> **Fetched**: 2026-06-06T03:10:56.908848
+> **Fetched**: 2026-06-07T03:13:09.864401
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Handling data formats](</en/developing-connectors/sdk/guides/data-formats>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/data-formats/json-format.md for this page in Markdown format
+
 # How-to guides - JSON data format [​](<#how-to-guides-json-data-format>)
+
+Copy page
 
 The Workato SDK's default expected data format is JSON. Action and trigger inputs will be passed as JSON payloads if no data format is specified. A JSON parser error will be shown if the SDK expected JSON and got another data format.
 

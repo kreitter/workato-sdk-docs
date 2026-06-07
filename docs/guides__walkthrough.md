@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/walkthrough.html
-> **Fetched**: 2026-06-06T03:11:04.880983
+> **Fetched**: 2026-06-07T03:13:17.667792
 
 ---
 
@@ -9,7 +9,11 @@
 
 [How-to guides](</en/developing-connectors/sdk/guides>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/walkthrough.md for this page in Markdown format
+
 # Build your first connector [​](<#build-your-first-connector>)
+
+Copy page
 
 This guide demonstrates how to build a custom connector with the Connector SDK and the [Star Wars API (SWAPI)](<https://swapi.tech/>). SWAPI provides free access to information about Star Wars characters, vehicles, and other resources.
 

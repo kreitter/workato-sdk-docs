@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-planning.html
-> **Fetched**: 2026-06-06T03:10:16.289171
+> **Fetched**: 2026-06-07T03:12:30.352417
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Advanced connector guide](</en/developing-connectors/sdk/guides/advanced-connector-guide/introduction>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/advanced-connector-guide/connector-planning.md for this page in Markdown format
+
 # Connector planning [​](<#connector-planning>)
+
+Copy page
 
 Before even beginning writing a single line of code, we highly recommend spending some time planning out all integration use cases for users of your custom connector on Workato. You’ll then be able to decompose them into the minimum set of actions and triggers in your connector to satisfy these use cases. This list of actions and triggers can always be expanded in the future.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/security-guidelines.html
-> **Fetched**: 2026-06-06T03:10:04.925973
+> **Fetched**: 2026-06-07T03:12:19.218178
 
 ---
 
@@ -9,7 +9,11 @@
 
 [CLI](</en/developing-connectors/sdk/cli>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/security-guidelines.md for this page in Markdown format
+
 # Securing Your Connector Project [​](<#securing-your-connector-project>)
+
+Copy page
 
 When you build a connector locally, you bear all responsibility for securing credentials and application access. This is especially important if you push your code to git software, like GitHub.
 

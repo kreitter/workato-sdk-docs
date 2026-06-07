@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/error-handling.html
-> **Fetched**: 2026-06-06T03:11:01.600695
+> **Fetched**: 2026-06-07T03:13:14.370008
 
 ---
 
@@ -9,7 +9,11 @@
 
 [How-to guides](</en/developing-connectors/sdk/guides>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/error-handling.md for this page in Markdown format
+
 # Error Handling [​](<#error-handling>)
+
+Copy page
 
 Exposing detailed and helpful error message can improve the recipe building experience for you and the end users of your custom connector. However, default custom connector actions and triggers do not expose response messages. Additionally, you may want to expose error messages in other instances (such as when action/trigger input data does not meet certain business requirements). This can be achieved using the following helper methods.
 

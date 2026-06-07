@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range.html
-> **Fetched**: 2026-06-06T03:10:43.406587
+> **Fetched**: 2026-06-07T03:12:56.764372
 
 ---
 
@@ -11,7 +11,11 @@
 
 [File streaming operations](</en/developing-connectors/sdk/guides/building-actions/streaming>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range.md for this page in Markdown format
+
 # How-to guides - Upload file via file streaming (Content-Range headers) [​](<#how-to-guides-upload-file-via-file-streaming-content-range-headers>)
+
+Copy page
 
 In this segment, we will be going through the creation of actions that uploads files in a target application through file streaming and utilizing Content-Range Headers.
 

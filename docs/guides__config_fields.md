@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/config_fields.html
-> **Fetched**: 2026-06-06T03:10:53.571606
+> **Fetched**: 2026-06-07T03:13:06.597409
 
 ---
 
@@ -9,7 +9,11 @@
 
 [How-to guides](</en/developing-connectors/sdk/guides>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/config_fields.md for this page in Markdown format
+
 # How-to guides - Using Config fields [​](<#how-to-guides-using-config-fields>)
+
+Copy page
 
 Occasionally, input/output fields depend on user input. For example, when input fields for an action depend on a user's input in the same action. Here, we introduce `config_fields`. It is an optional key available in both actions and triggers. It is a special type of input field that can be used to generate other dependent input/output fields.
 

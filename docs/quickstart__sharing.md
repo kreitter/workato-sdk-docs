@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/sharing.html
-> **Fetched**: 2026-06-06T03:11:10.298270
+> **Fetched**: 2026-06-07T03:13:23.027330
 
 ---
 
@@ -9,7 +9,11 @@
 
 [Platform quickstart](</en/developing-connectors/sdk/quickstart>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/quickstart/sharing.md for this page in Markdown format
+
 # Share a connector [​](<#sharing-your-connector>)
+
+Copy page
 
 You can share your connector with other users in the **Share** tab after you build your custom connector. You can share your connector as open-source or closed-source [using a link](<#closed-source-code>) or [through the community library](<#sharing-your-connector-with-the-community>).
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-commands.html
-> **Fetched**: 2026-06-06T03:10:07.117878
+> **Fetched**: 2026-06-07T03:12:21.399081
 
 ---
 
@@ -11,7 +11,11 @@
 
 Reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/reference/cli-commands.md for this page in Markdown format
+
 # CLI Command Reference [​](<#cli-command-reference>)
+
+Copy page
 
 Learn more about the commands you can use in CLI after installing the SDK gem.
 

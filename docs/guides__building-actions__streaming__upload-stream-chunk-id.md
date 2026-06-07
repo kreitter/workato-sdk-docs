@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id.html
-> **Fetched**: 2026-06-06T03:10:42.222082
+> **Fetched**: 2026-06-07T03:12:55.644542
 
 ---
 
@@ -11,7 +11,11 @@
 
 [File streaming operations](</en/developing-connectors/sdk/guides/building-actions/streaming>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id.md for this page in Markdown format
+
 # How-to guides - Upload file via file streaming (Chunk ID) [​](<#how-to-guides-upload-file-via-file-streaming-chunk-id>)
+
+Copy page
 
 In this segment, we will be going through the creation of actions that uploads files in a target application through file streaming and utilizing assigning IDs to chunks. We will be going through [Azure Blob's API](<https://learn.microsoft.com/en-us/rest/api/storageservices/put-blob>) but this can be extended to many other best of breed cloud storage solutions.
 

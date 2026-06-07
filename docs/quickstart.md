@@ -1,13 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart.html
-> **Fetched**: 2026-06-06T03:11:07.030616
+> **Fetched**: 2026-06-07T03:13:19.792757
 
 ---
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/quickstart.md for this page in Markdown format
+
 # Using the Workato Connector SDK [​](<#using-the-workato-connector-sdk>)
+
+Copy page
 
 Workato's Connector SDK has many features that enable you to build, test, develop, and share your custom connector. In this article, we will describe the basic functionalities of the platform, and how you can leverage different Workato features to simplify your connector development process.
 

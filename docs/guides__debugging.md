@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/debugging.html
-> **Fetched**: 2026-06-06T03:11:00.446007
+> **Fetched**: 2026-06-07T03:13:13.268445
 
 ---
 
@@ -9,7 +9,11 @@
 
 [How-to guides](</en/developing-connectors/sdk/guides>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/debugging.md for this page in Markdown format
+
 # Debugging your connector [​](<#debugging-your-connector>)
+
+Copy page
 
 Defining your connector's actions is one thing, but debugging your connector - like any other software project - is a crucial part of the journey. To facilitate this, our connector SDK has two options, each with its own benefits.
 

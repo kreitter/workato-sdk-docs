@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/object_definitions.html
-> **Fetched**: 2026-06-06T03:11:20.729571
+> **Fetched**: 2026-06-07T03:13:33.006667
 
 ---
 
@@ -11,7 +11,11 @@
 
 Connector key reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/object_definitions.md for this page in Markdown format
+
 # SDK Reference - `object_definitions` [​](<#sdk-reference-object-definitions>)
+
+Copy page
 
 Object definitions represent specific resources from a target application. For example, they represent the schema for Salesforce leads or Snowflake rows.
 

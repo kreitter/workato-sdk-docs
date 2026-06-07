@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/securing-webhooks.html
-> **Fetched**: 2026-06-06T03:10:51.274521
+> **Fetched**: 2026-06-07T03:13:04.357542
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building triggers](</en/developing-connectors/sdk/guides/building-triggers>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-triggers/securing-webhooks.md for this page in Markdown format
+
 # How-to guides - Securing Webhook events [​](<#how-to-guides-securing-webhook-events>)
+
+Copy page
 
 Webhook signature verification is a recommended practice that prevents malicious actors from spoofing events or allowing your connector to reject webhooks that were tampered with. There are many known signature verification methodologies which normally involve creating a signature from the webhook event and matching that against a signature in the webhook's headers. And this guide will show you one simple example of how to do so through [HubSpot's webhook V1 signature](<https://developers.hubspot.com/docs/api/webhooks/validating-requests#validate-requests-using-the-v1-request-signature>).
 

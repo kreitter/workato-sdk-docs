@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/file_streaming.html
-> **Fetched**: 2026-06-06T03:10:01.466556
+> **Fetched**: 2026-06-07T03:12:15.899569
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/rspec/file_streaming.md for this page in Markdown format
+
 # How-to guides - Writing tests for streaming triggers/actions [​](<#how-to-guides-writing-tests-for-streaming-triggers-actions>)
+
+Copy page
 
 This segment covers writing tests for actions that utilize Workato's file streaming capabilities, using the [generic upload file to URL connector example](</en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range>) as a reference.
 

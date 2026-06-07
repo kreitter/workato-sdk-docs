@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/introduction.html
-> **Fetched**: 2026-06-06T03:10:17.448780
+> **Fetched**: 2026-06-07T03:12:31.430625
 
 ---
 
@@ -9,7 +9,11 @@
 
 [How-to guides](</en/developing-connectors/sdk/guides>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/advanced-connector-guide/introduction.md for this page in Markdown format
+
 # Workato advanced connector building guide [​](<#workato-advanced-connector-building-guide>)
+
+Copy page
 
 Here is a final guide that focuses on the usability and the code quality of a connector. We will be going through exercises that can help you plan out robust connectors as well as guidelines on writing connector code. At this point, we assume that you have read through the basics of connector building found in the [Connector SDK](</en/developing-connectors/sdk>) documentation.
 

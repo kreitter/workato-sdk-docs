@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.html
-> **Fetched**: 2026-06-06T03:10:11.693298
+> **Fetched**: 2026-06-07T03:12:25.881573
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Advanced connector guide](</en/developing-connectors/sdk/guides/advanced-connector-guide/introduction>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.md for this page in Markdown format
+
 # Connector building - Building actions [​](<#connector-building-building-actions>)
+
+Copy page
 
 Now that we’ve defined objects schema in methods, we can now start building out our CRUDS actions which will reference the schema methods we have just defined.
 

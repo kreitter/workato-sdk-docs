@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html
-> **Fetched**: 2026-06-06T03:10:12.886045
+> **Fetched**: 2026-06-07T03:12:27.007511
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Advanced connector guide](</en/developing-connectors/sdk/guides/advanced-connector-guide/introduction>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.md for this page in Markdown format
+
 # Connector building - Building triggers [​](<#connector-building-building-triggers>)
+
+Copy page
 
 Building triggers follow almost the same format as actions. To make them object based, we'll be making use of configuration fields as well as the schema methods we defined earlier. Below, we go through an example of a polling trigger. Do take note there are some differences in the blocks expected when creating a polling trigger, dynamic webhook trigger and a static webhook trigger.
 

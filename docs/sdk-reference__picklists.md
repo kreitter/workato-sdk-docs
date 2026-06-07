@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/picklists.html
-> **Fetched**: 2026-06-06T03:11:21.919763
+> **Fetched**: 2026-06-07T03:13:34.115590
 
 ---
 
@@ -11,7 +11,11 @@
 
 Connector key reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/picklists.md for this page in Markdown format
+
 # SDK Reference - `pick_lists` [​](<#sdk-reference-pick-lists>)
+
+Copy page
 
 Picklists are used in conjunction with some input fields to enumerate the possible options in a drop-down. Picklist options can be stored in the `pick_lists` key or defined directly in the input field hash. Input fields that use `pick_list` attribute have to be of the following `control_type`:
 

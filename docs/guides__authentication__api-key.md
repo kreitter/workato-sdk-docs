@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/api-key.html
-> **Fetched**: 2026-06-06T03:10:19.657939
+> **Fetched**: 2026-06-07T03:12:33.563305
 
 ---
 
@@ -11,7 +11,11 @@
 
 [API authorization](</en/developing-connectors/sdk/guides/authentication>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/authentication/api-key.md for this page in Markdown format
+
 # How-to Guide - API Key Authentication [​](<#how-to-guide-api-key-authentication>)
+
+Copy page
 
 API key authentication is an authentication method that traditionally asks users to generate API keys in the application that they want to connect to. This API key may be scoped to the permissions of the user generating them or permissions could be configured on a key by key basis.
 

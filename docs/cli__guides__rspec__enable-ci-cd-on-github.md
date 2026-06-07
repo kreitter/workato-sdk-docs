@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/enable-ci-cd-on-github.html
-> **Fetched**: 2026-06-06T03:10:00.351070
+> **Fetched**: 2026-06-07T03:12:14.783336
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/rspec/enable-ci-cd-on-github.md for this page in Markdown format
+
 # Enabling CI/CD on GitHub [​](<#enabling-ci-cd-on-github>)
+
+Copy page
 
 To improve deployment stability, we recommend implementing CI/CD tools into your connector development workflow. This guide will go over the process if you're using Github and Github actions. This same logic, however, can be ported over to other Git tools and CI/CD tools.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/wait-for-resume-actions.html
-> **Fetched**: 2026-06-06T03:10:45.680034
+> **Fetched**: 2026-06-07T03:12:58.927427
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building actions ](</en/developing-connectors/sdk/guides/building-actions>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-actions/wait-for-resume-actions.md for this page in Markdown format
+
 # Wait for resume actions [​](<#wait-for-resume-actions>)
+
+Copy page
 
 This article describes how to configure Wait for resume actions. This feature allows you to build actions capable of executing the following tasks:
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/writing_tests.html
-> **Fetched**: 2026-06-06T03:10:03.789232
+> **Fetched**: 2026-06-07T03:12:18.121622
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/rspec/writing_tests.md for this page in Markdown format
+
 # How-to guides - Writing tests for triggers/actions [​](<#how-to-guides-writing-tests-for-triggers-actions>)
+
+Copy page
 
 In this segment, we will be going through how you can write tests for any lambda in your connector. For this, we will be writing tests for a single action's execute lambda. The same logic can be applied to the rest of the lambdas as well.
 

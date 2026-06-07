@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/upload-streaming-actions.html
-> **Fetched**: 2026-06-06T03:09:56.971843
+> **Fetched**: 2026-06-07T03:12:11.519181
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/cli/upload-streaming-actions.md for this page in Markdown format
+
 # How-to guides - Running upload streaming actions/triggers on CLI [​](<#how-to-guides-running-upload-streaming-actions-triggers-on-cli>)
+
+Copy page
 
 In this segment, we will be going through how you can run and easily debug actions that utilize file streaming using the Workato Gem. File streaming can be differentiated into two main components that go together - download file actions and upload file actions. Below, we will go over the steps to execute an upload file action in the CLI.
 

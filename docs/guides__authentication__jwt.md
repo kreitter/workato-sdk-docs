@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/jwt.html
-> **Fetched**: 2026-06-06T03:10:24.156410
+> **Fetched**: 2026-06-07T03:12:38.004096
 
 ---
 
@@ -11,7 +11,11 @@
 
 [API authorization](</en/developing-connectors/sdk/guides/authentication>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/authentication/jwt.md for this page in Markdown format
+
 # How-to guides - JSON web token authentication [​](<#how-to-guides-json-web-token-authentication>)
+
+Copy page
 
 JSON Web Token(JWT) is an Internet standard for creating data with optional signature and/or optional encryption whose payload holds JSON that asserts some number of claims.
 

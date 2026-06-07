@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/getting-started.html
-> **Fetched**: 2026-06-06T03:09:58.128476
+> **Fetched**: 2026-06-07T03:12:12.607580
 
 ---
 
@@ -9,7 +9,11 @@
 
 [CLI](</en/developing-connectors/sdk/cli>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/getting-started.md for this page in Markdown format
+
 # Getting Started with the SDK Gem [​](<#getting-started-with-the-sdk-gem>)
+
+Copy page
 
 In this guide, we'll show you how to:
 

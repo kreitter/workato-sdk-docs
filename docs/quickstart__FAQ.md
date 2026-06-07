@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/FAQ.html
-> **Fetched**: 2026-06-06T03:11:08.105490
+> **Fetched**: 2026-06-07T03:13:20.846983
 
 ---
 
@@ -9,7 +9,11 @@
 
 [Platform quickstart](</en/developing-connectors/sdk/quickstart>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/quickstart/FAQ.md for this page in Markdown format
+
 # Connector SDK FAQs [​](<#connector-sdk-faqs>)
+
+Copy page
 
 Get answers to frequently asked connector SDK questions.
 

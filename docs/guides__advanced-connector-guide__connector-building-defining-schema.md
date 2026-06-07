@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema.html
-> **Fetched**: 2026-06-06T03:10:15.210265
+> **Fetched**: 2026-06-07T03:12:29.264706
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Advanced connector guide](</en/developing-connectors/sdk/guides/advanced-connector-guide/introduction>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema.md for this page in Markdown format
+
 # Connector building - Defining schema for your objects [​](<#connector-building-defining-schema-for-your-objects>)
+
+Copy page
 
 In this next section, we go through our current thoughts on how to organize your connector. With this methodology and proper planning, you’ll find it easy to add support for new objects in your connector whilst keeping your code DRY through the use of our object definitions and methods fields. These are all guidelines from learnings that integration developers at Workato have learned over time and may alter slightly based on the application and API that we connect to.
 

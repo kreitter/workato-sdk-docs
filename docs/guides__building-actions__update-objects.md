@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/update-objects.html
-> **Fetched**: 2026-06-06T03:10:44.509247
+> **Fetched**: 2026-06-07T03:12:57.855834
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building actions ](</en/developing-connectors/sdk/guides/building-actions>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-actions/update-objects.md for this page in Markdown format
+
 # How-to guides - Updating objects [​](<#how-to-guides-updating-objects>)
+
+Copy page
 
 In this segment, we will be going through the creation of actions that help update objects in our target application. Typically, The `PUT` HTTP request method is used to send requests to update objects.
 

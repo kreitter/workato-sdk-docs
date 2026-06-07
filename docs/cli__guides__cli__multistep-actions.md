@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/multistep-actions.html
-> **Fetched**: 2026-06-06T03:09:52.345595
+> **Fetched**: 2026-06-07T03:12:07.051215
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/cli/multistep-actions.md for this page in Markdown format
+
 # How-to guides - Running multistep actions on CLI [​](<#how-to-guides-running-multistep-actions-on-cli>)
+
+Copy page
 
 In this segment, we will be going through how you can run and easily debug multistep actions using the Workato Gem.
 

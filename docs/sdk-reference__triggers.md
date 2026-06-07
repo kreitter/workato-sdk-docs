@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/triggers.html
-> **Fetched**: 2026-06-06T03:11:27.888915
+> **Fetched**: 2026-06-07T03:13:40.051873
 
 ---
 
@@ -11,7 +11,11 @@
 
 Connector key reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/triggers.md for this page in Markdown format
+
 # SDK Reference - `triggers` [​](<#sdk-reference-triggers>)
+
+Copy page
 
 This section enumerates all the possible keys to define a trigger. There are 3 types of triggers available for you to use in Workato:
 

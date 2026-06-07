@@ -1,13 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference.html
-> **Fetched**: 2026-06-06T03:11:12.613996
+> **Fetched**: 2026-06-07T03:13:25.153452
 
 ---
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference.md for this page in Markdown format
+
 # SDK Reference [​](<#sdk-reference>)
+
+Copy page
 
 This is the full list of all possible attributes that you can include in your Workato connector. This section is organized by the root keys of a connector:
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/troubleshooting.html
-> **Fetched**: 2026-06-06T03:10:05.996359
+> **Fetched**: 2026-06-07T03:12:20.279540
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/troubleshooting.md for this page in Markdown format
+
 # Troubleshooting - FAQ [​](<#troubleshooting-faq>)
+
+Copy page
 
 Running the workato command in my terminal results in errors
 

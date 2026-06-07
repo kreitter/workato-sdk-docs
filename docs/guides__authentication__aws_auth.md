@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/aws_auth.html
-> **Fetched**: 2026-06-06T03:10:20.829415
+> **Fetched**: 2026-06-07T03:12:34.692252
 
 ---
 
@@ -11,7 +11,11 @@
 
 [API authorization](</en/developing-connectors/sdk/guides/authentication>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/authentication/aws_auth.md for this page in Markdown format
+
 # How-to Guides - AWS Service Authentication [​](<#how-to-guides-aws-service-authentication>)
+
+Copy page
 
 AWS services can be authenticated in two ways. Workato supports AWS libraries that simplify the authentication process by helping you to generate the AWS V4 Signature so you can focus on building actions and triggers.
 

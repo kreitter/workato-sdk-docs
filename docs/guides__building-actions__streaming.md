@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming.html
-> **Fetched**: 2026-06-06T03:10:39.935619
+> **Fetched**: 2026-06-07T03:12:53.432893
 
 ---
 
@@ -9,7 +9,11 @@
 
 [How-to guides](</en/developing-connectors/sdk/guides>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-actions/streaming.md for this page in Markdown format
+
 # How-to guides - File Streaming [​](<#how-to-guides-file-streaming>)
+
+Copy page
 
 Utilizing Workato's file streaming library, you'll be able to build connectors that can transfer gigabytes of data between a source and destination. This is done by downloading a smaller chunk of the larger file, uploading that to the destination and looping over this process multiple times.
 

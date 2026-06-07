@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-06-06T03:11:23.307360
+> **Fetched**: 2026-06-07T03:13:35.475581
 
 ---
 
@@ -9,7 +9,11 @@
 
 [SDK reference](</en/developing-connectors/sdk/sdk-reference>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/ruby_methods.md for this page in Markdown format
+
 # Available Ruby methods [​](<#available-ruby-methods>)
+
+Copy page
 
 Workato implements a subset of Ruby's public instance methods within its SDK framework. This document lists the Ruby methods that are available when building your connectors.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/test.html
-> **Fetched**: 2026-06-06T03:09:54.742013
+> **Fetched**: 2026-06-07T03:12:09.313503
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/cli/test.md for this page in Markdown format
+
 # How-to guides - Running your test lambda on CLI [​](<#how-to-guides-running-your-test-lambda-on-cli>)
+
+Copy page
 
 In this segment, we will run through how to run CLI commands for the test lambda function.
 

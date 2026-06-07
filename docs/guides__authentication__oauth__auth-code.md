@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code.html
-> **Fetched**: 2026-06-06T03:10:27.637412
+> **Fetched**: 2026-06-07T03:12:41.404979
 
 ---
 
@@ -11,7 +11,11 @@
 
 [API authorization](</en/developing-connectors/sdk/guides/authentication>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/authentication/oauth/auth-code.md for this page in Markdown format
+
 # How-to Guide - OAuth 2.0 Authorization Code Variant [​](<#how-to-guide-oauth-2-0-authorization-code-variant>)
+
+Copy page
 
 The OAuth 2.0 Authorization code flow is a way for Workato to impersonate a specific user when authenticating to an API. This is done by getting the user's consent via a browser popup when they first attempt to connect.
 

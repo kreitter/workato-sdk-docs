@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/form-url-encoded.html
-> **Fetched**: 2026-06-06T03:10:55.766895
+> **Fetched**: 2026-06-07T03:13:08.743176
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Handling data formats](</en/developing-connectors/sdk/guides/data-formats>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/data-formats/form-url-encoded.md for this page in Markdown format
+
 # How-to guides - URL Encoded Form [​](<#how-to-guides-url-encoded-form>)
+
+Copy page
 
 This request format can be declared in any keys (`execute`, `acquire`, `fields` etc.) in your custom connector code.
 

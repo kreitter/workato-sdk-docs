@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2026-06-06T03:10:32.110918
+> **Fetched**: 2026-06-07T03:12:45.805919
 
 ---
 
@@ -11,7 +11,11 @@
 
 Tips
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/best-practices.md for this page in Markdown format
+
 # SDK Development Best Practices [​](<#sdk-development-best-practices>)
+
+Copy page
 
 Refer to the following list of best practices which makes development of your custom connector easier to build, test, and maintain:
 

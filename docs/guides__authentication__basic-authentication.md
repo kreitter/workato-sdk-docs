@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/basic-authentication.html
-> **Fetched**: 2026-06-06T03:10:21.920592
+> **Fetched**: 2026-06-07T03:12:35.776210
 
 ---
 
@@ -11,7 +11,11 @@
 
 [API authorization](</en/developing-connectors/sdk/guides/authentication>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/authentication/basic-authentication.md for this page in Markdown format
+
 # How-to Guide - Basic Authentication [​](<#how-to-guide-basic-authentication>)
+
+Copy page
 
 Typically, a basic authentication requires a username and password combination when making requests. Make sure to include those two fields in the connection fields definition.
 

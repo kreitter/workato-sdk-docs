@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/dynamic-webhook.html
-> **Fetched**: 2026-06-06T03:10:47.942278
+> **Fetched**: 2026-06-07T03:13:01.064622
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building triggers](</en/developing-connectors/sdk/guides/building-triggers>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-triggers/dynamic-webhook.md for this page in Markdown format
+
 # How-to guides - Dynamic Webhook Trigger [​](<#how-to-guides-dynamic-webhook-trigger>)
+
+Copy page
 
 A dynamic webhook trigger is one that can programmatically be set up and torn down. This is something should be explicitly stated in the API of application that you are building a connector to. In the example below, you can define the process of setting up and tearing down webhooks in various blocks in the trigger object.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/actions.html
-> **Fetched**: 2026-06-06T03:11:13.830563
+> **Fetched**: 2026-06-07T03:13:26.353190
 
 ---
 
@@ -11,7 +11,11 @@
 
 Connector key reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/actions.md for this page in Markdown format
+
 # SDK Reference - `actions` [​](<#sdk-reference-actions>)
+
+Copy page
 
 This section enumerates all the possible keys to define an action.
 

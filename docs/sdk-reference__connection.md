@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection.html
-> **Fetched**: 2026-06-06T03:11:14.939395
+> **Fetched**: 2026-06-07T03:13:27.471285
 
 ---
 
@@ -11,7 +11,11 @@
 
 Connector key reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/connection.md for this page in Markdown format
+
 # SDK Reference - `connection` [​](<#sdk-reference-connection>)
+
+Copy page
 
 This section enumerates all the possible keys available when defining your connection.
 

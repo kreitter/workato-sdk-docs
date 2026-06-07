@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/trigger-limit.html
-> **Fetched**: 2026-06-06T03:11:03.763136
+> **Fetched**: 2026-06-07T03:13:16.548703
 
 ---
 
@@ -9,7 +9,11 @@
 
 [How-to guides](</en/developing-connectors/sdk/guides>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/trigger-limit.md for this page in Markdown format
+
 # SDK trigger limits [​](<#sdk-trigger-limit>)
+
+Copy page
 
 Workato enforces specific limits on SDK triggers to optimize performance and ensure system stability. We apply limits to the following trigger processing functions:
 

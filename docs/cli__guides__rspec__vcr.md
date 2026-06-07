@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/vcr.html
-> **Fetched**: 2026-06-06T03:10:02.661891
+> **Fetched**: 2026-06-07T03:12:16.973840
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/rspec/vcr.md for this page in Markdown format
+
 # How-to guides - Setting up VCR for your unit tests [​](<#how-to-guides-setting-up-vcr-for-your-unit-tests>)
+
+Copy page
 
 In this segment, we will be going through how you can set up VCR to record HTTP interactions for your unit tests.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/request_format_multipart_form.html
-> **Fetched**: 2026-06-06T03:10:58.069525
+> **Fetched**: 2026-06-07T03:13:10.962502
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Handling data formats](</en/developing-connectors/sdk/guides/data-formats>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/data-formats/request_format_multipart_form.md for this page in Markdown format
+
 # How-to guides - Multipart Form [​](<#how-to-guides-multipart-form>)
+
+Copy page
 
 [Multipart form request](<https://www.w3.org/TR/html401/interact/forms.html#h-17.13.4.2>) is typically used to send large files and data to a server.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/on-prem.html
-> **Fetched**: 2026-06-06T03:10:30.933611
+> **Fetched**: 2026-06-07T03:12:44.708723
 
 ---
 
@@ -11,7 +11,11 @@
 
 [API authorization](</en/developing-connectors/sdk/guides/authentication>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/authentication/on-prem.md for this page in Markdown format
+
 # How-to guide - OPA authentication [​](<#how-to-guide-opa-authentication>)
+
+Copy page
 
 HTTP requests made in a custom adapter are sent from Workato [IP addresses](</en/security/ip-allowlists#traffic-from-workato>) by default. You can configure the adapter to instead route all requests through an [on-prem agent](</en/on-prem>).
 

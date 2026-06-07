@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/hybrid-triggers.html
-> **Fetched**: 2026-06-06T03:10:49.066482
+> **Fetched**: 2026-06-07T03:13:02.189738
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building triggers](</en/developing-connectors/sdk/guides/building-triggers>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-triggers/hybrid-triggers.md for this page in Markdown format
+
 # How-to guides - Hybrid polling + webhook triggers [​](<#how-to-guides-hybrid-polling-webhook-triggers>)
+
+Copy page
 
 Webhooks open up a wide range of use cases that are time sensitive in nature, such as receiving the event when a customer makes a purchase. There are, however, scenarios where webhook events can be lost. This could be due to transient network errors that any HTTP requests can be susceptible to, or simply when the recipe is stopped for a short period of time and webhooks were sent during that period.
 

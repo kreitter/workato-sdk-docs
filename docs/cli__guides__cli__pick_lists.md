@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/pick_lists.html
-> **Fetched**: 2026-06-06T03:09:53.514176
+> **Fetched**: 2026-06-07T03:12:08.146959
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/cli/pick_lists.md for this page in Markdown format
+
 # How-to guides - Running Picklists on CLI [​](<#how-to-guides-running-picklists-on-cli>)
+
+Copy page
 
 In this segment, we will be going through how you can run methods Picklists the Workato Gem.
 

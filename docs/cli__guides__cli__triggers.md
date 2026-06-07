@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/triggers.html
-> **Fetched**: 2026-06-06T03:09:55.875104
+> **Fetched**: 2026-06-07T03:12:10.433320
 
 ---
 
@@ -11,7 +11,11 @@
 
 Guides
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/cli/guides/cli/triggers.md for this page in Markdown format
+
 # How-to guides - Running Triggers on CLI [​](<#how-to-guides-running-triggers-on-cli>)
+
+Copy page
 
 In this segment, we will be going through how you can run triggers using the Workato Gem.
 

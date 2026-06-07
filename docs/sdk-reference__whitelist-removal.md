@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/whitelist-removal.html
-> **Fetched**: 2026-06-06T03:11:28.953835
+> **Fetched**: 2026-06-07T03:13:41.111601
 
 ---
 
@@ -9,7 +9,11 @@
 
 [SDK reference](</en/developing-connectors/sdk/sdk-reference>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/whitelist-removal.md for this page in Markdown format
+
 # Removal of Ruby whitelist for SDK [​](<#removal-of-ruby-whitelist-for-sdk>)
+
+Copy page
 
 Following the migration of custom connector code execution to **isolated containers** , **Ruby whitelisting** is removed from the connector SDK. This change significantly expands the range of capabilities SDK developers can use within the platform. Developers can now leverage the **full functionality of Ruby 2.7** , including built-in libraries and Ruby gems available in the SDK container.
 

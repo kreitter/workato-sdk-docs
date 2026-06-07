@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/methods.html
-> **Fetched**: 2026-06-06T03:11:19.617274
+> **Fetched**: 2026-06-07T03:13:31.904832
 
 ---
 
@@ -11,7 +11,11 @@
 
 Connector key reference
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/sdk-reference/methods.md for this page in Markdown format
+
 # SDK Reference - `methods` [​](<#sdk-reference-methods>)
+
+Copy page
 
 Reusable methods are supported in Workato. Reusable methods help keep your custom adapter code DRY and may be used in any lambda function in your connector.
 

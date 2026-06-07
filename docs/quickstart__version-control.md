@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/version-control.html
-> **Fetched**: 2026-06-06T03:11:11.539852
+> **Fetched**: 2026-06-07T03:13:24.101066
 
 ---
 
@@ -9,7 +9,11 @@
 
 [Platform quickstart](</en/developing-connectors/sdk/quickstart>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/quickstart/version-control.md for this page in Markdown format
+
 # Version control [​](<#version-control>)
+
+Copy page
 
 Version control in the Workato SDK platform can be done directly through the UI. The source code of the latest version of your custom connector automatically displays in the code editor when you first enter a custom connector homepage. This represents the latest source code that you or anyone with access to your workspace has worked on and committed into a version.
 

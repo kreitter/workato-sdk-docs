@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/poll.html
-> **Fetched**: 2026-06-06T03:10:50.179888
+> **Fetched**: 2026-06-07T03:13:03.285687
 
 ---
 
@@ -11,7 +11,11 @@
 
 [Building triggers](</en/developing-connectors/sdk/guides/building-triggers>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/building-triggers/poll.md for this page in Markdown format
+
 # How-to guides - Polling Trigger [​](<#how-to-guides-polling-trigger>)
+
+Copy page
 
 A poll trigger constantly executes a poll key for new events at fixed time intervals. This time interval defaults to every 5 minutes but can be changed by users when configuring the trigger in a recipe. Polling triggers function by executing a HTTP request every interval to query an API for new records or events since the last time it polled. This is possible via cursors embedded in the trigger logic.
 

@@ -1,13 +1,17 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/limits.html
-> **Fetched**: 2026-06-06T03:11:05.967288
+> **Fetched**: 2026-06-07T03:13:18.728355
 
 ---
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
+Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/limits.md for this page in Markdown format
+
 # Connector SDK limits [​](<#connector-sdk-limits>)
+
+Copy page
 
 The Connector SDK is subject to the following limits.
 
