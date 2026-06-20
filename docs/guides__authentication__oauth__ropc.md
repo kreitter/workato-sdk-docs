@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/ropc.html
-> **Fetched**: 2026-06-19T03:13:21.593818
+> **Fetched**: 2026-06-20T03:11:19.991257
 
 ---
 
@@ -58,7 +58,7 @@ ruby
 
           acquire: lambda do |connection|
             token_url = "https://login.microsoftonline.com/#{connection['tenant_id']}/oauth2/v2.0/token"
-            response = post(token_url). 
+            response = post(token_url).
                         payload(client_id: "#{connection['client_id']}",
                           client_secret: "#{connection['client_secret']}",
                           username: "#{connection['username']}",

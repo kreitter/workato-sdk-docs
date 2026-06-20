@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/triggers.html
-> **Fetched**: 2026-06-19T03:12:47.461028
+> **Fetched**: 2026-06-20T03:10:47.350135
 
 ---
 
@@ -53,7 +53,7 @@ ruby
         ],
 
         authorization: {
-          type: 'basic_auth',  
+          type: 'basic_auth',
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -90,7 +90,7 @@ ruby
               {
                 name: 'since',
                 type: :date_time,
-                optional: true, 
+                optional: true,
                 sticky: true
               }
             ]
@@ -241,9 +241,9 @@ shell
     }
 
     RestClient.get "https://live_Zbaoo7hGqvi3cqrza8WiXxQa8kBPAPQF@empressporridge.chargebee.com/api/v2/customers?limit=10&offset=&sort_by%5Basc%5D=updated_at&updated_at%5Bafter%5D=1630857600", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 2608 bytes                                                                                           
+    # => 200 OK | application/json 2608 bytes
     RestClient.get "https://live_Zbaoo7hGqvi3cqrza8WiXxQa8kBPAPQF@empressporridge.chargebee.com/api/v2/customers?limit=10&offset=%5B%221630857607410%22%2C%2240736845%22%5D&sort_by%5Basc%5D=updated_at&updated_at%5Bafter%5D=1630857600", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 1800 bytes                                                                                           
+    # => 200 OK | application/json 1800 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---|
 
     OUTPUT
@@ -315,7 +315,7 @@ shell
     }
 
     RestClient.get "https://live_Zbaoo7hGqvi3cqrza8WiXxQa8kBPAPQF@empressporridge.chargebee.com/api/v2/customers?limit=10&offset=&sort_by%5Basc%5D=updated_at&updated_at%5Bafter%5D=1630857600", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 2608 bytes 
+    # => 200 OK | application/json 2608 bytes
 
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---|
 

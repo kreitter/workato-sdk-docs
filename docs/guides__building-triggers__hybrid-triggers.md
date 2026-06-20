@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/hybrid-triggers.html
-> **Fetched**: 2026-06-19T03:13:40.713369
+> **Fetched**: 2026-06-20T03:11:38.421523
 
 ---
 
@@ -104,7 +104,7 @@ ruby
           poll: lambda do |connection, input, closure|
             page_size = 100
              closure = {} unless closure.present?
-             closure['updated_since'] = (closure['updated_since'] || input['since'] || 1.hours.ago).to_time.utc.to_i 
+             closure['updated_since'] = (closure['updated_since'] || input['since'] || 1.hours.ago).to_time.utc.to_i
 
              params = {
                 "sort_by[asc]": 'updated_at',
@@ -112,7 +112,7 @@ ruby
                 "updated_at[after]": closure['updated_since']
              }
 
-             params['offset'] = closure['offset'] 
+             params['offset'] = closure['offset']
 
              response = get("/api/v2/subscriptions", params)
 
@@ -120,14 +120,14 @@ ruby
                closure['offset'] = response['next_offset']
              else
                closure['offset'] = nil
-               closure['updated_since'] = response['list'].last[input['object']]['updated_at'] unless response['list'].size == 0 
+               closure['updated_since'] = response['list'].last[input['object']]['updated_at'] unless response['list'].size == 0
              end
 
              {
                events: response['list'],
                next_poll: closure,
                can_poll_more: response['next_offset'].present?
-             } 
+             }
           end,
 
           dedup: lambda do |record|
@@ -157,10 +157,10 @@ Instead of defining the `webhook_notification` lambda, building a hybrid trigger
 ruby
 ```ruby
 
-          poll: lambda do 
+          poll: lambda do
             page_size = 100
              closure = {} unless closure.present?
-             closure['updated_since'] = (closure['updated_since'] || input['since'] || 1.hours.ago).to_time.utc.to_i 
+             closure['updated_since'] = (closure['updated_since'] || input['since'] || 1.hours.ago).to_time.utc.to_i
 
              params = {
                 "sort_by[asc]": 'updated_at',
@@ -168,7 +168,7 @@ ruby
                 "updated_at[after]": closure['updated_since']
              }
 
-             params['offset'] = closure['offset'] 
+             params['offset'] = closure['offset']
 
              response = get("/api/v2/subscriptions", params)
 
@@ -176,14 +176,14 @@ ruby
                closure['offset'] = response['next_offset']
              else
                closure['offset'] = nil
-               closure['updated_since'] = response['list'].last[input['object']]['updated_at'] unless response['list'].size == 0 
+               closure['updated_since'] = response['list'].last[input['object']]['updated_at'] unless response['list'].size == 0
              end
 
              {
                events: response['list'],
                next_poll: closure,
                can_poll_more: response['next_offset'].present?
-             } 
+             }
           end,
 
 ```

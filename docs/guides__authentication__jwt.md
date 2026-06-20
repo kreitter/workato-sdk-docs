@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/jwt.html
-> **Fetched**: 2026-06-19T03:13:15.831185
+> **Fetched**: 2026-06-20T03:11:14.497464
 
 ---
 
@@ -72,8 +72,8 @@ ruby
             }
             private_key = connection['private_key'].gsub(/\\n/, "\n")
             jwt_token = workato.jwt_encode(
-              jwt_body_claim, 
-              private_key, 
+              jwt_body_claim,
+              private_key,
               "RS256"
             )
 

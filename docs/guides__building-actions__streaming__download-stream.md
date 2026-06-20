@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/download-stream.html
-> **Fetched**: 2026-06-19T03:13:32.790789
+> **Fetched**: 2026-06-20T03:11:30.830732
 
 ---
 
@@ -70,7 +70,7 @@ ruby
           execute: lambda do |connection, input|
             file_path = input['file_path']&.gsub(/%2F/, '/')
 
-            # This API call retrieves metadata about the file. Not the file itself. 
+            # This API call retrieves metadata about the file. Not the file itself.
             file_details = get("/pubapi/v1/fs/#{file_path}")
 
             file_details['file_contents'] = workato.stream.out("download_file_by_path", { file_path: file_path, file_size: file_details['size'] })
@@ -92,7 +92,7 @@ ruby
       streams: {
         download_file_by_path: lambda do |input, starting_byte_range, ending_byte_range, requested_byte_size|
           # Example starting_byte_range = 0
-          # Example ending_byte_range = 10485759 
+          # Example ending_byte_range = 10485759
           # Example requested_byte_size = 10485760 (10MB)
           chunk = get("/pubapi/v1/fs-content/#{input['file_path']}").
                     headers("Range": "bytes=#{starting_byte_range}-#{ending_byte_range}").
@@ -169,7 +169,7 @@ ruby
       execute: lambda do |connection, input|
         file_path = input['file_path']&.gsub(/%2F/, '/')
 
-        # This API call retrieves metadata about the file. Not the file itself. 
+        # This API call retrieves metadata about the file. Not the file itself.
         file_details = get("/pubapi/v1/fs/#{file_path}")
 
         file_details['file_contents'] = workato.stream.out("download_file_by_path", { file_path: file_path, file_size: file_details['size'] })
@@ -220,7 +220,7 @@ ruby
       streams: {
         download_file_by_path: lambda do |input, starting_byte_range, ending_byte_range, requested_byte_size|
           # Example starting_byte_range = 0
-          # Example ending_byte_range = 10485759 
+          # Example ending_byte_range = 10485759
           # Example requested_byte_size = 10485760 (10MB)
           chunk = get("/pubapi/v1/fs-content/#{input['file_path']}").
                     headers("Range": "bytes=#{starting_byte_range}-#{ending_byte_range}").

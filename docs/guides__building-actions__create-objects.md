@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/create-objects.html
-> **Fetched**: 2026-06-19T03:13:26.078677
+> **Fetched**: 2026-06-20T03:11:24.287262
 
 ---
 
@@ -50,7 +50,7 @@ ruby
               {
                 name: "AccountNumber",
                 label: "Account Number",
-                hint: "Unique account number assigned to the account. " \ 
+                hint: "Unique account number assigned to the account. " \
                 "Leave null to auto-generate."
               },
               {

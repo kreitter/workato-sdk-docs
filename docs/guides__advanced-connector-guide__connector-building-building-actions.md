@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.html
-> **Fetched**: 2026-06-19T03:13:03.427813
+> **Fetched**: 2026-06-20T03:11:02.587530
 
 ---
 
@@ -70,7 +70,7 @@ ruby
           "Creates an #{picklist_label['object'] || 'object'} in XYZ. First, select from a list of " \
           'objects that we currently support. After selecting your object,' \
           ' dynamic input fields specific to the object selected ' \
-          'will be populated.'   
+          'will be populated.'
         end,
 
         config_fields: [
@@ -265,7 +265,7 @@ ruby
             "Updates an #{picklist_label['object'] || 'object'} in XYZ. First, select from a list of " \
             'objects that we currently support. After selecting your object,' \
             ' dynamic input fields specific to the object selected ' \
-            'will be populated.'   
+            'will be populated.'
           }
         end,
 

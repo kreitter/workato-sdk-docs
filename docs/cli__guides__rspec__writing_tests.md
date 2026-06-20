@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/writing_tests.html
-> **Fetched**: 2026-06-19T03:12:55.427633
+> **Fetched**: 2026-06-20T03:10:54.945401
 
 ---
 
@@ -47,7 +47,7 @@ ruby
         ],
 
         authorization: {
-          type: 'basic_auth',  
+          type: 'basic_auth',
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -261,7 +261,7 @@ Now the last step is to run your RSpec tests. This is done with the `bundle exec
 shell
 ```bash
 
-    $ bundle exec rspec spec/actions/search_customers_spec.rb 
+    $ bundle exec rspec spec/actions/search_customers_spec.rb
 
     actions/search_customers
       execute

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/triggers.html
-> **Fetched**: 2026-06-19T03:14:19.683280
+> **Fetched**: 2026-06-20T03:12:15.776533
 
 ---
 
@@ -648,8 +648,8 @@ ruby
                 event['propertyName'] == input['contact_property'] && event['subscriptionType'] == 'contact.propertyChange'
               end
 
-              if payload.length > 0 
-                { 
+              if payload.length > 0
+                {
                   events: payload,
                   headers: headers,
                   webhook_validated: client_secret.present? ? true : false
@@ -699,7 +699,7 @@ Sample code where webhook expires after 1 hour.
 ruby
 ```ruby
 
-          webhook_subscribe: lambda do |webhook_url, connection, input, recipe_id|    
+          webhook_subscribe: lambda do |webhook_url, connection, input, recipe_id|
             [
               post("https://www.acme.com/api/webhook_subscriptions", url: webhook_url),
               1.hour.from_now

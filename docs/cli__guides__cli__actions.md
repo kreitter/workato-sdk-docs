@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/actions.html
-> **Fetched**: 2026-06-19T03:12:40.543819
+> **Fetched**: 2026-06-20T03:10:40.753769
 
 ---
 
@@ -53,7 +53,7 @@ ruby
         ],
 
         authorization: {
-          type: 'basic_auth',  
+          type: 'basic_auth',
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -145,9 +145,9 @@ Your input_fields lambda is expected to return Workato schema which corresponds 
 shell
 ```bash
 
-    $ workato exec actions.search_customers.input_fields 
+    $ workato exec actions.search_customers.input_fields
 
-    [  
+    [
       {
         "name": "name",
         "label": "Name to query by",
@@ -211,7 +211,7 @@ shell
     }
 
     RestClient.get "https://test.chargebee.com/api/v2/customers?limit=1&name=bennett", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 753 bytes                                                                                
+    # => 200 OK | application/json 753 bytes
     Progress: |--=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=-|
 
     OUTPUT
@@ -279,7 +279,7 @@ This can be done with schema attributes like `convert_input` which takes this va
 ruby
 ```ruby
 
-    [  
+    [
       {
         "name": "name",
         "label": "Name to query by",
@@ -331,7 +331,7 @@ shell
     }
 
     RestClient.get "https://test.chargebee.com/api/v2/customers?limit=1&name=bennett", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 753 bytes                                                                                
+    # => 200 OK | application/json 753 bytes
     Progress: |--=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=-|
 
     OUTPUT

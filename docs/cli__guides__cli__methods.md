@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/methods.html
-> **Fetched**: 2026-06-19T03:12:42.800973
+> **Fetched**: 2026-06-20T03:10:42.901485
 
 ---
 
@@ -53,7 +53,7 @@ ruby
         ],
 
         authorization: {
-          type: 'basic_auth',  
+          type: 'basic_auth',
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -167,7 +167,7 @@ Here is an example the method being run:
 shell
 ```bash
 
-    $ workato exec methods.sample_method --args='fixtures/actions/search_customers/customer_config.json' 
+    $ workato exec methods.sample_method --args='fixtures/actions/search_customers/customer_config.json'
     "Hello world"
 
 ```

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/client-credentials.html
-> **Fetched**: 2026-06-19T03:13:20.451533
+> **Fetched**: 2026-06-20T03:11:18.903594
 
 ---
 
@@ -46,7 +46,7 @@ ruby
           acquire: lambda do |connection|
             hash = ("#{connection['client_id']}:#{connection['client_secret']}").base64.gsub("\n", '')
               # Token URL
-            response = post('https://percolate.com/auth/v5/token/'). 
+            response = post('https://percolate.com/auth/v5/token/').
                           payload(grant_type: 'client_credentials').
                           headers(Authorization: "Basic " + hash).
                           request_format_www_form_urlencoded

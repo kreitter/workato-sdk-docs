@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/test.html
-> **Fetched**: 2026-06-19T03:12:46.279680
+> **Fetched**: 2026-06-20T03:10:46.220079
 
 ---
 
@@ -79,7 +79,7 @@ ruby
         ],
 
         authorization: {
-          type: 'basic_auth',  
+          type: 'basic_auth',
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -270,10 +270,10 @@ shell
     }
 
     RestClient.get "https://percolate.com/api/v5/me", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer ", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 401 Unauthorized | application/json 65 bytes         
+    # => 401 Unauthorized | application/json 65 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
     RestClient.post "https://percolate.com/auth/v5/token/", "grant_type=client_credentials", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Basic ", "Content-Length"=>"29", "Content-Type"=>"application/x-www-form-urlencoded", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 25 bytes                                       
+    # => 200 OK | application/json 25 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
 
     Refresh token triggered on response "401 Unauthorized"
@@ -294,7 +294,7 @@ shell
 
     Update settings file with new connection attributes? (Yes or No) Yes
     RestClient.get "https://percolate.com/api/v5/me", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer example_token", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 65 bytes         
+    # => 200 OK | application/json 65 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
 
     OUTPUT
@@ -420,7 +420,7 @@ ruby
       },
 
       test: lambda do |connection|
-        get('views') 
+        get('views')
       end,
     }
 
@@ -506,10 +506,10 @@ shell
     }
 
     RestClient.get "https://go.trackvia.com/openapi/views", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer valid_access_token", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 401 Unauthorized | application/json 65 bytes         
+    # => 401 Unauthorized | application/json 65 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
     RestClient.post "https://go.trackvia.com/oauth/token", "grant_type"=>"client_credentials", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "refresh_token"=>"valid_refresh_token", "Content-Length"=>"29", "Content-Type"=>"application/x-www-form-urlencoded", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 25 bytes                                       
+    # => 200 OK | application/json 25 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
 
     Refresh token triggered on response "401 Unauthorized"
@@ -530,7 +530,7 @@ shell
 
     Updated settings file with new connection attributes? (Yes or No) Yes
     RestClient.get "https://go.trackvia.com/openapi/views", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer new_valid_access_token", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 65 bytes                
+    # => 200 OK | application/json 65 bytes
     Progress: |=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=---=|
 
     OUTPUT

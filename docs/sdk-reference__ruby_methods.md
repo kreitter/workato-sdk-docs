@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-06-19T03:14:15.022581
+> **Fetched**: 2026-06-20T03:12:11.276725
 
 ---
 
@@ -1924,10 +1924,10 @@ ruby
 ```ruby
 
     reinvoke_after(
-      seconds: step_time, 
-      continue: { 
-        current_step: current_step + 1, 
-        jobid: response['jobReference']['jobId'] 
+      seconds: step_time,
+      continue: {
+        current_step: current_step + 1,
+        jobid: response['jobReference']['jobId']
       }
     )
 
@@ -2320,7 +2320,7 @@ This method takes three arguments:
 ruby
 ```ruby
 
-    workato.stream.in(input["file"], from: previous_offset, frame_size: required_frame_size) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range| 
+    workato.stream.in(input["file"], from: previous_offset, frame_size: required_frame_size) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
       put("/file/#{input['file_id']}").
         headers("Content-Range": "byte #{starting_byte_range}-#{ending_byte_range}/*").
         request_body(chunk).
@@ -2389,10 +2389,10 @@ ruby
 ```ruby
 
     suspend(
-      continue: { 
-        "state" => "suspended", 
+      continue: {
+        "state" => "suspended",
         "url" => input['url']
-      }, 
+      },
       expires_at: 10.minutes.from_now
     )
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/securing-webhooks.html
-> **Fetched**: 2026-06-19T03:13:42.926104
+> **Fetched**: 2026-06-20T03:11:40.577811
 
 ---
 
@@ -32,16 +32,16 @@ ruby
 
           webhook_notification: lambda do |input, payload, extended_input_schema, extended_output_schema, headers, params, connection, webhook_subscribe_output|
             original_payload = payload
-            client_secret = connection['client_secret'] 
+            client_secret = connection['client_secret']
             if client_secret.present?
               source_string = client_secret + original_payload # Build the string to SHA256 which is a concatenation of client secret + payload
               v1_signature = source_string.encode_sha256.encode_hex
             end
 
             # If condition below verifies that the signature we calculated is the same as the X-Hubspot-Signature we got in the webhook event
-            if (client_secret.present? && v1_signature == headers['X-Hubspot-Signature']) 
+            if (client_secret.present? && v1_signature == headers['X-Hubspot-Signature'])
               # Don't forget to parse the payload into JSON as we dictated that the payload would be `raw`
-                { 
+                {
                   events: workato.parse_json(payload),
                   headers: headers,
                   webhook_validated: client_secret.present? ? true : false
@@ -65,7 +65,7 @@ ruby
 ```ruby
 
       original_payload = payload
-      client_secret = connection['client_secret'] 
+      client_secret = connection['client_secret']
       if client_secret.present?
         source_string = client_secret + original_payload # Build the string to SHA256 which is a concatenation of client secret + payload
         v1_signature = source_string.encode_sha256.encode_hex
@@ -83,9 +83,9 @@ ruby
 ```bash
 
             # If condition below verifies that the signature we calculated is the same as the X-Hubspot-Signature we got in the webhook event
-            if (client_secret.present? && v1_signature == headers['X-Hubspot-Signature']) 
+            if (client_secret.present? && v1_signature == headers['X-Hubspot-Signature'])
               # Don't forget to parse the payload into JSON as we dictated that the payload would be `raw`
-                { 
+                {
                   events: workato.parse_json(payload),
                   headers: headers,
                   webhook_validated: client_secret.present? ? true : false

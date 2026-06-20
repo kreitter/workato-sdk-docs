@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multi-threaded-actions.html
-> **Fetched**: 2026-06-19T03:13:29.434763
+> **Fetched**: 2026-06-20T03:11:27.544324
 
 ---
 
@@ -50,7 +50,7 @@ ruby
 
             description: "Create contacts in Intercom",
 
-            input_fields: lambda do 
+            input_fields: lambda do
               [
                 {
                   name: "contacts",
@@ -93,7 +93,7 @@ ruby
             end,
 
             execute: lambda do |connection, input, eis, eos|
-              # Pre-processing of the data. 
+              # Pre-processing of the data.
               # For multithreading, we need to create an array of requests which we do over here.
               number_of_batches = input['contacts'].size
               batches = input['contacts'].map do |contact|
@@ -112,13 +112,13 @@ ruby
 
               # Post-processing
               # Boolean to tell the user that all records were successful
-              success = results[0] 
+              success = results[0]
               # An array of all the responses for successful records
               records_ingested = results[1].compact
               # Collecting all the failed records into an array
               records_failed = []
               results[2].each_with_index do |item, index|
-                next unless item 
+                next unless item
                 failed_record = {
                   code: item,
                   record: input['contacts'][index]
@@ -155,7 +155,7 @@ This component tells Workato what fields to show to a user trying to execute the
 ruby
 ```ruby
 
-      input_fields: lambda do 
+      input_fields: lambda do
         [
           {
             name: "contacts",
@@ -214,7 +214,7 @@ In the first part of the execute lambda, we first create an array of requests wi
 ruby
 ```bash
 
-      # Pre-processing of the data. 
+      # Pre-processing of the data.
       # For multithreading, we need to create an array of requests which we do over here.
       number_of_batches = input['contacts'].size
       batches = input['contacts'].map do |contact|
@@ -270,13 +270,13 @@ ruby
 
       # Post-processing
       # Boolean to tell the user that all records were successful
-      success = results[0] 
+      success = results[0]
       # An array of all the responses for successful records
       records_ingested = results[1].compact
       # Collecting all the failed records into an array
       records_failed = []
       results[2].each_with_index do |item, index|
-        next unless item 
+        next unless item
         failed_record = {
           code: item,
           record: input['contacts'][index]

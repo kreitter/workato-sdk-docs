@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multistep-actions.html
-> **Fetched**: 2026-06-19T03:13:30.549191
+> **Fetched**: 2026-06-20T03:11:28.671454
 
 ---
 
@@ -52,20 +52,20 @@ ruby
 
             help: "This query runs synchronously for 25 seconds. If the query takes longer than that, it turns into an asynchronous action. There is a limit of ~38 minutes for the query to complete. ",
 
-            input_fields: lambda do 
+            input_fields: lambda do
               [
-                { 
-                  name: "project_id", 
-                  control_type: 'select', 
-                  pick_list: 'projects', 
-                  optional: false 
+                {
+                  name: "project_id",
+                  control_type: 'select',
+                  pick_list: 'projects',
+                  optional: false
                 },
-                { 
-                  name: "query", 
-                  optional: false 
+                {
+                  name: "query",
+                  optional: false
                 },
-                { 
-                  name: 'wait_for_query', 
+                {
+                  name: 'wait_for_query',
                   control_type: 'checkbox',
                   sticky: true,
                 },
@@ -90,7 +90,7 @@ ruby
               step_time = current_step * 60 # This helps us wait longer and longer as we increase in steps
               # Minimum step time is 60 seconds
 
-              if current_step == 1 # First invocation    
+              if current_step == 1 # First invocation
                 payload = {
                   query: input['query'],
                   timeoutMs: '25000',
@@ -99,14 +99,14 @@ ruby
                 url = "https://bigquery.googleapis.com/bigquery/v2/projects/#{input['project_id']}/queries"
                 response = post(url, payload)
 
-                # If user wants to wait for query to complete and 
+                # If user wants to wait for query to complete and
                 # job isn't complete after 25s
                 if response['jobComplete'] == false && input['wait_for_query'].is_true?
                   reinvoke_after(
-                    seconds: step_time, 
-                    continue: { 
-                      current_step: current_step + 1, 
-                      jobid: response['jobReference']['jobId'] 
+                    seconds: step_time,
+                    continue: {
+                      current_step: current_step + 1,
+                      jobid: response['jobReference']['jobId']
                     }
                   )
                 # If user doesn't want to wait for query to complete and
@@ -118,7 +118,7 @@ ruby
                   call('format_rows', response)
                 end
               # Subsequent invocations
-              elsif current_step <= max_steps 
+              elsif current_step <= max_steps
                 url = "https://bigquery.googleapis.com/bigquery/v2/projects/#{input['project_id']}/jobs/#{continue['jobid']}"
                 response = get(url)
                 # If job is still running
@@ -127,7 +127,7 @@ ruby
                 # If status is done but there is an error
                 elsif response['status']['state'] == "DONE" && response.dig('status', 'errorResult').present?
                   error(response.dig('status', 'errorResult'))
-                # If status is done 
+                # If status is done
                 else
                   results = get("https://bigquery.googleapis.com/bigquery/v2/projects/#{input['project_id']}/queries/#{continue['jobid']}")
                   call('format_rows', results)
@@ -174,20 +174,20 @@ To know more about this step, take a look at our [SDK reference](</en/developing
 ruby
 ```ruby
 
-      input_fields: lambda do 
+      input_fields: lambda do
         [
-          { 
-            name: "project_id", 
-            control_type: 'select', 
-            pick_list: 'projects', 
-            optional: false 
+          {
+            name: "project_id",
+            control_type: 'select',
+            pick_list: 'projects',
+            optional: false
           },
-          { 
-            name: "query", 
-            optional: false 
+          {
+            name: "query",
+            optional: false
           },
-          { 
-            name: 'wait_for_query', 
+          {
+            name: 'wait_for_query',
             control_type: 'checkbox',
             sticky: true,
           },
@@ -234,7 +234,7 @@ ruby
         step_time = current_step * 10 # This helps us wait longer and longer as we increase in steps
         # Minimum step time is 60 seconds
 
-        if current_step == 1 # First invocation    
+        if current_step == 1 # First invocation
           payload = {
             query: input['query'],
             timeoutMs: '25000',
@@ -243,9 +243,9 @@ ruby
           #Request below sends the query to BigQuery
           response = post("https://bigquery.googleapis.com/bigquery/v2/projects/#{input['project_id']}/queries", payload)
 
-          #if Wait for query is false, the user can get the jobID back and get the results manually. 
+          #if Wait for query is false, the user can get the jobID back and get the results manually.
           if response['jobComplete'] == false && input['wait_for_query'].is_true?
-            # reinvoke_after accepts 2 arguments. 
+            # reinvoke_after accepts 2 arguments.
             # seconds is an integer that tells us how long to put the job to sleep for. MINIMUM 5 SECONDS
             # continue is a hash is passed to the next invocation of the execute block when the job is woken up
             reinvoke_after(seconds: step_time, continue: { current_step: current_step + 1, jobid: response['jobReference']['jobId'] })
@@ -263,7 +263,7 @@ ruby
           # If job is done but there was an error, raise an error
           elsif response['status']['state'] == "DONE" && response.dig('status', 'errorResult').present?
             error(response.dig('status', 'errorResult'))
-          # Reaching here means job is done and there are results. 
+          # Reaching here means job is done and there are results.
           else
             results = get("https://bigquery.googleapis.com/bigquery/v2/projects/#{input['project_id']}/queries/#{continue['jobid']}")
             call('format_rows', results)

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/rspec-commands.html
-> **Fetched**: 2026-06-19T03:13:01.168560
+> **Fetched**: 2026-06-20T03:11:00.429368
 
 ---
 
@@ -186,7 +186,7 @@ ruby
 
       describe 'connection' do
         # Assign the output variable as the output of your test lambda
-        subject(:output) { connector.connection.authorization.acquire(settings) } 
+        subject(:output) { connector.connection.authorization.acquire(settings) }
 
         context 'given valid credentials' do
           it 'successfully retrieves token' do
@@ -197,7 +197,7 @@ ruby
 
       describe 'test' do
         # Assign the output variable as the output of your test lambda
-        subject(:output) { connector.test(settings) } 
+        subject(:output) { connector.test(settings) }
 
         context 'given valid credentials' do
           it 'establishes valid connection' do
@@ -609,7 +609,7 @@ ruby
       context "given non-sticky schema" do
         let(:schema) { JSON.parse(File.read('fixtures/methods/make_schema_builder_fields_sticky/make_schema_builder_fields_sticky_input.json')) }
         let(:expected_output) { JSON.parse(File.read('fixtures/methods/make_schema_builder_fields_sticky/make_schema_builder_fields_sticky_output.json')) }
-        it "makes all fields sticky" do 
+        it "makes all fields sticky" do
           expect(result).to eq(expected_output)
         end
       end

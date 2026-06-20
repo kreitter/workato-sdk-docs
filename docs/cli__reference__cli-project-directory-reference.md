@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-project-directory-reference.html
-> **Fetched**: 2026-06-19T03:12:59.938988
+> **Fetched**: 2026-06-20T03:10:59.250306
 
 ---
 
@@ -23,18 +23,18 @@ A typical connector project built with the SDK gem usually looks something like 
     . # root
     ├── connector.rb
     ├── fixtures
-    ├── Gemfile 
+    ├── Gemfile
     ├── Gemfile.lock
-    ├── logo.png 
-    ├── master.key 
+    ├── logo.png
+    ├── master.key
     ├── README.md
     ├── settings.yaml.enc
-    ├── spec 
+    ├── spec
     |   ├── connector_spec.rb
     |   └── spec_helper.rb
     ├── tape_library
     ├── .github
-    ├── .gitignore 
+    ├── .gitignore
     └── .rspec
 
 ```

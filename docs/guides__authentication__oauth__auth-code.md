@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code.html
-> **Fetched**: 2026-06-19T03:13:19.311518
+> **Fetched**: 2026-06-20T03:11:17.812368
 
 ---
 
@@ -78,7 +78,7 @@ ruby
                 access_token: response["access_token"],
                 refresh_token: response["refresh_token"]
               }
-            ]   
+            ]
           end,
         }
       },
@@ -298,7 +298,7 @@ ruby
               access_token: response["access_token"],
               refresh_token: response["refresh_token"]
             }
-          ]   
+          ]
         end,
 
 ```
@@ -388,7 +388,7 @@ ruby
               password(connection["client_secret"]).
               request_format_www_form_urlencoded
 
-            # After defining the POST method, we now need to define the 
+            # After defining the POST method, we now need to define the
             # output of the acquire key in a fashion that we can recognise
               [
                 {
@@ -398,7 +398,7 @@ ruby
                 },
                 nil,
                 # Optional. Will be merged into connection hash
-                { instance_id: nil } 
+                { instance_id: nil }
               ]
             end,
 
@@ -446,7 +446,7 @@ ruby
         },
         nil,
         # Optional. Will be merged into connection hash
-        { instance_id: nil } 
+        { instance_id: nil }
       ]
 
 ```

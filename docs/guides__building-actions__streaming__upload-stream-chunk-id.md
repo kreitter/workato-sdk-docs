@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id.html
-> **Fetched**: 2026-06-19T03:13:33.943537
+> **Fetched**: 2026-06-20T03:11:31.933145
 
 ---
 
@@ -45,7 +45,7 @@ ruby
 
           execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
             block_list = []
-            # Calling workato.stream.in runs in a loop where the input should be file. 
+            # Calling workato.stream.in runs in a loop where the input should be file.
             # It can accept both entire files or the output of a streaming-enabled download file action
             workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
               block_id = workato.uuid.encode_base64
@@ -53,14 +53,14 @@ ruby
               put(input['url']).
                 params("comp": "block", "blockid": block_id).
                 request_body(chunk).
-                presence # presence is required as a way to force the HTTP request to be sent. 
+                presence # presence is required as a way to force the HTTP request to be sent.
             end
 
             payload = {
               "Latest": block_list
             }
 
-            { 
+            {
               "Etag" => put(input['url']).
                           params("comp": "blocklist").
                           payload(payload).
@@ -122,9 +122,9 @@ ruby
 
       execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
         block_list = []
-        # Calling workato.stream.in runs in a loop where the input should be file. 
+        # Calling workato.stream.in runs in a loop where the input should be file.
         # It can accept both entire files or the output of a streaming-enabled download file action
-        workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|  
+        workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
           block_id = workato.uuid.encode_base64
           block_list << block_id
           put(input['url']).
@@ -137,7 +137,7 @@ ruby
           "Latest": block_list
         }
 
-        { 
+        {
           "Etag" => put(input['url']).
                       params("comp": "blocklist").
                       payload(payload).
@@ -184,9 +184,9 @@ ruby
         block_list = closure["block_list"].presence || []
         next_from = closure["next_from"].presence || 0
 
-        # Calling workato.stream.in runs in a loop where the input should be file. 
+        # Calling workato.stream.in runs in a loop where the input should be file.
         # It can accept both entire files or the output of a streaming-enabled download file action
-        workato.stream.in(input["file"], from: next_from, frame_size: frame_size) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range| 
+        workato.stream.in(input["file"], from: next_from, frame_size: frame_size) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
 
           block_id = workato.uuid.encode_base64
           block_list << block_id
@@ -203,7 +203,7 @@ ruby
           "Latest": block_list
         }
 
-        { 
+        {
           "Etag" => put(input['url']).
                       params("comp": "blocklist").
                       payload(payload).r
@@ -212,7 +212,7 @@ ruby
                       after_response do |code, body, header|
                         header['Etag']
                       end
-        } 
+        }
       end
 
 ```
@@ -228,14 +228,14 @@ ruby
 
       execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
         # 20MB in bytes
-        frame_size = 20971520 
+        frame_size = 20971520
         block_list = closure["block_list"].presence || []
         next_from = closure["next_from"].presence || 0
         buffer = ""
 
-        # Calling workato.stream.in runs in a loop where the input should be file. 
+        # Calling workato.stream.in runs in a loop where the input should be file.
         # It can accept both entire files or the output of a streaming-enabled download file action
-        workato.stream.in(input["file"], from: next_from, frame_size: frame_size) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range| 
+        workato.stream.in(input["file"], from: next_from, frame_size: frame_size) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
           # save chunk to buffer
           buffer << chunk
           if !eof && buffer.size < frame_size
@@ -259,7 +259,7 @@ ruby
           "Latest": block_list
         }
 
-        { 
+        {
           "Etag" => put(input['url']).
                       params("comp": "blocklist").
                       payload(payload).r
@@ -268,7 +268,7 @@ ruby
                       after_response do |code, body, header|
                         header['Etag']
                       end
-        } 
+        }
       end
 
 ```

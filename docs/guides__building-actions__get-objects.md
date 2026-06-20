@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/get-objects.html
-> **Fetched**: 2026-06-19T03:13:28.293368
+> **Fetched**: 2026-06-20T03:11:26.449380
 
 ---
 
@@ -39,7 +39,7 @@ ruby
           subtitle: "Retrieves details of an account in Zuora",
 
           description: lambda do |input, picklist_label|
-            "Get an <span class='provider'>account</span> in " \ 
+            "Get an <span class='provider'>account</span> in " \
             "<span class='provider'>Zuora</span>"
           end,
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/multistep-actions.html
-> **Fetched**: 2026-06-19T03:12:43.924337
+> **Fetched**: 2026-06-20T03:10:43.974416
 
 ---
 
@@ -103,7 +103,7 @@ shell
     }
 
     RestClient.post "https://bigquery.googleapis.com/bigquery/v2/projects/named-reporter-237205/queries", "{\"query\":\"SELECT * FROM `named-reporter-237205.Lead_data.2mill_table` t1 left join `named-reporter-237205.Lead_data.2mill_table` t2 on t1.start_time = t2.start_time\",\"timeoutMs\":\"25000\",\"useLegacySql\":false}", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer ya29.c.Kp8BFQgUT1EOcK5YBwTEv60KokPYvLLWJRFsbfd9S0oGEB3cW5cp1pXTJRZreYPB4B06Z1_YdvhLQByhe9fP_FjziQc6rCtEfGs9zZdMZpXKUFHWEqzG44qxni-jibwaLEgWLw3zaqv42y00x28jUmZQdP3AQilOPdn1xRwf6s-gWi_95d1t0qDe478VnclTIrZ_SmCMtDTTbdU1yvkA80TQ...", "Content-Length"=>"207", "Content-Type"=>"application/json", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 176 bytes       
+    # => 200 OK | application/json 176 bytes
 
     RestClient.get "https://bigquery.googleapis.com/bigquery/v2/projects/named-reporter-237205/jobs/job_LnXWC2bcE64hzeBlYMPWNCsMwavn", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer ya29.c.Kp8BFQgUT1EOcK5YBwTEv60KokPYvLLWJRFsbfd9S0oGEB3cW5cp1pXTJRZreYPB4B06Z1_YdvhLQByhe9fP_FjziQc6rCtEfGs9zZdMZpXKUFHWEqzG44qxni-jibwaLEgWLw3zaqv42y00x28jUmZQdP3AQilOPdn1xRwf6s-gWi_95d1t0qDe478VnclTIrZ_SmCMtDTTbdU1yvkA80TQ...", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
     # => 200 OK | application/json 2062 bytes

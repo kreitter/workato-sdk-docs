@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/object_definitions.html
-> **Fetched**: 2026-06-19T03:14:12.418596
+> **Fetched**: 2026-06-20T03:12:08.803324
 
 ---
 
@@ -68,7 +68,7 @@ ruby
 ```ruby
 
     lead: {
-      fields: lambda do 
+      fields: lambda do
         [
           { name: "name", type: :boolean },
           { name: "email" },

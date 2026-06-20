@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html
-> **Fetched**: 2026-06-19T03:13:04.599496
+> **Fetched**: 2026-06-20T03:11:03.711708
 
 ---
 
@@ -72,7 +72,7 @@ ruby
           {
             body:
             "Triggers when an #{picklist_label['object'] || 'object'} is created " \
-            ' or updated in XYZ.'   
+            ' or updated in XYZ.'
           }
         end,
 

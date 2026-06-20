@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection.html
-> **Fetched**: 2026-06-19T03:14:06.673724
+> **Fetched**: 2026-06-20T03:12:03.293543
 
 ---
 
@@ -211,7 +211,7 @@ ruby
                     optional: false,
                     url: ".acme.com"
                   }
-                end 
+                end
               ),
               (
                 if connection['custom_domain'] == "true"
@@ -222,7 +222,7 @@ ruby
                     optional: false,
                     options: [ ["Production", "production"], ["Sandbox", "sandbox"]]
                   }
-                end 
+                end
               ),
               (
                 if connection['instance_type'] == "sandbox"

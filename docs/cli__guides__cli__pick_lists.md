@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/pick_lists.html
-> **Fetched**: 2026-06-19T03:12:45.056622
+> **Fetched**: 2026-06-20T03:10:45.050307
 
 ---
 
@@ -53,7 +53,7 @@ ruby
         ],
 
         authorization: {
-          type: 'basic_auth',  
+          type: 'basic_auth',
 
           apply: lambda do |connection|
             user(connection['api_key'])
@@ -79,7 +79,7 @@ ruby
           ]
         end,
 
-        dynamic: lambda do 
+        dynamic: lambda do
           get('/api/v2/customers')['list'].map do |index|
               [
                 index['customer']['first_name'],
@@ -197,7 +197,7 @@ Here is an example the pick_list being run:
 shell
 ```bash
 
-    $ workato exec pick_lists.dependent --args='fixtures/pick_lists/dependent/input.json' 
+    $ workato exec pick_lists.dependent --args='fixtures/pick_lists/dependent/input.json'
     [
       [
         "dd",
@@ -227,7 +227,7 @@ Here is an example the pick_list being run:
 shell
 ```bash
 
-    $ workato exec pick_lists.dependent_with_names --args='fixtures/pick_lists/dependent_with_names/input.json' 
+    $ workato exec pick_lists.dependent_with_names --args='fixtures/pick_lists/dependent_with_names/input.json'
     [
       [
         "dd",

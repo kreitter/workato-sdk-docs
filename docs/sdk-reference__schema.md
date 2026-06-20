@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html
-> **Fetched**: 2026-06-19T03:14:16.195492
+> **Fetched**: 2026-06-20T03:12:12.446709
 
 ---
 
@@ -676,10 +676,10 @@ ruby
         name: 'data',
         type: 'object',
         properties: [
-          { 
-            name: "name" 
+          {
+            name: "name"
           },
-          { 
+          {
             name: "address"
           }
         ],
@@ -784,11 +784,11 @@ json
       "products": [
         {
           "name": "car",
-          "qty": "100"  
+          "qty": "100"
         },
         {
           "name": "wrench",
-          "qty": "10"  
+          "qty": "10"
         }
       ]
     }
@@ -802,7 +802,7 @@ json
 
     {
       "products": [
-        "car": "100" 
+        "car": "100"
         "wrench": "10"
       ]
     }

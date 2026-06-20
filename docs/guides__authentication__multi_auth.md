@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/multi_auth.html
-> **Fetched**: 2026-06-19T03:13:16.978249
+> **Fetched**: 2026-06-20T03:11:15.592722
 
 ---
 
@@ -278,8 +278,8 @@ ruby
         base_uri: lambda do |connection|
           if connection['auth_type'] == "stripe_oauth2"
            "https://api.stripe.com/"
-          else 
-           "https://www.stripe.com/api" 
+          else
+           "https://www.stripe.com/api"
           end
         end
 

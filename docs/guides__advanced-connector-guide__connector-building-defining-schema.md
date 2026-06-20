@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema.html
-> **Fetched**: 2026-06-19T03:13:06.864595
+> **Fetched**: 2026-06-20T03:11:05.941374
 
 ---
 
@@ -328,7 +328,7 @@ ruby
         end,
       },
 
-    methods: {  
+    methods: {
         type_mapping: lambda do |input|
           case input
           when 'datetime'

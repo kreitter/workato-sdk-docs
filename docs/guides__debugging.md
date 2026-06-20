@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/debugging.html
-> **Fetched**: 2026-06-19T03:13:52.109877
+> **Fetched**: 2026-06-20T03:11:49.377135
 
 ---
 
@@ -131,7 +131,7 @@ Formula mode does not work in the UI popup today and this feature is disabled. H
 ruby
 ```ruby
 
-    input_fields: lambda do 
+    input_fields: lambda do
         [
             {
                 name: "customer_ids",

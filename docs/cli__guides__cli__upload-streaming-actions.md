@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/upload-streaming-actions.html
-> **Fetched**: 2026-06-19T03:12:48.596557
+> **Fetched**: 2026-06-20T03:10:48.433425
 
 ---
 
@@ -36,9 +36,9 @@ ruby
 ```ruby
 
     execute: lambda do |_connection, input, _input_schema, _output_schema, closure|
-      # Calling workato.stream.in runs in a loop where the input should be file. 
+      # Calling workato.stream.in runs in a loop where the input should be file.
       # It can accept both entire files or the output of a streaming-enabled download file action
-      workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range| 
+      workato.stream.in(input["file"]) do |chunk, starting_byte_range, ending_byte_range, eof, next_starting_byte_range|
         put(input['url']).
           headers("Content-Range": "bytes #{starting_byte_range}-#{ending_byte_range}/*").
           request_body(chunk).presence
@@ -59,7 +59,7 @@ JSON
     {
         "file_name": "sample_file",
         "file": {
-          # this hash simulates a file stream which is 
+          # this hash simulates a file stream which is
           # the output of a download file object
           "__stream__": true,
           "chunks": {
@@ -99,19 +99,19 @@ shell
     }
 
     RestClient.put "https://www.friendly_upload_url.com", "Content-Range"=>"bytes=0-3", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 201 Created | 0 bytes, 1.46s    
+    # => 201 Created | 0 bytes, 1.46s
 
     RestClient.put "https://www.friendly_upload_url.com", "Content-Range"=>"bytes=4-7", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 201 Created | 0 bytes, 1.46s 
+    # => 201 Created | 0 bytes, 1.46s
 
     RestClient.put "https://www.friendly_upload_url.com", "Content-Range"=>"bytes=8-11", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 201 Created | 0 bytes, 1.46s 
+    # => 201 Created | 0 bytes, 1.46s
 
     RestClient.put "https://www.friendly_upload_url.com", "Content-Range"=>"bytes=11-13", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 201 Created | 0 bytes, 1.46s 
+    # => 201 Created | 0 bytes, 1.46s
 
     RestClient.post "https://www.friendly_upload_url.com", "{\"commit\":true}", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Content-Length"=>"88", "Content-Type"=>"application/json", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 201 Created | 0 bytes, 1.46s   
+    # => 201 Created | 0 bytes, 1.46s
 
     OUTPUT
     {

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/download-streaming-actions.html
-> **Fetched**: 2026-06-19T03:12:41.675018
+> **Fetched**: 2026-06-20T03:10:41.827201
 
 ---
 
@@ -83,7 +83,7 @@ shell
     }
 
     RestClient.get "https://acme.egnyte.com/pubapi/v1/fs/path/to/sample/file", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer valid_access_token", "Content-Length"=>"207", "Content-Type"=>"application/json", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 200 OK | application/json 176 bytes       
+    # => 200 OK | application/json 176 bytes
 
     OUTPUT
     {
@@ -117,12 +117,12 @@ ruby
     streams: {
       download_file_by_path: lambda do |input, starting_byte_range, ending_byte_range, requested_byte_size|
         # Example starting_byte_range = 0
-        # Example ending_byte_range = 10485759 
+        # Example ending_byte_range = 10485759
         # Example requested_byte_size = 10485760 (10MB)
         chunk = get("/pubapi/v1/fs-content/#{file_path}").
                   headers("Range": "bytes=#{starting_byte_range}-#{ending_byte_range}").
                   response_format_raw
-        # if the chunk.size is smaller than the requested byte_size, 
+        # if the chunk.size is smaller than the requested byte_size,
         # then we know we are at the end of the file.
         [chunk, chunk.size < requested_byte_size]
       end
@@ -155,7 +155,7 @@ shell
     }
 
     RestClient.get "https://acme.egnyte.com/pubapi/v1/fs-content/path/to/sample/file", "Range"=>"bytes=0-255", "Accept"=>"application/json", "Accept-Encoding"=>"gzip, deflate", "Authorization"=>"Bearer valid_access_token", "Content-Length"=>"207", "User-Agent"=>"rest-client/2.0.2 (darwin19.6.0 x86_64) ruby/2.4.10p364"
-    # => 206 PartialContent | text/csv 255 bytes, 1.85s       
+    # => 206 PartialContent | text/csv 255 bytes, 1.85s
 
     OUTPUT
     [

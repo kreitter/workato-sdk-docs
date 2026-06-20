@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/file_streaming.html
-> **Fetched**: 2026-06-19T03:12:53.147130
+> **Fetched**: 2026-06-20T03:10:52.770575
 
 ---
 
@@ -120,8 +120,8 @@ ruby
         let(:input) do
           {
               "file_name": "sample_file",
-              "file": { 
-                # this hash simulates a file stream which is 
+              "file": {
+                # this hash simulates a file stream which is
                 # the output of a download file object
                 "__stream__": true,
                 "chunks": {

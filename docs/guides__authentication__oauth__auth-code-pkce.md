@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce.html
-> **Fetched**: 2026-06-19T03:13:18.134643
+> **Fetched**: 2026-06-20T03:11:16.694886
 
 ---
 
@@ -249,7 +249,7 @@ ruby
               access_token: response["access_token"],
               refresh_token: response["refresh_token"]
             }
-          ]   
+          ]
         end,
 
 ```

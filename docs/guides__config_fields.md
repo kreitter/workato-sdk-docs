@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/config_fields.html
-> **Fetched**: 2026-06-19T03:13:45.247379
+> **Fetched**: 2026-06-20T03:11:42.794554
 
 ---
 
@@ -92,7 +92,7 @@ ruby
                 if value.is_a?(Integer)
                   type = 'integer'
                   control_type = 'number'
-                else 
+                else
                   type = 'string'
                   control_type = 'text'
                 end
@@ -116,7 +116,7 @@ ruby
                 if value.is_a?(Integer)
                   type = 'integer'
                   control_type = 'number'
-                else 
+                else
                   type = 'string'
                   control_type = 'text'
                 end
@@ -140,7 +140,7 @@ ruby
                 if value.is_a?(Integer)
                   type = 'integer'
                   control_type = 'number'
-                else 
+                else
                   type = 'string'
                   control_type = 'text'
                 end
@@ -230,7 +230,7 @@ ruby
                 if value.is_a?(Integer)
                   type = 'integer'
                   control_type = 'number'
-                else 
+                else
                   type = 'string'
                   control_type = 'text'
                 end

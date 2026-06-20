@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/streams.html
-> **Fetched**: 2026-06-19T03:14:17.306318
+> **Fetched**: 2026-06-20T03:12:13.512342
 
 ---
 
@@ -32,11 +32,11 @@ ruby
 
           [Unique_stream_name]: lambda do |input, starting_byte_range, ending_byte_range, byte_size|
             Array
-          end, 
+          end,
 
           [Another_unique_stream_name]: lambda do |input, starting_byte_range, ending_byte_range, byte_size|
             Array
-          end, 
+          end,
         },
 
 ```
@@ -64,7 +64,7 @@ ruby
       download_file: {
         title: "Download file",
 
-        input_fields: lambda do 
+        input_fields: lambda do
           [
             {
               name: "file_id",
@@ -79,11 +79,11 @@ ruby
           }
         end,
 
-        output_fields: lambda do 
+        output_fields: lambda do
           [
             {
               name: "file_contents"
-            } 
+            }
           ]
         end
       }
@@ -103,13 +103,13 @@ ruby
     streams: {
         download_file: lambda do |input, starting_byte_range, ending_byte_range, byte_size|
           # Example starting_byte_range = 0
-          # Example ending_byte_range = 10485759 
+          # Example ending_byte_range = 10485759
           # Example byte_size = 10485760 (10MB)
           # input passed from action can be assumed to be a friendly URL
           chunk = get("/#{input['file_id']}/download").
             headers("Range": "bytes=#{starting_byte_range}-#{ending_byte_range}").
             response_format_raw
-          # if the chunk.size is smaller than the requested byte_size, 
+          # if the chunk.size is smaller than the requested byte_size,
           # then we know we are at the end of the file.
           [chunk, chunk.size < byte_size]
         end
