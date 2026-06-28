@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/basic-authentication.html
-> **Fetched**: 2026-06-27T03:10:19.959789
+> **Fetched**: 2026-06-28T03:11:59.905253
 
 ---
 
