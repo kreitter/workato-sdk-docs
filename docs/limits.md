@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/limits.html
-> **Fetched**: 2026-07-02T03:10:37.423994
+> **Fetched**: 2026-07-03T03:08:24.095442
 
 ---
 
@@ -29,8 +29,8 @@ SDK Timeout credentials refresh| 30 seconds
 Maximum number of swap outs in multi-step actions| 100  
 Minimum swap interval in multi-step actions| 60 seconds  
 Maximum number of job suspensions| 50  
-[Maximum consecutive polling without any jobs produced](</developing-connectors/sdk/guides/trigger-limit.html#consecutive-polls-in-a-single-poll-cycle-without-jobs>)| 600  
-[Maximum number of events in a single poll](</developing-connectors/sdk/guides/trigger-limit.html#number-of-events-per-poll>)| 1,000  
+[Maximum consecutive polling without any jobs produced](</en/developing-connectors/sdk/guides/trigger-limit.html#consecutive-polls-in-a-single-poll-cycle-without-jobs>)| 600  
+[Maximum number of events in a single poll](</en/developing-connectors/sdk/guides/trigger-limit.html#number-of-events-per-poll>)| 1,000  
 Maximum data allowed in custom connector code| 10 MB  
 Compatible code formats| UTF-8 and JSON compatible  
 

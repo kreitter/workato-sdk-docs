@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/trigger-limit.html
-> **Fetched**: 2026-07-02T03:10:35.174629
+> **Fetched**: 2026-07-03T03:08:21.884773
 
 ---
 
@@ -23,8 +23,8 @@ The limits on this page are defaults based on Workato best practices and are con
 
 Description| Limit  
 ---|---  
-[Maximum consecutive polling without any jobs produced](</developing-connectors/sdk/guides/trigger-limit.html#consecutive-polls-in-a-single-poll-cycle-without-jobs>)| 600  
-[Maximum number of events in a single poll](</developing-connectors/sdk/guides/trigger-limit.html#number-of-events-per-poll>)| 1,000  
+[Maximum consecutive polling without any jobs produced](</en/developing-connectors/sdk/guides/trigger-limit.html#consecutive-polls-in-a-single-poll-cycle-without-jobs>)| 600  
+[Maximum number of events in a single poll](</en/developing-connectors/sdk/guides/trigger-limit.html#number-of-events-per-poll>)| 1,000  
 
 ## Consecutive polls in a single poll cycle without jobs [​](<#consecutive-polls-in-a-single-poll-cycle-without-jobs>)
 
