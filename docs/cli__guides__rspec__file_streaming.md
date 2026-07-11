@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/file_streaming.html
-> **Fetched**: 2026-07-10T03:07:45.317228
+> **Fetched**: 2026-07-11T03:05:14.849139
 
 ---
 
