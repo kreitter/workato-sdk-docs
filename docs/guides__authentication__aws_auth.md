@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/aws_auth.html
-> **Fetched**: 2026-07-21T03:05:46.715215
+> **Fetched**: 2026-07-22T03:05:45.125465
 
 ---
 
