@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/hybrid-triggers.html
-> **Fetched**: 2026-08-01T03:05:54.802124
+> **Fetched**: 2026-08-02T03:06:37.709847
 
 ---
 
