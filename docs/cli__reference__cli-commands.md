@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-commands.html
-> **Fetched**: 2026-08-07T03:02:59.769809
+> **Fetched**: 2026-08-08T02:40:02.216350
 
 ---
 
@@ -463,7 +463,7 @@ Folder IDs are located in the URL when you're viewing the folder. For example: i
 **-l or --logo**|  The link to the `png` or `jpeg` of your connector's logo. Defaults to `logo.png` if not provided.   
 **-n or --notes**|  The version notes attached to this uploaded version.   
 **-c or --connector**|  The path to the connector source code. Defaults to `connector.rb` if not provided.   
-**\--environment**|  Use this data center-specific URL to push connector code. Defaults to the WORKATO_BASE_URL environment variable if not set. For example: \- `https://app.workato.com` \- `https://app.eu.workato.com` \- `https://app.jp.workato.com` \- `https://app.sg.workato.com` \- `https://app.au.workato.com` \- `https://app.il.workato.com` \- `https://app.workatoapp.cn` \- `https://app.kr.workato.com` \- `https://app.trial.workato.com`   
+**\--environment**|  Use this data center-specific URL to push connector code. Defaults to the WORKATO_BASE_URL environment variable if not set. For example: \- `https://app.workato.com` \- `https://app.eu.workato.com` \- `https://app.jp.workato.com` \- `https://app.sg.workato.com` \- `https://app.au.workato.com` \- `https://app.il.workato.com` \- `https://app.workatoapp.cn` \- `https://app.kr.workato.com` \- `https://app.uk.workato.com` \- `https://app.trial.workato.com`   
 
 ### Example [​](<#workato-push-example>)
 ```ruby
