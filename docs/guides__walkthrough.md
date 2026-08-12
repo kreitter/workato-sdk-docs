@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/walkthrough.html
-> **Fetched**: 2026-08-11T02:45:03.342312
+> **Fetched**: 2026-08-12T02:55:23.965372
 
 ---
 
@@ -136,6 +136,157 @@ Enter one of the following valid inputs in the **Object** field:
 Click **Connect** to establish the connection. A successful connection displays the following confirmation:
 
 ![successful-connection](/assets/successful-connection.WSt3rXqp.png)_Successful connection_
+
+## Create an SDK connection for MCP verified user access [​](<#create-an-sdk-connection-for-mcp-verified-user-access>)
+
+[MCP verified user access](</en/mcp/verified-user-access>) only supports connections that use OAuth 2.0 authorization code grant. This connection type redirects the end user to an external application to authorize access before Workato stores the user's credentials.
+
+Complete the following steps to create the connection:
+
+1
+
+Open the **Source code** tab.
+
+2
+
+Copy and paste the following code snippet into the code editor:
+
+ruby
+```ruby
+
+    {
+      title: 'Example App',
+
+      connection: {
+        fields: [
+          {
+            name: 'host',
+            label: 'Host',
+            hint: 'e.g. https://your-instance.example.com',
+            optional: false
+          },
+          {
+            name: 'client_id',
+            label: 'Client ID',
+            optional: false
+          },
+          {
+            name: 'client_secret',
+            label: 'Client secret',
+            control_type: 'password',
+            optional: false,
+            preserve_in_runtime_connection: true
+          }
+        ],
+
+        authorization: {
+          type: 'oauth2',
+
+          authorization_url: lambda do |connection|
+            "#{connection['host']}/oauth/authorize?client_id=#{connection['client_id']}&response_type=code"
+          end,
+
+          acquire: lambda do |connection, auth_code, redirect_uri|
+            response = post("#{connection['host']}/oauth/token").
+                         payload(client_id: connection['client_id'],
+                                 client_secret: connection['client_secret'],
+                                 grant_type: 'authorization_code',
+                                 code: auth_code,
+                                 redirect_uri: redirect_uri).
+                         request_format_www_form_urlencoded
+
+            [response, nil, nil]
+          end,
+
+          refresh: lambda do |connection, refresh_token|
+            post("#{connection['host']}/oauth/token").
+              payload(client_id: connection['client_id'],
+                      client_secret: connection['client_secret'],
+                      grant_type: 'refresh_token',
+                      refresh_token: refresh_token).
+              request_format_www_form_urlencoded
+          end,
+
+          detect_on: [401],
+
+          apply: lambda do |connection, access_token|
+            headers('Authorization' => "Bearer #{access_token}")
+          end
+        },
+
+        base_uri: lambda do |connection|
+          connection['host']
+        end
+      },
+
+      test: lambda do |connection|
+        get('/api/me')
+      end,
+
+      # More code below but hidden for now!
+    }
+
+```
+
+How does this code snippet work?
+
+This snippet defines the following keys: 
+
+  * `fields`
+  * Declares the connection input fields: `host`, `client_id`, and `client_secret`. MCP verified user access requires OAuth 2.0 authorization code grant with a `client_secret` that uses `control_type: 'password'` to mask the value in the UI.
+  * `authorization`
+  * Declares the OAuth 2.0 authorization code grant flow. `authorization_url` builds the URL the end user is redirected to. `acquire` exchanges the returned authorization code for an access token. `refresh` exchanges a refresh token for a new access token. `apply` attaches the access token to every request the connector makes.
+  * `base_uri`
+  * Declares the base URL for requests, built from the `host` field.
+  * `test`
+  * Declares the test that runs when a user clicks **Connect**.
+
+Why does client_secret set preserve_in_runtime_connection: true?
+
+Refer to [Configure fields for runtime user connections](<#configure-fields-for-runtime-user-connections>) for a full explanation of this property.
+
+3
+
+Enter a name in the **Connection name** field.
+
+4
+
+Enter the host, client ID, and client secret for your test application.
+
+5
+
+Click **Connect**. Workato redirects you to the external application to authorize access, then redirects you back to Workato. Workato displays a confirmation message after the connection succeeds.
+
+### Configure fields for runtime user connections [​](<#configure-fields-for-runtime-user-connections>)
+
+An end user authenticates through MCP verified user access. Workato then creates a [runtime user connection](</en/features/runtime-user-connections>) ⁠and copies settings from the source connection you configured. Fields that use `control_type: 'password'` aren't copied to the runtime user connection by default. This protects credentials, such as API secrets, that shouldn't be shared across every end user's copy of the connection.
+
+If each runtime user connection requires the same password field value, such as a shared `client_secret` for the OAuth 2.0 token exchange, you must explicitly preserve the value. Set `preserve_in_runtime_connection` on the field definition to control how Workato copies the value:
+
+Value| Behavior  
+---|---  
+`true`| Always copies this field's value to the runtime connection, even if it uses `control_type: 'password'`.  
+`false`| Never copies this field's value to the runtime connection, regardless of depth or nesting.  
+`nil` (default, omitted)| Default behavior: password fields are stripped, and all other fields are copied.  
+
+For example:
+
+ruby
+```ruby
+
+    {
+      name: 'client_secret',
+      label: 'Client secret',
+      control_type: 'password',
+      optional: false,
+      preserve_in_runtime_connection: true
+    }
+
+```
+
+REVIEW BEFORE SETTING preserve_in_runtime_connection: true ON PASSWORD FIELDS
+
+Only set `preserve_in_runtime_connection: true` on a password field if every end user requires the value in their runtime user connection. Copying a shared secret to every runtime user connection increases exposure if a single runtime connection is compromised.
 
 ## Create an action [​](<#create-an-action>)
 
