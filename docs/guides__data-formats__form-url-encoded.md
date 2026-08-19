@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/form-url-encoded.html
-> **Fetched**: 2026-08-18T02:26:12.849991
+> **Fetched**: 2026-08-19T02:27:43.980740
 
 ---
 
