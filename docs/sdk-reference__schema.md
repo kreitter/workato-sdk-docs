@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html
-> **Fetched**: 2026-08-31T02:18:26.496415
+> **Fetched**: 2026-09-01T02:18:49.020164
 
 ---
 
@@ -82,7 +82,7 @@ type| Optional. The data type of this field. Default value is "string". Possible
 \- "date_time"   
 \- "date"   
 \- "timestamp"   
-\- "boolean"   
+\- "boolean" - Refer to [Boolean fields display the number icon](<#boolean-fields-number-icon>)   
 \- "object" - Must be accompanied by `properties`   
 \- "array" - Must be accompanied by `of`  
 of| Optional except when `type: "array"`. Used in conjunction with Arrays to define the data type of the Array. Possible values are:   
@@ -120,6 +120,12 @@ empty_schema_message| Optional. Only used with `control_type: "schema-designer"`
 sample_data_type| Optional. Only used with `control_type: "schema-designer"`. This allows you to configure the type of data the schema-designer input field accepts. Setting `sample_data_type: csv` results in the following: ![](/assets/sample_data_type.doQiRpct.png) Other possible inputs are json_input and xml. The schema-designer defaults to json_input.  
 ngIf| Optional. Allows you to define a boolean statement. If true, this field displays. The boolean statement can reference other inputs in the same schema. For example, `ngIf: 'input.object_name != "approval"'` where the root node is `input` and you can traverse to a specific field via dot notation. Refer to [Using ngIf to conditionally hide or display fields](<#using-ngif-to-conditionally-hide-or-display-fields>) for more details.  
 tree_options| Optional. Only used when `control_type: 'tree'`. This allows you to control the behavior of the `tree` picklist. This key expects a Hash which has three possible keys - `selectable_folder`,`multi_select` and `force_selection_hierarchy`. Refer to [Picklists](</en/developing-connectors/sdk/sdk-reference/picklists>) for more information.  
+
+BOOLEAN FIELDS DISPLAY THE NUMBER ICON
+
+Fields with `type: "boolean"` show the icon for `number` fields in the SDK console and recipe editor. This is a known and expected behavior. The field still behaves as a boolean at runtime regardless of which icon it displays.
+
+![A boolean output field named Is active displays the number field icon instead of a boolean icon.](/assets/boolean-field-number-icon.CSoICCYB.png)
 
 ## Control types [​](<#control-types>)
 
