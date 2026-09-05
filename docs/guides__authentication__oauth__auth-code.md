@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code.html
-> **Fetched**: 2026-09-04T02:16:21.045879
+> **Fetched**: 2026-09-05T02:15:34.729083
 
 ---
 
@@ -181,10 +181,6 @@ ruby
 
 ## Step 3 - Defining client ID, client secret, authorization url, and token url [​](<#step-3-defining-client-id-client-secret-authorization-url-and-token-url>)
 
-VIRTUAL PRIVATE WORKATO (VPW) CUSTOMERS
-
-This feature requires configuration steps that are specific to your Virtual Private Workato (VPW) instance. If you are a VPW customer, refer to your VPW private documentation for the configuration details for your instances.
-
 With the authorization code grant variant of OAuth 2, you supply 4 key attributes to your connector:
 
   * The authorization url - where we will redirect the user via a browser popup to provide authorization.
@@ -251,6 +247,10 @@ json
 ```
 
 The authentication stores the values associated with `access_token` and `refresh_token`.
+
+VIRTUAL PRIVATE WORKATO (VPW) CUSTOMERS
+
+This feature requires configuration steps that are specific to your Virtual Private Workato (VPW) instance. If you are a VPW customer, refer to your VPW private documentation for the configuration details for your instances.
 
 ## Step 4 - Applying the access token to subsequent HTTP requests [​](<#step-4-applying-the-access-token-to-subsequent-http-requests>)
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-commands.html
-> **Fetched**: 2026-09-04T02:15:59.837576
+> **Fetched**: 2026-09-05T02:15:14.461672
 
 ---
 
@@ -377,11 +377,11 @@ Generates a new connector project.
 
 ## workato oauth2 [​](<#workato-oauth2>)
 
+Use this to implement the OAuth2 Authorization code grant flow for applicable connectors. Applicable connectors are ones where the connection hash has `type: 'oauth2`. For more information, check out this handy [Okta article](<https://developer.okta.com/blog/2018/04/10/oauth-authorization-code-grant-type>). 
+
 GEM VERSION REQUIREMENT
 
 The command `workato oauth2` requires SDK Gem version 0.1.2 and above.
-
-Use this to implement the OAuth2 Authorization code grant flow for applicable connectors. Applicable connectors are ones where the connection hash has `type: 'oauth2`. For more information, check out this handy [Okta article](<https://developer.okta.com/blog/2018/04/10/oauth-authorization-code-grant-type>). 
 
 ### Usage [​](<#workato-oauth2-usage>)
 ```bash
@@ -424,15 +424,15 @@ Emulates the OAuth2 Authorization Code Grant Flow on Workato. Applicable connect
 
 ## workato push [​](<#workato-push>)
 
-PUSH TO A SPECIFIC FOLDER
-
-The `workato push` command does not push to a specific folder in your Workato workspace unless you use the `--folder` parameter. For example: `workato push --folder <folder ID>`.
-
 VIRTUAL PRIVATE WORKATO (VPW) CUSTOMERS
 
 This feature requires configuration steps that are specific to your Virtual Private Workato (VPW) instance. If you are a VPW customer, refer to your VPW private documentation for the configuration details for your instances.
 
 Creates a new connector project in your chosen Workato folder.
+
+PUSH TO A SPECIFIC FOLDER
+
+The `workato push` command does not push to a specific folder in your Workato workspace unless you use the `--folder` parameter. For example: `workato push --folder <folder ID>`.
 
 ### Usage [​](<#workato-push-usage>)
 ```bash

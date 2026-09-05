@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/debugging.html
-> **Fetched**: 2026-09-04T02:16:54.604432
+> **Fetched**: 2026-09-05T02:16:07.131372
 
 ---
 
@@ -76,10 +76,6 @@ ruby
 
 ### Debugging triggers and actions [​](<#debugging-triggers-and-actions>)
 
-WARNING
-
-Debugging of webhook triggers is not supported on our **Test code** tab at this time. To debug webhook triggers, we suggest using the [SDK CLI](</en/developing-connectors/sdk/cli#sdk-cli>).
-
 Debugging triggers and actions allow you to debug two main portions:
 
   1. The UI of the operation as if you were using it in the recipe editor
@@ -101,6 +97,10 @@ When you're done, click **Test** to execute the operation. For polling triggers,
   * Triggers: An important distinction for triggers is that a single trigger poll may produce multiple jobs. If this sounds unfamiliar, please read our guides on [polling triggers](</en/developing-connectors/sdk/guides/building-triggers/poll#how-to-guides-polling-trigger>). As such, the output of a trigger test will highlight a few things, such as the `events` and `staged_events` which are synonymous with the array of records that are turned into individual jobs. Each index in the array corresponds to a single job. Aside from that, you will also be able to see the outcome of `can_poll_more` as well as the `closure` which is passed to the next iteration of the poll.
 
 ![Output](/assets/debugger-operation-output.DI3KNqqO.png)
+
+WARNING
+
+Debugging of webhook triggers is not supported on our **Test code** tab at this time. To debug webhook triggers, we suggest using the [SDK CLI](</en/developing-connectors/sdk/cli#sdk-cli>).
 
 ### Limitations [​](<#limitations>)
 

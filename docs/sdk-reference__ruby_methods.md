@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-09-04T02:17:18.208919
+> **Fetched**: 2026-09-05T02:16:29.689078
 
 ---
 
@@ -919,10 +919,6 @@ See [exclude](<https://apidock.com/rails/String/exclude%3F>) method definition.
 
 ## execution_context [​](<#execution-context>)
 
-RESTRICTED METHOD AVAILABILITY
-
-This method is available only to connectors built within Embedded partner workspaces. It returns a hash containing the context of the recipe and job from which this action or trigger is invoked. If there is no applicable context, for example, the job ID when a request is sent in a trigger, the key's value is `null`.
-
 The following table summarizes the lambdas: `execution_context` return values:
 
 Key| recipe_id| job_id  
@@ -949,6 +945,10 @@ ruby
 ```
 
 * * *
+
+RESTRICTED METHOD AVAILABILITY
+
+This method is available only to connectors built within Embedded partner workspaces. It returns a hash containing the context of the recipe and job from which this action or trigger is invoked. If there is no applicable context, for example, the job ID when a request is sent in a trigger, the key's value is `null`.
 
 ## fetch [​](<#fetch>)
 
