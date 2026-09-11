@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/trigger-limit.html
-> **Fetched**: 2026-09-10T02:16:55.433806
+> **Fetched**: 2026-09-11T02:17:16.323629
 
 ---
 
@@ -11,32 +11,32 @@
 
 Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/guides/trigger-limit.md for this page in Markdown format
 
-# SDK trigger limits [​](<#sdk-trigger-limit>)
+# SDK trigger quotas [​](<#sdk-trigger-limit>)
 
 Copy page
 
-Workato enforces specific limits on SDK triggers to optimize performance and ensure system stability. We apply limits to the following trigger processing functions:
+Workato enforces specific quotas on SDK triggers to optimize performance and ensure system stability. We apply quotas to the following trigger processing functions:
 
-DEFAULT LIMITS
+DEFAULT QUOTAS
 
-The limits on this page are defaults based on Workato best practices and are configured to enable optimal platform performance. Customers on Enterprise plans or above can contact their Customer Success Representative to request an extension of these limits for their specific use cases.
+The quotas on this page are defaults based on Workato best practices and are configured to enable optimal platform performance. Customers on Enterprise plans or above can contact their Customer Success Representative to request an extension of these quotas for their specific use cases.
 
-Description| Limit  
+Description| Quota  
 ---|---  
 [Maximum consecutive polling without any jobs produced](</en/developing-connectors/sdk/guides/trigger-limit.html#consecutive-polls-in-a-single-poll-cycle-without-jobs>)| 600  
 [Maximum number of events in a single poll](</en/developing-connectors/sdk/guides/trigger-limit.html#number-of-events-per-poll>)| 1,000  
 
 ## Consecutive polls in a single poll cycle without jobs [​](<#consecutive-polls-in-a-single-poll-cycle-without-jobs>)
 
-Without a limit, triggers can poll consecutively to retrieve valid results. The `can_poll_more` boolean attribute in the SDK trigger poll response controls this behavior. Workato enforces a limit on consecutive polls in a single poll cycle when no jobs are produced.
+Without a quota, triggers can poll consecutively to retrieve valid results. The `can_poll_more` boolean attribute in the SDK trigger poll response controls this behavior. Workato enforces a quota on consecutive polls in a single poll cycle when no jobs are produced.
 
 ### Throttling mechanism [​](<#throttling-mechanism>)
 
 Workato throttles a trigger if it polls consecutively without producing any jobs. Throttling minimizes unnecessary polling and ensures system stability. Triggers are limited to 600 consecutive polls in a single poll cycle without jobs before Workato pauses polling for 5 minutes. This threshold gradually decreases over time to 50 consecutive polls.
 
-Workato pauses polling for 5 minutes when your trigger exceeds this limit. Polling resumes after the pause automatically and the counter continues from where it left off. Workato pauses polling again for another 5 minutes if the next poll also produces no jobs. The counter resets to zero if a poll produces jobs.
+Workato pauses polling for 5 minutes when your trigger exceeds this quota. Polling resumes after the pause automatically and the counter continues from where it left off. Workato pauses polling again for another 5 minutes if the next poll also produces no jobs. The counter resets to zero if a poll produces jobs.
 
-This pattern repeats until the poll cycle ends when `can_poll_more` equals false. Triggers can only poll once every 5 minutes without producing jobs after reaching the limit.
+This pattern repeats until the poll cycle ends when `can_poll_more` equals false. Triggers can only poll once every 5 minutes without producing jobs after reaching the quota.
 
 ### Throttling notification [​](<#notification-mechanism>)
 
@@ -57,7 +57,7 @@ Additionally, at the end of each month, Workato sends a summary email that lists
 
 ## Number of events in a single poll [​](<#number-of-events-per-poll>)
 
-Without a limit, a single poll can fetch an unbounded number of records, which can result in excessive platform load. Workato limits the number of events generated from a single poll to 1,000 in SDK connector triggers.
+Without a quota, a single poll can fetch an unbounded number of records, which can result in excessive platform load. Workato limits the number of events generated from a single poll to 1,000 in SDK connector triggers.
 
 ### What counts as a poll and an event? [​](<#what-counts-as-a-poll-and-an-event>)
 
@@ -100,11 +100,11 @@ ruby
 
 ```
 
-If there are 10,000 records, this configuration fetches them across 100 polls. Each poll returns up to 100 records, which generate 100 events and 100 jobs. This approach meets the 1,000-event-per-poll limit.
+If there are 10,000 records, this configuration fetches them across 100 polls. Each poll returns up to 100 records, which generate 100 events and 100 jobs. This approach meets the 1,000-event-per-poll quota.
 
 ### Limiting mechanism [​](<#limiting-mechanism>)
 
-Workato stops a recipe if the trigger fetches an excessive number of events in a single poll. This prevents system overload and ensures stability. Starting June 9th, 2025, triggers are limited to `1000` events in a single poll. The recipe is stopped if your trigger exceeds this limit.
+Workato stops a recipe if the trigger fetches an excessive number of events in a single poll. This prevents system overload and ensures stability. Starting June 9th, 2025, triggers are limited to `1000` events in a single poll. The recipe is stopped if your trigger exceeds this quota.
 
 ### Stopped recipe notification [​](<#stopped-recipe-notification>)
 
@@ -119,7 +119,7 @@ Workato sends the following notifications about stopped recipes to specific reci
 
 #### Notification details [​](<#stopped-recipe-notification-notification-details>)
 
-Workato provides notifications at two key points to keep you informed about stopped recipes due to the limit.
+Workato provides notifications at two key points to keep you informed about stopped recipes due to the quota.
 
 Workato sends an email that contains information about the recipe when a recipe is stopped for the first time. This ensures you are immediately aware of issues affecting your recipe.
 
@@ -127,9 +127,9 @@ Additionally, Workato sends a monthly summary email listing all affected recipes
 
 ### Frequently asked questions [​](<#frequently-asked-questions>)
 
-#### Does the limit apply to total events over time? [​](<#does-the-limit-apply-to-total-events-over-time>)
+#### Does the quota apply to total events over time? [​](<#does-the-limit-apply-to-total-events-over-time>)
 
-No. The limit applies to each individual poll, not the total number of events processed across time.
+No. The quota applies to each individual poll, not the total number of events processed across time.
 
 #### What if my trigger needs to process 100,000 events? [​](<#what-if-my-trigger-needs-to-process-100-000-events>)
 

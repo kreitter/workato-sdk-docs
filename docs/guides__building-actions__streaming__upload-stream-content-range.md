@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range.html
-> **Fetched**: 2026-09-10T02:16:35.463011
+> **Fetched**: 2026-09-11T02:16:56.558861
 
 ---
 
@@ -21,7 +21,7 @@ In this segment, we will be going through the creation of actions that uploads f
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180-second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
 You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
 
@@ -148,7 +148,7 @@ ruby
 
 ### Using our multistep framework to extend upload times [​](<#using-our-multistep-framework-to-extend-upload-times>)
 
-When defining the `workato.stream.in` method, you are able to define an additional named parameter for `from`, which can be used in conjunction with the `checkpoint!` method to extend the timeout of your upload action beyond Workato's limit of 180 seconds.
+When defining the `workato.stream.in` method, you are able to define an additional named parameter for `from`, which can be used in conjunction with the `checkpoint!` method to extend the timeout of your upload action beyond Workato's default 180-second timeout limit.
 
 When `checkpoint!` is called, it checks if action's current execution time is larger than 120 seconds, and if so, refreshes the action timeout after a short waiting period. This can be used in conjunction with the `from` argument to tell Workato's streaming library where to continue from the last byte offset.
 

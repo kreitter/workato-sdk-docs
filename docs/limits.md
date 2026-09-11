@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/limits.html
-> **Fetched**: 2026-09-10T02:16:57.635599
+> **Fetched**: 2026-09-11T02:17:18.523229
 
 ---
 
@@ -9,17 +9,17 @@
 
 Are you an LLM? You can read better optimized documentation at /en/developing-connectors/sdk/limits.md for this page in Markdown format
 
-# Connector SDK limits [​](<#connector-sdk-limits>)
+# Connector SDK quotas [​](<#connector-sdk-limits>)
 
 Copy page
 
-The Connector SDK is subject to the following limits.
+The Connector SDK is subject to the following quotas.
 
-DEFAULT LIMITS
+DEFAULT QUOTAS
 
-The limits on this page are defaults based on Workato best practices and are configured to enable optimal platform performance. Customers on Enterprise plans or above can contact their Customer Success Representative to request an extension of these limits for their specific use cases.
+The quotas on this page are defaults based on Workato best practices and are configured to enable optimal platform performance. Customers on Enterprise plans or above can contact their Customer Success Representative to request an extension of these quotas for their specific use cases.
 
-Description| Limit  
+Description| Quota  
 ---|---  
 Maximum number of SDK/custom connectors in one workspace| 150  
 Timeout for HTTP request inside SDK connectors in the Test code console| 40 seconds  
@@ -36,7 +36,7 @@ Compatible code formats| UTF-8 and JSON compatible
 
 FURTHER READING
 
-  * Refer to the [SDK trigger polling limits](</en/developing-connectors/sdk/guides/trigger-limit>) documentation for more information on SDK polling trigger limits.
-  * Refer to the [Platform limits](</en/limits>) documentation for more information about Workato limits.
+  * Refer to the [SDK trigger polling quotas](</en/developing-connectors/sdk/guides/trigger-limit>) documentation for more information on SDK polling trigger quotas.
+  * Refer to the [Platform quotas](</en/limits>) documentation for more information about Workato quotas.
 
 **Last updated:**

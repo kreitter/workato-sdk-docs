@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming.html
-> **Fetched**: 2026-09-10T02:16:32.005076
+> **Fetched**: 2026-09-11T02:16:53.252690
 
 ---
 
@@ -23,7 +23,7 @@ Many of Workato's standard platform connectors to common file storage locations 
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180-second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
 You can use the `checkpoint!` method with file streaming actions to transfer files that exceed the timeout limit. Refer to the [Using our multistep framework to extend upload times](</en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id#using-our-multistep-framework-to-extend-upload-times>) section for additional information.
 

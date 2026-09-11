@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/hybrid-triggers.html
-> **Fetched**: 2026-09-10T02:16:40.920918
+> **Fetched**: 2026-09-11T02:17:01.991579
 
 ---
 
@@ -209,6 +209,6 @@ ruby
 
 ## Rate limits [​](<#rate-limits>)
 
-This trigger is subject to our [webhook gateway's limits.](</en/troubleshooting/webhook-gateway-limits>)
+This trigger is subject to our [webhook gateway's quotas.](</en/troubleshooting/webhook-gateway-limits>)
 
 **Last updated:**

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multistep-actions.html
-> **Fetched**: 2026-09-10T02:16:30.947059
+> **Fetched**: 2026-09-11T02:16:52.190955
 
 ---
 
@@ -31,7 +31,7 @@ Always release the latest version of your custom connector before testing it in 
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180-second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
 ## Sample connector - Google BigQuery [​](<#sample-connector-google-bigquery>)
 

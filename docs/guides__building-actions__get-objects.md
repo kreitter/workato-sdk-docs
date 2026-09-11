@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/get-objects.html
-> **Fetched**: 2026-09-10T02:16:28.715403
+> **Fetched**: 2026-09-11T02:16:49.955824
 
 ---
 
@@ -21,7 +21,7 @@ In this segment, we will be going through the creation of actions that help retr
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180-second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
 ## Sample connector - Zuora [​](<#sample-connector-zuora>)
 

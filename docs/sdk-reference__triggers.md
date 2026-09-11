@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/triggers.html
-> **Fetched**: 2026-09-10T02:17:19.306953
+> **Fetched**: 2026-09-11T02:17:39.819318
 
 ---
 
@@ -593,7 +593,7 @@ Attribute| Description
 Key| `webhook_response_headers`  
 Type| String  
 Required| Optional. Only applies to Dynamic webhook triggers ( triggers with `webhook_subscribe` and `webhook_unsubscribe`)  
-Description| By default, Workato responds with an standard headers (rate limit, byte limit) to webhook events. `webhook_response_headers` allows for a mustache template that allows you to define what headers Workato should include in response headers. See [webhook_response_body](<#webhook-response-body>)  
+Description| By default, Workato responds with an standard headers (rate limit, byte quota) to webhook events. `webhook_response_headers` allows for a mustache template that allows you to define what headers Workato should include in response headers. See [webhook_response_body](<#webhook-response-body>)  
 
 WARNING
 

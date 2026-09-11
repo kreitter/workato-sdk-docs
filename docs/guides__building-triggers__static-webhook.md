@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/static-webhook.html
-> **Fetched**: 2026-09-10T02:16:44.269348
+> **Fetched**: 2026-09-11T02:17:05.335638
 
 ---
 
@@ -387,6 +387,6 @@ Now that you're receiving webhooks, you can now consider adding [additional chec
 
 ## Rate limits [​](<#rate-limits>)
 
-This trigger is subject to our [webhook gateway's limits.](</en/troubleshooting/webhook-gateway-limits>)
+This trigger is subject to our [webhook gateway's quotas.](</en/troubleshooting/webhook-gateway-limits>)
 
 **Last updated:**

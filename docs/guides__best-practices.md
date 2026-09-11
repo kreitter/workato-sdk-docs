@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2026-09-10T02:16:24.230868
+> **Fetched**: 2026-09-11T02:16:45.634068
 
 ---
 
@@ -275,9 +275,9 @@ ruby
 
 ### Consecutive polling [​](<#consecutive-polling>)
 
-When polling, triggers can poll consecutively to retrieve valid results. The `can_poll_more` boolean attribute in the SDK’s trigger poll lambda response controls this behavior. When set to `true`, the trigger initiates an immediate poll. Workato enforces a limit on the maximum number of consecutive polls in a single poll cycle when no jobs are produced. Refer to the [Consecutive polls in a single poll cycle without jobs](</en/developing-connectors/sdk/guides/trigger-limit#consecutive-polls-in-a-single-poll-cycle-without-jobs>) section for more information.
+When polling, triggers can poll consecutively to retrieve valid results. The `can_poll_more` boolean attribute in the SDK’s trigger poll lambda response controls this behavior. When set to `true`, the trigger initiates an immediate poll. Workato enforces a quota on the maximum number of consecutive polls in a single poll cycle when no jobs are produced. Refer to the [Consecutive polls in a single poll cycle without jobs](</en/developing-connectors/sdk/guides/trigger-limit#consecutive-polls-in-a-single-poll-cycle-without-jobs>) section for more information.
 
-Adhere to the following best practices to configure `can_poll_more` effectively and ensure compliance with polling limits:
+Adhere to the following best practices to configure `can_poll_more` effectively and ensure compliance with polling quotas:
 
 #### Set `can_poll_more` to `true` only when additional pages remain for polling [​](<#set-can-poll-more-to-true-only-when-additional-pages-remain-for-polling>)
 

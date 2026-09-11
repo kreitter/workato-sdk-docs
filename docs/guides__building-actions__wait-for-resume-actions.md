@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/wait-for-resume-actions.html
-> **Fetched**: 2026-09-10T02:16:37.644525
+> **Fetched**: 2026-09-11T02:16:58.734421
 
 ---
 
@@ -26,7 +26,7 @@ This article describes how to configure Wait for resume actions. This feature al
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180-second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
 ## Example use cases [​](<#example-use-cases>)
 

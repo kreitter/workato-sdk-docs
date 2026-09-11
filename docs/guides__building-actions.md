@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions.html
-> **Fetched**: 2026-09-10T02:16:25.288920
+> **Fetched**: 2026-09-11T02:16:46.695889
 
 ---
 
@@ -32,7 +32,7 @@ Before we start, it is also important to get familiar with the different types o
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180-second [timeout](</en/recipes/recipe-job-errors#timeouts>) quota.
 
 You can use the [checkpoint!](</en/developing-connectors/sdk/sdk-reference/ruby_methods#checkpoint>) method with file streaming actions to transfer files that exceed the timeout limit. The `checkpoint!` method checks the duration of an action's execution. If it exceeds 120 seconds, Workato refreshes the timeout with a slight delay to ensure fair processing.
 

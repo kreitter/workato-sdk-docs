@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-09-10T02:17:14.689092
+> **Fetched**: 2026-09-11T02:17:35.254150
 
 ---
 
@@ -514,7 +514,7 @@ Takes seven arguments:
 
   * Boolean that indicates if we should skip the first line. Useful when `headers` is true.
 
-**Limits:** File size must be less than 30 MB and CSV lines fewer than 65K.
+**Quotas:** File size must be less than 30 MB and CSV lines fewer than 65K.
 
 * * *
 

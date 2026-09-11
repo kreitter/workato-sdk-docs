@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multi-threaded-actions.html
-> **Fetched**: 2026-09-10T02:16:29.818874
+> **Fetched**: 2026-09-11T02:16:51.065252
 
 ---
 
@@ -31,7 +31,7 @@ This allows you to inspect requests individually for easier debugging.
 
 ACTION TIMEOUT
 
-SDK actions have a 180 second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
+SDK actions have a 180-second [timeout](</en/recipes/recipe-job-errors#timeouts>) limit.
 
 ## Sample connector - Intercom [​](<#sample-connector-intercom>)
 
