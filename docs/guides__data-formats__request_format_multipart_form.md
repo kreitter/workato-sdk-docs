@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/request_format_multipart_form.html
-> **Fetched**: 2026-09-13T02:16:37.058385
+> **Fetched**: 2026-09-14T02:19:42.146064
 
 ---
 
