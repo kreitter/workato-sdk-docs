@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/client-credentials.html
-> **Fetched**: 2026-09-17T02:16:29.425136
+> **Fetched**: 2026-09-18T02:16:00.832159
 
 ---
 
