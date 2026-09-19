@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-planning.html
-> **Fetched**: 2026-09-18T02:15:48.795748
+> **Fetched**: 2026-09-19T02:15:20.525736
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/advanced-connector-guide/connector-planning>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/advanced-connector-guide/connector-planning>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -132,3 +143,5 @@ Bank Transfer| Yes| | Yes| | | Yes| Yes
 Now that you've sussed out what your connector generally looks like, its time to get building! The next chapter will go through how to organize and build your connector.
 
 **Last updated:**
+
+Ask AI

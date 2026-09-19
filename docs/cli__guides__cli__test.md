@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/test.html
-> **Fetched**: 2026-09-18T02:15:27.811453
+> **Fetched**: 2026-09-19T02:14:58.942124
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/cli/guides/cli/test>)
+  * [ 日本語](</ja/developing-connectors/sdk/cli/guides/cli/test>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -564,3 +575,5 @@ Note
 You may also use `workato exec` to execute lambdas in your `authorization` hash like `acquire` and `refresh`. **That said, we highlight recommend you use`workato exec test` and `workato oauth2` which handle the updating of your `settings.yaml` file automatically.**
 
 **Last updated:**
+
+Ask AI

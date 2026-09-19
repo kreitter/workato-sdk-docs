@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/on-prem.html
-> **Fetched**: 2026-09-18T02:16:03.016972
+> **Fetched**: 2026-09-19T02:15:35.120337
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/authentication/on-prem>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/authentication/on-prem>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -109,3 +120,5 @@ Refer to the [SDK reference](</en/developing-connectors/sdk/sdk-reference/connec
   * [Run an agent](</en/on-prem/agents/run>)
 
 **Last updated:**
+
+Ask AI

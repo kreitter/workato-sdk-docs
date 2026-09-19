@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/dynamic-webhook.html
-> **Fetched**: 2026-09-18T02:16:19.473593
+> **Fetched**: 2026-09-19T02:15:51.962822
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/building-triggers/dynamic-webhook>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/building-triggers/dynamic-webhook>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -264,3 +275,5 @@ Now that you're receiving webhooks, you can now consider adding [additional chec
 This trigger is subject to our [webhook gateway's quotas.](</en/troubleshooting/webhook-gateway-limits>)
 
 **Last updated:**
+
+Ask AI

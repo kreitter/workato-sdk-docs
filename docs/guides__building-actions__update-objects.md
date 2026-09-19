@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/update-objects.html
-> **Fetched**: 2026-09-18T02:16:16.227545
+> **Fetched**: 2026-09-19T02:15:48.629826
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/building-actions/update-objects>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/building-actions/update-objects>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -224,3 +235,5 @@ ruby
 To know more about the sample output key, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/actions#sample-output>)
 
 **Last updated:**
+
+Ask AI

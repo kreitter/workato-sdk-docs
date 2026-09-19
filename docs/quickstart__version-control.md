@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/version-control.html
-> **Fetched**: 2026-09-18T02:16:42.446946
+> **Fetched**: 2026-09-19T02:16:15.402185
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/quickstart/version-control>)
+  * [ 日本語](</ja/developing-connectors/sdk/quickstart/version-control>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -94,3 +105,5 @@ A popup displays to remind you to include any important notes before you release
 ![Version notes plain view](/assets/modal-popup-version-notes.DXLdliJr.png)_When releasing versions, let people know what you're doing. Whether it's testing changes you made to the front end of your connector or introducing new functionality_
 
 **Last updated:**
+
+Ask AI

@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/whitelist-removal.html
-> **Fetched**: 2026-09-18T02:16:59.505932
+> **Fetched**: 2026-09-19T02:16:32.775002
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/sdk-reference/whitelist-removal>)
+  * [ 日本語](</ja/developing-connectors/sdk/sdk-reference/whitelist-removal>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -95,3 +106,5 @@ A connector that uses the `jwt` gem to create and verify JSON web tokens for sec
 A connector that uses `nokogiri` and `gyoku` for parsing, transforming, and generating XML and HTML data. This can be useful for integrating with systems that use XML-based APIs or for web scraping tasks.
 
 **Last updated:**
+
+Ask AI

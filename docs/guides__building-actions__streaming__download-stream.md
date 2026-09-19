@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/download-stream.html
-> **Fetched**: 2026-09-18T02:16:12.897716
+> **Fetched**: 2026-09-19T02:15:45.233216
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/building-actions/streaming/download-stream>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/building-actions/streaming/download-stream>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -239,3 +250,5 @@ TIP
 Understanding the streaming callback makes most sense when thinking about it alongside a stream consumer. Stream consumers control the streaming callback where it first requests a single chunk of data, uploads it to the downstream system, before reiterating on the process over and over until the entire file is streamed over. As such, the `starting_byte_range` and `ending_byte_range` represent the byte range requested from the streaming consumer. The `requested_byte_size` is a synthetic argument that is useful for comparing the stream producing endpoint has simply no more bytes to provide, indicating the end of file. This signal will be sent over to the stream consumer to continue on with the recipe.
 
 **Last updated:**
+
+Ask AI

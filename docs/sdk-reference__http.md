@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/http.html
-> **Fetched**: 2026-09-18T02:16:49.186868
+> **Fetched**: 2026-09-19T02:16:22.236451
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/sdk-reference/http>)
+  * [ 日本語](</ja/developing-connectors/sdk/sdk-reference/http>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -323,3 +334,5 @@ You can easily verify this while developing your custom connector. When you incl
 ![Output with response code and header values](/assets/response_with_headers.Ce_SG2OX.png)_Output with response code and header values_
 
 **Last updated:**
+
+Ask AI

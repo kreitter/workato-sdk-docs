@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/triggers.html
-> **Fetched**: 2026-09-18T02:15:28.954630
+> **Fetched**: 2026-09-19T02:15:00.124396
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/cli/guides/cli/triggers>)
+  * [ 日本語](</ja/developing-connectors/sdk/cli/guides/cli/triggers>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -368,3 +379,5 @@ You can also use other options like `--output` to save the output of the functio
 You can see that the `config_field` \- `object` is passed in the input json. In Workato, config_fields are merged with normal `input_fields` when received in the `execute`, `poll` or `webhook` lambdas.
 
 **Last updated:**
+
+Ask AI

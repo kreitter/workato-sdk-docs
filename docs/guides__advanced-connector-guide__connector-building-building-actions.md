@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.html
-> **Fetched**: 2026-09-18T02:15:44.354629
+> **Fetched**: 2026-09-19T02:15:15.895239
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -333,3 +344,5 @@ The example below showcases all the different steps needed to create an update o
 Lets move on to learning about building object based triggers.
 
 **Last updated:**
+
+Ask AI

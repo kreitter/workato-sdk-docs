@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-09-18T02:16:53.833856
+> **Fetched**: 2026-09-19T02:16:26.992156
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/sdk-reference/ruby_methods>)
+  * [ 日本語](</ja/developing-connectors/sdk/sdk-reference/ruby_methods>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -2947,3 +2958,5 @@ Used as a method called by arrays. Converts any arguments to arrays, then merges
 See [zip](<https://apidock.com/ruby/Array/zip>) method definition.
 
 **Last updated:**
+
+Ask AI

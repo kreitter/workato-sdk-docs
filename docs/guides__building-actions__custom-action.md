@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/custom-action.html
-> **Fetched**: 2026-09-18T02:16:07.378563
+> **Fetched**: 2026-09-19T02:15:39.576668
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/building-actions/custom-action>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/building-actions/custom-action>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -148,3 +159,5 @@ Enhance your security posture by using the following mitigation strategies:
   2. Inquire with your API vendor regarding their inputs about path traversal attacks. Understand how they mitigate such attacks and enforce further validations as needed in your recipes before allowing user inputs to be placed in sensitive fields.
 
 **Last updated:**
+
+Ask AI

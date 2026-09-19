@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-commands.html
-> **Fetched**: 2026-09-18T02:15:39.879063
+> **Fetched**: 2026-09-19T02:15:11.374820
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/cli/reference/cli-commands>)
+  * [ 日本語](</ja/developing-connectors/sdk/cli/reference/cli-commands>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -473,3 +484,5 @@ Folder IDs are located in the URL when you're viewing the folder. For example: i
 ```
 
 **Last updated:**
+
+Ask AI

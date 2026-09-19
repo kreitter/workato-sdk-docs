@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2026-09-18T02:16:04.140127
+> **Fetched**: 2026-09-19T02:15:36.243688
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/best-practices>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/best-practices>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -482,3 +493,5 @@ Here are some general rules to include proper error handling in your connector.
   3. Does the API you are connecting to respond with appropriate HTTP status codes? In certain cases, APIs may send back responses that should actually be errors but have their HTTP status as `200`. In cases like these, using an ` after_error_response` function can help highlight issues to your users instead. [Example here.](</en/developing-connectors/sdk/guides/error-handling#handling-response-errors>)
 
 **Last updated:**
+
+Ask AI

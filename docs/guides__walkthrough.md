@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/walkthrough.html
-> **Fetched**: 2026-09-18T02:16:36.044171
+> **Fetched**: 2026-09-19T02:16:08.874818
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/walkthrough>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/walkthrough>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -498,3 +509,5 @@ You can now use the SWAPI connector and the action you created in any recipe. Se
 ![Select the Star Wars Information connector](/assets/building-recipe.7m59a_qI.png)_Select the Star Wars Information connector_
 
 **Last updated:**
+
+Ask AI

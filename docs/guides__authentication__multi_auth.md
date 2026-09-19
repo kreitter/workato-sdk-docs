@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/multi_auth.html
-> **Fetched**: 2026-09-18T02:15:57.477735
+> **Fetched**: 2026-09-19T02:15:29.438377
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/authentication/multi_auth>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/authentication/multi_auth>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -307,3 +318,5 @@ The `test` key provides an endpoint for sending sample requests using the new cr
 For further information about the available keys within the `connection` key and their parameters, see the [SDK reference](</en/developing-connectors/sdk/sdk-reference/connection>).
 
 **Last updated:**
+
+Ask AI

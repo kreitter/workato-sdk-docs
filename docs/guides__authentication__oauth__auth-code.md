@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code.html
-> **Fetched**: 2026-09-18T02:15:59.724763
+> **Fetched**: 2026-09-19T02:15:31.783835
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/authentication/oauth/auth-code>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/authentication/oauth/auth-code>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -456,3 +467,5 @@ ruby
 To be more familiar with the available keys within the `connection` key and their parameters, check out our [SDK reference](</en/developing-connectors/sdk/sdk-reference/connection>).
 
 **Last updated:**
+
+Ask AI

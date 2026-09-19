@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers.html
-> **Fetched**: 2026-09-18T02:16:18.381547
+> **Fetched**: 2026-09-19T02:15:50.853979
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/building-triggers>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/building-triggers>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -31,3 +42,5 @@ Before we start, it is also important to get familiar with the different types o
 You can find a full reference of the `triggers` key in our [SDK reference.](</en/developing-connectors/sdk/sdk-reference/triggers>)
 
 **Last updated:**
+
+Ask AI

@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema.html
-> **Fetched**: 2026-09-18T02:15:47.723659
+> **Fetched**: 2026-09-19T02:15:19.395694
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -383,3 +394,5 @@ Workato strongly recommends using metadata endpoints when building a connector t
 Now that you've learned how to build schema for the base objects you've chosen, its time to start building your first actions using these methods you've just defined.
 
 **Last updated:**
+
+Ask AI

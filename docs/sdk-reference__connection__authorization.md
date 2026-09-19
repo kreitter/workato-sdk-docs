@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection/authorization.html
-> **Fetched**: 2026-09-18T02:16:46.990412
+> **Fetched**: 2026-09-19T02:16:20.033945
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/sdk-reference/connection/authorization>)
+  * [ 日本語](</ja/developing-connectors/sdk/sdk-reference/connection/authorization>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -627,7 +638,7 @@ Type| Lambda function
 Required| False.  
 Description| The lambda allows you to display additional information about the connection object. You can make an HTTP request to retrieve user identity details, or reference existing values from the connection object. Refer to the [acquire lambda documentation](</en/developing-connectors/sdk/sdk-reference/connection/authorization#acquire>) for details on appending values from the acquire lambda to the connection object. You can reference these values in the `identity` lambda.  
 Possible arguments| `connection` \- A hash representing inputs defined in the `Connection` object.  
-Expected output| A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#91e4e2f4e3d1f4e9f0fce1fdf4bff2fefc>)", "Refresh token expires in 86400 seconds")  
+Expected output| A string containing details about the connection (for example, "[[email protected]](</cdn-cgi/l/email-protection#d0a5a3b5a290b5a8b1bda0bcb5feb3bfbd>)", "Refresh token expires in 86400 seconds")  
 |   
 Example - identity
 
@@ -857,3 +868,5 @@ Required| No. Defaults to `false`. Users can set to `true` for enhanced security
 Description| When set to `true`, the OAuth 2.0 authorization page launches with `target="blank"` and `rel="noopener"` attributes. This attribute improves security and prevents linked third-party websites from taking control of the browser tab through the window object.  
 
 **Last updated:**
+
+Ask AI

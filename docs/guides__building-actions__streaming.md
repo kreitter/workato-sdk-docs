@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming.html
-> **Fetched**: 2026-09-18T02:16:11.798832
+> **Fetched**: 2026-09-19T02:15:44.071018
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/building-actions/streaming>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/building-actions/streaming>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -46,3 +57,5 @@ The guides below details out the various ways to build file streaming actions de
 If the API you work with does not allow for chunked uploads or downloads, you can still download and upload files in-memory but subject to limitations of both time and size. **This is not recommended unless absolutely necessary.**
 
 **Last updated:**
+
+Ask AI

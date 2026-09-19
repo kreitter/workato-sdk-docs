@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html
-> **Fetched**: 2026-09-18T02:15:45.464892
+> **Fetched**: 2026-09-19T02:15:17.046174
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -311,3 +322,5 @@ The output of this block is then passed to the output fields block and rendered 
 Now that you've seen some examples of how to build object-based actions and triggers, we now go through some code patterns which can be reused in your connector.
 
 **Last updated:**
+
+Ask AI

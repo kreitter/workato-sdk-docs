@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/FAQ.html
-> **Fetched**: 2026-09-18T02:16:39.230741
+> **Fetched**: 2026-09-19T02:16:12.095920
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/quickstart/FAQ>)
+  * [ 日本語](</ja/developing-connectors/sdk/quickstart/FAQ>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -79,3 +90,5 @@ How do I delete a custom connector in Workato, and what considerations should I 
 You can [delete a custom connector](</en/developing-connectors/sdk/quickstart#deleting-a-custom-connector>) in Workato, but you must first stop any active running recipes that use the connector. Deleting a custom connector doesn't affect its clones, as they are separate copies. Always ensure you have backups and understand the impact of deletion on your automations.
 
 **Last updated:**
+
+Ask AI

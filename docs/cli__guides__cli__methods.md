@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/methods.html
-> **Fetched**: 2026-09-18T02:15:24.456257
+> **Fetched**: 2026-09-19T02:14:55.474842
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/cli/guides/cli/methods>)
+  * [ 日本語](</ja/developing-connectors/sdk/cli/guides/cli/methods>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -179,3 +190,5 @@ You can also use other options like `--verbose` to see the detailed logs of any 
 If no `settings.yaml` file is defined, the SDK Gem will assume the default `settings.yaml.enc` file to utilize for any HTTP requests.
 
 **Last updated:**
+
+Ask AI

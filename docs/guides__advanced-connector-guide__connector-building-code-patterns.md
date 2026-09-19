@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-code-patterns.html
-> **Fetched**: 2026-09-18T02:15:46.594918
+> **Fetched**: 2026-09-19T02:15:18.218650
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-code-patterns>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-code-patterns>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -286,3 +297,5 @@ Object based actions and triggers in Connectors are something we highly recommen
 Great connectors not only have great architecture but look and feel great to use. Read on to find out more about how you can make your connector easy to use.
 
 **Last updated:**
+
+Ask AI

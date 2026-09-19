@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/config_fields.html
-> **Fetched**: 2026-09-18T02:16:25.020085
+> **Fetched**: 2026-09-19T02:15:57.667096
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/config_fields>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/config_fields>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -330,3 +341,5 @@ Note that `object_definitions` is passed in as an argument. Workato allows conne
 To know more about this, take a look at our [SDK reference](</en/developing-connectors/sdk/sdk-reference/object_definitions>)
 
 **Last updated:**
+
+Ask AI

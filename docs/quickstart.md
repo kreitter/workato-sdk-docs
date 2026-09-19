@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart.html
-> **Fetched**: 2026-09-18T02:16:38.165675
+> **Fetched**: 2026-09-19T02:16:11.021361
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/quickstart>)
+  * [ 日本語](</ja/developing-connectors/sdk/quickstart>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -89,3 +100,5 @@ Workato shows any stopped recipes that will be affected by the deletion. Deletin
 ![Delete popup warning](/assets/delete-popup-warning.C8y2mqQh.png)_When you delete a custom connector, you cannot recover it_
 
 **Last updated:**
+
+Ask AI

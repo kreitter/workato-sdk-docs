@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/debugging.html
-> **Fetched**: 2026-09-18T02:16:40.293299
+> **Fetched**: 2026-09-19T02:16:13.199392
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/quickstart/debugging>)
+  * [ 日本語](</ja/developing-connectors/sdk/quickstart/debugging>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -64,3 +75,5 @@ Your recent test actions are stored and accessible from the code editor. This al
 ![Input popup](/assets/sdk_rerun_test.CKH-a9r7.png)_Rerun test from the**Test code** tab_
 
 **Last updated:**
+
+Ask AI

@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli.html
-> **Fetched**: 2026-09-18T02:15:21.151106
+> **Fetched**: 2026-09-19T02:14:52.071522
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/cli>)
+  * [ 日本語](</ja/developing-connectors/sdk/cli>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -94,3 +105,5 @@ Let's look at this step by step:
 Ready to start developing? Check out the [Getting Started](</en/developing-connectors/sdk/cli/guides/getting-started>) guide to get up and running!
 
 **Last updated:**
+
+Ask AI

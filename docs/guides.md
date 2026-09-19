@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides.html
-> **Fetched**: 2026-09-18T02:15:43.238896
+> **Fetched**: 2026-09-19T02:15:14.769664
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -34,3 +45,5 @@ Take note that these key names are strictly defined and must be spelled exactly.
 Read and download our [SDK cheat sheet](<https://public-workato-files.s3.us-east-2.amazonaws.com/Uploads/workato_connector_sdk_cheat_sheet.pdf>) to get started with the connector SDK quickly.
 
 **Last updated:**
+
+Ask AI

@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce.html
-> **Fetched**: 2026-09-18T02:15:58.591236
+> **Fetched**: 2026-09-19T02:15:30.602565
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -372,3 +383,5 @@ Take note that you receive an additional argument, `verifier` in the `acquire` l
 To be more familiar with the available keys within the `connection` key and their parameters, check out our [SDK reference](</en/developing-connectors/sdk/sdk-reference/connection>).
 
 **Last updated:**
+
+Ask AI

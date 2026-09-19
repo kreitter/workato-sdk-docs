@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/limits.html
-> **Fetched**: 2026-09-18T02:16:37.102412
+> **Fetched**: 2026-09-19T02:16:09.947456
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/limits>)
+  * [ 日本語](</ja/developing-connectors/sdk/limits>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -40,3 +51,5 @@ FURTHER READING
   * Refer to the [Platform quotas](</en/limits>) documentation for more information about Workato quotas.
 
 **Last updated:**
+
+Ask AI

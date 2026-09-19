@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/custom-action.html
-> **Fetched**: 2026-09-18T02:16:48.056367
+> **Fetched**: 2026-09-19T02:16:21.120048
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/sdk-reference/custom-action>)
+  * [ 日本語](</ja/developing-connectors/sdk/sdk-reference/custom-action>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -108,3 +119,5 @@ Description| The main help text body that appears above the learn more button. T
 Expected Output| `'<p>Build your own Chargebee action with a HTTP request. <b>The request will be authorized with your Chargebee Hana connection.</b></p>`  
 
 **Last updated:**
+
+Ask AI

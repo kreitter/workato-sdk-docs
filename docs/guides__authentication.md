@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication.html
-> **Fetched**: 2026-09-18T02:15:50.918597
+> **Fetched**: 2026-09-19T02:15:22.700943
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/authentication>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/authentication>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -33,3 +44,5 @@ Workato supports the following formalized forms of authentication. You can also 
   * [Multiple authentication formats in a single connector](</en/developing-connectors/sdk/guides/authentication/multi_auth>)
 
 **Last updated:**
+
+Ask AI

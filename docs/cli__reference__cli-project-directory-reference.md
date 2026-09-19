@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-project-directory-reference.html
-> **Fetched**: 2026-09-18T02:15:40.992742
+> **Fetched**: 2026-09-19T02:15:12.502830
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/cli/reference/cli-project-directory-reference>)
+  * [ 日本語](</ja/developing-connectors/sdk/cli/reference/cli-project-directory-reference>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -312,3 +323,5 @@ The `.gitignore` file contains a list of files and/or directories that shouldn't
 ```
 
 **Last updated:**
+
+Ask AI

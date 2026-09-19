@@ -1,9 +1,20 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/introduction.html
-> **Fetched**: 2026-09-18T02:15:49.860219
+> **Fetched**: 2026-09-19T02:15:21.602552
 
 ---
+
+[](<https://www.workato.com/>)/[docs](</en>)
+
+  * [Product Updates](<https://www.workato.com/product-hub/changelog/?utm_source=docs.workato.com>)
+  * [Status Page](<https://status.workato.com?utm_source=docs.workato.com>)
+  * [Workato Academy](<https://academy.workato.com/?utm_source=docs.workato.com>)
+
+  * [ English](</en/developing-connectors/sdk/guides/advanced-connector-guide/introduction>)
+  * [ 日本語](</ja/developing-connectors/sdk/guides/advanced-connector-guide/introduction>)
+
+[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
@@ -42,3 +53,5 @@ In the next chapter, we will go through thought exercises that can better help y
 You can [upload your connector to the community library](</en/community-library/upload-connectors>) to share it with other users. Sharing your connector can provide increased API adoption, more leads for your services, and greater exposure to integration use cases.
 
 **Last updated:**
+
+Ask AI
