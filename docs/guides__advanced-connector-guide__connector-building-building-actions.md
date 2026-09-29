@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.html
-> **Fetched**: 2026-09-28T02:24:40.729115
+> **Fetched**: 2026-09-29T02:18:30.341384
 
 ---
 
