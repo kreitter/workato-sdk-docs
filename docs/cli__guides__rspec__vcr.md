@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/vcr.html
-> **Fetched**: 2026-10-01T02:26:30.044865
+> **Fetched**: 2026-10-02T02:20:03.399937
 
 ---
 

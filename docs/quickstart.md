@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart.html
-> **Fetched**: 2026-10-01T02:27:35.740007
+> **Fetched**: 2026-10-02T02:21:09.229284
 
 ---
 
@@ -77,13 +77,13 @@ Note that the code editor has a set of basic hotkeys that make your experience e
 
 Persistent Search
     PC: Ctrl-F
-    MacOS: Cmd-F
+    Mac: Cmd-F
 Replace
     PC: Shift-Ctrl-F
-    MacOS: Cmd-Option-F
+    Mac: Cmd-Option-F
 Replace all
     PC: Shift-Ctrl-R
-    MacOS: Shift-Cmd-Option-F
+    Mac: Shift-Cmd-Option-F
 
 ## Deleting a custom connector [​](<#deleting-a-custom-connector>)
 

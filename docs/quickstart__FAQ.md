@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/FAQ.html
-> **Fetched**: 2026-10-01T02:27:36.833803
+> **Fetched**: 2026-10-02T02:21:10.352538
 
 ---
 
@@ -74,15 +74,15 @@ Workato's SDK platform uses [Code Mirror](</en/developing-connectors/sdk/quickst
 
   * Persistent search
 
-    * MacOS: press `command`+`f` to open the search box.
+    * Mac: press `command`+`f` to open the search box.
     * Windows: press `ctrl`+`f` to open the search box.
   * Replace
 
-    * MacOS: press `command`+`option`+`f` to replace.
+    * Mac: press `command`+`option`+`f` to replace.
     * Windows: press `ctrl`+`shift`+`f` to replace.
   * Replace all (Shift-Ctrl-R or Shift-Cmd-Option-F)
 
-    * MacOS: press `shift`+`command`+`option`+`f` to replace all.
+    * Mac: press `shift`+`command`+`option`+`f` to replace all.
     * Windows: press `shift`+`ctrl`+`r` to replace all.
 
 How do I delete a custom connector in Workato, and what considerations should I keep in mind when doing so?
