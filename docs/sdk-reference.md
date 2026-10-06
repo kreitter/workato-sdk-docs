@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference.html
-> **Fetched**: 2026-10-05T02:28:00.502748
+> **Fetched**: 2026-10-06T02:20:54.294415
 
 ---
 
@@ -14,7 +14,7 @@
   * [ English](</en/developing-connectors/sdk/sdk-reference>)
   * [ 日本語](</ja/developing-connectors/sdk/sdk-reference>)
 
-[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
+[Start for free](<https://app.trial.workato.com/users/sign_up_trial?utm_content=docs_nav>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 

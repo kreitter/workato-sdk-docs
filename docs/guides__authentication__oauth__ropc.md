@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/ropc.html
-> **Fetched**: 2026-10-05T02:27:19.149526
+> **Fetched**: 2026-10-06T02:20:12.450642
 
 ---
 
@@ -14,7 +14,7 @@
   * [ English](</en/developing-connectors/sdk/guides/authentication/oauth/ropc>)
   * [ 日本語](</ja/developing-connectors/sdk/guides/authentication/oauth/ropc>)
 
-[Get a trial](<https://www.workato.com/request_demo?utm_content=docs_nav_cta>)
+[Start for free](<https://app.trial.workato.com/users/sign_up_trial?utm_content=docs_nav>)
 
 [Connector SDK](</en/developing-connectors/sdk>)
 
