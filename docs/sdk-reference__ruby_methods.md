@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-10-13T02:29:53.223139
+> **Fetched**: 2026-10-14T02:15:57.447795
 
 ---
 
@@ -2318,7 +2318,7 @@ See [file streaming](</en/developing-connectors/sdk/guides/building-actions/stre
 
 * * *
 
-## stream.​in [​](<#stream-in>)
+## stream.in [​](<#stream-in>)
 
 Used in file stream consuming actions that work with any of Workato's file streaming enabled connectors. Calling this method allows you to specify a code block that can utilize a file stream to upload a file in chunks.
 
