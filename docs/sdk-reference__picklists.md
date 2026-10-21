@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/picklists.html
-> **Fetched**: 2026-10-20T02:15:51.985134
+> **Fetched**: 2026-10-21T02:17:52.102477
 
 ---
 
