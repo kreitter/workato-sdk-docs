@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multi-threaded-actions.html
-> **Fetched**: 2026-10-27T02:18:12.797300
+> **Fetched**: 2026-10-28T02:12:23.851817
 
 ---
 
