@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/hybrid-triggers.html
-> **Fetched**: 2026-10-28T02:12:35.331273
+> **Fetched**: 2026-10-29T02:12:30.775636
 
 ---
 
@@ -30,7 +30,7 @@ Copy page
 
 Webhooks open up a wide range of use cases that are time sensitive in nature, such as receiving the event when a customer makes a purchase. There are, however, scenarios where webhook events can be lost. This could be due to transient network errors that any HTTP requests can be susceptible to, or simply when the recipe is stopped for a short period of time and webhooks were sent during that period.
 
-Hybrid polling + webhook triggers give you the best of both worlds, where your triggers can function in real-time to produce jobs but also provide you with the additional guarantee of picking up events even if the webhook was lost.
+Hybrid polling + webhook triggers enable your triggers to function in real-time to produce jobs and pick up events even if the webhook is lost.
 
 Before continuing
 
@@ -157,7 +157,7 @@ ruby
 
 ## Step 1 - Implement your chosen webhook trigger [​](<#step-1-implement-your-chosen-webhook-trigger>)
 
-Depending on what the app you are building the connector for, build the appropriate webhook trigger type. Dynamic webhooks are always preferred as they minimize the amount of setup needed by the end user. In our example, Chargebee requires you to manually setup webhook subscriptions so we have used a static webhook trigger. Refer more to our guides on each of the types of webhooks to learn more.
+Depending on what the app you are building the connector for, build the appropriate webhook trigger type. Dynamic webhooks are preferred as they minimize the amount of setup needed by the end user. In our example, Chargebee requires you to manually setup webhook subscriptions so we have used a static webhook trigger. Refer more to our guides on each of the types of webhooks to learn more.
 
 For dynamic webhook triggers, you are expected to define the `webhook_subscribe` and `webhook_unsubscribe` lambda. For static webhook triggers, you are expected to define the `webhook_keys` and `webhook_key` lambda.
 

@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html
-> **Fetched**: 2026-10-28T02:12:17.938792
+> **Fetched**: 2026-10-29T02:12:13.622919
 
 ---
 
@@ -470,7 +470,7 @@ Here are some simple rules that would help fine-tune your connector to make it a
 
   6. When using drop-downs, always also include a toggle_field option that allows your users to map datapills if they need to. While a drop-down is great, sometimes your users may need to map datapills instead. Remember to change the toggle_hints accordingly.
 
-  7. Is this drop-down a config field? If yes, ensure that the secondary toggle field has `control_type` set to `plain-text` to prevent datapills from being mapped. Config fields should never accept datapills as other input fields in the action rely on the information.
+  7. Is this drop-down a config field? If yes, ensure that the secondary toggle field has `control_type` set to `plain-text` to prevent datapills from being mapped. Config fields shouldn't accept datapills as other input fields in the action rely on the information.
 
   8. Are all required fields in the action or trigger labeled as required? Users should be able to quickly understand which fields they need to fill in for this action to be valid.
 

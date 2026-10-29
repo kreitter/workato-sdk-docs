@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/ropc.html
-> **Fetched**: 2026-10-28T02:12:15.703206
+> **Fetched**: 2026-10-29T02:12:11.414110
 
 ---
 
@@ -107,7 +107,7 @@ This component tells Workato what fields to show to a user trying to establish a
 Information needed| Description  
 ---|---  
 Client ID| This is the public ID of the OAuth app that should be tied to Workato. This might mean signing Workato up as a verified application in the application  
-Client secret| This is the matching private key that the API will verify along with the Client ID. This might mean signing Workato up as a verified application in the application. **Never share your client secret with others**  
+Client secret| This is the matching private key that the API will verify along with the Client ID. This might mean signing Workato up as a verified application in the application. **Don't share your client secret with others**  
 Username| This is the username of the user account that is giving permission to authenticate the client.  
 Password| This is the password of the user account that is giving permission to authenticate the client.  
 

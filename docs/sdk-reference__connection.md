@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection.html
-> **Fetched**: 2026-10-28T02:13:01.593417
+> **Fetched**: 2026-10-29T02:12:57.239050
 
 ---
 

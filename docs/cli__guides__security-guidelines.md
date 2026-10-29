@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/security-guidelines.html
-> **Fetched**: 2026-10-28T02:11:50.235595
+> **Fetched**: 2026-10-29T02:11:45.789596
 
 ---
 
@@ -36,7 +36,7 @@ In this guide, we'll cover some tips that will help you mitigate risks when work
 
 Whether you're building using the SDK gem or in Workato's cloud platform, **never use a production environment when developing.** We can't stress this enough.
 
-You could make changes that negatively impact your business or potentially expose sensitive data. For this reason, always use a sandbox environment.
+You could make changes that negatively impact your business or potentially expose sensitive data. For this reason, use a sandbox environment.
 
 ## Tip 2: Always use encrypted files [​](<#tip-2-always-use-encrypted-files>)
 

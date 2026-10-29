@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multistep-actions.html
-> **Fetched**: 2026-10-28T02:12:25.059940
+> **Fetched**: 2026-10-29T02:12:20.489550
 
 ---
 
@@ -38,7 +38,7 @@ DEBUGGING LIMITATION IN TEST CODE TAB
 
 You can't debug multistep actions in Workato's SDK **Test code** tab. This may trigger an `uncaught throw :return_from_action` error. Instead, use the [SDK Gem](</en/developing-connectors/sdk/cli>) to debug multistep actions.
 
-Always release the latest version of your custom connector before testing it in the recipe editor. This applies any changes made during debugging.
+Release the latest version of your custom connector before testing it in the recipe editor. This applies any changes made during debugging.
 
 ACTION TIMEOUT
 

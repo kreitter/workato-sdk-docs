@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/debugging.html
-> **Fetched**: 2026-10-28T02:12:46.795091
+> **Fetched**: 2026-10-29T02:12:42.486265
 
 ---
 
@@ -41,7 +41,7 @@ Testing your code is an essential step in building a new connector. It's good pr
 
 ![Test code tab](/assets/test-code-tab.CD-tLfB4.png)_To find the**Test code** tab navigate to **Tools > Connector SDK**, select the connector you plan to use, and click on **Source code > Test code**._
 
-As you make code changes to your connector, our **Test code** tab helps you debug the most recent code changes. To ensure that we are always working off the latest version, we save your work automatically.
+As you make code changes to your connector, our **Test code** tab helps you debug the most recent code changes. To ensure that we are working off the latest version, we save your work automatically.
 
 SAVE WITH HOTKEYS
 

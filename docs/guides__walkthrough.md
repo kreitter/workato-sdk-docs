@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/walkthrough.html
-> **Fetched**: 2026-10-28T02:12:51.384559
+> **Fetched**: 2026-10-29T02:12:47.010784
 
 ---
 
@@ -276,8 +276,8 @@ If each runtime user connection requires the same password field value, such as 
 
 Value| Behavior  
 ---|---  
-`true`| Always copies this field's value to the runtime connection, even if it uses `control_type: 'password'`.  
-`false`| Never copies this field's value to the runtime connection, regardless of depth or nesting.  
+`true`| Copies this field's value to the runtime connection, even if it uses `control_type: 'password'`.  
+`false`| Doesn't copy this field's value to the runtime connection, regardless of depth or nesting.  
 `nil` (default, omitted)| Default behavior: password fields are stripped, and all other fields are copied.  
 
 For example:

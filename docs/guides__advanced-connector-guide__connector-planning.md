@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-planning.html
-> **Fetched**: 2026-10-28T02:12:01.936496
+> **Fetched**: 2026-10-29T02:11:57.555404
 
 ---
 
@@ -28,13 +28,13 @@ Are you an LLM? You can read better optimized documentation at /en/developing-co
 
 Copy page
 
-Before even beginning writing a single line of code, we highly recommend spending some time planning out all integration use cases for users of your custom connector on Workato. You’ll then be able to decompose them into the minimum set of actions and triggers in your connector to satisfy these use cases. This list of actions and triggers can always be expanded in the future.
+Before even beginning writing a single line of code, we highly recommend spending some time planning out all integration use cases for users of your custom connector on Workato. You’ll then be able to decompose them into the minimum set of actions and triggers in your connector to satisfy these use cases. This list of actions and triggers can be expanded in the future.
 
 Often, we’ve seen that connectors that are the most successful needn’t be the ones with the most actions or triggers but ones that power a wide range of business use cases from a prudent set of actions and triggers. If you’re building a connector to your platform as a way for your customers to integrate your services with the hundreds in Workato’s ecosystem, we would recommend going through this process with both a product manager and a developer to ensure the needs of your customers are met.
 
 ## Detailing down your integration use cases [​](<#detailing-down-your-integration-use-cases>)
 
-Connectors can start small and grow big over time but it's always important to make sure that your connector can help you, your team or your customers find success in the integration use cases you have scouted out. This requires some time and effort thinking about how users would use your connector in recipes. First up, we highly recommend brainstorming to find out the exact use cases that you want to automate on Workato. For teams building connectors for internal use, this could be a tedious and manual process that you hope to automate. For teams building connectors on Workato to list on our platform so your customers can use Workato to include your application in their recipes, this should be something that you can foresee driving the most business value.
+Connectors can start small and grow big over time but it's important to make sure that your connector can help you, your team or your customers find success in the integration use cases you have scouted out. This requires some time and effort thinking about how users would use your connector in recipes. First up, we highly recommend brainstorming to find out the exact use cases that you want to automate on Workato. For teams building connectors for internal use, this could be a tedious and manual process that you hope to automate. For teams building connectors on Workato to list on our platform so your customers can use Workato to include your application in their recipes, this should be something that you can foresee driving the most business value.
 
 ### Example 1: [​](<#example-1>)
 
@@ -80,7 +80,7 @@ After you’ve decided on the objects, you now need to decide on what actions to
 
 Another possible type of action to support would be batch actions. Batch actions are actions that work with more than a single object but multiple ones and are often used in scenarios where multiple objects need to be synced in and out of an application. Consider if your users need this functionality to fulfill a core use case or if this can functionality added on later.
 
-Another misstep that we often see with new users of Workato would be to overcomplicate actions. By keeping actions simple and always focused on handling one single thing, it makes recipes for your user’s easier to troubleshoot when errors do occur. For example, instead of creating an action - “Create a customer and attach the invoice to a customer”, this should be broken down into 2 actions - “Create a customer” and “Attach invoice”. This decoupling of actions makes them more general and allows your users to mix and match actions to achieve more.
+Another misstep that we often see with new users of Workato would be to overcomplicate actions. By keeping actions simple and focused on handling one single thing, it makes recipes for your user’s easier to troubleshoot when errors do occur. For example, instead of creating an action - “Create a customer and attach the invoice to a customer”, this should be broken down into 2 actions - “Create a customer” and “Attach invoice”. This decoupling of actions makes them more general and allows your users to mix and match actions to achieve more.
 
 API ACTION LIMITATIONS
 

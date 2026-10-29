@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html
-> **Fetched**: 2026-10-28T02:13:09.690948
+> **Fetched**: 2026-10-29T02:13:05.499044
 
 ---
 
@@ -213,7 +213,7 @@ See [ago](<https://apidock.com/rails/ActiveSupport/Duration/ago>) method definit
 
 ## all? [​](<#all>)
 
-Passes each element of the collection to the given block. The method returns true if the block never returns false or nil.
+Passes each element of the collection to the given block. The method returns true if the block doesn't return false or nil.
 
 ruby
 ```ruby
@@ -1630,7 +1630,7 @@ See [next](<https://apidock.com/ruby/Enumerator/next>) method definition.
 
 ## none? [​](<#none>)
 
-Passes each element of the collection to the given block. The method returns true if the block never returns true for all elements.
+Passes each element of the collection to the given block. The method returns true if the block doesn't return true for all elements.
 
 ruby
 ```ruby
@@ -2682,7 +2682,7 @@ Converts binary string to its hex representation.
 
 ## to_i [​](<#to-i>)
 
-Convert to integer. Decimals are always rounded down.
+Convert to integer. Decimals are rounded down by default.
 
 ruby
 ```ruby
@@ -2919,7 +2919,7 @@ ruby
 
 ```
 
-This ensures that the `accounts` variable is always an array in spite of whatever return. At Workato, we often use this to guard against unexpected returns from the various APIs we work with.
+This ensures that the `accounts` variable is an array in spite of whatever return. At Workato, we often use this to guard against unexpected returns from the various APIs we work with.
 
 See [wrap](<https://apidock.com/rails/Array/wrap/class>) method definition.
 

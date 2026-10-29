@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/picklists.html
-> **Fetched**: 2026-10-28T02:13:08.445781
+> **Fetched**: 2026-10-29T02:13:04.155969
 
 ---
 
@@ -266,7 +266,7 @@ Example - pick_lists: - tree
 
 Workato also allows for `tree` type picklists. Tree picklists are often used to model hierarchical structures in applications such as file/folder structures. When using tree picklists, traditional `pick_list_parameters` are ignored and replaced by a double splat variable.
 
-To best explain this, we will use the concept of a file and folder structure, where folders might contain additional folders or files. All folders and files are considered nodes, while the main distinction is that folders might have child nodes whereas files may not. When you define a tree picklist, each time the user clicks on a folder node, the picklist is re-evaluated to build out the child nodes within it. The value of the folder node that the user clicked on can be found by `args&.[](:__parent_id)`. If this value is nil, this indicates that we are at the root node.
+To explain this, we will use the concept of a file and folder structure, where folders might contain additional folders or files. All folders and files are considered nodes, while the main distinction is that folders might have child nodes whereas files may not. When you define a tree picklist, each time the user clicks on a folder node, the picklist is re-evaluated to build out the child nodes within it. The value of the folder node that the user clicked on can be found by `args&.[](:__parent_id)`. If this value is nil, this indicates that we are at the root node.
 
 ruby
 ```ruby

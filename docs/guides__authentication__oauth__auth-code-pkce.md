@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce.html
-> **Fetched**: 2026-10-28T02:12:12.221942
+> **Fetched**: 2026-10-29T02:12:07.908319
 
 ---
 
@@ -233,7 +233,7 @@ To learn more about the available parameters and keys in the connection object, 
 
 ## Step 6 - Defining token refresh behavior [​](<#step-6-defining-token-refresh-behavior>)
 
-In most cases, OAuth 2.0 Authentication has both short-lived access tokens and long-lived refresh tokens. Sometimes, refresh tokens never expire.
+In most cases, OAuth 2.0 Authentication has both short-lived access tokens and long-lived refresh tokens. Sometimes, refresh tokens don't expire.
 
 WARNING
 

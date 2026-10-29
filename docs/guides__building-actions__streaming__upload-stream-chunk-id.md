@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id.html
-> **Fetched**: 2026-10-28T02:12:28.517747
+> **Fetched**: 2026-10-29T02:12:23.863291
 
 ---
 
@@ -28,7 +28,7 @@ Are you an LLM? You can read better optimized documentation at /en/developing-co
 
 Copy page
 
-In this segment, we will be going through the creation of actions that uploads files in a target application through file streaming and utilizing assigning IDs to chunks. We will be going through [Azure Blob's API](<https://learn.microsoft.com/en-us/rest/api/storageservices/put-blob>) but this can be extended to many other best of breed cloud storage solutions.
+In this segment, we will be going through the creation of actions that uploads files in a target application through file streaming and utilizing assigning IDs to chunks. We will be going through [Azure Blob's API](<https://learn.microsoft.com/en-us/rest/api/storageservices/put-blob>) but this can be extended to many other cloud storage solutions.
 
 ACTION TIMEOUT
 

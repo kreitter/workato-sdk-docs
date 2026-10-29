@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/debugging.html
-> **Fetched**: 2026-10-28T02:12:55.910927
+> **Fetched**: 2026-10-29T02:12:51.566731
 
 ---
 
@@ -32,7 +32,7 @@ The SDK **Test code** tab is located within the **Source code** tab. The **Test 
 
 LATEST VERSION
 
-The **Test code** tab always runs on the latest version of your connector code in your code editor. Any unsaved changes in the code editor result in the custom connector creating a new latest version before running any tests. A notification informs you when this happens.
+The **Test code** tab runs on the latest version of your connector code in your code editor. Any unsaved changes in the code editor result in the custom connector creating a new latest version before running any tests. A notification informs you when this happens.
 
 Connections, actions, and triggers are hidden if there is an error in your latest version. You must correct the error before you can resume testing.
 

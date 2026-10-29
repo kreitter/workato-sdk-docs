@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html
-> **Fetched**: 2026-10-28T02:11:58.341769
+> **Fetched**: 2026-10-29T02:11:54.070311
 
 ---
 
@@ -141,7 +141,7 @@ For polling triggers, the poll block is where the code for each poll is executed
 
 POLLING TRIGGER BEST PRACTICES
 
-When building polling triggers, it's best to use endpoints that return a list of records and support query parameters for filtering records by timestamp. Refer to Greenhouse's [Get list candidates](<https://developers.greenhouse.io/harvest.html#get-list-candidates>) API documentation as an example.
+When building polling triggers, we recommend that you use endpoints that return a list of records and support query parameters for filtering records by timestamp. Refer to Greenhouse's [Get list candidates](<https://developers.greenhouse.io/harvest.html#get-list-candidates>) API documentation as an example.
 
 ### Expected JSON response from XYZ accounting [​](<#expected-json-response-from-xyz-accounting>)
 

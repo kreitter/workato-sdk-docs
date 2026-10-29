@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html
-> **Fetched**: 2026-10-28T02:13:10.875709
+> **Fetched**: 2026-10-29T02:13:06.746905
 
 ---
 
@@ -114,7 +114,7 @@ default| Optional. Allows you to set a default value for that input field.
 pick_list| Optional. If control_type is :select or :multiselect, this property is required. Allows you to reference a picklist defined in the `pick_lists` key or define one directly. If defining a picklist directly, provide the same 2D array described in [Picklists](</en/developing-connectors/sdk/sdk-reference/picklists>)  
 options| Synonymous with pick_list and used only for `connection` input fields.  
 delimiter:| Optional unless `control_type: "multiselect"`. This delimiter is used between each input the user provides.  
-sticky| Optional. Use this property to make this field always visible as an input field. By default, inputs that are optional are hidden inside the optional fields drop-down. Use `sticky: true` so they show up beside required fields.  
+sticky| Optional. Use this property to make this field permanently visible as an input field. By default, inputs that are optional are hidden inside the optional fields drop-down. Use `sticky: true` so they show up beside required fields.  
 convert_input| Optional. When defining input fields, values passed into these fields are assumed to be strings regardless of their `type` defined. `convert_input` allows you to convert and transform these inputs even before they are passed to your `execute` block's `input` argument. [Learn more](<#using-convert-input-and-convert-output-for-easy-transformations>)  
 convert_output| Optional. When defining output fields, the `name` of each field is matched against the keys in the actual output of the `execute` lambda function. This does not, however, ensure that the `value` of the output matches the `type` declared for its matched field. `convert_output` allows you to convert and transform these inputs as well as correctly "cast" incoming values assigned to a specific output field. [Learn more](<#using-convert-input-and-convert-output-for-easy-transformations>)  
 change_on_blur| Optional. When true, config fields and dependent fields only evaluate the value when the user blurs out of the field instead of after every keystroke. This parameter often doesn't need to be configured.  

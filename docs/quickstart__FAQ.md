@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/quickstart/FAQ.html
-> **Fetched**: 2026-10-28T02:12:54.810572
+> **Fetched**: 2026-10-29T02:12:50.339691
 
 ---
 
@@ -42,7 +42,7 @@ Why does an autosave occur before the release of a version or use of the Test co
 
 Should I use the connector share link or packages to move my connector from my sandbox environment to my production environment?
 
-[Packages](</en/developing-connectors/sdk/quickstart/sharing#exporting-packages-with-custom-connectors>) are only available on certain plans. While both share link and packages can accomplish the migration of your SDK connector, we highly recommend building and testing your custom connector and its associated recipes in your sandbox Workato environment. When you're ready, packages is the fastest way to bring your custom connector (and recipes) from your sandbox environment to production.
+[Packages](</en/developing-connectors/sdk/quickstart/sharing#exporting-packages-with-custom-connectors>) are only available on certain plans. While both share link and packages can accomplish the migration of your SDK connector, we highly recommend building and testing your custom connector and its associated recipes in your sandbox Workato environment. When you're ready, packages is the recommended way to bring your custom connector (and recipes) from your sandbox environment to production.
 
 What happens to all my existing connectors that existed before an enhancement?
 
@@ -50,7 +50,7 @@ All existing connectors are backward compatible with enhancements. Your connecto
 
 If I've cloned a custom connector and there is an update notification, what happens when I update?
 
-Update notifications always use the [latest shared version](</en/developing-connectors/sdk/quickstart/sharing#released-versions-vs-shared-versions>) of its parent connector. Choosing to update creates a new version on top of your custom connector. Be sure to verify that the newly updated connector has changes that make sense to you before releasing it to your own workspace. You can make edits to the new connector code to suit your purposes.
+Update notifications use the [latest shared version](</en/developing-connectors/sdk/quickstart/sharing#released-versions-vs-shared-versions>) of its parent connector. Choosing to update creates a new version on top of your custom connector. Be sure to verify that the newly updated connector has changes that make sense to you before releasing it to your own workspace. You can make edits to the new connector code to suit your purposes.
 
 How do I know what changes occur across each version and who created that version when working in a team workspace?
 
@@ -87,7 +87,7 @@ Workato's SDK platform uses [Code Mirror](</en/developing-connectors/sdk/quickst
 
 How do I delete a custom connector in Workato, and what considerations should I keep in mind when doing so?
 
-You can [delete a custom connector](</en/developing-connectors/sdk/quickstart#deleting-a-custom-connector>) in Workato, but you must first stop any active running recipes that use the connector. Deleting a custom connector doesn't affect its clones, as they are separate copies. Always ensure you have backups and understand the impact of deletion on your automations.
+You can [delete a custom connector](</en/developing-connectors/sdk/quickstart#deleting-a-custom-connector>) in Workato, but you must first stop any active running recipes that use the connector. Deleting a custom connector doesn't affect its clones, as they are separate copies. Ensure you have backups and understand the impact of deletion on your automations.
 
 **Last updated:**
 

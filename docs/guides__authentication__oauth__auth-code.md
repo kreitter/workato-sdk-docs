@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code.html
-> **Fetched**: 2026-10-28T02:12:13.374678
+> **Fetched**: 2026-10-29T02:12:09.120310
 
 ---
 
@@ -112,7 +112,7 @@ This component tells Workato what fields to show to a user trying to establish a
 Information needed| Description  
 ---|---  
 Client ID| This is the "username" that this specific custom connector has registered with the API. This might mean signing Workato up as a verified application in the application.  
-Client secret| This is the "password" that this specific custom connector has registered with the API. This might mean signing Workato up as a verified application in the application. **Never share your client secret with others**  
+Client secret| This is the "password" that this specific custom connector has registered with the API. This might mean signing Workato up as a verified application in the application. **Don't share your client secret with others**  
 
 This is done in the `fields` key, which accepts an array of hashes. Each hash in this array corresponds to a separate input field.
 
@@ -282,7 +282,7 @@ To learn more about the available parameters and keys in the connection object, 
 
 ## Step 5 - Defining token refresh behavior [​](<#step-5-defining-token-refresh-behavior>)
 
-In most cases, OAuth 2.0 Authentication has both short-lived access tokens and long-lived refresh tokens. Sometimes, refresh tokens never expire.
+In most cases, OAuth 2.0 Authentication has both short-lived access tokens and long-lived refresh tokens. Sometimes, refresh tokens don't expire.
 
 WARNING
 

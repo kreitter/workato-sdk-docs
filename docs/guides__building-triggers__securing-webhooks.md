@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/securing-webhooks.html
-> **Fetched**: 2026-10-28T02:12:37.630672
+> **Fetched**: 2026-10-29T02:12:33.086492
 
 ---
 
@@ -66,7 +66,7 @@ ruby
 
 ## Step 1 - Setting the webhook_payload_type to raw if needed [​](<#step-1-setting-the-webhook-payload-type-to-raw-if-needed>)
 
-Workato's webhook gateway always attempts to parse incoming payloads as JSON. In some cases, this may cause some of the payload's details to be lost which may result in a wrong signature being created. To avoid this, you can use the key `webhook_payload_type` to force Workato to provide the raw payload to the `webhook_notification` lambda.
+Workato's webhook gateway attempts to parse incoming payloads as JSON. In some cases, this may cause some of the payload's details to be lost which may result in a wrong signature being created. To avoid this, you can use the key `webhook_payload_type` to force Workato to provide the raw payload to the `webhook_notification` lambda.
 
 ## Step 2 - Computing the Webhook signature [​](<#step-2-computing-the-webhook-signature>)
 

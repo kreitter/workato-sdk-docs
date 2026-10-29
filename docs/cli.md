@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli.html
-> **Fetched**: 2026-10-28T02:11:32.402928
+> **Fetched**: 2026-10-29T02:11:28.380232
 
 ---
 
@@ -70,7 +70,7 @@ As we continue to improve on the SDK Gem and its capabilities, more features wil
 
 So, what does connector development look like for a team?
 
-Below is an example process, though it could always be modified to fit your team's specific needs and workflows.
+Below is an example process, though it could be modified to fit your team's specific needs and workflows.
 
 ![SLDC Connector with CLI](/assets/sldc_connector_cli.cT7lNBsc.png)
 
