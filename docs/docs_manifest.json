@@ -2,458 +2,458 @@
   "files": {
     "cli.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli.html",
-      "hash": "22d73d38d0154389183c73aa798923e70aec399cab429fadc9c55a0d496124c5",
-      "last_updated": "2026-11-05T08:58:27.983393"
+      "hash": "d04c24c08d28af6934c98f0ac2bc35cc55939d4da7da681deed90011ae7716a9",
+      "last_updated": "2026-11-06T08:56:09.165150"
     },
     "cli__guides__cli__actions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/actions.html",
-      "hash": "6113250116e4cfd9afa73e12450cc94aa75051b32c7af29016eb2eb618f2127e",
-      "last_updated": "2026-11-05T08:58:29.102752"
+      "hash": "a1129b9df8700c0b7d8ab6e45a00193bc19bd481cf80e41ed7b1313d0d3aeb2d",
+      "last_updated": "2026-11-06T08:56:10.427167"
     },
     "cli__guides__cli__download-streaming-actions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/download-streaming-actions.html",
-      "hash": "a13df0437de3f3536d1d9aa59da85e5a6ccd0accf52a272bf6ee31e8a9673497",
-      "last_updated": "2026-11-05T08:58:30.185131"
+      "hash": "4bd84d73c88f9ccc3df47866e22c275130b8212bdcb360d91055844100dcd071",
+      "last_updated": "2026-11-06T08:56:11.594839"
     },
     "cli__guides__cli__methods.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/methods.html",
-      "hash": "3f688e8d6ec711421db684fde5258f4def42d3b864a0e45a1b60919052ae9998",
-      "last_updated": "2026-11-05T08:58:31.269764"
+      "hash": "0c5fd976d0236fc54199db3774b35696bbd3bae9e238d83c14e9a01261a7c372",
+      "last_updated": "2026-11-06T08:56:12.782528"
     },
     "cli__guides__cli__multistep-actions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/multistep-actions.html",
-      "hash": "a88088f839e591cd18449fb8dcec2b5093b60ffee7539a24d47d18e45f5826b6",
-      "last_updated": "2026-11-05T08:58:32.341723"
+      "hash": "3b5e176917478f32c341c51401aa558c3758b8d1cb53c2bed0e40c2b3e919baf",
+      "last_updated": "2026-11-06T08:56:13.975285"
     },
     "cli__guides__cli__pick_lists.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/pick_lists.html",
-      "hash": "39e92bb1e78ebb69d8356efd6ef60868c16c8d8d4652e6e1c717dc8fa022901f",
-      "last_updated": "2026-11-05T08:58:33.473542"
+      "hash": "e68341b360684034dc3583309d0cca5ee8b10d9685ed338c977fcd85dded22cd",
+      "last_updated": "2026-11-06T08:56:15.180703"
     },
     "cli__guides__cli__test.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/test.html",
-      "hash": "985a874bda7c66d5d0a22ac24d0f0ed68b0fda04b891fe738ca9a04d579736ce",
-      "last_updated": "2026-11-05T08:58:34.583025"
+      "hash": "bc1182878fcf7c730dc09b37eee2d27c68ddd39c24de32972f7cb4e983a3fe33",
+      "last_updated": "2026-11-06T08:56:16.386618"
     },
     "cli__guides__cli__triggers.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/triggers.html",
-      "hash": "1cab08bcb1f29fc1e9e02498c9fe572bc964031cf6666aa9b2be96b8234c4ec7",
-      "last_updated": "2026-11-05T08:58:35.691136"
+      "hash": "72382b640d2601bd98a339243552a637d8f07bcc22d468f76ff1969591cd80c7",
+      "last_updated": "2026-11-06T08:56:17.572048"
     },
     "cli__guides__cli__upload-streaming-actions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/cli/upload-streaming-actions.html",
-      "hash": "01aae200fccd3f6b2083e54f21a09c7b0afd2912eeebde4c7036319f93717fb7",
-      "last_updated": "2026-11-05T08:58:36.776003"
+      "hash": "0c6c7391010f5c992bf5699b9f610310a0ffed082e00ff39ecf6fa4d2a703bbd",
+      "last_updated": "2026-11-06T08:56:18.782124"
     },
     "cli__guides__getting-started.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/getting-started.html",
-      "hash": "1a6fd673db15023bb28f8f79ab70adaea07691a8a1aca2b407a65d0b28dde50a",
-      "last_updated": "2026-11-05T08:58:37.845667"
+      "hash": "0eb70d6a88cb95bc6d3c4e057854107124ad6f6e073bb5948793187394c716d4",
+      "last_updated": "2026-11-06T08:56:20.008327"
     },
     "cli__guides__rspec__connector_spec.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/connector_spec.html",
-      "hash": "62d95a8946376c80e2d99cbc49fd2fcd6921a0b4ac3c87ebe96c3296b0d3d876",
-      "last_updated": "2026-11-05T08:58:38.913504"
+      "hash": "18ecfc79fbd402c835a9cbbcbcca4f14dc410a67b6c001e5813dbf66bcbd3213",
+      "last_updated": "2026-11-06T08:56:21.169045"
     },
     "cli__guides__rspec__enable-ci-cd-on-github.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/enable-ci-cd-on-github.html",
-      "hash": "b85ac28455e30c6c6ac98e6cfbf509d06ab3a31b7e6787ec73abbcf6625612e1",
-      "last_updated": "2026-11-05T08:58:39.979252"
+      "hash": "d546b10b82fcdbfcc19875e5538a7145ffdc2cad1a6a9f65d29b57302f71cdb4",
+      "last_updated": "2026-11-06T08:56:22.436423"
     },
     "cli__guides__rspec__file_streaming.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/file_streaming.html",
-      "hash": "73f96348973fe808e76c255877bd0f69850e13a3250f8ca74ac7a911461a46ef",
-      "last_updated": "2026-11-05T08:58:41.088793"
+      "hash": "837b193e8aac426e96ec856b67ffaec3bd34ae7f8bb9ba6adc1276c1d67df098",
+      "last_updated": "2026-11-06T08:56:23.623034"
     },
     "cli__guides__rspec__vcr.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/vcr.html",
-      "hash": "67bb2f17dbe0279611d714d8418ffdddae61bcfa2c3885f194253edc402d1e86",
-      "last_updated": "2026-11-05T08:58:42.175952"
+      "hash": "ba307e595e8148008360c89a566250525aad59837d7b741fdeb271b0026064f4",
+      "last_updated": "2026-11-06T08:56:24.795167"
     },
     "cli__guides__rspec__writing_tests.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/rspec/writing_tests.html",
-      "hash": "8e02105f0ecf126e6c528e19cfb7954ecfe8920539e7dacb6942a0d45e0f7983",
-      "last_updated": "2026-11-05T08:58:43.288161"
+      "hash": "d61cc251975df5092c68c76c232d13e906ccbf2cfb3c326ce1ee07c1154798d3",
+      "last_updated": "2026-11-06T08:56:25.932778"
     },
     "cli__guides__security-guidelines.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/security-guidelines.html",
-      "hash": "c237010f270ba1acafd5a9ec4ed766126dc871e50486e1ca1e829871738cccdf",
-      "last_updated": "2026-11-05T08:58:44.355811"
+      "hash": "56c6b9d3163d08617f9752cd68470250650f612246e92ce6f9d24401be400a4b",
+      "last_updated": "2026-11-06T08:56:27.123111"
     },
     "cli__guides__troubleshooting.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/guides/troubleshooting.html",
-      "hash": "a0da3ec22ecd3337d1df63658130dc505883d1568f4761e5a43c04a183b00d89",
-      "last_updated": "2026-11-05T08:58:45.426558"
+      "hash": "5c8cd15ca28c9276a5aa56d0e0866710ebceffadcdf0391c7bbf73024827d3ee",
+      "last_updated": "2026-11-06T08:56:28.263145"
     },
     "cli__reference__cli-commands.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-commands.html",
-      "hash": "73b61c58de542ef05b59caa5055c437214963f01e7b89bd600d11f2567f0be47",
-      "last_updated": "2026-11-05T08:58:46.518289"
+      "hash": "08c332bff27bd2ef64ff9e185edf2e4a8ebec0d05f5233f542d366cb21d59e6e",
+      "last_updated": "2026-11-06T08:56:29.393054"
     },
     "cli__reference__cli-project-directory-reference.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/reference/cli-project-directory-reference.html",
-      "hash": "952b6241e9977daee17b9c81b18c79d70a7f78465445b9cc49b23d4f38ff761e",
-      "last_updated": "2026-11-05T08:58:47.593894"
+      "hash": "32a99de476a610fa5c215cb6e56df911f770732b2c855758d31bb48d2482cc5b",
+      "last_updated": "2026-11-06T08:56:30.525468"
     },
     "cli__reference__rspec-commands.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/cli/reference/rspec-commands.html",
-      "hash": "4319fac490548d6e3dd41af73275e77d3bb9e3cadc711b0b9fd1b4d0abdd6276",
-      "last_updated": "2026-11-05T08:58:48.733312"
+      "hash": "53b7403345ea709b99c3fe759203b5da3f489b2f0ff29d939a20778797ac8603",
+      "last_updated": "2026-11-06T08:56:31.710556"
     },
     "guides.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides.html",
-      "hash": "7c88140be53d302f5f6a1d8c987c84f4efe5edf94cfe48669efeff94ebeb143e",
-      "last_updated": "2026-11-05T08:58:49.771250"
+      "hash": "7cccf6ec5e7e185affd1746e0689e7bef531f0f7646bcab3baf7089d666ba474",
+      "last_updated": "2026-11-06T08:56:32.867890"
     },
     "guides__advanced-connector-guide__connector-building-building-actions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-actions.html",
-      "hash": "2dc57d4abfb1eb5a17a8ddc546c997bfc3f850f2fe02b5f41649f4bff33009b4",
-      "last_updated": "2026-11-05T08:58:50.863871"
+      "hash": "9188fc036b16a9fab34a9ad705e4d01715f7280da3caedd69faaee11a8627dee",
+      "last_updated": "2026-11-06T08:56:34.007623"
     },
     "guides__advanced-connector-guide__connector-building-building-triggers.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-building-triggers.html",
-      "hash": "15708ce9b0960286c29ec13d9e71dec3369469250373d821d8fc5a99fca16c27",
-      "last_updated": "2026-11-05T08:58:51.936071"
+      "hash": "cc1207ff40fcd07e6205d20f1d4c465c3f488caf96ea5ecf3c4c4b84f9388df1",
+      "last_updated": "2026-11-06T08:56:35.156915"
     },
     "guides__advanced-connector-guide__connector-building-code-patterns.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-code-patterns.html",
-      "hash": "64d5a9630a70eed75968cbc8acff5cc57b011a1732bfe075a67f421f177a3bee",
-      "last_updated": "2026-11-05T08:58:53.017938"
+      "hash": "e158d766d4a6de07bb718cd031e297f2415958ae1dd8ab823d5b7b3e3806bde0",
+      "last_updated": "2026-11-06T08:56:36.337030"
     },
     "guides__advanced-connector-guide__connector-building-defining-schema.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-building-defining-schema.html",
-      "hash": "bd6393b6e7e9f4ca156709ba6b5d25a75be19e1aa70b8dab4bc4f857929e5318",
-      "last_updated": "2026-11-05T08:58:54.122091"
+      "hash": "97e8f1895445e53eb9c8aa983a0390a9192192455463a00595f026987b3a31bb",
+      "last_updated": "2026-11-06T08:56:37.585181"
     },
     "guides__advanced-connector-guide__connector-planning.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/connector-planning.html",
-      "hash": "d10df993cd16ebe369d094c3c456a51e843d1bebf95de97c56e5520defd43f5d",
-      "last_updated": "2026-11-05T08:58:55.206058"
+      "hash": "7ea111c17c0f5a870ca46f9e0d9da21dedf9c7408bcba1e7943d38551ff2d8af",
+      "last_updated": "2026-11-06T08:56:38.775394"
     },
     "guides__advanced-connector-guide__introduction.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/advanced-connector-guide/introduction.html",
-      "hash": "b53e5b36e7befa3ffc03112c22c64920c4aced8871dc0a8ae92ac9852504afe6",
-      "last_updated": "2026-11-05T08:58:56.272146"
+      "hash": "74b70d8aff0e95193193c0f6e1c357ed722da83a5a0bae370786f04b34a0b4a9",
+      "last_updated": "2026-11-06T08:56:39.881762"
     },
     "guides__authentication.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication.html",
-      "hash": "be940a59fa3193b8a74f594bf24ecf09f1a07bb876c11b77a37bf7bedba00518",
-      "last_updated": "2026-11-05T08:58:57.333933"
+      "hash": "95013d2d7f6637361cbc549aa50bb75f5188b16c0f62c721b18e91dab3e9d844",
+      "last_updated": "2026-11-06T08:56:41.010259"
     },
     "guides__authentication__api-key.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/api-key.html",
-      "hash": "f3006fdf9f62271a639f33f4a7e54c127a34a81788d5b1e0ba205f30efe93e70",
-      "last_updated": "2026-11-05T08:58:58.409376"
+      "hash": "0933921384f2d00c6a170a0d4c85a1f6305320f1b8c34b992607579e340c1154",
+      "last_updated": "2026-11-06T08:56:42.158876"
     },
     "guides__authentication__aws_auth.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/aws_auth.html",
-      "hash": "7e51c5cbb9a47d8d420be1dd46378d39d96881af0e6372810107e89b6004a2c4",
-      "last_updated": "2026-11-05T08:58:59.478995"
+      "hash": "a42f4e5cd9f6bff386a6f15c60b1dfe6ea4fab4123328fbf56a71fe111c58dcf",
+      "last_updated": "2026-11-06T08:56:43.294256"
     },
     "guides__authentication__basic-authentication.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/basic-authentication.html",
-      "hash": "936149936f29f6cd997f2eabbc072a695241b3218ef91a911fc1fc9f8565c781",
-      "last_updated": "2026-11-05T08:59:00.556556"
+      "hash": "04706b1931e44292f1fe601d2f64ced90ab6937a786ea428f20fd08a089fbef8",
+      "last_updated": "2026-11-06T08:56:44.406308"
     },
     "guides__authentication__header-auth.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/header-auth.html",
-      "hash": "ee93ce35b5db42a7125a69794f707e171799946cc06e4e70ceb87fb109b01d43",
-      "last_updated": "2026-11-05T08:59:01.605033"
+      "hash": "c9de9feadbcd14004a911d7c7ce56818eb3a69b7e4e941c39e1214808dc30095",
+      "last_updated": "2026-11-06T08:56:45.606569"
     },
     "guides__authentication__jwt.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/jwt.html",
-      "hash": "c2cb769d1a672b02091727bffcf744f0410e2e61648b4a3e2c9b646fb249417c",
-      "last_updated": "2026-11-05T08:59:02.694019"
+      "hash": "5611d551c38bfd9843604dfba4750394dd4d02dac6099add6e273d65558539c7",
+      "last_updated": "2026-11-06T08:56:46.816736"
     },
     "guides__authentication__multi_auth.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/multi_auth.html",
-      "hash": "7dd4e616b450623dad9ddb88c8c52bb5dd69c59bc7940e82b12d01dcad82b2c6",
-      "last_updated": "2026-11-05T08:59:03.765886"
+      "hash": "84dd166a5ec1001316afc1d39e2490987df976d5560352f67db9ea3c957c1a32",
+      "last_updated": "2026-11-06T08:56:48.004890"
     },
     "guides__authentication__oauth__auth-code-pkce.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce.html",
-      "hash": "cddddfb7fe5dd98467f493cf4c0ee92dbc38904e64d5286218744eb2ce3cc920",
-      "last_updated": "2026-11-05T08:59:04.871943"
+      "hash": "3623cae088d60b4de6b535de6ec7da4d502b40d30af7e6de2964d6144eab132d",
+      "last_updated": "2026-11-06T08:56:49.148020"
     },
     "guides__authentication__oauth__auth-code.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code.html",
-      "hash": "f0d4d22877f0ca58712a85403805f63f4bc8e76422fe706b7395bd691660e265",
-      "last_updated": "2026-11-05T08:59:05.980627"
+      "hash": "d2972e241af7e6217bb86122bc1195b7db5774009c29d67218132e7a9ac74f7e",
+      "last_updated": "2026-11-06T08:56:50.318907"
     },
     "guides__authentication__oauth__client-credentials.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/client-credentials.html",
-      "hash": "01a26504b7aac2c034421565d70da0ecd37f5c0e4dcd4524e458ca08ee7245a8",
-      "last_updated": "2026-11-05T08:59:07.075602"
+      "hash": "188dcc3bee69b3b10e2b222f08a97c0d85c17474ccff2e786bdf23fa41fc4918",
+      "last_updated": "2026-11-06T08:56:51.566717"
     },
     "guides__authentication__oauth__ropc.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/ropc.html",
-      "hash": "39acc9eb4cf6b571eaa02387d93299eee820eb74a436aebc4a5e6f3fb49412a3",
-      "last_updated": "2026-11-05T08:59:08.258728"
+      "hash": "6c709b3f0039598115cdd13901148454f4a02948e27fdacd20a99bfadfa70ef3",
+      "last_updated": "2026-11-06T08:56:52.736187"
     },
     "guides__authentication__on-prem.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/on-prem.html",
-      "hash": "c87c1bd4d3c0a5e363e06e384b4ed35e5baa668aad70c8c229c4ca0d7fccde17",
-      "last_updated": "2026-11-05T08:59:09.326199"
+      "hash": "1e43075fe37a257e216363f552e1edbc5999696be0eb47d914cc2af57e137d20",
+      "last_updated": "2026-11-06T08:56:53.901256"
     },
     "guides__best-practices.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/best-practices.html",
-      "hash": "061dac81bd97dc69df9b048d406b268b997f7c167e2e36dfd14c4b71fd45277e",
-      "last_updated": "2026-11-05T08:59:10.400316"
+      "hash": "144705e151f9c214141e71a23880f2503aefd8e78a38f1370d100e4ba0d1f06b",
+      "last_updated": "2026-11-06T08:56:55.038992"
     },
     "guides__building-actions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions.html",
-      "hash": "f51623ba2cd36595a38d0d87204d03f975c7dd78656a92644246212292e993c7",
-      "last_updated": "2026-11-05T08:59:11.463537"
+      "hash": "98786b75a05570525861b32147c4a63ee3adaa1c37c95a50627cda4253b4b916",
+      "last_updated": "2026-11-06T08:56:56.178865"
     },
     "guides__building-actions__create-objects.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/create-objects.html",
-      "hash": "a777781f36e99ffd16296a968a0e92042f2e690415a86a486aca10bbdeea286e",
-      "last_updated": "2026-11-05T08:59:12.544177"
+      "hash": "972141a7d35e22ffccfbdf81049f446c1d4cb2a8692fb05802d8198e93f9deda",
+      "last_updated": "2026-11-06T08:56:57.397444"
     },
     "guides__building-actions__custom-action.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/custom-action.html",
-      "hash": "ac559844f7b1c01c6fdad6dd4a201168979bb6afe21b581d03730e00c6826b4d",
-      "last_updated": "2026-11-05T08:59:13.606747"
+      "hash": "d11c5b1ae102cc7bed140e8a2dcd7f8ddea6e30555495ee49e80c920ca4ba332",
+      "last_updated": "2026-11-06T08:56:58.558670"
     },
     "guides__building-actions__get-objects.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/get-objects.html",
-      "hash": "02891269b3fea17e96e2017deb1be7a3a4d40b16f326ebdf83f3dca6717e6542",
-      "last_updated": "2026-11-05T08:59:14.655948"
+      "hash": "5aceaeb88d4b45571c0bd44ebaf534c8a519b62098f198552ff07ec2ee269476",
+      "last_updated": "2026-11-06T08:56:59.673368"
     },
     "guides__building-actions__multi-threaded-actions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multi-threaded-actions.html",
-      "hash": "706682cf186a352811eebdc0e12764a5a101889b522cbb5ad9c2384e0059538d",
-      "last_updated": "2026-11-05T08:59:15.750344"
+      "hash": "02b3e9a49df365c2016f5072994ffc7dc795050b92f14978f756bf98985b0a16",
+      "last_updated": "2026-11-06T08:57:00.822356"
     },
     "guides__building-actions__multistep-actions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/multistep-actions.html",
-      "hash": "9d52d558b887ecb1af49348b222af1a90debb6b7bf81bdc157cbd10909e47ad1",
-      "last_updated": "2026-11-05T08:59:16.829970"
+      "hash": "601cfcaf78c121267dbe6764d7d2f94cd379cc08ac125edc5d7d0a016905f05a",
+      "last_updated": "2026-11-06T08:57:01.979987"
     },
     "guides__building-actions__streaming.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming.html",
-      "hash": "3f16982fc8a09e1640368c659c852ced29d0262129ff7fc2858d44dfece015cd",
-      "last_updated": "2026-11-05T08:59:17.871130"
+      "hash": "f7efd7bbec0d43ade6fbb3fa03a737e2248dfb0b9023b6f64c58d45bae23e994",
+      "last_updated": "2026-11-06T08:57:03.138305"
     },
     "guides__building-actions__streaming__download-stream.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/download-stream.html",
-      "hash": "014db68afb2d4fa5e66cc4c455aaacd69913ba4c62a46d99d53d97b9b912c200",
-      "last_updated": "2026-11-05T08:59:18.936263"
+      "hash": "adbfa3bee04f335bc2f46c7a991220c2ae9c5ad5e67affd0a60822e31ad99241",
+      "last_updated": "2026-11-06T08:57:04.273924"
     },
     "guides__building-actions__streaming__upload-stream-chunk-id.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-chunk-id.html",
-      "hash": "717a5d8f319acf07487259f0fd2950a87a8bf89c2b39768d59555a2fded487fd",
-      "last_updated": "2026-11-05T08:59:20.051097"
+      "hash": "b7ca80e3ac288dc527ab2b3f97836ac309a8f1d42b757ed1a6aa12eb590cddc8",
+      "last_updated": "2026-11-06T08:57:05.413089"
     },
     "guides__building-actions__streaming__upload-stream-content-range.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/streaming/upload-stream-content-range.html",
-      "hash": "e9caa4b3e1a7d6e15b5be88878a5dfdeea0ffb1a071a7b86f37cef56ec1dfa79",
-      "last_updated": "2026-11-05T08:59:21.141476"
+      "hash": "7f17b239b6e63e38df11203afaf145a43b728ac427ce1cc1e2b8bd7325ca9fbd",
+      "last_updated": "2026-11-06T08:57:06.513169"
     },
     "guides__building-actions__update-objects.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/update-objects.html",
-      "hash": "ded060dc211e727a1a7a32c8386b0cb8758c76658043aa98f717983947afa8d1",
-      "last_updated": "2026-11-05T08:59:22.227253"
+      "hash": "af85a0e340e442397d18337a57cd625dd762e9fa6dcf5c3ec88f5cbf09f96377",
+      "last_updated": "2026-11-06T08:57:07.638191"
     },
     "guides__building-actions__wait-for-resume-actions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-actions/wait-for-resume-actions.html",
-      "hash": "1a5373a9cc90bfc9710750ea2048b49fc505db471049afcf42c764b91e748cd1",
-      "last_updated": "2026-11-05T08:59:23.305511"
+      "hash": "b3b4816c5327733705b3b1cef59e2d937aa222121d00b1c71db0d440f72cff5c",
+      "last_updated": "2026-11-06T08:57:08.769845"
     },
     "guides__building-triggers.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers.html",
-      "hash": "2f3eba8e5e17ebefe1efb7e4c3945140389ce826b87dbb9ce696c504d6eea21d",
-      "last_updated": "2026-11-05T08:59:24.371858"
+      "hash": "312b87b4098e1c7f3f22cfe0329fec9e2f5244b3c9d2c04fabd1ebbfe35b1d4a",
+      "last_updated": "2026-11-06T08:57:09.852767"
     },
     "guides__building-triggers__dynamic-webhook.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/dynamic-webhook.html",
-      "hash": "5dc52a58670e73e09c49706bf5295bcc7893fba2d2574af1bf06e804fcb55c55",
-      "last_updated": "2026-11-05T08:59:25.484094"
+      "hash": "efd809b08dde1fa6ee965d005feadaa0304e120684a97fc4b9595e7ff83fcf46",
+      "last_updated": "2026-11-06T08:57:11.038607"
     },
     "guides__building-triggers__hybrid-triggers.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/hybrid-triggers.html",
-      "hash": "69e4a2af42493439cffaa88748f52e0cebfdacb37df107ac233070b7085ae05a",
-      "last_updated": "2026-11-05T08:59:26.580468"
+      "hash": "e7e28afcf0f743beab9b691c25d6d3f280f8bd4db0702f09b45e58540bceca1b",
+      "last_updated": "2026-11-06T08:57:12.202915"
     },
     "guides__building-triggers__poll.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/poll.html",
-      "hash": "a90cc7c1e0049908913cd79a13adc61cf45a70fec471214d532560d573dfde36",
-      "last_updated": "2026-11-05T08:59:27.674916"
+      "hash": "7e0c6fb6740033b8261a520038e8194f2ffdfd52bc41c7807c05c96ef417854e",
+      "last_updated": "2026-11-06T08:57:13.335684"
     },
     "guides__building-triggers__securing-webhooks.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/securing-webhooks.html",
-      "hash": "6c61fcc95d83f61c9f64c20dc1230c544a5ca0ad59d655b328badb1c8bb5ec4e",
-      "last_updated": "2026-11-05T08:59:28.720655"
+      "hash": "a291f9f0bb9552907c369ceb436a3fdfa0f77a67afce0c56286036f019e3974e",
+      "last_updated": "2026-11-06T08:57:14.530995"
     },
     "guides__building-triggers__static-webhook.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/building-triggers/static-webhook.html",
-      "hash": "1cba99e82907e456836bf1ba408dbb3e871ecbeab783b8e5ca1263f709d2859f",
-      "last_updated": "2026-11-05T08:59:29.822987"
+      "hash": "e38599c6f3dd316c289dd896dc0a1c487dd3d842e32e656961d4acc8937eff26",
+      "last_updated": "2026-11-06T08:57:15.695891"
     },
     "guides__config_fields.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/config_fields.html",
-      "hash": "25877c32bb5192c27e87e91246fe9e25983ab6886fcdb69eee69674c8e3267c4",
-      "last_updated": "2026-11-05T08:59:30.919744"
+      "hash": "92f2aff7084626e01c858452b310e985106d65a86de028d0f66d6082401dd4f1",
+      "last_updated": "2026-11-06T08:57:16.939506"
     },
     "guides__data-formats.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats.html",
-      "hash": "62f5288c356e8da0d64e6608f291bdda59c732e45a78d3bb18a3f04022251ab1",
-      "last_updated": "2026-11-05T08:59:31.959749"
+      "hash": "f1736257803e6d0aae47f9faa0f9c3de9aaafa85cf9505de2ca4a0410bbac4f0",
+      "last_updated": "2026-11-06T08:57:18.085518"
     },
     "guides__data-formats__form-url-encoded.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/form-url-encoded.html",
-      "hash": "332a38a149391e7000ef0d590dd45f41f772380392d40dc9fa14fef86e3187d4",
-      "last_updated": "2026-11-05T08:59:33.032955"
+      "hash": "07e41be8d691f4eeaf195d77425e95e53b2f737dc74c16fb3d00566bef398b1f",
+      "last_updated": "2026-11-06T08:57:19.341304"
     },
     "guides__data-formats__json-format.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/json-format.html",
-      "hash": "cb70d76eee456becf528fb1d137b7615ed6c6c8acfbe3c83cef10414404ff6c2",
-      "last_updated": "2026-11-05T08:59:34.084868"
+      "hash": "e327e7a9679ce958dcde83d169907b83fd51981efbea24faf587d297fb9a4c9e",
+      "last_updated": "2026-11-06T08:57:20.523498"
     },
     "guides__data-formats__request_format_multipart_form.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/request_format_multipart_form.html",
-      "hash": "f6a21247c4494fa5a5feb93b7ec1ab024019f59acffd2b1c45a1a63a83f306b8",
-      "last_updated": "2026-11-05T08:59:35.139603"
+      "hash": "572fef7c6964ac4bc831051278c2f66e3dcf71a9b8b09872816b256aed34ad4a",
+      "last_updated": "2026-11-06T08:57:21.649447"
     },
     "guides__data-formats__xml-format.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/data-formats/xml-format.html",
-      "hash": "45eee6c366e50b68e5cd3159c84ef1075600eccd8c8f66f31e2f833694c1c8fd",
-      "last_updated": "2026-11-05T08:59:36.290476"
+      "hash": "8efbe1c638717d05e4074abe13de5f140e99f019fc3a9568bffa4c98b26802bd",
+      "last_updated": "2026-11-06T08:57:22.956208"
     },
     "guides__debugging.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/debugging.html",
-      "hash": "311ab889b96e4c3531b9642741f4d5973b036dfde2ca5bf8c95afef1ed69a1e9",
-      "last_updated": "2026-11-05T08:59:37.362424"
+      "hash": "ae0d1dacf3c6e9972f5223bf0b75e82394568135fb0120dfa9df5283b7640c86",
+      "last_updated": "2026-11-06T08:57:24.178466"
     },
     "guides__error-handling.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/error-handling.html",
-      "hash": "ed651a42b7261034aa1dad2d40feea14c6e6424c4682f66abab619d28fc0de8b",
-      "last_updated": "2026-11-05T08:59:38.453995"
+      "hash": "8071f8027ea3031d2bd9ef5e6b3f818aa2187b96064ab6d2cd2d644de71ad71b",
+      "last_updated": "2026-11-06T08:57:25.311802"
     },
     "guides__examples.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/examples.html",
-      "hash": "bea3ccd52736c0c1370d4f549dc5cb998f1b2495dcc5488b3dc1a2c9b7fa8527",
-      "last_updated": "2026-11-05T08:59:39.522415"
+      "hash": "85cae1c30cf84cd1022166402361bcef27afd5d1ca1378ea001af4fb2d6e9b50",
+      "last_updated": "2026-11-06T08:57:26.428632"
     },
     "guides__trigger-limit.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/trigger-limit.html",
-      "hash": "3278cef8a187bd6713418c0f4e5de9ffda36cb136d4c1818f700a7d4056e0246",
-      "last_updated": "2026-11-05T08:59:40.571299"
+      "hash": "20ce12a6740fffa7ae794be9b991731348262ffbc3ec50d54bde9ebb608dd9d9",
+      "last_updated": "2026-11-06T08:57:27.577800"
     },
     "guides__walkthrough.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/guides/walkthrough.html",
-      "hash": "32f81fa53ebdeff2d3c320835292e303502012110d4fdb2686c3fdc777747589",
-      "last_updated": "2026-11-05T08:59:41.680722"
+      "hash": "2b9bb6f7565af81248009fa485ad559284537571371a3c9f6d060773f8c09d7f",
+      "last_updated": "2026-11-06T08:57:28.727705"
     },
     "limits.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/limits.html",
-      "hash": "5c70cc104c8eede2b0fbac8d51193019d2b10deca76179ccb1e2e8559a659235",
-      "last_updated": "2026-11-05T08:59:42.745372"
+      "hash": "50d1515c40f83c39b7ecabdd63fa0133b2e7cd51ec749ebe76e8900a4050ae48",
+      "last_updated": "2026-11-06T08:57:29.843045"
     },
     "quickstart.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/quickstart.html",
-      "hash": "c196f296894abfae16b2e6936de258f35ddd1e4a92cde5d31be2d7b23617c548",
-      "last_updated": "2026-11-05T08:59:43.787324"
+      "hash": "199f7fb4a9d854e3826eb27ae5ea2e14ee122062f6cbe97104e0cef557e2f312",
+      "last_updated": "2026-11-06T08:57:30.945244"
     },
     "quickstart__FAQ.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/quickstart/FAQ.html",
-      "hash": "14a017d1982d74b1f27a5ed8c0ebc51415f9e9eb74f90df6e1b7ff7f7017badc",
-      "last_updated": "2026-11-05T08:59:44.851317"
+      "hash": "6c840a4981b3bdab22dd3d5698d9087a0eaa092b62c9c297854ed9068dcf966a",
+      "last_updated": "2026-11-06T08:57:32.088972"
     },
     "quickstart__debugging.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/quickstart/debugging.html",
-      "hash": "f54af7bdd46bf4228ebb109e023b96bdff5987a902494d710bd096289d94a7a2",
-      "last_updated": "2026-11-05T08:59:45.912018"
+      "hash": "32218a5637fe65e999d87b232c750329a3dd7c9c28140572f3655476bfe6a58b",
+      "last_updated": "2026-11-06T08:57:33.239500"
     },
     "quickstart__sharing.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/quickstart/sharing.html",
-      "hash": "cfd298c0d344ca5f81d1a6339af5978f856a44068bd4abb117e933d5900741da",
-      "last_updated": "2026-11-05T08:59:46.967126"
+      "hash": "f3026d5bf3008abc639310bad5dc554d02d82014905e040128985377dad6a341",
+      "last_updated": "2026-11-06T08:57:34.351437"
     },
     "quickstart__version-control.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/quickstart/version-control.html",
-      "hash": "d9e1eed6bc53ae1bd65e396bb5af40289bceede697ae33ccc56b5a1cefcd753b",
-      "last_updated": "2026-11-05T08:59:48.035875"
+      "hash": "fd796d54588548679f87128bcc68ac07fa692c1fd53246ccb4368b42818030fb",
+      "last_updated": "2026-11-06T08:57:35.466960"
     },
     "sdk-reference.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference.html",
-      "hash": "45921684709dca5d4e284723e32bb4a39f6f2d92d57be9a0960e9ce56352b6a3",
-      "last_updated": "2026-11-05T08:59:49.079427"
+      "hash": "37078b92a4627df62c6ac2d30c93ec501fc0f5852f0d3dcb2f91c4cd885023d8",
+      "last_updated": "2026-11-06T08:57:36.570204"
     },
     "sdk-reference__actions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/actions.html",
-      "hash": "536a399507a062656879430312943f37b9e647042117b3b71cb08904183231f6",
-      "last_updated": "2026-11-05T08:59:50.190332"
+      "hash": "66dd4b84dcc2a406054f0c94b155df7e0847c9a6cd1159f0d512b091ffdb3f70",
+      "last_updated": "2026-11-06T08:57:37.697414"
     },
     "sdk-reference__connection.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection.html",
-      "hash": "9c6d5c85f1ae4b8288b8dc883d6f52a0b00d5c96300c725c873599282d5da814",
-      "last_updated": "2026-11-05T08:59:51.276340"
+      "hash": "bf04552f2721e1d0a0abc6cf7d64ad6e725b24b6a62ad8c943394cbd1748aac7",
+      "last_updated": "2026-11-06T08:57:38.886953"
     },
     "sdk-reference__connection__authorization.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/connection/authorization.html",
-      "hash": "e3fd57b95fd11fec00cafb0449bcbdb37eafddf23e0839a201b6635544b088fe",
-      "last_updated": "2026-11-05T08:59:52.390936"
+      "hash": "8deede7072726c9dd801d0cb25e89f1be2fc7176af28f47df0bddf586ad7220e",
+      "last_updated": "2026-11-06T08:57:40.077020"
     },
     "sdk-reference__custom-action.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/custom-action.html",
-      "hash": "36555b1adbe0368802adb7c75f58e01e2fbff1201226b247ea68545bb4108dd9",
-      "last_updated": "2026-11-05T08:59:53.436107"
+      "hash": "1df2896af6b890da639a3a9ffede515c9be8706833040fba0f6b92c78059c2ee",
+      "last_updated": "2026-11-06T08:57:41.249071"
     },
     "sdk-reference__http.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/http.html",
-      "hash": "34cf9f79b5f8800e49d3e5a6264e890cba79200b52ae96d2a16c3b69c2bf75cd",
-      "last_updated": "2026-11-05T08:59:54.504174"
+      "hash": "0985154b84fa06d68d714d92bd705924ec1c16e30f2274c0add54b77a4c90844",
+      "last_updated": "2026-11-06T08:57:42.382400"
     },
     "sdk-reference__methods.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/methods.html",
-      "hash": "cd53828384e901273408099568000198d0934dcaac85c0ce779118cfa519e54a",
-      "last_updated": "2026-11-05T08:59:55.555578"
+      "hash": "da71f4d3645db8e178f3f9b50a0730372435144180abd45254c2958da7dfc697",
+      "last_updated": "2026-11-06T08:57:43.509376"
     },
     "sdk-reference__object_definitions.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/object_definitions.html",
-      "hash": "2f1d0b9efddb793fb01cabeba21ec1aba2dc43004473545d03e58ca8c6c0cf37",
-      "last_updated": "2026-11-05T08:59:56.691580"
+      "hash": "6f0171335aa8da2ddd888661b4c7e81b9f52e77a92d5e37d5ee69acf8a5efd93",
+      "last_updated": "2026-11-06T08:57:44.694712"
     },
     "sdk-reference__picklists.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/picklists.html",
-      "hash": "2dd2db8a927a5fec6d02c0321cf2ecfa1c55ce4c441e9929f682c63757e25a74",
-      "last_updated": "2026-11-05T08:59:57.770057"
+      "hash": "f354846eeca6e0a81700905111e6b00934221bc4b01565731cfec0f87a5d381a",
+      "last_updated": "2026-11-06T08:57:45.884668"
     },
     "sdk-reference__ruby_methods.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/ruby_methods.html",
-      "hash": "e77fe735cd3dbe2f069a0420179330edca1e9936711666291265fea1b5ca52d1",
-      "last_updated": "2026-11-05T08:59:58.983142"
+      "hash": "4b08b58ac279ef842ef3706f3206c780a05c2c93078d58de0a60e14ef44ff4ac",
+      "last_updated": "2026-11-06T08:57:47.172721"
     },
     "sdk-reference__schema.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/schema.html",
-      "hash": "2a24506b18369738a8c88a15f61c7e863eb4561c0da2c7feeb212c938f18e097",
-      "last_updated": "2026-11-05T09:00:00.129510"
+      "hash": "520fb90de0e4f7c2dbb58cad43b55beccb967f9ddf560591b33b8a11a5db4d31",
+      "last_updated": "2026-11-06T08:57:48.445561"
     },
     "sdk-reference__streams.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/streams.html",
-      "hash": "3bfe45f0c48d8cfef02d56143309345cb29df249775e56c5a00fac2ab9b6e3db",
-      "last_updated": "2026-11-05T09:00:01.183578"
+      "hash": "fe3cd4861c9b0d29fd864dae7d6516b4549a75d2de1ad653cfec0019bdd94e7b",
+      "last_updated": "2026-11-06T08:57:49.600492"
     },
     "sdk-reference__test.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/test.html",
-      "hash": "a477ff94f71ac80649c2c2936a11898ac5e06f5f2268f028463ee049bc9c3877",
-      "last_updated": "2026-11-05T09:00:02.264932"
+      "hash": "24c02230de48393806a5c151a235d3ee8640457f9c81cc0fc7a8af4c5deb673f",
+      "last_updated": "2026-11-06T08:57:50.711459"
     },
     "sdk-reference__triggers.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/triggers.html",
-      "hash": "421c39743e79aebcddd1dc3e8a853dc2925a3fa133f3889e8771653d6ca8eeb9",
-      "last_updated": "2026-11-05T09:00:03.419152"
+      "hash": "5bdeb37debde4276d11a3cf200c3acce401d97fc5de6ce539888959dc4813fab",
+      "last_updated": "2026-11-06T08:57:51.872173"
     },
     "sdk-reference__whitelist-removal.md": {
       "original_url": "https://docs.workato.com/en/developing-connectors/sdk/sdk-reference/whitelist-removal.html",
-      "hash": "5cf43b15eb7a28998da550d858c62fb1f470b969be2fd4cbec9a69c76ef0f19b",
-      "last_updated": "2026-11-05T09:00:04.478000"
+      "hash": "f13e9094fd7c07383a1752b4c676b1f18984cc3689f41a99e96427a402645254",
+      "last_updated": "2026-11-06T08:57:52.978855"
     }
   },
   "fetch_metadata": {
-    "last_fetch_completed": "2026-11-05T09:00:04.478855",
-    "fetch_duration_seconds": 96.674495,
+    "last_fetch_completed": "2026-11-06T08:57:52.979701",
+    "fetch_duration_seconds": 104.178512,
     "pages_processed": 90,
     "pages_saved_successfully": 90,
     "pages_failed": 0,
@@ -465,7 +465,7 @@
     "fetch_tool_version": "3.0",
     "fetch_method": "hardcoded_urls"
   },
-  "last_updated": "2026-11-05T09:00:04.478870",
+  "last_updated": "2026-11-06T08:57:52.979716",
   "base_url": "https://raw.githubusercontent.com/kreitter/workato-sdk-docs/main/docs/",
   "github_repository": "kreitter/workato-sdk-docs",
   "github_ref": "main",
