@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/troubleshooting.html
-> **Fetched**: 2026-11-11T08:52:02.912280
+> **Fetched**: 2026-11-12T09:19:25.613606
 
 ---
 
@@ -28,7 +28,11 @@ Are you an LLM? You can read better optimized documentation at /en/developing-co
 
 Copy page
 
-Running the workato command in my terminal results in errors
+Get answers to frequently asked questions (FAQs) about troubleshooting SDK connectors.
+
+## Running the workato command in my terminal results in errors [​](<#running-the-workato-command-in-my-terminal-results-in-errors>)
+
+View answer
 
 Here is a quick checklist of things to verify:
 
@@ -37,11 +41,15 @@ Here is a quick checklist of things to verify:
   3. Run `bundle install` in your connector project to ensure you have all dependencies installed.
   4. Remove your gemfile.lock and run `bundle install`.
 
-When I run a workato exec command, I get an error.
+## When I run a workato exec command, I get an error. [​](<#when-i-run-a-workato-exec-command-i-get-an-error>)
+
+View answer
 
 You may get this error if your connector receives a `400` bad request response from an API call. You may use options like `--verbose` to see the request, `--debug` to see the stacktrace of the SDK Gem and byebug to debug further.
 
-When I try to use the workato push command, I get an error
+## When I try to use the workato push command, I get an error [​](<#when-i-try-to-use-the-workato-push-command-i-get-an-error>)
+
+View answer
 
 The `workato push` command tries to release your connector on Workato. If there are syntax errors in your connector, the output of the command will relay that to you.
 ```ruby
@@ -52,7 +60,9 @@ The `workato push` command tries to release your connector on Workato. If there 
 
 Where this is telling you that there is 1 error (denoted by 1 index in the root array) and the error is from line 1 position 0 to line 1 position 16.
 
-When I run RSpec, VCR states that there is an VCR::Errors::UnhandledHTTPRequestError:
+## When I run RSpec, VCR states that there is an VCR::Errors::UnhandledHTTPRequestError: [​](<#when-i-run-rspec-vcr-states-that-there-is-an-vcr-errors-unhandledhttprequesterror>)
+
+View answer
 
 VCR records and matches HTTP requests based on your configurations in your `spec_helper.rb`. What RSpec is telling you is that it can't match the HTTP request you have sent to anything that has been recorded. There are a few reasons for this:
 
