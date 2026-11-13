@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/guides/authentication/oauth/auth-code-pkce.html
-> **Fetched**: 2026-11-12T09:19:45.961597
+> **Fetched**: 2026-11-13T09:07:18.063845
 
 ---
 
