@@ -1,7 +1,7 @@
 # Workato SDK Documentation
 
 > **Source**: https://docs.workato.com/en/developing-connectors/sdk/cli/guides/security-guidelines.html
-> **Fetched**: 2026-11-14T08:37:41.654970
+> **Fetched**: 2026-11-15T08:50:40.891336
 
 ---
 
